@@ -2,11 +2,11 @@
 #define CONSTS_H
 
 /*
-* IEE754 constants
-*
-* cml makes use of IEEE standards for the definition of its constants
-*
-*/
+ * IEE754 constants
+ *
+ * cml makes use of IEEE standards for the definition of its constants
+ *
+ */
 
 /* Largest representable finite value. */
 #define HUGE = 1.7976931348623157e308
@@ -15,9 +15,9 @@
 #define TINY = 2.2250738585072014e-308
 
 /*
-* The largest 'Int' /x/ such that 2**(/x/-1) is approximately
-* representable as a 'Double'.
-*/
+ * The largest 'Int' /x/ such that 2**(/x/-1) is approximately
+ * representable as a 'Double'.
+ */
 #define MAXEXP = 1024
 
 /* Positive infinity. */
@@ -27,7 +27,7 @@
 #define NINF = -1/0
 
 /* Not a number. */
-#define NaN = 0/0
+#define NAN = 0/0
 
 /* Maximum possible finite value of @log x@ */
 #define MAXLOG = 709.782712893384
@@ -37,11 +37,11 @@
 
 
 /*
-* IEE754 constants
-*
-* cml makes use of IEEE standards for the definition of its mathematical constants
-*
-*/
+ * IEE754 constants
+ *
+ * cml makes use of IEEE standards for the definition of its mathematical constants
+ *
+ */
 
 /* @pi@ */
 #define PI = 3.141592653589793238462643
