@@ -28,6 +28,10 @@
 
 real real_ln(real x)
 {
+        // Domain check
+        if (x->value(x) <= 0) {
+                return real(NAN);
+        }
         // Declaration of structures
         real y, z, w, k, h;
         // Mathematical algorithm
@@ -35,7 +39,7 @@ real real_ln(real x)
         z = real(y->value(y) - 1);
         w = real(y->value(y) + 1);
         k = z->div(z, w);
-        h = x->value(x) > 0 ? k->atanh(k) : real(NAN);
+        h = k->atanh(k);
         // Free structures
         y->free(y);
         z->free(z);
