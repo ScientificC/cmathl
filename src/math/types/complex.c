@@ -27,7 +27,7 @@ complex complex(real real_part, real imaginary_part)
         self->parts = &complex_get_parts;
         self->asString = &complex_as_string;
         self->setReal(self, real_part);
-        señf->setImaginary(self, imaginary_part);
+        self->setImaginary(self, imaginary_part);
         return self;
 }
 
