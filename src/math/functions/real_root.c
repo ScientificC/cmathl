@@ -20,12 +20,12 @@
 /**
  * root(f, g) function developed by using the exponentiation process
  *
- * @param Real * x
+ * @param real x
  *
- * @return Real * root(f, g)
+ * @return real root(f, g)
  */
 
-Real * real_root(Real * x, Real * n)
+real real_root(real x, real n)
 {
         // Domain check
         if (isnatural(n->value(n)) == 0) {
@@ -33,7 +33,7 @@ Real * real_root(Real * x, Real * n)
         }
 
         // Declaration of structures
-        Real * w, * y, * z;
+        real w, * y, * z;
 
         // Mathematical algorithm
         w = real_new(-1.0);

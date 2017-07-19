@@ -20,15 +20,15 @@
 /*
  * cot(x) function developed by using trigonometric identities
  *
- * @param Real * x
+ * @param real x
  *
- * @return Real * cot(x)
+ * @return real cot(x)
  */
 
-Real * real_cot(Real * x)
+real real_cot(real x)
 {
         // Declaration of structures
-        Real * y, * z, * h;
+        real y, * z, * h;
 
         // Mathematical algorithm
         z = x->cos(x);

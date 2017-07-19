@@ -20,13 +20,14 @@
 
 void test()
 {
-        Real * x, * y;
+        real x, * y;
         x = real_new(520.0);
         y = x->ared(x);
         printf("%g\n", y->value(y));
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
         test();
         return 0;
 }

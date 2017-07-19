@@ -20,12 +20,12 @@
 /*
  * Development of the Taylor series of the function e^x
  *
- * @param Real * x: Exponent of the function
+ * @param real x: Exponent of the function
  *
- * @return Real * e^x
+ * @return real e^x
  */
 
-Real * real_exp(Real * x)
+real real_exp(real x)
 {
         double w = x->value(x);
         return real_new(w);

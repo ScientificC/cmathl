@@ -17,37 +17,40 @@
 
 #include "../../../includes/cml.h"
 
-Real * real_new(double value)
+real real_new(double value)
 {
-        Real * self = malloc(4*sizeof(double) + 50*sizeof(void *));
+        real self = malloc(4*sizeof(double) + 50*sizeof(void *));
         __real_init__(self);
         self->setValue(self, value);
         return self;
 }
 
-void real_destruct(Real * self)
+void real_destruct(real self)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
-double real_value(Real * self)
+double real_value(real self)
 {
         return self->real_value;
 }
 
 
-void real_set_value(Real * self, double x)
+void real_set_value(real self, double x)
 {
         self->real_value = x;
 }
 
-char * real_as_string(Real * self)
+char * real_as_string(real self)
 {
-        return "a";
+        double value = self->value(self);
+        char * string = (char*) malloc(sizeof(value)*sizeof(char));
+        sprintf(string, "%g", value);
+        return string;
 }
 
 
-void __real_init__(Real * self)
+void __real_init__(real self)
 {
         self->value = &real_value;
         self->setValue = &real_set_value;

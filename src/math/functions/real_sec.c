@@ -20,15 +20,15 @@
 /*
  * sec(x) function developed by using trigonometric identities
  *
- * @param Real * x
+ * @param real x
  *
- * @return Real * sec(x)
+ * @return real sec(x)
  */
 
-Real * real_sec(Real * x)
+real real_sec(real x)
 {
         // Declaration of structures
-        Real * y, * z, * h;
+        real y, * z, * h;
 
         // Mathematical algorithm
         y = x->cos(x);

@@ -20,15 +20,15 @@
 /*
  * tan(x) function developed by using trigonometric identities
  *
- * @param Real * x
+ * @param real x
  *
- * @return Real * tan(x)
+ * @return real tan(x)
  */
 
-Real * real_tan(Real * x)
+real real_tan(real x)
 {
         // Declaration of structures
-        Real * y, * z, * h;
+        real y, * z, * h;
 
         // Mathematical algorithm
         z = x->sin(x);

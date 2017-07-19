@@ -17,7 +17,7 @@
 
 #include "../../../includes/cml.h"
 
-Real * real_add(Real * x, Real * y)
+real real_add(real x, real y)
 {
         double k, w;
         k = x->value(x);

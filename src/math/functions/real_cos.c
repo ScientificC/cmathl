@@ -20,15 +20,15 @@
 /*
  * cos(x) function developed by using Taylor Series
  *
- * @param Real * x
+ * @param real x
  *
- * @return Real * cos(x)
+ * @return real cos(x)
  */
 
-Real * real_cos(Real * x)
+real real_cos(real x)
 {
         // Declaration of structures
-        Real * half_pi, * y, * z, * h;
+        real half_pi, * y, * z, * h;
 
         // Mathematical algorithm
         half_pi = real_new(HALFPI);

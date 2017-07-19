@@ -20,7 +20,7 @@
 
 // Returns the smallest integer value greater than or equal to x.
 
-Real * real_ceil(Real * x)
+real real_ceil(real x)
 {
         int w;
         w = (int) x->value(x);

@@ -17,54 +17,54 @@
 
 #include "../../../includes/cml.h"
 
-Complex * complex_new(Real * real_part, Real * imaginary_part)
+complex complex_new(real real_part, real imaginary_part)
 {
-        Complex * self = malloc(4*sizeof(double) + 45*sizeof(void *));
+        complex self = malloc(4*sizeof(double) + 45*sizeof(void *));
         __complex_init__(self);
         self->setReal(self, real_part);
         self->setImaginary(self, imaginary_part);
         return self;
 }
 
-void complex_destruct(Complex * self)
+void complex_destruct(complex self)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
-Real * complex_get_real(Complex * self)
+real complex_get_real(complex self)
 {
         return self->real_part;
 }
 
-Real * complex_get_imaginary(Complex * self)
+real complex_get_imaginary(complex self)
 {
         return self->imaginary_part;
 }
 
-void complex_set_real(Complex * self, Real * x)
+void complex_set_real(complex self, real x)
 {
         self->real_part = x;
 }
 
-void complex_set_imaginary(Complex * self, Real * x)
+void complex_set_imaginary(complex self, real x)
 {
         self->imaginary_part = x;
 }
 
-Real ** complex_get_parts(Complex * self)
+real* complex_get_parts(complex self)
 {
-        Real ** parts = malloc(sizeof(*parts));
+        real* parts = malloc(sizeof(*parts));
         parts[0] = self->getReal(self);
         parts[1] = self->getImaginary(self);
         return parts;
 }
 
-char * complex_as_string(Complex * self)
+char * complex_as_string(complex self)
 {
         return "a + bi";
 }
 
-void __complex_init__(Complex * self) {
+void __complex_init__(complex self) {
         self->getReal = &complex_get_real;
         self->getImaginary = &complex_get_imaginary;
         self->setReal = &complex_set_real;
