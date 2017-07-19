@@ -15,17 +15,20 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 real real_div_e(real x, real y)
 {
         // Declaration of structures
         real z, w;
+
         // Mathematical algorithm
         z = x->div(x, y);
         w = z->floor(z);
+
         // Free structures
         z->free(z);
+
         // Return
         return w;
 }

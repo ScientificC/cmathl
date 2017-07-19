@@ -15,17 +15,20 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 real real_abs(real x)
 {
         // Declaration of structures
         real sign, y;
+
         // Mathematical algorithm
         sign = x->sign(x);
         y = x->prod(x, sign);
+
         // Free structures
         sign->free(sign);
+
         // Return
         return y;
 }

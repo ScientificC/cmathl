@@ -5,7 +5,7 @@
 typedef struct _real
 {
         // Variables
-        double number;
+        double real_value;
         // Methods
         double (*value)(struct _real *);
         void (*setValue)(struct _real *, double);
@@ -67,11 +67,14 @@ typedef struct _real
 Real * real(double);
 void real_free(Real *);
 
+// Initialization
+void __real_init__(Real *);
+
 // getters
-Real * real_value(Real *);
+double real_value(Real *);
 
 // setters
-void real_set_value(Real *, Real *);
+void real_set_value(Real *, double);
 
 // Methods
 char * real_as_string(Real *);

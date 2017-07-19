@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 /**
  * root(f, g) function developed by using the exponentiation process
@@ -31,15 +31,19 @@ real real_root(real x, real n)
         if (isnat(n->value(n)) == 0) {
                 return real(NAN);
         }
+
         // Declaration of structures
         real w, y, z;
+
         // Mathematical algorithm
         w = real(-1);
         y = n->pow(n, w);
         z = x->pow(x, y);
+
         // Free structures
         w->free(w);
         y->free(y);
+
         // Return
         return z;
 }

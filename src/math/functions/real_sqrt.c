@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 /**
  * root(f) function developed by using the exponentiation process
@@ -29,11 +29,14 @@ real real_sqrt(real x)
 {
         // Declaration of structures
         real w, y, z;
+
         // Mathematical algorithm
         w = real(2.0);
         y = x->root(x, w);
+
         // Free structures
         w->free(w);
+
         // Return
         return y;
 }

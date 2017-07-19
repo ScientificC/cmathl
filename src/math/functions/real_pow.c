@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 /*
  * pow(f, g) function developed by using the exponentiation process
@@ -33,8 +33,10 @@ real real_pow(real x, real n)
         if (x->value(x) == 0) {
                 return n->value(n) == 0 ? real(NAN) : x;
         }
+
         // Declaration of structures
         real s, y, z, w, k, h;
+
         // Mathematical algorithm
         s = x->sign(x);
         y = x->abs(x);
@@ -42,12 +44,14 @@ real real_pow(real x, real n)
         w = n->prod(n, z);
         k = n->exp(n);
         h = s->prod(s, k);
+
         // Free structures
         s->free(s);
         y->free(y);
         z->free(z);
         w->free(w);
         k->free(k);
+
         // Return
         return h;
 }

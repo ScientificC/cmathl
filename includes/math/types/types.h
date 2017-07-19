@@ -1,12 +1,12 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include "complex.h"
-#include "rational.h"
 #include "real.h"
+#include "rational.h"
+#include "complex.h"
 
-#define complex Complex*
-#define rational Rational*
-#define real Real*
+#define real (Real*)
+#define rational (Rational*)
+#define complex (Complex*)
 
 #endif

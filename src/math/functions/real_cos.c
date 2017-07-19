@@ -17,24 +17,30 @@
 
 #include "../../../includes/cml.h"
 
-// An angle x is reduced to the interval [0, 2pi] by subtracting a number k of 2pi radians, where k is the integer division between x and 2pi
+/*
+ * cos(x) function developed by using Taylor Series
+ *
+ * @param real x
+ *
+ * @return real cos(x)
+ */
 
-real real_ared(real x)
+real real_cos(real x)
 {
         // Declaration of structures
-        real twopi, z, k, w;
+        real halfpi, y, z, h;
 
         // Mathematical algorithm
-        twopi = real(TWOPI);
-        z = x->divE(x, twopi);
-        k = z->prod(z, twopi);
-        w = x->sub(x, k);
+        halfpi = real(HALFPI);
+        y = x->abs(x);
+        z = y->add(y, halfpi);
+        h = z->sin(z);
 
         // Free structures
-        twopi->free(twopi);
-        k->free(k);
+        halfpi->free(halfpi);
+        y->free(y);
         z->free(z);
 
         // Return
-        return w;
+        return h;
 }

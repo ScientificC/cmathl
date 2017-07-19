@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 
 /*
@@ -31,13 +31,16 @@ real real_log_b(real x, real b)
 {
         // Declaration of structures
         real y, z, w;
+
         // Mathematical algorithm
         y = x->ln(x);
         z = b->ln(b);
         w = y->div(y, z);
+
         // Free structures
         y->free(y);
         z->free(z);
+
         // Return
         return w;
 

@@ -15,17 +15,12 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 complex complex(real real_part, real imaginary_part)
 {
         complex self = malloc(4*sizeof(double) + 45*sizeof(void *));
-        self->real = &complex_get_real;
-        self->imaginary = &complex_get_imaginary;
-        self->setReal = &complex_set_real;
-        self->setImaginary = &complex_set_imaginary;
-        self->parts = &complex_get_parts;
-        self->asString = &complex_as_string;
+        __complex_init__(self);
         self->setReal(self, real_part);
         self->setImaginary(self, imaginary_part);
         return self;
@@ -67,4 +62,13 @@ real * complex_get_parts(complex self)
 char * complex_as_string(complex self)
 {
         return "a + bi";
+}
+
+void __complex_init__(complex self) {
+        self->real = &complex_get_real;
+        self->imaginary = &complex_get_imaginary;
+        self->setReal = &complex_set_real;
+        self->setImaginary = &complex_set_imaginary;
+        self->parts = &complex_get_parts;
+        self->asString = &complex_as_string;
 }

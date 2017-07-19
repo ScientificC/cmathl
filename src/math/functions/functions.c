@@ -16,7 +16,7 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #define CMLFUNC_H
-#include "../../../includes/math/cml..h"
+#include "../../../includes/cml.h"
 
 double isgreater(double x, double y)
 {

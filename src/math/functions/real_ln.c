@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 /*
  * ln(x) function developed by using hyperbolic definition of Taylor Series
@@ -32,19 +32,23 @@ real real_ln(real x)
         if (x->value(x) <= 0) {
                 return real(NAN);
         }
+
         // Declaration of structures
         real y, z, w, k, h;
+
         // Mathematical algorithm
         y = x->prod(x, x);
         z = real(y->value(y) - 1);
         w = real(y->value(y) + 1);
         k = z->div(z, w);
         h = k->atanh(k);
+
         // Free structures
         y->free(y);
         z->free(z);
         w->free(w);
         k->free(k);
+
         // Return
         return h;
 

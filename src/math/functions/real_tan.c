@@ -17,24 +17,28 @@
 
 #include "../../../includes/cml.h"
 
-// An angle x is reduced to the interval [0, 2pi] by subtracting a number k of 2pi radians, where k is the integer division between x and 2pi
+/*
+ * tan(x) function developed by using trigonometric identities
+ *
+ * @param real x
+ *
+ * @return real tan(x)
+ */
 
-real real_ared(real x)
+real real_tan(real x)
 {
         // Declaration of structures
-        real twopi, z, k, w;
+        real y, z, h;
 
         // Mathematical algorithm
-        twopi = real(TWOPI);
-        z = x->divE(x, twopi);
-        k = z->prod(z, twopi);
-        w = x->sub(x, k);
+        z = x->sin(x);
+        y = x->cos(x);
+        h = y->value(y) == 0.0 ? real(NAN) : z->div(z, y);
 
         // Free structures
-        twopi->free(twopi);
-        k->free(k);
+        y->free(y);
         z->free(z);
 
         // Return
-        return w;
+        return h;
 }

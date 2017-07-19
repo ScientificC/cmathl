@@ -15,12 +15,12 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../../includes/math/cml.h"
+#include "../../../includes/cml.h"
 
 real real_sub(real x, real y)
 {
         double k, w;
         k = x->value(x);
         w = y->value(y);
-        return real(k-w);
+        return real((double) k-w);
 }
