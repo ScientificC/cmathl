@@ -46,6 +46,7 @@ real real_sin(real x)
         // Domain check
         real c = real_new(PI);
         if (x->isMult(x, c)) {
+                free(c);
                 return real_new(0.0);
         }
 
