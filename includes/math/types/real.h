@@ -9,7 +9,7 @@ typedef struct _real
         // Methods
         double (*value)(struct _real *);
         void (*setValue)(struct _real *, double);
-        char * (*toString)(struct _real *);
+        char * (*asString)(struct _real *);
 
         // Composition laws
         struct _real * (*add)(struct _real *, struct _real *);
@@ -64,7 +64,7 @@ typedef struct _real
 
 
 // Construct & destruct
-Real * real(double);
+Real * real_new(double);
 void real_free(Real *);
 
 // Initialization

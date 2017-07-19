@@ -20,16 +20,16 @@
 /*
  * sin(x) function developed by using Taylor Series
  *
- * @param real x
+ * @param Real * x
  *
- * @return real sin(x)
+ * @return Real * sin(x)
  */
 
-real real_sin(real x)
+Real * real_sin(Real * x)
 {
         // Domain check
         if (ismult(x->value(x), PI)) {
-                return real(0.0);
+                return real_new(0.0);
         }
 
         // Declaration of variables and structures
@@ -41,17 +41,17 @@ real real_sin(real x)
         // Free structures
 
         // Return
-        return real(y);
+        return real_new(y);
 }
 
-/* real real_sin(real x)
+/* Real * real_sin(Real * x)
    {
    // Domain check
    if (ismult(x->value(x), PI)) {
-   return real(0.0);
+   return real_new(0.0);
    }
    // Declaration of variables and structures
-   real s, y, z, w, h;
+   Real * s, y, z, w, h;
    double ai, p;
    // Mathematical algorithm
    s = x->sgn(x);
@@ -64,7 +64,7 @@ real real_sin(real x)
    ai = -ai*(z->value(z))*(z->value(z))/(2*i*(2*i+1));
    p = p + ai;
    }
-   w = real(p);
+   w = real_new(p);
    h = w->prod(w, s);
    // Free structures
    s->free(s);

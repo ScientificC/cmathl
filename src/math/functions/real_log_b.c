@@ -22,15 +22,15 @@
  * The logarithm logb(x) can be computed from the logarithms of x and b with respect to an arbitrary base k using the following formula:
  * log_b{x} = log_k{x} / log_k(b)
  *
- * @param real x
+ * @param Real * x
  *
- * @return real log_b(x)
+ * @return Real * log_b(x)
  */
 
-real real_log_b(real x, real b)
+Real * real_log_b(Real * x, Real * b)
 {
         // Declaration of structures
-        real y, z, w;
+        Real * y, z, w;
 
         // Mathematical algorithm
         y = x->ln(x);

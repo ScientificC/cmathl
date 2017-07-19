@@ -17,10 +17,10 @@
 
 #include "../../../includes/cml.h"
 
-real real_add(real x, real y)
+Real * real_add(Real * x, Real * y)
 {
         double k, w;
         k = x->value(x);
         w = y->value(y);
-        return real((double) k+w);
+        return real_new((double) k+w);
 }

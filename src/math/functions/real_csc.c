@@ -20,20 +20,20 @@
 /*
  * csc(x) function developed by using trigonometric identities
  *
- * @param real x
+ * @param Real * x
  *
- * @return real csc(x)
+ * @return Real * csc(x)
  */
 
-real real_csc(real x)
+Real * real_csc(Real * x)
 {
         // Declaration of structures
-        real y, z, h;
+        Real * y, z, h;
 
         // Mathematical algorithm
         y = x->sin(x);
-        z = real(1.0);
-        h = y->value(y) == 0.0 ? real(NAN) : z->div(z, y);
+        z = real_new(1.0);
+        h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
 
         // Free structures
         y->free(y);

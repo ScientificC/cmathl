@@ -20,8 +20,8 @@
 
 void test()
 {
-        real x = real(1.0);
-        real y = x->cos(x);
+        Real * x = real_new(1.0);
+        Real * y = x->cos(x);
         printf("%g\n", y->value(y));
 }
 

@@ -20,23 +20,23 @@
 /**
  * root(f, g) function developed by using the exponentiation process
  *
- * @param real x
+ * @param Real * x
  *
- * @return real root(f, g)
+ * @return Real * root(f, g)
  */
 
-real real_root(real x, real n)
+Real * real_root(Real * x, Real * n)
 {
         // Domain check
         if (isnat(n->value(n)) == 0) {
-                return real(NAN);
+                return real_new(NAN);
         }
 
         // Declaration of structures
-        real w, y, z;
+        Real * w, y, z;
 
         // Mathematical algorithm
-        w = real(-1);
+        w = real_new(-1);
         y = n->pow(n, w);
         z = x->pow(x, y);
 

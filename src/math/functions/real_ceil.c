@@ -20,9 +20,9 @@
 
 // Returns the smallest integer value greater than or equal to x.
 
-real real_floor(real x)
+Real * real_floor(Real * x)
 {
         int w;
         w = (int) x->value(x);
-        return x->value(x) - w == 0 ? x : real(w + 1);
+        return x->value(x) - w == 0 ? x : real_new(w + 1);
 }

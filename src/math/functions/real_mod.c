@@ -17,10 +17,10 @@
 
 #include "../../../includes/cml.h"
 
-real real_mod(real x, real y)
+Real * real_mod(Real * x, Real * y)
 {
         // Declaration of structures
-        real z, w, k;
+        Real * z, w, k;
 
         // Mathematical algorithm
         z = x->divE(x, y);

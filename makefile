@@ -26,7 +26,7 @@ DEBUG=-g
 all:	folders c.o
 
 c.o:
-	gcc $(TEST_FOLDER)/main.c $(MATH_FOLDER)/types/* $(FUNC_FOLDER)/* -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME)
+	gcc $(TEST_FOLDER)/main.c $(MATH_FOLDER)/types/* $(FUNC_FOLDER)/* -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
 
 
 clean:

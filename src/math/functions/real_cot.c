@@ -20,20 +20,20 @@
 /*
  * cot(x) function developed by using trigonometric identities
  *
- * @param real x
+ * @param Real * x
  *
- * @return real cot(x)
+ * @return Real * cot(x)
  */
 
-real real_cot(real x)
+Real * real_cot(Real * x)
 {
         // Declaration of structures
-        real y, z, h;
+        Real * y, z, h;
 
         // Mathematical algorithm
         z = x->cos(x);
         y = x->sin(x);
-        h = y->value(y) == 0.0 ? real(NAN) : z->div(z, y);
+        h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
 
         // Free structures
         z->free(z);

@@ -20,9 +20,9 @@
 
 // Returns the largest integer value less than or equal to x.
 
-real real_floor(real x)
+Real * real_floor(Real * x)
 {
         int w;
         w = (int) x->value(x);
-        return real(w)
+        return real_new(w)
 }

@@ -20,18 +20,18 @@
 /**
  * root(f) function developed by using the exponentiation process
  *
- * @param real x
+ * @param Real * x
  *
- * @return real root(f)
+ * @return Real * root(f)
  */
 
-real real_sqrt(real x)
+Real * real_sqrt(Real * x)
 {
         // Declaration of structures
-        real w, y, z;
+        Real * w, y, z;
 
         // Mathematical algorithm
-        w = real(2.0);
+        w = real_new(2.0);
         y = x->root(x, w);
 
         // Free structures

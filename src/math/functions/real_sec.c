@@ -20,20 +20,20 @@
 /*
  * sec(x) function developed by using trigonometric identities
  *
- * @param real x
+ * @param Real * x
  *
- * @return real sec(x)
+ * @return Real * sec(x)
  */
 
-real real_sec(real x)
+Real * real_sec(Real * x)
 {
         // Declaration of structures
-        real y, z, h;
+        Real * y, z, h;
 
         // Mathematical algorithm
         y = x->cos(x);
-        z = real(1.0);
-        h = y->value(y) == 0.0 ? real(NAN) : z->div(z, y);
+        z = real_new(1.0);
+        h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
 
         // Free structures
         y->free(y);

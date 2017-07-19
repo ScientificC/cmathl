@@ -17,37 +17,37 @@
 
 #include "../../../includes/cml.h"
 
-real real(real value)
+Real * real_new(double value)
 {
-        real self = malloc(4*sizeof(double) + 45*sizeof(void *));
+        Real * self = malloc(4*sizeof(double) + 50*sizeof(void *));
         __real_init__(self);
         self->setValue(self, value);
         return self;
 }
 
-void real_destruct(real self)
+void real_destruct(Real * self)
 {
-        free(z);
+        free(self);
 }
 
-double real_value(real self)
+double real_value(Real * self)
 {
         return self->real_value;
 }
 
 
-void real_set_value(real self, double x)
+void real_set_value(Real * self, double x)
 {
         self->real_value = x;
 }
 
-char * real_as_string(real self)
+char * real_as_string(Real * self)
 {
         return "a";
 }
 
 
-void __real_init__(real self)
+void __real_init__(Real * self)
 {
         self->value = &real_value;
         self->setValue = &real_set_value;

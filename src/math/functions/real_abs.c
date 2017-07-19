@@ -17,17 +17,17 @@
 
 #include "../../../includes/cml.h"
 
-real real_abs(real x)
+Real * real_abs(Real * x)
 {
         // Declaration of structures
-        real sign, y;
+        Real * sgn, y;
 
         // Mathematical algorithm
-        sign = x->sign(x);
-        y = x->prod(x, sign);
+        sgn = x->sgn(x);
+        y = x->prod(x, sgn);
 
         // Free structures
-        sign->free(sign);
+        sgn->free(sgn);
 
         // Return
         return y;

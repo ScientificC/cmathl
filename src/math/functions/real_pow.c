@@ -21,24 +21,24 @@
  * pow(f, g) function developed by using the exponentiation process
  * where pow(f, g) = sgn(f)e^(glog(|f|))
  *
- * @param real x
+ * @param Real * x
  *
- * @return real pow(f, g)
+ * @return Real * pow(f, g)
  */
 
 
-real real_pow(real x, real n)
+Real * real_pow(Real * x, Real * n)
 {
         // Domain check
         if (x->value(x) == 0) {
-                return n->value(n) == 0 ? real(NAN) : x;
+                return n->value(n) == 0 ? real_new(NAN) : x;
         }
 
         // Declaration of structures
-        real s, y, z, w, k, h;
+        Real * s, y, z, w, k, h;
 
         // Mathematical algorithm
-        s = x->sign(x);
+        s = x->sgn(x);
         y = x->abs(x);
         z = y->ln(y);
         w = n->prod(n, z);

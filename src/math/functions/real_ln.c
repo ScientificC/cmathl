@@ -21,25 +21,25 @@
  * ln(x) function developed by using hyperbolic definition of Taylor Series
  * where ln(x) = arctanh((x^2 - 1)/(x^2 + 1))
  *
- * @param real x
+ * @param Real * x
  *
- * @return real log(x)
+ * @return Real * log(x)
  */
 
-real real_ln(real x)
+Real * real_ln(Real * x)
 {
         // Domain check
         if (x->value(x) <= 0) {
-                return real(NAN);
+                return real_new(NAN);
         }
 
         // Declaration of structures
-        real y, z, w, k, h;
+        Real * y, z, w, k, h;
 
         // Mathematical algorithm
         y = x->prod(x, x);
-        z = real(y->value(y) - 1);
-        w = real(y->value(y) + 1);
+        z = real_new(y->value(y) - 1);
+        w = real_new(y->value(y) + 1);
         k = z->div(z, w);
         h = k->atanh(k);
 

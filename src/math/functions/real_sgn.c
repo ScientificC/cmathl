@@ -17,9 +17,9 @@
 
 #include "../../../includes/cml.h"
 
-real real_sign(real x)
+Real * real_sgn(Real * x)
 {
-        int sign;
-        sign = x->value(x) >= 0 ? 1 : -1;
-        return real(sign);
+        int sgn;
+        sgn = x->value(x) >= 0 ? 1 : -1;
+        return real_new(sgn);
 }
