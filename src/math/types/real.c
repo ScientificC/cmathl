@@ -59,6 +59,8 @@ void __real_init__(real self)
         self->isNull = &real_isnull;
         self->isGreater = &real_isgreater;
         self->isLess = &real_isless;
+        self->isGreaterOrEquals = &real_isgreater_or_equals;
+        self->isLessOrEquals = &real_isless_or_equals;
         self->isNatural = &real_isnatural;
         self->isInteger = &real_isinteger;
         self->isMult = &real_ismult;

@@ -15,6 +15,8 @@ typedef struct _real
         bool (*isNull)(struct _real *);
         bool (*isGreater)(struct _real *, struct _real *);
         bool (*isLess)(struct _real *, struct _real *);
+        bool (*isGreaterOrEquals)(struct _real *, struct _real *);
+        bool (*isLessOrEquals)(struct _real *, struct _real *);
         bool (*isNatural)(struct _real *);
         bool (*isInteger)(struct _real *);
         bool (*isMult)(struct _real *, struct _real *);

@@ -8,6 +8,8 @@ bool real_isnatural(real);
 bool real_isinteger(real);
 bool real_isgreater(real, real);
 bool real_isless(real, real);
+bool real_isgreater_or_equals(real, real);
+bool real_isless_or_equals(real, real);
 bool real_ismult(real, real);
 
 real real_add(real, real);
