@@ -30,8 +30,8 @@
 real real_pow(real x, real n)
 {
         // Domain check
-        if (x->value(x) == 0) {
-                return n->value(n) == 0 ? real_new(NAN) : x;
+        if (x->isNull(x)) {
+                return n->isNull(n) ? real_new(NAN) : x;
         }
 
         // Declaration of structures

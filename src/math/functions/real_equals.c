@@ -15,20 +15,16 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+
 #include "../../../includes/cml.h"
 
-real real_inverse(real x)
+
+bool __equals(double x, double y)
 {
-        // Declaration of structures
-        real y, * h;
+        return x == y;
+}
 
-        // Mathematical algorithm
-        y = real_new(1.0);
-        h = x->isNull(x) ? real_new(NAN) : y->div(y, x);
-
-        // Free structures
-        free(y);
-
-        // Return
-        return h;
+bool real_equals(real x, real y)
+{
+        return __equals(x->value(x), y->value(x));
 }

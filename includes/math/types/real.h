@@ -11,6 +11,8 @@ typedef struct _real
         void (*setValue)(struct _real *, double);
         char * (*asString)(struct _real *);
 
+        bool (*equals)(struct _real *, struct _real *);
+        bool (*isNull)(struct _real *);
         bool (*isGreater)(struct _real *, struct _real *);
         bool (*isLess)(struct _real *, struct _real *);
         bool (*isNatural)(struct _real *);

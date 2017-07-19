@@ -33,7 +33,7 @@ real real_tan(real x)
         // Mathematical algorithm
         z = x->sin(x);
         y = x->cos(x);
-        h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
+        h = y->isNull(y) ? real_new(NAN) : z->div(z, y);
 
         // Free structures
         free(y);

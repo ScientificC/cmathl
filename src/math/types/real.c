@@ -55,6 +55,8 @@ void __real_init__(real self)
         self->value = &real_value;
         self->setValue = &real_set_value;
         self->asString = &real_as_string;
+        self->equals = &real_equals;
+        self->isNull = &real_isnull;
         self->isGreater = &real_isgreater;
         self->isLess = &real_isless;
         self->isNatural = &real_isnatural;

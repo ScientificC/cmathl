@@ -33,7 +33,7 @@ real real_cot(real x)
         // Mathematical algorithm
         z = x->cos(x);
         y = x->sin(x);
-        h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
+        h = y->isNull(y) ? real_new(NAN) : z->div(z, y);
 
         // Free structures
         free(z);
