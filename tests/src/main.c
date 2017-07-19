@@ -18,7 +18,7 @@
 
 #include "../../includes/cml.h"
 
-void test()
+void __cmathl_test()
 {
         real x, * y;
         x = real_new(520.0);
@@ -28,6 +28,6 @@ void test()
 
 int main(int argc, char const *argv[])
 {
-        test();
+        __cmathl_test();
         return 0;
 }
