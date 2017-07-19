@@ -15,20 +15,38 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
+/*
+ * Hyperbolic sine "real_sinh(x)" function developed by using Euler relationships
+ *
+ * @param real x
+ *
+ * @return real real_sinh(x)
+ */
 
-void __cml_test()
+real real_sinh(real x)
 {
-        real x, * y, * z;
-        x = real_new(2.0);
-        z = real_new(2.0);
-        y = x->pow(x, z);
-        printf("%g\n", y->value(y));
-}
+        // Domain check
 
-int main(int argc, char const *argv[])
-{
-        __cml_test();
-        return 0;
+        // Declaration of variables and structures
+        real y, * z, * w, * k, * c, * h;
+
+        // Mathematic algorithm
+        c = real_new(2.0);
+        y = x->opposite(x);
+        z = x->exp(x);
+        w = y->exp(y);
+        k = z->sub(z, w);
+        h = z->div(z, c);
+
+        // Free structures
+        free(y);
+        free(z);
+        free(w);
+        free(k);
+        free(c);
+
+        // Return
+        return h;
 }

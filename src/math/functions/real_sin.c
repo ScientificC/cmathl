@@ -25,8 +25,8 @@
  * @return real sin(x)
  */
 
-real real_sin(real x)
-{
+/*real real_sin(real x)
+   {
         // Domain check
         if (ismult(x->value(x), PI)) {
                 return real_new(0.0);
@@ -36,41 +36,45 @@ real real_sin(real x)
         double y;
 
         // Mathematical algorithm
-        y = 0.0 /*sin((double) x->value(x))*/;
+        y = sin((double) x->value(x));
 
         // Free structures
 
         // Return
         return real_new(y);
-}
+   }*/
 
-/* real real_sin(real x)
-   {
-   // Domain check
-   if (ismult(x->value(x), PI)) {
-   return real_new(0.0);
-   }
-   // Declaration of variables and structures
-   real s, y, z, w, h;
-   double ai, p;
-   // Mathematical algorithm
-   s = x->sgn(x);
-   y = x->abs(x);
-   z = y->ared(y);
-   ai = z->value(z);
-   p = ai;
-   int i;
-   for (i = 1; i <= TOPL; ++i) {
-   ai = -ai*(z->value(z))*(z->value(z))/(2*i*(2*i+1));
-   p = p + ai;
-   }
-   w = real_new(p);
-   h = w->prod(w, s);
-   // Free structures
-   s->free(s);
-   y->free(y);
-   z->free(z);
-   w->free(w);
-   // Return
-   return h;
-   } */
+real real_sin(real x)
+{
+        // Domain check
+        if (ismult(x->value(x), PI)) {
+                return real_new(0.0);
+        }
+
+        // Declaration of variables and structures
+        real s, * y, * z, * w, * h;
+        double ai, p;
+
+        // Mathematical algorithm
+        s = x->sgn(x);
+        y = x->abs(x);
+        z = y->ared(y);
+        ai = z->value(z);
+        p = ai;
+        int i;
+        for (i = 1; i <= TOPL; ++i) {
+                ai = -ai*(z->value(z))*(z->value(z))/(2*i*(2*i+1));
+                p = p + ai;
+        }
+        w = real_new(p);
+        h = w->prod(w, s);
+
+        // Free structures
+        free(s);
+        free(y);
+        free(z);
+        free(w);
+
+        // Return
+        return h;
+}

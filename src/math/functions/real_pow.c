@@ -42,7 +42,7 @@ real real_pow(real x, real n)
         y = x->abs(x);
         z = y->ln(y);
         w = n->prod(n, z);
-        k = n->exp(n);
+        k = w->exp(w);
         h = s->prod(s, k);
 
         // Free structures

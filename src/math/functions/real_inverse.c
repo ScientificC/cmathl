@@ -15,20 +15,20 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
-
-void __cml_test()
+real real_inverse(real x)
 {
-        real x, * y, * z;
-        x = real_new(2.0);
-        z = real_new(2.0);
-        y = x->pow(x, z);
-        printf("%g\n", y->value(y));
-}
+        // Declaration of structures
+        real y, * h;
 
-int main(int argc, char const *argv[])
-{
-        __cml_test();
-        return 0;
+        // Mathematical algorithm
+        y = real_new(1.0);
+        h = x->value(x) == 0.0 ? real_new(NAN) : y->div(y, x);
+
+        // Free structures
+        free(y);
+
+        // Return
+        return h;
 }

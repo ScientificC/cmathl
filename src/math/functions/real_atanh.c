@@ -18,30 +18,38 @@
 #include "../../../includes/cml.h"
 
 /*
- * Development of the Taylor series of the function e^x
+ * atanh(x) function developed by using trigonometric identities
  *
- * @param real x: Exponent of the function
+ * @param real x
  *
- * @return real e^x
+ * @return real atanh(x)
  */
 
-real real_exp(real x)
+real real_atanh(real x)
 {
-        // Declaration of variables and structures
+        // Declaration of structures
+        real y;
+        double value, ai_n, p;
         int i;
-        double ai, ex, value;
+
+        // Domain check
+        y = x->abs(x);
+        if (!isgreater(1.0, y->value(y))) {
+                return real_new(NAN);
+        }
 
         // Mathematical algorithm
         value = x->value(x);
-        ai = 1.0;
-        ex = ai;
-        for (i = 1; i < TOPL; ++i) {
-                ai = ai*(value)/i;
-                ex = ex + ai;
+        ai_n = value;
+        p = ai_n;
+        for (i = 1; i <= TOPL; i += 2) {
+                ai_n = ai_n*value*value;
+                p = p + ai_n/(i+2);
         }
 
         // Free structures
+        free(y);
 
         // Return
-        return real_new(ex);
+        return real_new(p);
 }

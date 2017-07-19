@@ -23,6 +23,8 @@ typedef struct _real
         struct _real * (*div)(struct _real *, struct _real *);
         struct _real * (*divE)(struct _real *, struct _real *);
         struct _real * (*mod)(struct _real *, struct _real *);
+        struct _real * (*inverse)(struct _real *);
+        struct _real * (*opposite)(struct _real *);
         struct _real * (*ared)(struct _real *);
         struct _real * (*fact)(struct _real *);
         struct _real * (*ceil)(struct _real *);

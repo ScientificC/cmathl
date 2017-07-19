@@ -63,6 +63,8 @@ void __real_init__(real self)
         self->abs = &real_abs;
         self->divE = &real_div_e;
         self->mod = &real_mod;
+        self->inverse = &real_inverse;
+        self->opposite = &real_opposite;
         self->ared = &real_ared;
         self->ceil = &real_ceil;
         self->floor = &real_floor;
@@ -78,4 +80,11 @@ void __real_init__(real self)
         self->sec = &real_sec;
         self->csc = &real_csc;
         self->cot = &real_cot;
+        self->sinh = &real_sinh;
+        self->cosh = &real_cosh;
+        self->tanh = &real_tanh;
+        self->sech = &real_sech;
+        self->csch = &real_csch;
+        self->coth = &real_coth;
+        self->atanh = &real_atanh;
 }

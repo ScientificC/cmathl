@@ -28,16 +28,14 @@
 real real_csc(real x)
 {
         // Declaration of structures
-        real y, * z, * h;
+        real y, * h;
 
         // Mathematical algorithm
         y = x->sin(x);
-        z = real_new(1.0);
-        h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
+        h = y->inverse(y);
 
         // Free structures
         free(y);
-        free(z);
 
         // Return
         return h;

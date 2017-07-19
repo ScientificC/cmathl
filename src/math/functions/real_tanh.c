@@ -15,20 +15,34 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
+/*
+ * Hyperbolic tangent "tanh(x)" function developed by using Euler relationships
+ *
+ * @param real x
+ *
+ * @return real tanh(x)
+ */
 
-void __cml_test()
+real real_tanh(real x)
 {
-        real x, * y, * z;
-        x = real_new(2.0);
-        z = real_new(2.0);
-        y = x->pow(x, z);
-        printf("%g\n", y->value(y));
-}
+        // Domain check
 
-int main(int argc, char const *argv[])
-{
-        __cml_test();
-        return 0;
+        // Declaration of variables and structures
+        real y, * z, * w, * h;
+
+        // Mathematic algorithm
+        y = x->sinh(x);
+        z = x->cosh(x);
+        w = z->inverse(z);
+        h = y->prod(y, w);
+
+        // Free structures
+        free(y);
+        free(z);
+        free(w);
+
+        // Return
+        return h;
 }

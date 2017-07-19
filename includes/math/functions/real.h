@@ -12,6 +12,8 @@ real real_floor(real);
 real real_ceil(real);
 real real_div_e(real, real);
 real real_mod(real, real);
+real real_inverse(real);
+real real_opposite(real);
 real real_ared(real);
 real real_fact(real);
 real real_exp(real);
