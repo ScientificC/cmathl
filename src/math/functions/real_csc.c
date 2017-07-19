@@ -28,7 +28,7 @@
 Real * real_csc(Real * x)
 {
         // Declaration of structures
-        Real * y, z, h;
+        Real * y, * z, * h;
 
         // Mathematical algorithm
         y = x->sin(x);

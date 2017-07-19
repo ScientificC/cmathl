@@ -34,7 +34,6 @@ typedef struct _real
         struct _real * (*ln)(struct _real *);
         struct _real * (*logE)(struct _real *);
         struct _real * (*logB)(struct _real *, struct _real *);
-        struct _real * (*log)(struct _real *);
         struct _real * (*pow)(struct _real *, struct _real *);
         struct _real * (*root)(struct _real *, struct _real *);
         struct _real * (*sqrt)(struct _real *);

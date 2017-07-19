@@ -20,7 +20,7 @@
 Real * real_abs(Real * x)
 {
         // Declaration of structures
-        Real * sgn, y;
+        Real * sgn, * y;
 
         // Mathematical algorithm
         sgn = x->sgn(x);

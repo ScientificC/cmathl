@@ -20,7 +20,7 @@
 Real * real_mod(Real * x, Real * y)
 {
         // Declaration of structures
-        Real * z, w, k;
+        Real * z, * w, * k;
 
         // Mathematical algorithm
         z = x->divE(x, y);

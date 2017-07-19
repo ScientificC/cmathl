@@ -28,12 +28,12 @@
 Real * real_root(Real * x, Real * n)
 {
         // Domain check
-        if (isnat(n->value(n)) == 0) {
+        if (isnatural(n->value(n)) == 0) {
                 return real_new(NAN);
         }
 
         // Declaration of structures
-        Real * w, y, z;
+        Real * w, * y, * z;
 
         // Mathematical algorithm
         w = real_new(-1.0);

@@ -20,7 +20,7 @@
 Real * real_div_e(Real * x, Real * y)
 {
         // Declaration of structures
-        Real * z, w;
+        Real * z, * w;
 
         // Mathematical algorithm
         z = x->div(x, y);

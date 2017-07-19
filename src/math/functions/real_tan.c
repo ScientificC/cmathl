@@ -28,7 +28,7 @@
 Real * real_tan(Real * x)
 {
         // Declaration of structures
-        Real * y, z, h;
+        Real * y, * z, * h;
 
         // Mathematical algorithm
         z = x->sin(x);

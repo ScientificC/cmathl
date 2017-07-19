@@ -4,7 +4,7 @@
 double isgreater(double, ...);
 double isless(double, ...);
 double isinteger(double, ...);
-double isnat(double, ...);
+double isnatural(double, ...);
 double ismult(double, ...);
 
 #endif

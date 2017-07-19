@@ -17,7 +17,6 @@ Real * real_fact(Real *);
 Real * real_exp(Real *);
 Real * real_ln(Real *);
 Real * real_log_b(Real *, Real *);
-Real * real_log(Real *);
 Real * real_pow(Real *, Real *);
 Real * real_root(Real *, Real *);
 Real * real_sqrt(Real *);

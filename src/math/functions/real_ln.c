@@ -34,7 +34,7 @@ Real * real_ln(Real * x)
         }
 
         // Declaration of structures
-        Real * y, z, w, k, h;
+        Real * y, * z, * w, * k, * h;
 
         // Mathematical algorithm
         y = x->prod(x, x);

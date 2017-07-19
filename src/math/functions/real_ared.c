@@ -22,7 +22,7 @@
 Real * real_ared(Real * x)
 {
         // Declaration of structures
-        Real * two_pi, z, k, w;
+        Real * two_pi, * z, * k, * w;
 
         // Mathematical algorithm
         two_pi = real_new(TWOPI);

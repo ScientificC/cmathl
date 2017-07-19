@@ -24,5 +24,5 @@ Real * real_floor(Real * x)
 {
         int w;
         w = (int) x->value(x);
-        return real_new(w)
+        return real_new(w);
 }
