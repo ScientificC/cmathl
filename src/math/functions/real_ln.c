@@ -44,10 +44,10 @@ Real * real_ln(Real * x)
         h = k->atanh(k);
 
         // Free structures
-        y->free(y);
-        z->free(z);
-        w->free(w);
-        k->free(k);
+        free(y);
+        free(z);
+        free(w);
+        free(k);
 
         // Return
         return h;

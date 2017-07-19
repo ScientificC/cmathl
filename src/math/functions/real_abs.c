@@ -27,7 +27,7 @@ Real * real_abs(Real * x)
         y = x->prod(x, sgn);
 
         // Free structures
-        sgn->free(sgn);
+        free(sgn);
 
         // Return
         return y;

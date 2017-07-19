@@ -28,7 +28,7 @@ Complex * complex_new(Real * real_part, Real * imaginary_part)
 
 void complex_destruct(Complex * self)
 {
-        free(self);
+        printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
 Real * complex_get_real(Complex * self)

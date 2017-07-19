@@ -28,8 +28,8 @@ Real * real_mod(Real * x, Real * y)
         k = x->sub(x, w);
 
         // Free structures
-        z->free(z);
-        w->free(w);
+        free(z);
+        free(w);
 
         // Return
         return k;

@@ -37,9 +37,9 @@ Real * real_cos(Real * x)
         h = z->sin(z);
 
         // Free structures
-        half_pi->free(half_pi);
-        y->free(y);
-        z->free(z);
+        free(half_pi);
+        free(y);
+        free(z);
 
         // Return
         return h;

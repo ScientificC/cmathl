@@ -27,7 +27,7 @@ Real * real_div_e(Real * x, Real * y)
         w = z->floor(z);
 
         // Free structures
-        z->free(z);
+        free(z);
 
         // Return
         return w;

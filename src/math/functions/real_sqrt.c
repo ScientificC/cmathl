@@ -35,7 +35,7 @@ Real * real_sqrt(Real * x)
         y = x->root(x, w);
 
         // Free structures
-        w->free(w);
+        free(w);
 
         // Return
         return y;

@@ -41,8 +41,8 @@ Real * real_root(Real * x, Real * n)
         z = x->pow(x, y);
 
         // Free structures
-        w->free(w);
-        y->free(y);
+        free(w);
+        free(y);
 
         // Return
         return z;

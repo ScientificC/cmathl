@@ -36,8 +36,8 @@ Real * real_sec(Real * x)
         h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
 
         // Free structures
-        y->free(y);
-        z->free(z);
+        free(y);
+        free(z);
 
         // Return
         return h;

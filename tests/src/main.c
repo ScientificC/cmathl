@@ -21,8 +21,8 @@
 void test()
 {
         Real * x, * y;
-        x = real_new(1.0);
-        y = x->add(x, real_new(2.0));
+        x = real_new(520.0);
+        y = x->ared(x);
         printf("%g\n", y->value(y));
 }
 

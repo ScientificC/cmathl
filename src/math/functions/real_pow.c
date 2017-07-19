@@ -46,11 +46,11 @@ Real * real_pow(Real * x, Real * n)
         h = s->prod(s, k);
 
         // Free structures
-        s->free(s);
-        y->free(y);
-        z->free(z);
-        w->free(w);
-        k->free(k);
+        free(s);
+        free(y);
+        free(z);
+        free(w);
+        free(k);
 
         // Return
         return h;

@@ -27,7 +27,7 @@ Real * real_new(double value)
 
 void real_destruct(Real * self)
 {
-        free(self);
+        printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
 double real_value(Real * self)

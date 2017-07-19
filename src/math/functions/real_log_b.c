@@ -38,8 +38,8 @@ Real * real_log_b(Real * x, Real * b)
         w = y->div(y, z);
 
         // Free structures
-        y->free(y);
-        z->free(z);
+        free(y);
+        free(z);
 
         // Return
         return w;

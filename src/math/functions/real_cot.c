@@ -36,8 +36,8 @@ Real * real_cot(Real * x)
         h = y->value(y) == 0.0 ? real_new(NAN) : z->div(z, y);
 
         // Free structures
-        z->free(z);
-        y->free(y);
+        free(z);
+        free(y);
 
         // Return
         return h;

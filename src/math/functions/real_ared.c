@@ -31,9 +31,9 @@ Real * real_ared(Real * x)
         w = x->sub(x, k);
 
         // Free structures
-        two_pi->free(two_pi);
-        k->free(k);
-        z->free(z);
+        free(two_pi);
+        free(k);
+        free(z);
 
         // Return
         return w;
