@@ -16,22 +16,15 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
-#include "../../includes/cml.h"
+#include "../../../includes/cml.h"
 
-void __cml_test()
+
+bool __isnatural(double x)
 {
-        real x, * y, * z, * c, * h;
-        x = real_new(2.0);
-        z = real_new(2.0);
-        y = x->pow(x, z);
-        c = real_new(1.0);
-        h = c->sin(c);
-        printf("%g\n", y->value(y));
-        printf("%g\n", h->value(h));
+        return (__isinteger(x) && x > 0);
 }
 
-int main(int argc, char const *argv[])
+bool real_isnatural(real x)
 {
-        __cml_test();
-        return 0;
+        return __isnatural(x->value(x));
 }

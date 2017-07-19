@@ -1,6 +1,11 @@
 #ifndef REAL_FUNC_H
 #define REAL_FUNC_H
 
+bool real_isgreater(real, real);
+bool real_isless(real, real);
+bool real_isnatural(real);
+bool real_isinteger(real);
+bool real_ismult(real, real);
 
 real real_add(real, real);
 real real_prod(real, real);

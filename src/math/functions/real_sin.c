@@ -25,48 +25,43 @@
  * @return real sin(x)
  */
 
-/*real real_sin(real x)
-   {
-        // Domain check
-        if (ismult(x->value(x), PI)) {
-                return real_new(0.0);
+double __sin__(double x)
+{
+        double ai, p;
+        int i;
+
+        ai = x;
+        p = ai;
+
+        for (i = 1; i <= TOPL; ++i) {
+                ai = -ai*(x)*(x)/(2*i*(2*i+1));
+                p = p + ai;
         }
 
-        // Declaration of variables and structures
-        double y;
-
-        // Mathematical algorithm
-        y = sin((double) x->value(x));
-
-        // Free structures
-
-        // Return
-        return real_new(y);
-   }*/
+        return p;
+}
 
 real real_sin(real x)
 {
         // Domain check
-        if (ismult(x->value(x), PI)) {
+        real c = real_new(PI);
+        if (x->isMult(x, c)) {
                 return real_new(0.0);
         }
 
         // Declaration of variables and structures
         real s, * y, * z, * w, * h;
-        double ai, p;
+        double r;
+
 
         // Mathematical algorithm
         s = x->sgn(x);
         y = x->abs(x);
         z = y->ared(y);
-        ai = z->value(z);
-        p = ai;
-        int i;
-        for (i = 1; i <= TOPL; ++i) {
-                ai = -ai*(z->value(z))*(z->value(z))/(2*i*(2*i+1));
-                p = p + ai;
-        }
-        w = real_new(p);
+
+        r = __sin__(z->value(z));
+
+        w = real_new(r);
         h = w->prod(w, s);
 
         // Free structures
@@ -74,6 +69,7 @@ real real_sin(real x)
         free(y);
         free(z);
         free(w);
+        free(c);
 
         // Return
         return h;

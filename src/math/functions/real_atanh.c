@@ -28,13 +28,14 @@
 real real_atanh(real x)
 {
         // Declaration of structures
-        real y;
+        real y, * c;
         double value, ai_n, p;
         int i;
 
         // Domain check
         y = x->abs(x);
-        if (!isgreater(1.0, y->value(y))) {
+        c = real_new(1.0);
+        if (!c->isGreater(c, y)) {
                 return real_new(NAN);
         }
 
@@ -48,6 +49,7 @@ real real_atanh(real x)
         }
 
         // Free structures
+        free(c);
         free(y);
 
         // Return

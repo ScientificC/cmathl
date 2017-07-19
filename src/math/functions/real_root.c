@@ -28,7 +28,7 @@
 real real_root(real x, real n)
 {
         // Domain check
-        if (isnatural(n->value(n)) == 0) {
+        if (n->isNatural(n)) {
                 return real_new(NAN);
         }
 
