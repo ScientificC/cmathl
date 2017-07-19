@@ -1,5 +1,5 @@
-#ifndef REAL_H
-#define REAL_H
+#ifndef REAL_FUNC_H
+#define REAL_FUNC_H
 
 
 Real * real_add(Real *, Real *);

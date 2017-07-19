@@ -28,5 +28,5 @@
 Real * real_exp(Real * x)
 {
         double w = x->value(x);
-        return real_new(exp(w))
+        return real_new(w)
 }

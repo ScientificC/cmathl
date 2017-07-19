@@ -28,7 +28,7 @@
 Real * real_sqrt(Real * x)
 {
         // Declaration of structures
-        Real * w, y, z;
+        Real * w, y;
 
         // Mathematical algorithm
         w = real_new(2.0);

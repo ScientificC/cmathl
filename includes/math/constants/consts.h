@@ -24,10 +24,10 @@
 #define INF 1/0
 
 /* Negative infinity. */
-#define NINF -1/0
+#define NINF -1.0/0.0
 
 /* Not a number. */
-#define NAN 0/0
+#define NAN 0.0/0.0
 
 /* Maximum possible finite value of @log x@ */
 #define MAXLOG 709.782712893384

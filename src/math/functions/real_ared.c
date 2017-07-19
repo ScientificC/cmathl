@@ -22,16 +22,16 @@
 Real * real_ared(Real * x)
 {
         // Declaration of structures
-        Real * twopi, z, k, w;
+        Real * two_pi, z, k, w;
 
         // Mathematical algorithm
-        twopi = real_new(TWOPI);
-        z = x->divE(x, twopi);
-        k = z->prod(z, twopi);
+        two_pi = real_new(TWOPI);
+        z = x->divE(x, two_pi);
+        k = z->prod(z, two_pi);
         w = x->sub(x, k);
 
         // Free structures
-        twopi->free(twopi);
+        two_pi->free(two_pi);
         k->free(k);
         z->free(z);
 

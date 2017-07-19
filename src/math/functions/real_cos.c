@@ -28,16 +28,16 @@
 Real * real_cos(Real * x)
 {
         // Declaration of structures
-        Real * halfpi, y, z, h;
+        Real * half_pi, y, z, h;
 
         // Mathematical algorithm
-        halfpi = real_new(HALFPI);
+        half_pi = real_new(HALFPI);
         y = x->abs(x);
-        z = y->add(y, halfpi);
+        z = y->add(y, half_pi);
         h = z->sin(z);
 
         // Free structures
-        halfpi->free(halfpi);
+        half_pi->free(half_pi);
         y->free(y);
         z->free(z);
 

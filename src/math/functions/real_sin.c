@@ -36,7 +36,7 @@ Real * real_sin(Real * x)
         double y;
 
         // Mathematical algorithm
-        y = sin((double) x->value(x));
+        y = 0.0/*sin((double) x->value(x))*/;
 
         // Free structures
 

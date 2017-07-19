@@ -36,7 +36,7 @@ Real * real_root(Real * x, Real * n)
         Real * w, y, z;
 
         // Mathematical algorithm
-        w = real_new(-1);
+        w = real_new(-1.0);
         y = n->pow(n, w);
         z = x->pow(x, y);
 
