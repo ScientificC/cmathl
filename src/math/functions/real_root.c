@@ -33,7 +33,7 @@ real real_root(real x, real n)
         }
 
         // Declaration of structures
-        real w, * y, * z;
+        real w, y, z;
 
         // Mathematical algorithm
         w = real_new(-1.0);

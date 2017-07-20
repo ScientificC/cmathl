@@ -4,14 +4,14 @@
 typedef struct _complex
 {
         // Variables
-        Real * real_part;
-        Real * imaginary_part;
+        real real_part;
+        real imaginary_part;
         // Methods
-        Real * (*getReal)(struct _complex *);
-        Real * (*getImaginary)(struct _complex *);
-        void (*setReal)(struct _complex *, Real *);
-        void (*setImaginary)(struct _complex *, Real *);
-        Real ** (*parts)(struct _complex *);
+        real (*getReal)(struct _complex *);
+        real (*getImaginary)(struct _complex *);
+        void (*setReal)(struct _complex *, real);
+        void (*setImaginary)(struct _complex *, real);
+        real* (*parts)(struct _complex *);
         char * (*asString)(struct _complex *);
 
         // Functions
@@ -19,7 +19,7 @@ typedef struct _complex
         struct _complex * (*add)(struct _complex *, struct _complex *);
         struct _complex * (*prod)(struct _complex *, struct _complex *);
         // ---> Usefull Functions <---
-        Real * (*abs)(struct _complex *);
+        real (*abs)(struct _complex *);
         struct _complex * (*conj)(struct _complex *);
 
         // ---> Basic Functions <---
@@ -31,13 +31,13 @@ typedef struct _complex
         // ---> Usefull functions
         struct _complex * (*ln)(struct _complex *);
         struct _complex * (*logE)(struct _complex *);
-        struct _complex * (*logB)(struct _complex *, Real *);
+        struct _complex * (*logB)(struct _complex *, real);
         struct _complex * (*log)(struct _complex *);
-        struct _complex * (*pow)(struct _complex *, Real *);
-        struct _complex * (*root)(struct _complex *, Real *);
+        struct _complex * (*pow)(struct _complex *, real);
+        struct _complex * (*root)(struct _complex *, real);
         struct _complex * (*sqrt)(struct _complex *);
         struct _complex * (*inverse)(struct _complex *);
-        void (*rotate)(struct _complex *, Real *);
+        void (*rotate)(struct _complex *, real);
 
         // ---> Basic trigonometric functions <---
         struct _complex * (*sin)(struct _complex *);
@@ -62,23 +62,24 @@ typedef struct _complex
 
 } Complex;
 
+typedef Complex* complex;
 
 // Construct & destruct
-Complex * complex_new(Real *, Real *);
-void complex_free(Complex *);
+complex complex_new(real, real);
+void complex_free(complex);
 
 // Initialization
-void __complex_init__(Complex *);
+void __complex_init__(complex);
 
 // getters
-Real * complex_get_real(Complex *);
-Real * complex_get_imaginary(Complex *);
+real complex_get_real(complex);
+real complex_get_imaginary(complex);
 
 // setters
-void complex_set_real(Complex *, Real *);
-void complex_set_imaginary(Complex *, Real *);
+void complex_set_real(complex, real);
+void complex_set_imaginary(complex, real);
 
 // Methods
-char * complex_as_string(Complex *);
+char * complex_as_string(complex);
 
 #endif

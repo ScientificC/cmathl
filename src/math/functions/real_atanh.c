@@ -43,7 +43,7 @@ double __atanh__(double x)
 real real_atanh(real x)
 {
         // Declaration of structures
-        real y, * c, * h;
+        real y, c, h;
         double r;
 
         // Mathematical algorithm

@@ -21,14 +21,14 @@ complex complex_add(complex z, complex w)
 {
         // Declaration of structures
         complex r;
-        real n, *m, **x, **y;
+        real n, m, *x, *y;
 
         // Mathematic algorithm
         x = z->parts(z);
         y = w->parts(w);
         n = x[0]->add(x[0], y[0]);
         m = x[1]->add(x[1], y[1]);
-        c = complex_new(n, m);
+        r = complex_new(n, m);
 
         // Free structures
         free(x);

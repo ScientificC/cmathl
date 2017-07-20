@@ -28,7 +28,7 @@
 real real_cot(real x)
 {
         // Declaration of structures
-        real y, * z, * h;
+        real y, z, h;
 
         // Mathematical algorithm
         z = x->cos(x);

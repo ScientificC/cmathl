@@ -30,7 +30,7 @@
 real real_log_b(real x, real b)
 {
         // Declaration of structures
-        real y, * z, * w;
+        real y, z, w;
 
         // Mathematical algorithm
         y = x->ln(x);

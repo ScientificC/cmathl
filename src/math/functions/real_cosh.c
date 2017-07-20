@@ -30,7 +30,7 @@ real real_cosh(real x)
         // Domain check
 
         // Declaration of variables and structures
-        real y, * z, * w, * k, * c, * h;
+        real y, z, w, k, c, h;
 
         // Mathematic algorithm
         c = real_new(2.0);

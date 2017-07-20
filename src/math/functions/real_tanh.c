@@ -30,7 +30,7 @@ real real_tanh(real x)
         // Domain check
 
         // Declaration of variables and structures
-        real y, * z, * w, * h;
+        real y, z, w, h;
 
         // Mathematic algorithm
         y = x->sinh(x);

@@ -35,7 +35,7 @@ real real_pow(real x, real n)
         }
 
         // Declaration of structures
-        real s, * y, * z, * w, * k, * h;
+        real s, y, z, w, k, h;
 
         // Mathematical algorithm
         s = x->sgn(x);
