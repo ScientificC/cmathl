@@ -7,28 +7,23 @@ typedef struct _complex
         real real_part;
         real imaginary_part;
         // Methods
-        real (*getReal)(struct _complex *);
-        real (*getImaginary)(struct _complex *);
+        real (*real)(struct _complex *);
+        real (*imaginary)(struct _complex *);
         void (*setReal)(struct _complex *, real);
         void (*setImaginary)(struct _complex *, real);
         real* (*parts)(struct _complex *);
         char * (*asString)(struct _complex *);
 
         // Functions
-        // Composition laws
         struct _complex * (*add)(struct _complex *, struct _complex *);
         struct _complex * (*prod)(struct _complex *, struct _complex *);
-        // ---> Usefull Functions <---
         real (*abs)(struct _complex *);
-        struct _complex * (*conj)(struct _complex *);
+        struct _complex * (*conjugate)(struct _complex *);
 
-        // ---> Basic Functions <---
         struct _complex * (*sub)(struct _complex *, struct _complex *);
         struct _complex * (*div)(struct _complex *, struct _complex *);
-        // ---> Euler definitions <---
         struct _complex * (*exp)(struct _complex *);
 
-        // ---> Usefull functions
         struct _complex * (*ln)(struct _complex *);
         struct _complex * (*logE)(struct _complex *);
         struct _complex * (*logB)(struct _complex *, real);
@@ -37,9 +32,7 @@ typedef struct _complex
         struct _complex * (*root)(struct _complex *, real);
         struct _complex * (*sqrt)(struct _complex *);
         struct _complex * (*inverse)(struct _complex *);
-        void (*rotate)(struct _complex *, real);
 
-        // ---> Basic trigonometric functions <---
         struct _complex * (*sin)(struct _complex *);
         struct _complex * (*cos)(struct _complex *);
         struct _complex * (*tan)(struct _complex *);
@@ -48,7 +41,7 @@ typedef struct _complex
         struct _complex * (*cot)(struct _complex *);
         struct _complex * (*atan)(struct _complex *);
         struct _complex * (*atan2)(struct _complex *);
-        // ---> Hyperbolic functions
+
         struct _complex * (*sinh)(struct _complex *);
         struct _complex * (*cosh)(struct _complex *);
         struct _complex * (*tanh)(struct _complex *);

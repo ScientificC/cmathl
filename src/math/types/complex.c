@@ -54,8 +54,8 @@ void complex_set_imaginary(complex self, real x)
 real* complex_get_parts(complex self)
 {
         real* parts = malloc(sizeof(*parts));
-        parts[0] = self->getReal(self);
-        parts[1] = self->getImaginary(self);
+        parts[0] = self->real(self);
+        parts[1] = self->imaginary(self);
         return parts;
 }
 
@@ -65,8 +65,8 @@ char * complex_as_string(complex self)
 }
 
 void __complex_init__(complex self) {
-        self->getReal = &complex_get_real;
-        self->getImaginary = &complex_get_imaginary;
+        self->real = &complex_get_real;
+        self->imaginary = &complex_get_imaginary;
         self->setReal = &complex_set_real;
         self->setImaginary = &complex_set_imaginary;
         self->parts = &complex_get_parts;

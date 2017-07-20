@@ -17,28 +17,28 @@
 
 #include "../../../includes/cml.h"
 
-/*
- * (a + bi) + (c + di) = (a+c) + (b+d)i
- *
- */
-
-complex complex_add(complex self, complex z)
+real complex_abs(complex self)
 {
         // Declaration of structures
-        complex w;
-        real n, m, *x, *y;
+        real *x;
+        real n, a, b, w, h;
+
 
         // Mathematic algorithm
         x = self->parts(self);
-        y = z->parts(z);
-        n = x[0]->add(x[0], y[0]);
-        m = x[1]->add(x[1], y[1]);
-        w = complex_new(n, m);
+        n = real_new(2.0);
+        a = x[0]->pow(x[0], n);
+        b = x[1]->pow(x[1], n);
+        w = a->add(a, b);
+        h = w->sqrt(w);
 
         // Free structures
         free(x);
-        free(y);
+        free(n);
+        free(a);
+        free(b);
+        free(w);
 
         // Return
-        return w;
+        return h;
 }

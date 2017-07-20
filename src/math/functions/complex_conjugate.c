@@ -18,27 +18,23 @@
 #include "../../../includes/cml.h"
 
 /*
- * (a + bi) + (c + di) = (a+c) + (b+d)i
+ * Let z = a + bi, define the conjugate of z (w) as w = a - bi
  *
  */
 
-complex complex_add(complex self, complex z)
+complex complex_conjugate(complex self)
 {
         // Declaration of structures
-        complex w;
-        real n, m, *x, *y;
+        complex r;
+        real im;
 
         // Mathematic algorithm
-        x = self->parts(self);
-        y = z->parts(z);
-        n = x[0]->add(x[0], y[0]);
-        m = x[1]->add(x[1], y[1]);
-        w = complex_new(n, m);
+        im = self->imaginary(self);
+        r = complex_new(self->real(self), im->opposite(im));
 
         // Free structures
-        free(x);
-        free(y);
+        /* free(im); don't let im be free! */
 
         // Return
-        return w;
+        return r;
 }
