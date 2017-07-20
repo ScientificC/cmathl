@@ -30,7 +30,7 @@ real real_csch(real x)
         // Domain check
 
         // Declaration of variables and structures
-        real y, * h;
+        real y, h;
 
         // Mathematic algorithm
         y = x->sinh(x);

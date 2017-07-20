@@ -17,18 +17,25 @@
 
 #include "../../../includes/cml.h"
 
-real real_abs(real x)
+complex complex_add(complex z, complex w)
 {
         // Declaration of structures
-        real sgn, y;
+        complex r;
+        real n, m, *x, *y;
 
-        // Mathematical algorithm
-        sgn = x->sgn(x);
-        y = x->prod(x, sgn);
+        // Mathematic algorithm
+        x = z->parts(z);
+        y = w->parts(w);
+        n = x[0]->add(x[0], y[0]);
+        m = x[1]->add(x[1], y[1]);
+        r = complex_new(n, m);
 
         // Free structures
-        free(sgn);
+        free(x);
+        free(y);
+        free(n);
+        free(m);
 
         // Return
-        return y;
+        return r;
 }

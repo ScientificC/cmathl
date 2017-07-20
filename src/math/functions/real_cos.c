@@ -28,7 +28,7 @@
 real real_cos(real x)
 {
         // Declaration of structures
-        real half_pi, * y, * z, * h;
+        real half_pi, y, z, h;
 
         // Mathematical algorithm
         half_pi = real_new(HALFPI);

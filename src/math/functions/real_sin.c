@@ -51,7 +51,7 @@ real real_sin(real x)
         }
 
         // Declaration of variables and structures
-        real s, * y, * z, * w, * h;
+        real s, y, z, w, h;
         double r;
 
 

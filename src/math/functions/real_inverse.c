@@ -20,7 +20,7 @@
 real real_inverse(real x)
 {
         // Declaration of structures
-        real y, * h;
+        real y, h;
 
         // Mathematical algorithm
         y = real_new(1.0);

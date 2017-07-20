@@ -66,22 +66,23 @@ typedef struct _real
 
 } Real;
 
+typedef Real* real;
 
 // Construct & destruct
-Real * real_new(double);
-void real_free(Real *);
+real real_new(double);
+void real_free(real);
 
 // Initialization
-void __real_init__(Real *);
+void __real_init__(real);
 
 // getters
-double real_value(Real *);
+double real_value(real);
 
 // setters
-void real_set_value(Real *, double);
+void real_set_value(real, double);
 
 // Methods
-char * real_as_string(Real *);
-char * real_as_complex(Real *);
+char * real_as_string(real);
+char * real_as_complex(real);
 
 #endif

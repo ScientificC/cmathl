@@ -28,7 +28,7 @@
 real real_sec(real x)
 {
         // Declaration of structures
-        real y, * h;
+        real y, h;
 
         // Mathematical algorithm
         y = x->cos(x);

@@ -20,7 +20,7 @@
 
 void __cml_test()
 {
-        real x, * y, * z, * c, * h;
+        real x, y, z, c, h;
         x = real_new(2.0);
         z = real_new(2.0);
         y = x->pow(x, z);
