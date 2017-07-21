@@ -19,6 +19,7 @@ typedef struct _complex
         struct _complex * (*prod)(struct _complex *, struct _complex *);
         real (*abs)(struct _complex *);
         struct _complex * (*conjugate)(struct _complex *);
+        struct _complex * (*inverse)(struct _complex *);
 
         struct _complex * (*sub)(struct _complex *, struct _complex *);
         struct _complex * (*div)(struct _complex *, struct _complex *);
@@ -31,7 +32,6 @@ typedef struct _complex
         struct _complex * (*pow)(struct _complex *, real);
         struct _complex * (*root)(struct _complex *, real);
         struct _complex * (*sqrt)(struct _complex *);
-        struct _complex * (*inverse)(struct _complex *);
 
         struct _complex * (*sin)(struct _complex *);
         struct _complex * (*cos)(struct _complex *);

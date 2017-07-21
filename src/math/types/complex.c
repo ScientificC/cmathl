@@ -71,4 +71,11 @@ void __complex_init__(complex self) {
         self->setImaginary = &complex_set_imaginary;
         self->parts = &complex_get_parts;
         self->asString = &complex_as_string;
+        self->add = &complex_add;
+        self->prod = &complex_prod;
+        self->sub = &complex_sub;
+        self->div = &complex_div;
+        self->abs = &complex_abs;
+        self->inverse = &complex_inverse;
+        self->conjugate = &complex_conjugate;
 }

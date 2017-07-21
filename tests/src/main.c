@@ -20,14 +20,31 @@
 
 void __cml_test()
 {
-        real x, y, z, c, h;
-        x = real_new(2.0);
-        z = real_new(2.0);
-        y = x->pow(x, z);
-        c = real_new(1.0);
-        h = c->sin(c);
-        printf("%g\n", y->value(y));
-        printf("%g\n", h->value(h));
+        real x, y, h, a, b;
+        complex z, w, k;
+
+        x = real_new(520.0);
+        y = real_new(20.0);
+        h = real_new(500.0);
+
+        a = y->pow(y, h);
+        b = h->sin(h);
+
+        z = complex_new(x, y);
+        w = complex_new(y, h);
+
+        k = z->add(z, w);
+
+        printf("%s\n", b->asString(b));
+
+        free(x);
+        free(y);
+        free(h);
+        free(a);
+        free(b);
+        free(z);
+        free(w);
+        free(k);
 }
 
 int main(int argc, char const *argv[])
