@@ -8,6 +8,9 @@ complex complex_sub(complex, complex);
 complex complex_div(complex, complex);
 complex complex_inverse(complex);
 complex complex_conjugate(complex);
+complex complex_exp(complex);
+complex complex_sin(complex);
+complex complex_cos(complex);
 
 
 #endif

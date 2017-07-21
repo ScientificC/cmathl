@@ -78,4 +78,7 @@ void __complex_init__(complex self) {
         self->abs = &complex_abs;
         self->inverse = &complex_inverse;
         self->conjugate = &complex_conjugate;
+        self->exp = &complex_exp;
+        self->sin = &complex_sin;
+        self->cos = &complex_cos;
 }
