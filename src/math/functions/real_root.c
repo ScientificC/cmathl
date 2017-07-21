@@ -27,11 +27,6 @@
 
 real real_root(real x, real n)
 {
-        // Domain check
-        if (!n->isNatural(n)) {
-                return real_new(NAN);
-        }
-
         // Declaration of structures
         real w, y, z;
 
