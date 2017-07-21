@@ -28,7 +28,7 @@ void __cml_test()
         h = real_new(2.0);
 
         a = y->pow(y, h);
-        b = h->sinh(h);
+        b = h->sqrt(h);
 
         z = complex_new(x, y);
         w = complex_new(y, h);
