@@ -23,12 +23,12 @@ void __cml_test()
         real x, y, h, a, b;
         complex z, w, k;
 
-        x = real_new(520.0);
-        y = real_new(20.0);
-        h = real_new(500.0);
+        x = real_new(2.0);
+        y = real_new(4.0);
+        h = real_new(2.0);
 
         a = y->pow(y, h);
-        b = h->sin(h);
+        b = h->sinh(h);
 
         z = complex_new(x, y);
         w = complex_new(y, h);

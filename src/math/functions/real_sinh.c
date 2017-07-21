@@ -38,7 +38,7 @@ real real_sinh(real x)
         z = x->exp(x);
         w = y->exp(y);
         k = z->sub(z, w);
-        h = z->div(z, c);
+        h = k->div(k, c);
 
         // Free structures
         free(y);
