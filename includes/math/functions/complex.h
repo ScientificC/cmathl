@@ -11,6 +11,7 @@ complex complex_conjugate(complex);
 complex complex_exp(complex);
 complex complex_sin(complex);
 complex complex_cos(complex);
+complex complex_tan(complex);
 
 
 #endif

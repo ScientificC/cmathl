@@ -81,4 +81,5 @@ void __complex_init__(complex self) {
         self->exp = &complex_exp;
         self->sin = &complex_sin;
         self->cos = &complex_cos;
+        self->tan = &complex_tan;
 }
