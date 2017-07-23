@@ -15,34 +15,31 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
-
-void __cml_test()
+complex complex_tanh(complex self)
 {
-        real x, y, a, b;
-        complex z, w;
+        // Domain check
+        complex c = self->cosh(self);
+        real a = c->abs(c);
+        if (!a->isNull(a)) {
+                free(a);
+                free(c);
+                return complex_new(real_new(NAN), real_new(NAN));
+        }
+        free(a);
 
-        x = real_new(1.0);
-        y = real_new(4.0);
+        // Declaration of structures
+        complex s, w;
 
+        // Mathematic algorithm
+        s = self->sinh(self);
+        w = s->div(s, c);
 
-        z = complex_new(x, y);
-        w = z->sin(z);
-        a = w->real(w);
-        b = w->imaginary(w);
+        // Free structures
+        free(s);
+        free(c);
 
-        printf("%s\n", a->asString(a));
-        printf("%s\n", b->asString(b));
-
-        free(x);
-        free(y);
-        free(z);
-        free(w);
-}
-
-int main(int argc, char const *argv[])
-{
-        __cml_test();
-        return 0;
+        // Return
+        return w;
 }
