@@ -18,8 +18,8 @@
 #include "../../../includes/cml.h"
 
 /*
- * cos(Z) = (cos(b) * ((e^a - e^-a) / 2) + (sin(b) * (e^a + e^-a) / 2))i
- * cos(Z) = (cos(b) * sinh(a)) + (sin(b) * cosh(a))i
+ * cos(Z) = (cos(a) * ((e^b - e^-b) / 2) + (sin(a) * (e^b + e^-b) / 2))i
+ * cos(Z) = (cos(a) * sinh(b)) + (sin(a) * cosh(b))i
  *
  * @param complex self
  *
@@ -37,10 +37,10 @@ complex complex_cos(complex self)
         // Mathematic algorithm
         x = self->parts(self);
 
-        k = x[1]->cos(x[1]);
-        h = x[1]->sin(x[1]);
-        a = x[0]->sinh(x[0]);
-        b = x[0]->cosh(x[0]);
+        k = x[0]->cos(x[0]);
+        h = x[0]->sin(x[0]);
+        a = x[1]->sinh(x[1]);
+        b = x[1]->cosh(x[1]);
 
         n = k->prod(k, a);
         m = h->prod(h, b);
