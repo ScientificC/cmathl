@@ -12,6 +12,11 @@ complex complex_exp(complex);
 complex complex_sin(complex);
 complex complex_cos(complex);
 complex complex_tan(complex);
-
+complex complex_sec(complex);
+complex complex_csc(complex);
+complex complex_cot(complex);
+complex complex_sinh(complex);
+complex complex_cosh(complex);
+complex complex_tanh(complex);
 
 #endif
