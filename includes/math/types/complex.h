@@ -61,9 +61,6 @@ typedef Complex* complex;
 complex complex_new(real, real);
 void complex_free(complex);
 
-// Initialization
-void __complex_init__(complex);
-
 // getters
 real complex_get_real(complex);
 real complex_get_imaginary(complex);

@@ -17,10 +17,12 @@
 
 #include "../../../includes/cml.h"
 
+void init_complex(complex);
+
 complex complex_new(real real_part, real imaginary_part)
 {
         complex self = malloc(4*sizeof(double) + 45*sizeof(void *));
-        __complex_init__(self);
+        init_complex(self);
         self->setReal(self, real_part);
         self->setImaginary(self, imaginary_part);
         return self;
@@ -64,7 +66,8 @@ char * complex_as_string(complex self)
         return "a + bi";
 }
 
-void __complex_init__(complex self) {
+void init_complex(complex self)
+{
         self->real = &complex_get_real;
         self->imaginary = &complex_get_imaginary;
         self->setReal = &complex_set_real;
