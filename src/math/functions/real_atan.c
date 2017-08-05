@@ -15,37 +15,33 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
-
-void __cml_test()
+double __atan__(double x)
 {
-        real x, y, a, b, g;
-        complex z, w;
+  int i;
+  double ai_n = x,
+         p = ai_n;
 
-        x = real_new(1.0);
-        y = real_new(4.0);
+  for (i = 1; i <= TOPL; i += 2) {
+    ai_n = -ai_n*x*x;
+    p += ai_n/((double) i + 2.0);
+  }
 
-
-        z = complex_new(x, y);
-        w = z->sin(z);
-        a = w->real(w);
-        b = w->imaginary(w);
-        g = x->atan(x);
-
-        printf("%s\n", a->asString(a));
-        printf("%s\n", b->asString(b));
-        printf("%s\n", g->asString(g));
-
-        free(x);
-        free(y);
-        free(g);
-        free(z);
-        free(w);
+  return p;
 }
 
-int main(int argc, char const *argv[])
+
+real real_atan(real x)
 {
-        __cml_test();
-        return 0;
+        // Declaration of structures
+        double y;
+        real w;
+
+        // Mathematical algorithm
+        y = __atan__(x->value(x));
+        w = real_new(y);
+
+        // Return
+        return w;
 }

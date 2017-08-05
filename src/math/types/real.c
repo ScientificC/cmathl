@@ -19,7 +19,7 @@
 
 real real_new(double value)
 {
-        real self = malloc(4*sizeof(double) + 50*sizeof(void *));
+        real self = (real) malloc(4*sizeof(double) + 50*sizeof(void *));
         init_real(self);
         self->setValue(self, value);
         return self;
@@ -90,6 +90,7 @@ void init_real(real self)
         self->sec = &real_sec;
         self->csc = &real_csc;
         self->cot = &real_cot;
+        self->atan = &real_atan;
         self->sinh = &real_sinh;
         self->cosh = &real_cosh;
         self->tanh = &real_tanh;

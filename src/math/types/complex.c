@@ -19,7 +19,7 @@
 
 complex complex_new(real real_part, real imaginary_part)
 {
-        complex self = malloc(4*sizeof(double) + 45*sizeof(void *));
+        complex self = (complex) malloc(4*sizeof(double) + 45*sizeof(void *));
         init_complex(self);
         self->setReal(self, real_part);
         self->setImaginary(self, imaginary_part);
