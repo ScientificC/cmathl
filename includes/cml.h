@@ -9,6 +9,6 @@
 #include "math/functions/real.h"
 #include "math/functions/complex.h"
 
-#define TOPL 100000
+#define TOPL MAXLOG*14
 
 #endif
