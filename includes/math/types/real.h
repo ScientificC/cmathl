@@ -51,7 +51,7 @@ typedef struct _real
         struct _real * (*csc)(struct _real *);
         struct _real * (*cot)(struct _real *);
         struct _real * (*atan)(struct _real *);
-        struct _real * (*atan2)(struct _real *);
+        struct _real * (*atan2)(struct _real *, struct _real *);
 
         struct _real * (*sinh)(struct _real *);
         struct _real * (*cosh)(struct _real *);

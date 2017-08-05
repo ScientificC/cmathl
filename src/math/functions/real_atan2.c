@@ -15,37 +15,33 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
+/*
+ * atan2(x, y) = HALFPI*sgn(y) - atan(x/y)
+ *
+ */
 
-void __cml_test()
+real real_atan2(real x, real y)
 {
-        real x, y, a, b, g;
-        complex z, w;
+        // Declaration of structures
+        real s, h, k, j, z, w;
 
-        x = real_new(1.0);
-        y = real_new(4.0);
+        // Mathematic algorithm
+        s = y->sgn(y);
+        h = real_new(HALFPI);
+        k = x->div(x, y);
+        j = k->atan(k);
+        z = h->prod(h, s);
+        w = z->sub(z, j);
 
-
-        z = complex_new(x, y);
-        w = z->sin(z);
-        a = w->real(w);
-        b = w->imaginary(w);
-        g = x->atan2(x, y);
-
-        printf("%s\n", a->asString(a));
-        printf("%s\n", b->asString(b));
-        printf("%s\n", g->asString(g));
-
-        free(x);
-        free(y);
-        free(g);
+        // Free structures
+        free(s);
+        free(h);
+        free(k);
+        free(j);
         free(z);
-        free(w);
-}
 
-int main(int argc, char const *argv[])
-{
-        __cml_test();
-        return 0;
+        // Return
+        return w;
 }

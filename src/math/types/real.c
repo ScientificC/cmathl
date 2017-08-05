@@ -91,6 +91,7 @@ void init_real(real self)
         self->csc = &real_csc;
         self->cot = &real_cot;
         self->atan = &real_atan;
+        self->atan2 = &real_atan2;
         self->sinh = &real_sinh;
         self->cosh = &real_cosh;
         self->tanh = &real_tanh;

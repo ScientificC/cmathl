@@ -39,7 +39,7 @@ real real_sec(real);
 real real_csc(real);
 real real_cot(real);
 real real_atan(real);
-real real_atan2(real);
+real real_atan2(real, real);
 real real_sinh(real);
 real real_cosh(real);
 real real_tanh(real);
