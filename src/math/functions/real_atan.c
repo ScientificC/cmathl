@@ -19,16 +19,16 @@
 
 double __atan__(double x)
 {
-  int i;
-  double ai_n = x,
-         p = ai_n;
+        int i;
+        double ai_n = x,
+               p = ai_n;
 
-  for (i = 1; i <= TOPL; i += 2) {
-    ai_n = -ai_n*x*x;
-    p += ai_n/((double) i + 2.0);
-  }
+        for (i = 1; i <= TOPL; i += 2) {
+                ai_n = -ai_n*x*x;
+                p += ai_n/((double) i + 2.0);
+        }
 
-  return p;
+        return p;
 }
 
 
