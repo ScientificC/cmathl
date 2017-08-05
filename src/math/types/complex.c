@@ -17,8 +17,6 @@
 
 #include "../../../includes/cml.h"
 
-void init_complex(complex);
-
 complex complex_new(real real_part, real imaginary_part)
 {
         complex self = malloc(4*sizeof(double) + 45*sizeof(void *));
@@ -28,7 +26,7 @@ complex complex_new(real real_part, real imaginary_part)
         return self;
 }
 
-void complex_destruct(complex self)
+void complex_free(complex self)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
@@ -88,4 +86,5 @@ void init_complex(complex self)
         self->sec = &complex_sec;
         self->csc = &complex_csc;
         self->cot = &complex_cot;
+        self->free = &complex_free;
 }

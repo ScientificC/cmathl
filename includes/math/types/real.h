@@ -72,6 +72,9 @@ typedef Real* real;
 real real_new(double);
 void real_free(real);
 
+// Initialization
+void init_real(real);
+
 // getters
 double real_value(real);
 

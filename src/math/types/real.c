@@ -17,8 +17,6 @@
 
 #include "../../../includes/cml.h"
 
-void init_real(real);
-
 real real_new(double value)
 {
         real self = malloc(4*sizeof(double) + 50*sizeof(void *));
@@ -27,7 +25,7 @@ real real_new(double value)
         return self;
 }
 
-void real_destruct(real self)
+void real_free(real self)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
@@ -99,4 +97,5 @@ void init_real(real self)
         self->csch = &real_csch;
         self->coth = &real_coth;
         self->atanh = &real_atanh;
+        self->free = &real_free;
 }
