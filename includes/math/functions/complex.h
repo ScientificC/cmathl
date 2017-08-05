@@ -2,6 +2,8 @@
 #define COMPLEX_FUNC_H
 
 real complex_abs(complex);
+real complex_arg(complex);
+
 complex complex_add(complex, complex);
 complex complex_prod(complex, complex);
 complex complex_sub(complex, complex);
