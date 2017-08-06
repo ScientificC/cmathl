@@ -18,7 +18,7 @@
 
 #include "../../includes/cml.h"
 
-void __cml_test()
+void __cml_test__()
 {
         real x, y, a, b, g;
         complex z, w;
@@ -26,12 +26,11 @@ void __cml_test()
         x = real_new(1.0);
         y = real_new(4.0);
 
-
         z = complex_new(x, y);
         w = z->sin(z);
         a = w->real(w);
         b = w->imaginary(w);
-        g = x->atan2(x, y);
+        g = z->arg(z);
 
         printf("%s\n", a->asString(a));
         printf("%s\n", b->asString(b));
@@ -46,6 +45,6 @@ void __cml_test()
 
 int main(int argc, char const *argv[])
 {
-        __cml_test();
+        __cml_test__();
         return 0;
 }

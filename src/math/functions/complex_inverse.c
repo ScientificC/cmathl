@@ -31,7 +31,7 @@ complex complex_inverse(complex self)
         real a, b, i, m, n;
 
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         z = self->conjugate(self);
         x = z->parts(z);
         a = self->abs(self);

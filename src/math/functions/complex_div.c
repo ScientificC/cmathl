@@ -22,7 +22,7 @@ complex complex_div(complex self, complex z)
         // Declaration of structures
         complex r, w;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         r = z->inverse(z);
         w = self->prod(self, r);
 

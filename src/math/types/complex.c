@@ -77,6 +77,7 @@ void init_complex(complex self)
         self->sub = &complex_sub;
         self->div = &complex_div;
         self->abs = &complex_abs;
+        self->arg = &complex_arg;
         self->inverse = &complex_inverse;
         self->conjugate = &complex_conjugate;
         self->exp = &complex_exp;

@@ -32,7 +32,7 @@ complex complex_tan(complex self)
         // Declaration of structures
         complex s, w;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         s = self->sin(self);
         w = s->div(s, c);
 

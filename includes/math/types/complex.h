@@ -17,7 +17,10 @@ typedef struct _complex
         // Functions
         struct _complex * (*add)(struct _complex *, struct _complex *);
         struct _complex * (*prod)(struct _complex *, struct _complex *);
+
         real (*abs)(struct _complex *);
+        real (*arg)(struct _complex *);
+
         struct _complex * (*conjugate)(struct _complex *);
         struct _complex * (*inverse)(struct _complex *);
 

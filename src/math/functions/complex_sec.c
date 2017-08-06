@@ -32,7 +32,7 @@ complex complex_sec(complex self)
         // Declaration of structures
         complex w;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         w = c->inverse(c);
 
         // Free structures

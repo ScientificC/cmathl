@@ -28,7 +28,7 @@ complex complex_add(complex self, complex z)
         complex w;
         real n, m, *x, *y;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         x = self->parts(self);
         y = z->parts(z);
         n = x[0]->add(x[0], y[0]);

@@ -27,7 +27,7 @@ real real_atan2(real x, real y)
         // Declaration of structures
         real s, h, k, j, z, w;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         s = y->sgn(y);
         h = real_new(HALFPI);
         k = x->div(x, y);

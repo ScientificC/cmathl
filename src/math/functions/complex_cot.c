@@ -32,7 +32,7 @@ complex complex_cot(complex self)
         // Declaration of structures
         complex c, w;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         c = self->cos(self);
         w = s->div(c, s);
 

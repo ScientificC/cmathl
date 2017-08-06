@@ -24,7 +24,7 @@ real complex_abs(complex self)
         real n, a, b, w, h;
 
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         x = self->parts(self);
         n = real_new(2.0);
         a = x[0]->pow(x[0], n);

@@ -33,7 +33,7 @@ complex complex_exp(complex self)
         real *p;
         real n, m, h, x, y;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         p = self->parts(self);
         h = p[0]->exp(p[0]);
         n = p[1]->cos(p[1]);

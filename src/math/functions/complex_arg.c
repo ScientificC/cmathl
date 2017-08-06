@@ -16,3 +16,20 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #include "../../../includes/cml.h"
+
+real complex_arg(complex self)
+{
+        // Declaration of structures
+        real w;
+        real *p;
+
+        // Mathematical algorithm
+        p = self->parts(self);
+        w = p[0]->atan2(p[0], p[1]);
+
+        // Free structures
+        free(p);
+
+        // Return
+        return w;
+}

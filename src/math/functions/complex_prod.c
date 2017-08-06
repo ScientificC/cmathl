@@ -30,7 +30,7 @@ complex complex_prod(complex self, complex z)
         real *x, *y;
         double a, b, c, d;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         x = self->parts(self);
         y = z->parts(z);
 

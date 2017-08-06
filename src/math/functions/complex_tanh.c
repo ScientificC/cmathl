@@ -32,7 +32,7 @@ complex complex_tanh(complex self)
         // Declaration of structures
         complex s, w;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         s = self->sinh(self);
         w = s->div(s, c);
 

@@ -28,7 +28,7 @@ complex complex_conjugate(complex self)
         complex r;
         real im;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         im = self->imaginary(self);
         r = complex_new(self->real(self), im->opposite(im));
 

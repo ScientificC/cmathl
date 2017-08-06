@@ -34,7 +34,7 @@ complex complex_cosh(complex self)
         real *x;
         real k, h, a, b, n, m;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         x = self->parts(self);
 
         k = x[1]->cos(x[1]);

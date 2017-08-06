@@ -23,7 +23,7 @@ complex complex_sub(complex self, complex z)
         complex h, w;
         real n, m, *x;
 
-        // Mathematic algorithm
+        // Mathematical algorithm
         x = z->parts(z);
         n = x[0]->opposite(x[0]);
         m = x[1]->opposite(x[1]);
