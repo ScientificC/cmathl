@@ -1,7 +1,7 @@
 # cml
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-![Version: v1.2](https://img.shields.io/badge/Version-v1.2-blue.svg)
+![Version: v1.5](https://img.shields.io/badge/Version-v1.5-blue.svg)
 
 ## Introduction
 
