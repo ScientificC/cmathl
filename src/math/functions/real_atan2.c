@@ -18,11 +18,11 @@
 #include "../../../includes/cml.h"
 
 /*
- * atan2(x, y) = HALFPI*sgn(y) - atan(x/y)
+ * atan2(y, x) = HALFPI*sgn(y) - atan(x/y)
  *
  */
 
-real real_atan2(real x, real y)
+real real_atan2(real y, real x)
 {
         // Declaration of structures
         real s, h, k, j, z, w;

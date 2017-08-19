@@ -25,7 +25,7 @@ real complex_arg(complex self)
 
         // Mathematical algorithm
         p = self->parts(self);
-        w = p[0]->atan2(p[0], p[1]);
+        w = p[1]->atan2(p[1], p[0]);
 
         // Free structures
         free(p);
