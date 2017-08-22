@@ -25,11 +25,10 @@ complex complex_log(complex self)
 {
         // Declaration of structures
         complex w;
-        real r, a, x, y;
+        real a, x, y;
 
         // Mathematic algorithm
-        r = self->real(self);
-        a = r->abs(r);
+        a = self->abs(self);
         x = a->ln(a);
         y = self->arg(self);
         w = complex_new(x, y);
