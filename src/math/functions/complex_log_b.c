@@ -15,35 +15,25 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
-
-void __cml_test__()
+/*
+ * logb(z) = log(z)/log(b)
+ */
+complex complex_log_b(complex self, complex b)
 {
-        real x, y, a, b;
-        complex z, w, g;
+        // Declaration of structures
+        complex k, h, w;
 
-        x = real_new(1.0);
-        y = real_new(4.0);
+        // Mathematic algorithm
+        k = self->log(self);
+        h = b->log(b);
+        w = k->div(k, h);
 
-        z = complex_new(x, y);
-        w = z->sin(z);
-        g = z->log(z);
-        a = g->real(g);
-        b = g->imaginary(g);
+        // Free structures
+        free(k);
+        free(h);
 
-        printf("%s\n", a->asString(a));
-        printf("%s\n", b->asString(b));
-
-        free(x);
-        free(y);
-        free(g);
-        free(z);
-        free(w);
-}
-
-int main(int argc, char const *argv[])
-{
-        __cml_test__();
-        return 0;
+        // Return
+        return w;
 }

@@ -74,6 +74,7 @@ void init_complex(complex self)
         self->asString = &complex_as_string;
         self->add = &complex_add;
         self->prod = &complex_prod;
+        self->scalar = &complex_scalar_prod;
         self->sub = &complex_sub;
         self->div = &complex_div;
         self->abs = &complex_abs;
@@ -81,6 +82,8 @@ void init_complex(complex self)
         self->inverse = &complex_inverse;
         self->conjugate = &complex_conjugate;
         self->exp = &complex_exp;
+        self->log = &complex_log;
+        self->logB = &complex_log_b;
         self->sin = &complex_sin;
         self->cos = &complex_cos;
         self->tan = &complex_tan;

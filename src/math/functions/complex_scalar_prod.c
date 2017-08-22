@@ -15,35 +15,23 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include "../../../includes/cml.h"
 
-#include "../../includes/cml.h"
-
-void __cml_test__()
+complex complex_scalar_prod(complex self, real k)
 {
-        real x, y, a, b;
-        complex z, w, g;
+        // Declaration of structures
+        complex w;
+        real *p, x, y;
 
-        x = real_new(1.0);
-        y = real_new(4.0);
+        // Mathematic algorithm
+        p = self->parts(self);
+        x = k->prod(k, p[0]);
+        y = k->prod(k, p[1]);
+        w = complex_new(x, y);
 
-        z = complex_new(x, y);
-        w = z->sin(z);
-        g = z->log(z);
-        a = g->real(g);
-        b = g->imaginary(g);
+        // Free structures
+        free(p);
 
-        printf("%s\n", a->asString(a));
-        printf("%s\n", b->asString(b));
-
-        free(x);
-        free(y);
-        free(g);
-        free(z);
-        free(w);
-}
-
-int main(int argc, char const *argv[])
-{
-        __cml_test__();
-        return 0;
+        // Return
+        return w;
 }

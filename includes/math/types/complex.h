@@ -26,15 +26,13 @@ typedef struct _complex
 
         struct _complex * (*sub)(struct _complex *, struct _complex *);
         struct _complex * (*div)(struct _complex *, struct _complex *);
+        struct _complex * (*scalar)(struct _complex *, real);
         struct _complex * (*exp)(struct _complex *);
 
-        struct _complex * (*ln)(struct _complex *);
-        struct _complex * (*logE)(struct _complex *);
-        struct _complex * (*logB)(struct _complex *, real);
         struct _complex * (*log)(struct _complex *);
-        struct _complex * (*pow)(struct _complex *, real);
+        struct _complex * (*logB)(struct _complex *, struct _complex *);
+        struct _complex * (*pow)(struct _complex *, struct _complex *);
         struct _complex * (*root)(struct _complex *, real);
-        struct _complex * (*sqrt)(struct _complex *);
 
         struct _complex * (*sin)(struct _complex *);
         struct _complex * (*cos)(struct _complex *);
