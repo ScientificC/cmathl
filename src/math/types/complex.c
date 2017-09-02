@@ -107,5 +107,8 @@ void init_complex(complex self)
         self->sec = &complex_sec;
         self->csc = &complex_csc;
         self->cot = &complex_cot;
+        self->sinh = &complex_sinh;
+        self->cosh = &complex_cosh;
+        self->tanh = &complex_tanh;
         self->free = &complex_free;
 }
