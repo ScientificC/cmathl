@@ -20,7 +20,7 @@
 
 void __cml_test__()
 {
-        real x, y, a, b;
+        real x, y;
         complex z, w, g;
 
         x = real_new(1.0);
@@ -29,11 +29,9 @@ void __cml_test__()
         z = complex_new(x, y);
         w = z->sin(z);
         g = z->log(z);
-        a = g->real(g);
-        b = g->imaginary(g);
 
-        printf("%s\n", a->asString(a));
-        printf("%s\n", b->asString(b));
+        printf("%s\n", z->asString(z));
+        printf("%s\n", g->asString(g));
 
         free(x);
         free(y);

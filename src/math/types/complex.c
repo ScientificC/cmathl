@@ -61,7 +61,24 @@ real* complex_get_parts(complex self)
 
 char * complex_as_string(complex self)
 {
-        return "a + bi";
+        char *x, *y, op[5], im[5];
+        double im_value;
+
+        real* parts = self->parts(self);
+        im_value = parts[1]->value(parts[1]);
+
+        x = (char*) parts[0]->asString(parts[0]);
+        y = (char*) parts[1]->asString(parts[1]);
+
+        strcpy(op, (im_value >= 0.0 ? " + " : " "));
+        strcpy(im, "i");
+        strcat(x, op);
+        strcat(y, im);
+        strcat(x, y);
+
+        free(parts);
+
+        return x;
 }
 
 void init_complex(complex self)
