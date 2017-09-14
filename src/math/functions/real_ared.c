@@ -15,6 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include <stdlib.h>
 #include "../../../includes/cml.h"
 
 // An angle x is reduced to the interval [0, 2pi] by subtracting a number k of 2pi radians, where k is the integer division between x and 2pi

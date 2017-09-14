@@ -15,4 +15,4 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
-#include "../../includes/cml.h"
+#include <stdlib.h>

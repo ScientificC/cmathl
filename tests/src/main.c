@@ -16,6 +16,9 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "../../includes/cml.h"
 
 void __cml_test__()
@@ -42,6 +45,8 @@ void __cml_test__()
 
 int main(int argc, char const *argv[])
 {
+        clock_t cl = clock();
         __cml_test__();
+        printf("%Lg%s\n", (long double)(clock()-cl)/CLOCKS_PER_SEC, "s");
         return 0;
 }

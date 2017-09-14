@@ -15,6 +15,9 @@
    You should have received a copy of the GNU General Public License
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "../../../includes/cml.h"
 
 complex complex_new(real real_part, real imaginary_part)
