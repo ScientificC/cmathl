@@ -16,5 +16,14 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #include <stdlib.h>
-#include <stdargs.h>
-#include <pthreads.h>
+#include <stdarg.h>
+#include <pthread.h>
+#include "../../includes/bin/cml_threads.h"
+
+block_t block_create(void *(*function)(void *,...), void **argv)
+{
+        block_t block;
+        block.function = function;
+        block.argv = argv;
+        return block;
+}

@@ -6,4 +6,7 @@ typedef struct _block {
         void *(*function)(void *, ...);
 } block_t;
 
+block_t block_create(void *(*)(void *, ...), void **);
+void block_destroy(block_t *);
+
 #endif

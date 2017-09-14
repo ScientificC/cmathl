@@ -1,5 +1,5 @@
 SOURCE_FOLDER=./src
-UTILS_FOLDER=./utils/src
+BIN_FOLDER=./src/bin
 MATH_FOLDER=$(SOURCE_FOLDER)/math
 FUNC_FOLDER=$(MATH_FOLDER)/functions
 TEST_FOLDER=./tests/src
@@ -14,7 +14,7 @@ TEST_OUTPUT_NAME=cmlMainTest
 # Optimization: -O0 baja, -O1 normal, -O2 optimizado, -O3 alta
 # Show all warnings
 # Compiles in gnu11 std
-CFLAGS=-O3 -Wall -std=gnu11
+CFLAGS=-O3 -Wall -std=gnu11 -pthread
 
 # Uncomment to debug
 DEBUG=-g
@@ -26,7 +26,7 @@ DEBUG=-g
 all:	folders c.o
 
 c.o:
-	gcc $(TEST_FOLDER)/main.c $(MATH_FOLDER)/types/* $(FUNC_FOLDER)/* -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
+	gcc $(TEST_FOLDER)/main.c $(MATH_FOLDER)/types/* $(FUNC_FOLDER)/* $(BIN_FOLDER)/* -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
 
 
 clean:
