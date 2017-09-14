@@ -64,9 +64,9 @@ typedef struct _real
         // Destructor
         void (*free)(struct _real *);
 
-} Real;
+} real_t;
 
-typedef Real* real;
+typedef real_t* real;
 
 // Construct & destruct
 real real_new(double);

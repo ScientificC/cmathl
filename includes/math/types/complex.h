@@ -54,9 +54,9 @@ typedef struct _complex
         // Destructor
         void (*free)(struct _complex *);
 
-} Complex;
+} complex_t;
 
-typedef Complex* complex;
+typedef complex_t* complex;
 
 // Construct & destruct
 complex complex_new(real, real);

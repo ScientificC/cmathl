@@ -16,4 +16,5 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 #include <stdlib.h>
+#include <stdargs.h>
 #include <pthreads.h>

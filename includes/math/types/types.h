@@ -9,5 +9,4 @@ enum { false, true };
 #include "rational.h"
 #include "complex.h"
 
-
 #endif
