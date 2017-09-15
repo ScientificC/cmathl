@@ -27,12 +27,15 @@ static pthread_mutex_t lock;
 block_t block_create(double *(*function)(int *, double **), double **argv)
 {
         double r = 0.0;
-        block_t block;
-        block.function = function;
-        block.argv = argv;
-        block.from = 0;
-        block.delta = 0;
-        block.response = &r;
+
+        block_t block = {
+                .function = function,
+                .argv = argv,
+                .from = 0,
+                .delta = 0,
+                .response = &r
+        };
+        
         return block;
 }
 
