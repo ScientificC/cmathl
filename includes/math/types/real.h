@@ -68,6 +68,8 @@ typedef struct _real
 
 typedef real_t* real;
 
+real_t real_create(double);
+
 // Construct & destruct
 real real_new(double);
 void real_free(real);

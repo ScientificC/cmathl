@@ -58,6 +58,8 @@ typedef struct _complex
 
 typedef complex_t* complex;
 
+complex_t complex_create(real, real);
+
 // Construct & destruct
 complex complex_new(real, real);
 void complex_free(complex);

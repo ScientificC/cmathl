@@ -20,6 +20,16 @@
 #include <string.h>
 #include "../../../includes/cml.h"
 
+real_t real_create(double value)
+{
+        real_t self = {
+                .real_value = value
+        };
+
+        init_real(&self);
+        return self;
+}
+
 real real_new(double value)
 {
         real self = (real) malloc(4*sizeof(double) + 50*sizeof(void *));

@@ -20,6 +20,18 @@
 #include <string.h>
 #include "../../../includes/cml.h"
 
+complex_t complex_create(real real_part, real imaginary_part)
+{
+        complex_t self = {
+          .real_part = real_part,
+          .imaginary_part = imaginary_part
+        };
+
+        init_complex(&self);
+
+        return self;
+}
+
 complex complex_new(real real_part, real imaginary_part)
 {
         complex self = (complex) malloc(4*sizeof(double) + 45*sizeof(void *));
