@@ -23,8 +23,8 @@
 complex_t complex_create(real real_part, real imaginary_part)
 {
         complex_t self = {
-          .real_part = real_part,
-          .imaginary_part = imaginary_part
+                .real_part = real_part,
+                .imaginary_part = imaginary_part
         };
 
         init_complex(&self);
