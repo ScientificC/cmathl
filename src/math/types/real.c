@@ -32,9 +32,9 @@ real_t real_create(double value)
 
 real real_new(double value)
 {
-        real self = (real) malloc(4*sizeof(double) + 50*sizeof(void *));
-        init_real(self);
-        self->setValue(self, value);
+        real self = (real) malloc(sizeof (real_t));
+        (*self) = real_create(value);
+
         return self;
 }
 

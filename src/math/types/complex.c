@@ -34,10 +34,9 @@ complex_t complex_create(real real_part, real imaginary_part)
 
 complex complex_new(real real_part, real imaginary_part)
 {
-        complex self = (complex) malloc(4*sizeof(double) + 45*sizeof(void *));
-        init_complex(self);
-        self->setReal(self, real_part);
-        self->setImaginary(self, imaginary_part);
+        complex self = (complex) malloc(sizeof (complex_t));
+        (*self) = complex_create(real_part, imaginary_part);
+
         return self;
 }
 
