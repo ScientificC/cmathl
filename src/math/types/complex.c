@@ -22,12 +22,11 @@
 
 complex_t complex_create(real real_part, real imaginary_part)
 {
-        complex_t self = {
-                .real_part = real_part,
-                .imaginary_part = imaginary_part
-        };
+        complex_t self;
 
         init_complex(&self);
+        self.real_part = real_part;
+        self.imaginary_part = imaginary_part;
 
         return self;
 }
@@ -97,32 +96,35 @@ char * complex_as_string(complex self)
 
 void init_complex(complex self)
 {
-        self->real = &complex_get_real;
-        self->imaginary = &complex_get_imaginary;
-        self->setReal = &complex_set_real;
-        self->setImaginary = &complex_set_imaginary;
-        self->parts = &complex_get_parts;
-        self->asString = &complex_as_string;
-        self->add = &complex_add;
-        self->prod = &complex_prod;
-        self->scalar = &complex_scalar_prod;
-        self->sub = &complex_sub;
-        self->div = &complex_div;
-        self->abs = &complex_abs;
-        self->arg = &complex_arg;
-        self->inverse = &complex_inverse;
-        self->conjugate = &complex_conjugate;
-        self->exp = &complex_exp;
-        self->log = &complex_log;
-        self->logB = &complex_log_b;
-        self->sin = &complex_sin;
-        self->cos = &complex_cos;
-        self->tan = &complex_tan;
-        self->sec = &complex_sec;
-        self->csc = &complex_csc;
-        self->cot = &complex_cot;
-        self->sinh = &complex_sinh;
-        self->cosh = &complex_cosh;
-        self->tanh = &complex_tanh;
-        self->free = &complex_free;
+        (*self) = (complex_t)
+        {
+                .real = &complex_get_real,
+                .imaginary = &complex_get_imaginary,
+                .setReal = &complex_set_real,
+                .setImaginary = &complex_set_imaginary,
+                .parts = &complex_get_parts,
+                .asString = &complex_as_string,
+                .add = &complex_add,
+                .prod = &complex_prod,
+                .scalar = &complex_scalar_prod,
+                .sub = &complex_sub,
+                .div = &complex_div,
+                .abs = &complex_abs,
+                .arg = &complex_arg,
+                .inverse = &complex_inverse,
+                .conjugate = &complex_conjugate,
+                .exp = &complex_exp,
+                .log = &complex_log,
+                .logB = &complex_log_b,
+                .sin = &complex_sin,
+                .cos = &complex_cos,
+                .tan = &complex_tan,
+                .sec = &complex_sec,
+                .csc = &complex_csc,
+                .cot = &complex_cot,
+                .sinh = &complex_sinh,
+                .cosh = &complex_cosh,
+                .tanh = &complex_tanh,
+                .free = &complex_free
+        };
 }

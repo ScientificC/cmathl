@@ -22,11 +22,11 @@
 
 real_t real_create(double value)
 {
-        real_t self = {
-                .real_value = value
-        };
+        real_t self;
 
         init_real(&self);
+        self.real_value = value;
+
         return self;
 }
 
@@ -66,51 +66,54 @@ char * real_as_string(real self)
 
 void init_real(real self)
 {
-        self->value = &real_value;
-        self->setValue = &real_set_value;
-        self->asString = &real_as_string;
-        self->equals = &real_equals;
-        self->isNull = &real_isnull;
-        self->isGreater = &real_isgreater;
-        self->isLess = &real_isless;
-        self->isGreaterOrEquals = &real_isgreater_or_equals;
-        self->isLessOrEquals = &real_isless_or_equals;
-        self->isNatural = &real_isnatural;
-        self->isInteger = &real_isinteger;
-        self->isMult = &real_ismult;
-        self->add = &real_add;
-        self->prod = &real_prod;
-        self->sub = &real_sub;
-        self->div = &real_div;
-        self->sgn = &real_sgn;
-        self->abs = &real_abs;
-        self->divE = &real_div_e;
-        self->mod = &real_mod;
-        self->inverse = &real_inverse;
-        self->opposite = &real_opposite;
-        self->ared = &real_ared;
-        self->ceil = &real_ceil;
-        self->floor = &real_floor;
-        self->exp = &real_exp;
-        self->ln = &real_ln;
-        self->logB = &real_log_b;
-        self->pow = &real_pow;
-        self->root = &real_root;
-        self->sqrt = &real_sqrt;
-        self->sin = &real_sin;
-        self->cos = &real_cos;
-        self->tan = &real_tan;
-        self->sec = &real_sec;
-        self->csc = &real_csc;
-        self->cot = &real_cot;
-        self->atan = &real_atan;
-        self->atan2 = &real_atan2;
-        self->sinh = &real_sinh;
-        self->cosh = &real_cosh;
-        self->tanh = &real_tanh;
-        self->sech = &real_sech;
-        self->csch = &real_csch;
-        self->coth = &real_coth;
-        self->atanh = &real_atanh;
-        self->free = &real_free;
+        (*self) = (real_t)
+        {
+                .value = &real_value,
+                .setValue = &real_set_value,
+                .asString = &real_as_string,
+                .equals = &real_equals,
+                .isNull = &real_isnull,
+                .isGreater = &real_isgreater,
+                .isLess = &real_isless,
+                .isGreaterOrEquals = &real_isgreater_or_equals,
+                .isLessOrEquals = &real_isless_or_equals,
+                .isNatural = &real_isnatural,
+                .isInteger = &real_isinteger,
+                .isMult = &real_ismult,
+                .add = &real_add,
+                .prod = &real_prod,
+                .sub = &real_sub,
+                .div = &real_div,
+                .sgn = &real_sgn,
+                .abs = &real_abs,
+                .divE = &real_div_e,
+                .mod = &real_mod,
+                .inverse = &real_inverse,
+                .opposite = &real_opposite,
+                .ared = &real_ared,
+                .ceil = &real_ceil,
+                .floor = &real_floor,
+                .exp = &real_exp,
+                .ln = &real_ln,
+                .logB = &real_log_b,
+                .pow = &real_pow,
+                .root = &real_root,
+                .sqrt = &real_sqrt,
+                .sin = &real_sin,
+                .cos = &real_cos,
+                .tan = &real_tan,
+                .sec = &real_sec,
+                .csc = &real_csc,
+                .cot = &real_cot,
+                .atan = &real_atan,
+                .atan2 = &real_atan2,
+                .sinh = &real_sinh,
+                .cosh = &real_cosh,
+                .tanh = &real_tanh,
+                .sech = &real_sech,
+                .csch = &real_csch,
+                .coth = &real_coth,
+                .atanh = &real_atanh,
+                .free = &real_free
+        };
 }
