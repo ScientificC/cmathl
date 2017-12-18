@@ -5,7 +5,7 @@ FUNC_FOLDER=$(MATH_FOLDER)/functions
 TEST_FOLDER=./tests/src
 BUILD_FOLDER=./tests/.build
 TEMPORAL_FOLDER=./tests/.temp
-TEST_OUTPUT_NAME=cmlMainTest
+TEST_OUTPUT_NAME=cmlMainTest.o
 
 
 #################################
