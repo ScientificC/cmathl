@@ -25,8 +25,8 @@ complex_t complex_create(real real_part, real imaginary_part)
         complex_t self;
 
         init_complex(&self);
-        self.real_part = real_part;
-        self.imaginary_part = imaginary_part;
+        self.real_part = real_new(real_part->real_value);
+        self.imaginary_part = real_new(imaginary_part->real_value);
 
         return self;
 }
