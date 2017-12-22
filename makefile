@@ -1,11 +1,12 @@
-SOURCE_FOLDER=./src
-BIN_FOLDER=./src/bin
-MATH_FOLDER=$(SOURCE_FOLDER)/math
-FUNC_FOLDER=$(MATH_FOLDER)/functions
-TEST_FOLDER=./tests/src
-BUILD_FOLDER=./tests/.build
-TEMPORAL_FOLDER=./tests/.temp
-TEST_OUTPUT_NAME=cmlMainTest.o
+SOURCE_FOLDER := ./source
+BIN_FOLDER := ./source/utils
+MATH_FOLDER := $(SOURCE_FOLDER)/math
+TEST_FOLDER := ./tests/src
+BUILD_FOLDER := ./tests/.build
+TEMPORAL_FOLDER := ./tests/.temp
+TEST_OUTPUT_NAME := cmlMainTest.o
+
+SRC_FILES := $(shell find source/ -name "*.c")
 
 
 #################################
@@ -26,7 +27,7 @@ DEBUG=-g
 all:	folders c.o
 
 c.o:
-	gcc $(TEST_FOLDER)/main.c $(MATH_FOLDER)/types/* $(FUNC_FOLDER)/* $(BIN_FOLDER)/* -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
+	gcc $(TEST_FOLDER)/main.c $(SRC_FILES) -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
 
 
 clean:

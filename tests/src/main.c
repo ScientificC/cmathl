@@ -20,8 +20,8 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include "../../includes/cml.h"
-#include "../../includes/bin/series_resolver.h"
+#include "../../source/math/includes/cml.h"
+#include "../../source/utils/includes/series_resolver.h"
 
 static double was = 0.0;
 
