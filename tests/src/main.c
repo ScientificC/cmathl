@@ -16,22 +16,59 @@
    along with CML. If not, see <http://www.gnu.org/licenses/>.     */
 
 
-#include "../../includes/cml.h"
+#include <time.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include "../../source/math/includes/cml.h"
+#include "../../source/utils/includes/series_resolver.h"
 
-void __cml_test()
+static double was = 0.0;
+
+double *f(int *i, double **argv)
 {
-        real x, y, z, c, h;
-        x = real_new(2.0);
-        z = real_new(2.0);
-        y = x->pow(x, z);
-        c = real_new(1.0);
-        h = c->sin(c);
-        printf("%g\n", y->value(y));
-        printf("%g\n", h->value(h));
+        return argv[0];
+}
+
+void __series_test__()
+{
+        double x = 2.0;
+        double *a = &x;
+        double *argv[1];
+        argv[0] = a;
+        block_t block = block_create(&f, argv);
+        block.response = &was;
+        series_resolver(&block, 100000, 10);
+        printf("%g\n", was);
+}
+
+void __cml_test__()
+{
+        real x, y;
+        complex z, w, g;
+
+        x = real_new(1.0);
+        y = real_new(4.0);
+
+        z = complex_new(x, y);
+        w = z->sin(z);
+        g = z->log(z);
+
+        printf("%s\n", z->asString(z));
+        printf("%s\n", g->asString(g));
+
+        free(x);
+        free(y);
+        free(g);
+        free(z);
+        free(w);
 }
 
 int main(int argc, char const *argv[])
 {
-        __cml_test();
+        clock_t cl = clock();
+        __cml_test__();
+        __series_test__();
+        printf("%Lg%s\n", (long double)(clock()-cl)/CLOCKS_PER_SEC, "s");
         return 0;
 }
