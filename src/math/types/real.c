@@ -1,26 +1,10 @@
-/* Copyright (C) 2017 CMATHL
-
-   This file is part of CML.
-
-   CML is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-
-   CML is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with CML. If not, see <http://www.gnu.org/licenses/>.     */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../../../includes/cml.h"
 
-real_t real_create(double value)
+real_t
+real_create(double value)
 {
         real_t self;
 
@@ -30,7 +14,8 @@ real_t real_create(double value)
         return self;
 }
 
-real real_new(double value)
+real
+real_new(double value)
 {
         real self = (real) malloc(sizeof (real_t));
         (*self) = real_create(value);
@@ -38,23 +23,27 @@ real real_new(double value)
         return self;
 }
 
-void real_free(real self)
+void
+real_free(real self)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
-double real_value(real self)
+double
+real_value(real self)
 {
         return self->real_value;
 }
 
 
-void real_set_value(real self, double x)
+void
+real_set_value(real self, double x)
 {
         self->real_value = x;
 }
 
-char * real_as_string(real self)
+char *
+real_as_string(real self)
 {
         double value = self->value(self);
         int size = snprintf(NULL, 0, "%g", value) + 1;
@@ -64,7 +53,8 @@ char * real_as_string(real self)
 }
 
 
-void init_real(real self)
+void
+init_real(real self)
 {
         (*self) = (real_t)
         {

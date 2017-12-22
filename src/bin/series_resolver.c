@@ -1,20 +1,3 @@
-/* Copyright (C) 2017 CMATHL
-
-   This file is part of CML.
-
-   CML is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-
-   CML is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with CML. If not, see <http://www.gnu.org/licenses/>.     */
-
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
@@ -24,7 +7,8 @@
 
 static pthread_mutex_t lock;
 
-block_t block_create(double *(*function)(int *, double **), double **argv)
+block_t
+block_create(double *(*function)(int *, double **), double **argv)
 {
         double r = 0.0;
 
@@ -35,16 +19,18 @@ block_t block_create(double *(*function)(int *, double **), double **argv)
                 .delta = 0,
                 .response = &r
         };
-        
+
         return block;
 }
 
-void block_destroy(block_t *block)
+void
+block_destroy(block_t *block)
 {
         free(block);
 }
 
-void *process(void * arg)
+void *
+process(void * arg)
 {
         int i, to;
         double r;
@@ -70,7 +56,8 @@ void *process(void * arg)
         return NULL;
 }
 
-void series_resolver(block_t *block, int max_loops, int max_threads)
+void
+series_resolver(block_t *block, int max_loops, int max_threads)
 {
         int i, top, t;
 
