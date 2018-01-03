@@ -8,7 +8,7 @@ __atan__(double x)
         double ai_n = x,
                p = ai_n;
 
-        for (i = 1; i <= TOPL; i += 2) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
                 ai_n = -ai_n*x*x;
                 p += ai_n/((double) i + 2.0);
         }

@@ -18,7 +18,7 @@ __sin__(double x)
         ai = x;
         p = ai;
 
-        for (i = 1; i <= TOPL; ++i) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i) {
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 p = p + ai;
         }

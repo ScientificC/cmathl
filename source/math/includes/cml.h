@@ -7,6 +7,8 @@
 #include "functions/real.h"
 #include "functions/complex.h"
 
-#define TOPL MAXLOG*14
+#ifndef CML_SERIES_TOP_IT_L
+#define CML_SERIES_TOP_IT_L MAXLOG*14
+#endif
 
 #endif

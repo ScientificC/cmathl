@@ -20,7 +20,7 @@ real_exp(real x)
         value = x->value(x);
         ai = 1.0;
         ex = ai;
-        for (i = 1; i < TOPL; ++i) {
+        for (i = 1; i < CML_SERIES_TOP_IT_L; ++i) {
                 ai = ai*(value)/i;
                 ex = ex + ai;
         }
