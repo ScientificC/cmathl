@@ -9,7 +9,7 @@
  * @return real atanh(x)
  */
 
-double
+CML_EXTERN_INLINE double
 __atanh__(double x)
 {
         double ai_n, p;

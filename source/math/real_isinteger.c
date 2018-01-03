@@ -2,7 +2,7 @@
 #include "includes/cml.h"
 
 
-bool
+CML_EXTERN_INLINE bool
 __isinteger(double x)
 {
         int x_int = (int) x;

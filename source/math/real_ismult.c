@@ -2,7 +2,7 @@
 #include "includes/cml.h"
 
 
-bool
+CML_EXTERN_INLINE bool
 __ismult(double x, double y)
 {
         double z = x/y;

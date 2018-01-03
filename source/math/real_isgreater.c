@@ -2,7 +2,7 @@
 #include "includes/cml.h"
 
 
-bool
+CML_EXTERN_INLINE bool
 __isgreater(double x, double y)
 {
         return x > y;

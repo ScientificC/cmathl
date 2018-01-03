@@ -9,7 +9,7 @@
  * @return real sin(x)
  */
 
-double
+CML_EXTERN_INLINE double
 __sin__(double x)
 {
         double ai, p;

@@ -2,7 +2,7 @@
 #include "includes/cml.h"
 
 
-bool
+CML_EXTERN_INLINE bool
 __isnatural(double x)
 {
         return (__isinteger(x) && x > 0);

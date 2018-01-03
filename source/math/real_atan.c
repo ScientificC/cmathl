@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "includes/cml.h"
 
-double
+CML_EXTERN_INLINE double
 __atan__(double x)
 {
         int i;
