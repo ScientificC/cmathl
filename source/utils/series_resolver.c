@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <pthread.h>
-#include "includes/series_resolver.h"
+#include "include/series_resolver.h"
 
 static pthread_mutex_t lock;
 

@@ -18,14 +18,10 @@
 #define CML_EXTERN_INLINE
 #endif
 
-#include "types/types.h"
-#include "constants/consts.h"
-#include "functions/functions.h"
-#include "functions/real.h"
-#include "functions/complex.h"
+#include "math/include/math.h"
 
-#ifndef CML_SERIES_TOP_IT_L
-#define CML_SERIES_TOP_IT_L MAXLOG*14
+#ifdef CML_SERIES_RESOLVER
+  #include "utils/include/series_resolver.h"
 #endif
 
 #endif

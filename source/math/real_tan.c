@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include "include/math.h"
 
 /*
  * tan(x) function developed by using trigonometric identities

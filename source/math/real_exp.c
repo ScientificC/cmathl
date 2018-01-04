@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include "include/math.h"
 
 /*
  * Development of the Taylor series of the function e^x

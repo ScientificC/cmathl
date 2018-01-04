@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include "include/math.h"
 
 /*
  * cos(x) function developed by using Taylor Series

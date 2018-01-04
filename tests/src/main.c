@@ -20,8 +20,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include "../../source/math/includes/cml.h"
-#include "../../source/utils/includes/series_resolver.h"
+
+#define CML_SERIES_RESOLVER 1
+
+#include "../../source/cml.h"
 
 static double was = 0.0;
 
@@ -55,6 +57,7 @@ void __cml_test__()
         g = z->log(z);
 
         printf("%s\n", z->asString(z));
+        printf("%s\n", w->asString(w));
         printf("%s\n", g->asString(g));
 
         free(x);
