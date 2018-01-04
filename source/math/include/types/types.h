@@ -3,8 +3,7 @@
 
 // Quick boolean definition
 #ifdef CML_NO_STDBOOL
-typedef int bool;
-enum { false, true };
+  #include "cml_bool.h"
 #else
   #include <stdbool.h>
 #endif
