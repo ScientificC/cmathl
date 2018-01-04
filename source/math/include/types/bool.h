@@ -3,6 +3,12 @@
 
 #ifndef __cplusplus
 
+/* For compilers that don't have the builtin _Bool type. */
+#if ((defined(_MSC_VER) && _MSC_VER < 1800) || \
+        (defined __GNUC__&& __STDC_VERSION__ < 199901L && __GNUC__ < 3)) \
+        && !defined(_lint)
+typedef unsigned char _Bool;
+
 #if defined __STDC__ && defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
 #define bool  _Bool
 #define true  1
