@@ -8,31 +8,33 @@
  */
 
 complex
-complex_inverse(complex self)
+complex_inverse(complex z)
 {
         // Declaration of structures
-        complex z, h;
+        complex w, h;
         real *x;
         real a, b, i, m, n;
 
 
         // Mathematical algorithm
-        z = self->conjugate(self);
-        x = z->parts(z);
-        a = self->abs(self);
+        w = complex_conjugate(z);
+        x = complex_get_parts(w);
+        a = complex_abs(z);
         i = real_new(2.0);
-        b = a->pow(a, i);
-        n = x[0]->div(x[0], b);
-        m = x[1]->div(x[1], b);
+        b = real_pow(a, i);
+        n = real_div(x[0], b);
+        m = real_div(x[1], b);
 
         h = complex_new(n, m);
 
         // Free structures
-        free(z);
+        free(w);
         free(x);
         free(a);
         free(b);
         free(i);
+        free(n);
+        free(m);
 
         // Return
         return h;

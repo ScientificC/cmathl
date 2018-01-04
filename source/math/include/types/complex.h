@@ -70,6 +70,7 @@ void init_complex(complex);
 // getters
 real complex_get_real(complex);
 real complex_get_imaginary(complex);
+real * complex_get_parts(complex self);
 
 // setters
 void complex_set_real(complex, real);

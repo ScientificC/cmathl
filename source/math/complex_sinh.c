@@ -5,14 +5,14 @@
  * sinh(Z) = (cos(b) * ((e^a - e^-a) / 2) + (sin(b) * (e^a + e^-a) / 2))i
  * sinh(Z) = (cos(b) * cosh(a)) + (sin(b) * sinh(a))i
  *
- * @param complex self
+ * @param complex z
  *
- * @return complex sinh(self)
+ * @return complex sinh(z)
  *
  */
 
 complex
-complex_sinh(complex self)
+complex_sinh(complex z)
 {
         // Declaration of structures
         complex w;
@@ -20,15 +20,15 @@ complex_sinh(complex self)
         real k, h, a, b, n, m;
 
         // Mathematical algorithm
-        x = self->parts(self);
+        x = complex_get_parts(z);
 
-        k = x[1]->cos(x[1]);
-        h = x[1]->sin(x[1]);
-        a = x[0]->sinh(x[0]);
-        b = x[0]->cosh(x[0]);
+        k = real_cos(x[1]);
+        h = real_sin(x[1]);
+        a = real_sinh(x[0]);
+        b = real_cosh(x[0]);
 
-        n = k->prod(k, a);
-        m = h->prod(h, b);
+        n = real_prod(k, a);
+        m = real_prod(h, b);
 
         w = complex_new(n, m);
 
@@ -38,6 +38,8 @@ complex_sinh(complex self)
         free(h);
         free(a);
         free(b);
+        free(n);
+        free(m);
 
         // Return
         return w;

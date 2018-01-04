@@ -11,7 +11,7 @@
  */
 
 complex
-complex_exp(complex self)
+complex_exp(complex z)
 {
         // Declaration of structures
         complex w;
@@ -19,12 +19,12 @@ complex_exp(complex self)
         real n, m, h, x, y;
 
         // Mathematical algorithm
-        p = self->parts(self);
-        h = p[0]->exp(p[0]);
-        n = p[1]->cos(p[1]);
-        m = p[1]->sin(p[1]);
-        x = h->prod(h, n);
-        y = h->prod(h, m);
+        p = z->parts(z);
+        h = real_exp(p[0]);
+        n = real_cos(p[1]);
+        m = real_sin(p[1]);
+        x = real_prod(h, n);
+        y = real_prod(h, m);
 
         w = complex_new(x, y);
 
@@ -33,6 +33,8 @@ complex_exp(complex self)
         free(n);
         free(m);
         free(h);
+        free(x);
+        free(y);
 
         // Return
         return w;
