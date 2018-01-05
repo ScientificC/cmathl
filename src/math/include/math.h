@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <math/include/math.h.h> directly; include <cml.h> instead."
+#error "Never use <math/include/math.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MATH_H
