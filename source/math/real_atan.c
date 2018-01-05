@@ -1,14 +1,14 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
-double
+CML_EXTERN_INLINE double
 __atan__(double x)
 {
         int i;
         double ai_n = x,
                p = ai_n;
 
-        for (i = 1; i <= TOPL; i += 2) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
                 ai_n = -ai_n*x*x;
                 p += ai_n/((double) i + 2.0);
         }
@@ -34,12 +34,12 @@ real_atan(real x)
 
 
         // Declaration of structures
-        double y;
+        cml_t y;
         real s, h, w;
 
         // Mathematical algorithm
         s = x->sgn(x);
-        y = __atan__(a->value(a));
+        y = (cml_t) __atan__(a->value(a));
         h = real_new(y);
         w = s->prod(s, h);
 

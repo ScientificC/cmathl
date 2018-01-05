@@ -1,11 +1,11 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
-bool
-__ismult(double x, double y)
+CML_EXTERN_INLINE bool
+__ismult(cml_t x, cml_t y)
 {
-        double z = x/y;
+        cml_t z = x/y;
         int z_int = (int) z;
         return ((z - z_int) == 0);
 }

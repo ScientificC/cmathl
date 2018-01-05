@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 complex_t
 complex_create(real real_part, real imaginary_part)

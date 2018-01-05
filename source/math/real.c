@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 real_t
-real_create(double value)
+real_create(cml_t value)
 {
         real_t self;
 
@@ -15,7 +15,7 @@ real_create(double value)
 }
 
 real
-real_new(double value)
+real_new(cml_t value)
 {
         real self = (real) malloc(sizeof (real_t));
         (*self) = real_create(value);
@@ -29,7 +29,7 @@ real_free(real self)
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
-double
+cml_t
 real_value(real self)
 {
         return self->real_value;
@@ -37,7 +37,7 @@ real_value(real self)
 
 
 void
-real_set_value(real self, double x)
+real_set_value(real self, cml_t x)
 {
         self->real_value = x;
 }
@@ -45,7 +45,7 @@ real_set_value(real self, double x)
 char *
 real_as_string(real self)
 {
-        double value = self->value(self);
+        cml_t value = self->value(self);
         int size = snprintf(NULL, 0, "%g", value) + 1;
         char * string = (char*) malloc(size);
         snprintf(string, size, "%g", value);

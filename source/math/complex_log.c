@@ -1,25 +1,27 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * Log(z) = ln|z| + i*arg(z)
  */
 
 complex
-complex_log(complex self)
+complex_log(complex z)
 {
         // Declaration of structures
         complex w;
         real a, x, y;
 
         // Mathematic algorithm
-        a = self->abs(self);
-        x = a->ln(a);
-        y = self->arg(self);
+        a = complex_abs(z);
+        x = real_ln(a);
+        y = complex_arg(z);
         w = complex_new(x, y);
 
         // Free structures
         free(a);
+        free(x);
+        free(y);
 
         // Return
         return w;

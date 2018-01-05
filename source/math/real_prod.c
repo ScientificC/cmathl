@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 real
 real_prod(real x, real y)

@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
-bool
-__isnull(double x)
+CML_EXTERN_INLINE bool
+__isnull(cml_t x)
 {
         return x == 0.0;
 }

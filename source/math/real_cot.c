@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * cot(x) function developed by using trigonometric identities

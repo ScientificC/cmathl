@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * Hyperbolic sine "real_sinh(x)" function developed by using Euler relationships

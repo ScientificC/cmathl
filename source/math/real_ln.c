@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * ln(x) function developed by using hyperbolic definition of Taylor Series

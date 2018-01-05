@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * sin(x) function developed by using Taylor Series
@@ -9,7 +9,7 @@
  * @return real sin(x)
  */
 
-double
+CML_EXTERN_INLINE double
 __sin__(double x)
 {
         double ai, p;
@@ -18,7 +18,7 @@ __sin__(double x)
         ai = x;
         p = ai;
 
-        for (i = 1; i <= TOPL; ++i) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i) {
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 p = p + ai;
         }
@@ -38,7 +38,7 @@ real_sin(real x)
 
         // Declaration of variables and structures
         real s, y, z, w, h;
-        double r;
+        cml_t r;
 
 
         // Mathematical algorithm
@@ -46,7 +46,7 @@ real_sin(real x)
         y = x->abs(x);
         z = y->ared(y);
 
-        r = __sin__(z->value(z));
+        r = (cml_t) __sin__(z->value(z));
 
         w = real_new(r);
         h = w->prod(w, s);

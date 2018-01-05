@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
-bool
-__isgreater(double x, double y)
+CML_EXTERN_INLINE bool
+__isgreater(cml_t x, cml_t y)
 {
         return x > y;
 }

@@ -1,8 +1,8 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
-bool
+CML_EXTERN_INLINE bool
 __equals(double x, double y)
 {
         return x == y;

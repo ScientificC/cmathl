@@ -1,11 +1,11 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 real
 real_div(real x, real y)
 {
-        double k, w;
+        cml_t k, w;
         k = x->value(x);
         w = y->value(y);
-        return real_new((double) k/w);
+        return real_new((cml_t) k/w);
 }

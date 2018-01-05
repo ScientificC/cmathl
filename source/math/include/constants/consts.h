@@ -1,5 +1,5 @@
-#ifndef CML_CONSTS_H
-#define CML_CONSTS_H
+#ifndef CML_MATH_CONSTS_H
+#define CML_MATH_CONSTS_H
 
 /*
  * IEEE754 constants

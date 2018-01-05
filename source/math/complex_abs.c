@@ -1,8 +1,8 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 real
-complex_abs(complex self)
+complex_abs(complex z)
 {
         // Declaration of structures
         real *x;
@@ -10,12 +10,12 @@ complex_abs(complex self)
 
 
         // Mathematical algorithm
-        x = self->parts(self);
+        x = complex_get_parts(z);
         n = real_new(2.0);
-        a = x[0]->pow(x[0], n);
-        b = x[1]->pow(x[1], n);
-        w = a->add(a, b);
-        h = w->sqrt(w);
+        a = real_pow(x[0], n);
+        b = real_pow(x[1], n);
+        w = real_add(a, b);
+        h = real_sqrt(w);
 
         // Free structures
         free(x);

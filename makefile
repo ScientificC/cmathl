@@ -15,7 +15,7 @@ SRC_FILES := $(shell find source/ -name "*.c")
 # Optimization: -O0 baja, -O1 normal, -O2 optimizado, -O3 alta
 # Show all warnings
 # Compiles in gnu11 std
-CFLAGS=-O3 -Wall -std=gnu11 -pthread
+CFLAGS=-O3 -Wall -std=gnu11 -pthread -I./source
 
 # Uncomment to debug
 DEBUG=-g

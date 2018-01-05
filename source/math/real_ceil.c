@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
 // Returns the smallest integer value greater than or equal to x.
@@ -10,5 +10,7 @@ real_ceil(real x)
         int w;
 
         w = (int) x->value(x);
-        return x->value(x) - w == 0 ? x : real_new(w + 1);
+        return (x->value(x) - w == 0) ?
+               x :
+               real_new(w + 1);
 }

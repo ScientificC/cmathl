@@ -1,15 +1,15 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 complex
-complex_div(complex self, complex z)
+complex_div(complex z, complex k)
 {
         // Declaration of structures
         complex r, w;
 
         // Mathematical algorithm
-        r = z->inverse(z);
-        w = self->prod(self, r);
+        r = complex_inverse(k);
+        w = complex_prod(z, r);
 
         // Free structures
         free(r);

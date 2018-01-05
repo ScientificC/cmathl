@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * Hyperbolic cotangent "coth(x)" function developed by using Euler relationships

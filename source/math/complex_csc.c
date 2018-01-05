@@ -1,24 +1,25 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 complex
 complex_csc(complex self)
 {
         // Domain check
-        complex s = self->sin(self);
-        real a = s->abs(s);
-        if (!a->isNull(a)) {
+        complex s = complex_sin(self);
+        real a = complex_abs(s);
+        if (!real_isnull(a)) {
                 free(a);
                 free(s);
                 return complex_new(real_new(NAN), real_new(NAN));
         }
+
         free(a);
 
         // Declaration of structures
         complex w;
 
         // Mathematical algorithm
-        w = s->inverse(s);
+        w = complex_inverse(s);
 
         // Free structures
         free(s);

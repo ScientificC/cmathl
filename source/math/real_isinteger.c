@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
-bool
-__isinteger(double x)
+CML_EXTERN_INLINE bool
+__isinteger(cml_t x)
 {
         int x_int = (int) x;
         return ((x - x_int) == 0);

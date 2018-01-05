@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 
-bool
-__isnatural(double x)
+CML_EXTERN_INLINE bool
+__isnatural(cml_t x)
 {
         return (__isinteger(x) && x > 0);
 }

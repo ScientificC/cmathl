@@ -1,18 +1,18 @@
 #include <stdlib.h>
-#include "includes/cml.h"
+#include <cml.h>
 
 /*
  * cos(Z) = (cos(a) * ((e^b - e^-b) / 2) + (sin(a) * (e^b + e^-b) / 2))i
  * cos(Z) = (cos(a) * sinh(b)) + (sin(a) * cosh(b))i
  *
- * @param complex self
+ * @param complex z
  *
- * @return complex cos(self)
+ * @return complex cos(z)
  *
  */
 
 complex
-complex_cos(complex self)
+complex_cos(complex z)
 {
         // Declaration of structures
         complex w;
@@ -20,15 +20,15 @@ complex_cos(complex self)
         real k, h, a, b, n, m;
 
         // Mathematical algorithm
-        x = self->parts(self);
+        x = complex_get_parts(z);
 
-        k = x[0]->cos(x[0]);
-        h = x[0]->sin(x[0]);
-        a = x[1]->sinh(x[1]);
-        b = x[1]->cosh(x[1]);
+        k = real_cos(x[0]);
+        h = real_sin(x[0]);
+        a = real_sinh(x[1]);
+        b = real_cosh(x[1]);
 
-        n = k->prod(k, a);
-        m = h->prod(h, b);
+        n = real_prod(k, a);
+        m = real_prod(h, b);
 
         w = complex_new(n, m);
 
@@ -38,6 +38,8 @@ complex_cos(complex self)
         free(h);
         free(a);
         free(b);
+        free(n);
+        free(m);
 
         // Return
         return w;
