@@ -23,7 +23,7 @@
 
 #define CML_SERIES_RESOLVER 1
 
-#include "../../source/cml.h"
+#include <cml.h>
 
 static double was = 0.0;
 

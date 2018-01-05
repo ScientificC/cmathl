@@ -18,10 +18,10 @@
 #define CML_EXTERN_INLINE
 #endif
 
-#include "math/include/math.h"
+#include <math/include/math.h>
 
 #ifdef CML_SERIES_RESOLVER
-  #include "utils/include/series_resolver.h"
+  #include <utils/include/series_resolver.h>
 #endif
 
 #endif
