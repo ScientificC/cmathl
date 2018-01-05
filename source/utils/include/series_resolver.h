@@ -1,3 +1,7 @@
+#ifndef CML_H
+#error "Never use <utils/include/series_resolver.h> directly; include <cml.h> instead."
+#endif
+
 #ifndef CML_THREADS_H
 #define CML_THREADS_H
 

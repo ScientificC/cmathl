@@ -3,7 +3,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <pthread.h>
-#include "include/series_resolver.h"
+
+#define CML_SERIES_RESOLVER
+#include <cml.h>
 
 static pthread_mutex_t lock;
 
