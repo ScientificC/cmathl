@@ -18,8 +18,8 @@ typedef unsigned char _Bool;
 #else   /* not C99 */
 
 typedef enum {
-        false = 0,
-        true = 1
+        false,
+        true
 } bool;
 
 #endif /* not C99 */
