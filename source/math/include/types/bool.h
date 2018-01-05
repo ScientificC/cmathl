@@ -8,6 +8,7 @@
         (defined __GNUC__&& __STDC_VERSION__ < 199901L && __GNUC__ < 3)) \
         && !defined(_lint)
 typedef unsigned char _Bool;
+#endif
 
 #if defined __STDC__ && defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
 #define bool  _Bool
@@ -25,15 +26,11 @@ typedef enum {
 
 #else /* __cplusplus */
 
-#if !defined(_MSC_VER)
-
-/* Supporting cml_bool in C++ is a GCC extension.  */
+/* Supporting <stdbool.h> in C++ is a GCC extension.  */
 #define _Bool bool
 #define bool  bool
 #define false false
 #define true  true
-
-#endif /* _MSC_VER */
 
 #endif /* __cplusplus */
 

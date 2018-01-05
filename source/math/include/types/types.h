@@ -3,7 +3,7 @@
 
 // Quick boolean definition
 #ifdef CML_NO_STDBOOL
-  #include "cml_bool.h"
+  #include "bool.h"
 #else
   #include <stdbool.h>
 #endif
