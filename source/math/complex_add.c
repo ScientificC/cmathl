@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * (a + bi) + (c + di) = (a+c) + (b+d)i

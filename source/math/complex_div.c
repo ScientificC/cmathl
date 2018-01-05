@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 complex
 complex_div(complex z, complex k)

@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /* An angle x is reduced to the interval [0, 2pi] by subtracting a number k of
  * 2pi radians, where k is the integer division between x and 2pi

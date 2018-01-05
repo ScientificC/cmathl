@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 
 // Returns the smallest integer value greater than or equal to x.

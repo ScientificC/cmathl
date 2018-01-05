@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "include/math.h"
+#include <cml.h>
 
 real_t
 real_create(cml_t value)

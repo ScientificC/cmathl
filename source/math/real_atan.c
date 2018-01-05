@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 CML_EXTERN_INLINE double
 __atan__(double x)
@@ -34,12 +34,12 @@ real_atan(real x)
 
 
         // Declaration of structures
-        double y;
+        cml_t y;
         real s, h, w;
 
         // Mathematical algorithm
         s = x->sgn(x);
-        y = __atan__(a->value(a));
+        y = (cml_t) __atan__(a->value(a));
         h = real_new(y);
         w = s->prod(s, h);
 

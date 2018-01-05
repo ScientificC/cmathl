@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * exp(Z) = e^Z = (e^a * Cos(b) + e^a * Sin(b)i)

@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * Log(z) = ln|z| + i*arg(z)

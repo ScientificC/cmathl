@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * Development of the Taylor series of the function e^x
@@ -28,5 +28,5 @@ real_exp(real x)
         // Free structures
 
         // Return
-        return real_new(ex);
+        return real_new((cml_t) ex);
 }

@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * atanh(x) function developed by using trigonometric identities
@@ -30,12 +30,12 @@ real_atanh(real x)
 {
         // Declaration of structures
         real y, c, h;
-        double r;
+        cml_t r;
 
         // Mathematical algorithm
         y = x->abs(x);
         c = real_new(1.0);
-        r = __atanh__(x->value(x));
+        r = (cml_t) __atanh__(x->value(x));
         h = c->isGreater(c, y) ? real_new(r) : real_new(NAN);
 
         // Free structures

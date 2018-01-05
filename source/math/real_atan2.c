@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * atan2(y, x) = HALFPI*sgn(y) - atan(x/y)

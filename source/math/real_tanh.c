@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * Hyperbolic tangent "tanh(x)" function developed by using Euler relationships

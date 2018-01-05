@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * Let z = a + bi, define the conjugate of z (w) as w = a - bi

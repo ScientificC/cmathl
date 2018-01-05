@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "include/math.h"
+#include <cml.h>
 
 /*
  * Hyperbolic cosine "real_cosh(x)" function developed by using Euler relationships
