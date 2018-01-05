@@ -26,7 +26,7 @@ You can define these macros during compilation time with flags:
 -DCML_NO_STDBOOL=ON -Dcml_t=double -DCML_DOUBLE_PRECISION=ON
 ```
 
-Or include `cml.h` in a source or header. This second approach is useful, because you can define `mfloat_t` as a different type other than the built-in types `float` or `double`, such as `GLfloat`:
+Or include `cml.h` in a source or header. This second approach is useful, because you can define `cml_t` as a different type other than the built-in types `float` or `double`, such as `GLfloat`:
 
 ```c
 /* In a *.h or *.c file */
