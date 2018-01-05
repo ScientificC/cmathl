@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isnull(double x)
+__isnull(cml_t x)
 {
         return x == 0.0;
 }

@@ -3,9 +3,13 @@
 
 // Quick boolean definition
 #ifdef CML_NO_STDBOOL
-  #include "bool.h"
+        #include "bool.h"
 #else
-  #include <stdbool.h>
+        #include <stdbool.h>
+#endif
+
+#ifndef cml_t
+        #define cml_t float
 #endif
 
 #include "real.h"

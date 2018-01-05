@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isgreater(double x, double y)
+__isgreater(cml_t x, cml_t y)
 {
         return x > y;
 }

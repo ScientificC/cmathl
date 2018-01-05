@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isinteger(double x)
+__isinteger(cml_t x)
 {
         int x_int = (int) x;
         return ((x - x_int) == 0);

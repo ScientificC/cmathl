@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isnatural(double x)
+__isnatural(cml_t x)
 {
         return (__isinteger(x) && x > 0);
 }
