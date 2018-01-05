@@ -6,7 +6,7 @@
 #define CML_MATH_H
 
 #include "consts.h"
-#include "types/types.h"
+#include "types.h"
 
 #include "functions/complex.h"
 #include "functions/functions.h"

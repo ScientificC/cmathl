@@ -1,3 +1,7 @@
+#ifndef CML_H
+#error "Never use <math/include/consts.h> directly; include <cml.h> instead."
+#endif
+
 #ifndef CML_MATH_CONSTS_H
 #define CML_MATH_CONSTS_H
 
