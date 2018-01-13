@@ -29,7 +29,8 @@ You can define these macros during compilation time with flags:
 Or include `cml.h` in a source or header. This second approach is useful, because you can define `cml_t` as a different type other than the built-in types `float` or `double`, such as `GLfloat`:
 
 ```c
-/* In a *.h or *.c file */
+/* In a *.c file */
+#include <GL.h>
 #define cml_t GLfloat
 #include <cml.h>
 ```
