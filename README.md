@@ -52,4 +52,6 @@ The float type used by CML is defined by the macro `cml_t`, which is by default 
 By default, CML will use single-precision internally. This can be changed by predefining `CML_DOUBLE_PRECISION`. 
 If the macro `CML_DOUBLE_PRECISION` is defined, the math constants macros will be defined with double precision and the library will use internally the math functions for double types. Otherwise, the math constants macros will be defined with float precision and the library will use internally the math functions for float types.
 
+## Types
 
+CML offers at the moment two types, `real_t` and `complex_t`, both corresponding to structures. In the same way, it is recommended to work with the `real` and `complex` types, these being `real_t *` and `complex_t *` respectively.
