@@ -42,6 +42,11 @@
                                      real_t*: _real_clone, \
                              default: _real_new \
                                      )(X)
+#else
+        #define complex_clone(X) _complex_clone(X)
+        #define complex_new(X, Y) _complex_new(X, Y)
+        #define real_clone(X) _real_clone(X)
+        #define real_new(X) _real_new(X)
 #endif
 
 #ifdef CML_SERIES_RESOLVER
