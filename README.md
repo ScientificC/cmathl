@@ -10,6 +10,16 @@ CML is a compact C library with a great variety of mathematical functions.
 
 Each of the functions of the library is developed using efficient mathematical definitions and this is one of the most important characteristics.
 
+## Using the CMATHL
+
+Currently, CMATHL (or CML) does not have a make install option. As it is header-only, it is simple enough to copy the src header directory into your project, and setup your build to reference it.
+
+In other words, you can include the repository in the `lib` directory and reference it in the following way:
+
+```
+gcc ... -I./lib/cml/src
+```
+
 ## Configuration Macros
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
@@ -23,7 +33,10 @@ CML can be configured with the following preprocessors (described in the followi
 You can define these macros during compilation time with flags:
 
 ```
+
 gcc -DCML_NO_STDBOOL=ON -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
+
+`
 ```
 
 Or include `cml.h` in a source or header. This second approach is useful, because you can define `mfloat_t` as a different type other than the built-in types `float` or `double`, such as `GLfloat`:
@@ -33,6 +46,7 @@ Or include `cml.h` in a source or header. This second approach is useful, becaus
 #include <GL/gl.h>
 #define mfloat_t GLfloat
 #include <cml.h>
+`
 ```
 
 ### Bool Type
