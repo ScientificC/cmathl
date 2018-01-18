@@ -7,10 +7,12 @@
 real
 real_ceil(real x)
 {
-        int w;
+        mint_t w;
+        mfloat_t v;
 
-        w = (int) x->value(x);
-        return (x->value(x) - w == 0) ?
-               x :
+        v = real_value(x);
+        w = (mint_t) v;
+        return (v - w == 0) ?
+               real_new(v) :
                real_new(w + 1);
 }

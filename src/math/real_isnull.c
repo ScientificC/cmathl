@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isnull(cml_t x)
+__isnull(mfloat_t x)
 {
         return x == 0.0;
 }
@@ -11,5 +11,5 @@ __isnull(cml_t x)
 bool
 real_isnull(real x)
 {
-        return __isnull(x->value(x));
+        return __isnull(real_value(x));
 }

@@ -18,10 +18,10 @@ real_coth(real x)
         real y, z, w, h;
 
         // Mathematic algorithm
-        y = x->cosh(x);
-        z = x->sinh(x);
-        w = z->inverse(z);
-        h = y->prod(y, w);
+        y = real_cosh(x);
+        z = real_sinh(x);
+        w = real_inverse(z);
+        h = real_prod(y, w);
 
         // Free structures
         free(y);

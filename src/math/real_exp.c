@@ -13,13 +13,15 @@ real
 real_exp(real x)
 {
         // Declaration of variables and structures
-        int i;
+        mint_t i;
         double ai, ex, value;
 
         // Mathematical algorithm
-        value = x->value(x);
+        value = real_value(x);
+
         ai = 1.0;
         ex = ai;
+
         for (i = 1; i < CML_SERIES_TOP_IT_L; ++i) {
                 ai = ai*(value)/i;
                 ex = ex + ai;
@@ -28,5 +30,5 @@ real_exp(real x)
         // Free structures
 
         // Return
-        return real_new((cml_t) ex);
+        return real_new((mfloat_t) ex);
 }

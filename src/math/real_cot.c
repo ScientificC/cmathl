@@ -16,9 +16,11 @@ real_cot(real x)
         real y, z, h;
 
         // Mathematical algorithm
-        z = x->cos(x);
-        y = x->sin(x);
-        h = y->isNull(y) ? real_new(NAN) : z->div(z, y);
+        z = real_cos(x);
+        y = real_sin(x);
+        h = real_isnull(y) ?
+            real_new(NAN) :
+            real_div(z, y);
 
         // Free structures
         free(z);

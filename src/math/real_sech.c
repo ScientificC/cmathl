@@ -18,8 +18,8 @@ real_sech(real x)
         real y, h;
 
         // Mathematic algorithm
-        y = x->cosh(x);
-        h = y->inverse(y);
+        y = real_cosh(x);
+        h = real_inverse(y);
 
         // Free structures
         free(y);

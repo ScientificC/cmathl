@@ -5,5 +5,5 @@
 bool
 real_isgreater_or_equals(real x, real y)
 {
-        return x->isGreater(x, y) || x->equals(x, y);
+        return real_isgreater(x, y) || real_equals(x, y);
 }

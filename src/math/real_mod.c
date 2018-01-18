@@ -8,9 +8,9 @@ real_mod(real x, real y)
         real z, w, k;
 
         // Mathematical algorithm
-        z = x->divE(x, y);
-        w = y->prod(y, z);
-        k = x->sub(x, w);
+        z = real_div_e(x, y);
+        w = real_prod(y, z);
+        k = real_sub(x, w);
 
         // Free structures
         free(z);

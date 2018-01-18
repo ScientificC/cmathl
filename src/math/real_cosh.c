@@ -19,11 +19,11 @@ real_cosh(real x)
 
         // Mathematic algorithm
         c = real_new(2.0);
-        y = x->opposite(x);
-        z = x->exp(x);
-        w = y->exp(y);
-        k = z->add(z, w);
-        h = z->div(z, c);
+        y = real_opposite(x);
+        z = real_exp(x);
+        w = real_exp(y);
+        k = real_add(z, w);
+        h = real_div(z, c);
 
         // Free structures
         free(y);

@@ -8,8 +8,8 @@ real_abs(real x)
         real sgn, y;
 
         // Mathematical algorithm
-        sgn = x->sgn(x);
-        y = x->prod(x, sgn);
+        sgn = real_sgn(x);
+        y = real_prod(x, sgn);
 
         // Free structures
         free(sgn);

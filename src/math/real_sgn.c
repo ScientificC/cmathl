@@ -4,7 +4,7 @@
 real
 real_sgn(real x)
 {
-        int sgn;
-        sgn = x->value(x) >= 0 ? 1 : -1;
+        mint_t sgn;
+        sgn = real_value(x) >= 0 ? 1 : -1;
         return real_new(sgn);
 }

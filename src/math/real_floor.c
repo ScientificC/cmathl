@@ -6,7 +6,5 @@
 real
 real_floor(real x)
 {
-        int w;
-        w = (int) x->value(x);
-        return real_new(w);
+        return real_new((mint_t) real_value(x));
 }

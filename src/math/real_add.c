@@ -4,8 +4,10 @@
 real
 real_add(real x, real y)
 {
-        double k, w;
-        k = x->value(x);
-        w = y->value(y);
-        return real_new((cml_t) k+w);
+        mfloat_t k, w;
+
+        k = real_value(x);
+        w = real_value(y);
+
+        return real_new((mfloat_t) k+w);
 }

@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isless(cml_t x, cml_t y)
+__isless(mfloat_t x, mfloat_t y)
 {
         return x < y;
 }
@@ -11,5 +11,5 @@ __isless(cml_t x, cml_t y)
 bool
 real_isless(real x, real y)
 {
-        return __isless(x->value(x), y->value(y));
+        return __isless(real_value(x), real_value(y));
 }

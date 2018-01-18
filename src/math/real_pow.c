@@ -14,20 +14,22 @@ real
 real_pow(real x, real n)
 {
         // Domain check
-        if (x->isNull(x)) {
-                return n->isNull(n) ? real_new(NAN) : x;
+        if (real_isnull(x)) {
+                return real_isnull(n) ?
+                       real_new(NAN) :
+                       real_new((mfloat_t) real_value(x));
         }
 
         // Declaration of structures
         real s, y, z, w, k, h;
 
         // Mathematical algorithm
-        s = x->sgn(x);
-        y = x->abs(x);
-        z = y->ln(y);
-        w = n->prod(n, z);
-        k = w->exp(w);
-        h = s->prod(s, k);
+        s = real_sgn(x);
+        y = real_abs(x);
+        z = real_ln(y);
+        w = real_prod(n, z);
+        k = real_exp(w);
+        h = real_prod(s, k);
 
         // Free structures
         free(s);

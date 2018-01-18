@@ -5,5 +5,5 @@
 bool
 real_isless_or_equals(real x, real y)
 {
-        return x->isLess(x, y) || x->equals(x, y);
+        return real_isless(x, y) || real_equals(x, y);
 }

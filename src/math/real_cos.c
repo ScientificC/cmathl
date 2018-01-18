@@ -17,9 +17,9 @@ real_cos(real x)
 
         // Mathematical algorithm
         half_pi = real_new(HALFPI);
-        y = x->abs(x);
-        z = y->add(y, half_pi);
-        h = z->sin(z);
+        y = real_abs(x);
+        z = real_add(y, half_pi);
+        h = real_sin(z);
 
         // Free structures
         free(half_pi);

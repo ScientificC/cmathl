@@ -12,8 +12,15 @@
         #include <stdbool.h>
 #endif
 
-#ifndef cml_t
-        #define cml_t float
+#ifdef CML_NO_STDINT
+        #define mint_t int
+#else
+        #include <stdint.h>
+        #define mint_t int32_t
+#endif
+
+#ifndef mfloat_t
+        #define mfloat_t float
 #endif
 
 #include "types/real.h"

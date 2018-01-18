@@ -1,19 +1,11 @@
 #include <stdlib.h>
 #include <cml.h>
 
-/*
- * sin(x) function developed by using Taylor Series
- *
- * @param real x
- *
- * @return real sin(x)
- */
-
 CML_EXTERN_INLINE double
 __sin__(double x)
 {
         double ai, p;
-        int i;
+        mint_t i;
 
         ai = x;
         p = ai;
@@ -26,30 +18,38 @@ __sin__(double x)
         return p;
 }
 
+/*
+ * sin(x) function developed by using Taylor Series
+ *
+ * @param real x
+ *
+ * @return real sin(x)
+ */
+
 real
 real_sin(real x)
 {
         // Domain check
         real c = real_new(PI);
-        if (x->isMult(x, c)) {
+        if (real_ismult(x, c)) {
                 free(c);
                 return real_new(0.0);
         }
 
         // Declaration of variables and structures
         real s, y, z, w, h;
-        cml_t r;
+        mfloat_t r;
 
 
         // Mathematical algorithm
-        s = x->sgn(x);
-        y = x->abs(x);
-        z = y->ared(y);
+        s = real_sgn(x);
+        y = real_abs(x);
+        z = real_ared(y);
 
-        r = (cml_t) __sin__(z->value(z));
+        r = (mfloat_t) __sin__(real_value(z));
 
         w = real_new(r);
-        h = w->prod(w, s);
+        h = real_prod(w, s);
 
         // Free structures
         free(s);

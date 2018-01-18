@@ -8,8 +8,8 @@ real_div_e(real x, real y)
         real z, w;
 
         // Mathematical algorithm
-        z = x->div(x, y);
-        w = z->floor(z);
+        z = real_div(x, y);
+        w = real_floor(z);
 
         // Free structures
         free(z);

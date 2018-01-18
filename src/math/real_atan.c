@@ -4,7 +4,7 @@
 CML_EXTERN_INLINE double
 __atan__(double x)
 {
-        int i;
+        mint_t i;
         double ai_n = x,
                p = ai_n;
 
@@ -22,26 +22,27 @@ real_atan(real x)
 {
         // Domain check
         real a, u;
-        a = x->abs(x);
+        a = real_abs(x);
         u = real_new(1.0);
+
         /*
-           if (a->isGreaterOrEquals(a, u)) {
-              free(a);
-              free(u);
-              return real_new(NAN);
+           if (real_isgreater_or_equals(a, u)) {
+                free(a);
+                free(u);
+                return real_new(NAN);
            }
          */
 
 
         // Declaration of structures
-        cml_t y;
+        mfloat_t y;
         real s, h, w;
 
         // Mathematical algorithm
-        s = x->sgn(x);
-        y = (cml_t) __atan__(a->value(a));
+        s = real_sgn(x);
+        y = (mfloat_t) __atan__(real_value(a));
         h = real_new(y);
-        w = s->prod(s, h);
+        w = real_prod(s, h);
 
         // Free structures
         free(a);

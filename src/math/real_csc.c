@@ -16,8 +16,8 @@ real_csc(real x)
         real y, h;
 
         // Mathematical algorithm
-        y = x->sin(x);
-        h = y->inverse(y);
+        y = real_sin(x);
+        h = real_inverse(y);
 
         // Free structures
         free(y);

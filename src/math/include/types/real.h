@@ -5,10 +5,10 @@
 typedef struct _real
 {
         // Variables
-        cml_t real_value;
+        mfloat_t real_value;
         // Methods
-        cml_t (*value)(struct _real *);
-        void (*setValue)(struct _real *, cml_t);
+        mfloat_t (*value)(struct _real *);
+        void (*setValue)(struct _real *, mfloat_t);
         char * (*asString)(struct _real *);
 
         bool (*equals)(struct _real *, struct _real *);
@@ -68,20 +68,20 @@ typedef struct _real
 
 typedef real_t* real;
 
-real_t real_create(cml_t);
+real_t real_create(mfloat_t);
 
 // Construct & destruct
-real real_new(cml_t);
+real real_new(mfloat_t);
 void real_free(real);
 
 // Initialization
 void init_real(real);
 
 // getters
-cml_t real_value(real);
+mfloat_t real_value(real);
 
 // setters
-void real_set_value(real, cml_t);
+void real_set_value(real, mfloat_t);
 
 // Methods
 char * real_as_string(real);

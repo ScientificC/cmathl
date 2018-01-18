@@ -18,8 +18,8 @@ real_csch(real x)
         real y, h;
 
         // Mathematic algorithm
-        y = x->sinh(x);
-        h = y->inverse(y);
+        y = real_sinh(x);
+        h = real_inverse(y);
 
         // Free structures
         free(y);

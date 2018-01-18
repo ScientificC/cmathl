@@ -18,9 +18,9 @@ real_log_b(real x, real b)
         real y, z, w;
 
         // Mathematical algorithm
-        y = x->ln(x);
-        z = b->ln(b);
-        w = y->div(y, z);
+        y = real_ln(x);
+        z = real_ln(b);
+        w = real_div(y, z);
 
         // Free structures
         free(y);

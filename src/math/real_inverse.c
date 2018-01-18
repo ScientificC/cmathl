@@ -8,8 +8,10 @@ real_inverse(real x)
         real y, h;
 
         // Mathematical algorithm
-        y = real_new(1.0);
-        h = x->isNull(x) ? real_new(NAN) : y->div(y, x);
+        y = real_new((mfloat_t) 1.0);
+        h = real_isnull(x) ?
+            real_new(NAN) :
+            real_div(y, x);
 
         // Free structures
         free(y);

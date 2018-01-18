@@ -19,11 +19,11 @@ real_sinh(real x)
 
         // Mathematic algorithm
         c = real_new(2.0);
-        y = x->opposite(x);
-        z = x->exp(x);
-        w = y->exp(y);
-        k = z->sub(z, w);
-        h = k->div(k, c);
+        y = real_opposite(x);
+        z = real_exp(x);
+        w = real_exp(y);
+        k = real_sub(z, w);
+        h = real_div(k, c);
 
         // Free structures
         free(y);

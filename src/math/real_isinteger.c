@@ -3,14 +3,14 @@
 
 
 CML_EXTERN_INLINE bool
-__isinteger(cml_t x)
+__isinteger(mfloat_t x)
 {
-        int x_int = (int) x;
+        mint_t x_int = (mint_t) x;
         return ((x - x_int) == 0);
 }
 
 bool
 real_isinteger(real x)
 {
-        return __isinteger(x->value(x));
+        return __isinteger(real_value(x));
 }

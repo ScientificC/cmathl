@@ -13,10 +13,11 @@ CML_EXTERN_INLINE double
 __atanh__(double x)
 {
         double ai_n, p;
-        int i;
+        mint_t i;
 
         ai_n = x;
         p = ai_n;
+
         for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
                 ai_n = ai_n*x*x;
                 p = p + ai_n/(i+2);
@@ -30,13 +31,15 @@ real_atanh(real x)
 {
         // Declaration of structures
         real y, c, h;
-        cml_t r;
+        mfloat_t r;
 
         // Mathematical algorithm
-        y = x->abs(x);
+        y = real_abs(x);
         c = real_new(1.0);
-        r = (cml_t) __atanh__(x->value(x));
-        h = c->isGreater(c, y) ? real_new(r) : real_new(NAN);
+        r = (mfloat_t) __atanh__(real_value(x));
+        h = real_isgreater(c, y) ?
+            real_new(r) :
+            real_new(NAN);
 
         // Free structures
         free(c);

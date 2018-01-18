@@ -13,9 +13,9 @@ real_ared(real x)
 
         // Mathematical algorithm
         two_pi = real_new(TWOPI);
-        z = x->divE(x, two_pi);
-        k = z->prod(z, two_pi);
-        w = x->sub(x, k);
+        z = real_div_e(x, two_pi);
+        k = real_prod(z, two_pi);
+        w = real_sub(x, k);
 
         // Free structures
         free(two_pi);

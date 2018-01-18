@@ -17,8 +17,8 @@ real_root(real x, real n)
 
         // Mathematical algorithm
         w = real_new(-1.0);
-        y = n->pow(n, w);
-        z = x->pow(x, y);
+        y = real_pow(n, w);
+        z = real_pow(x, y);
 
         // Free structures
         free(w);

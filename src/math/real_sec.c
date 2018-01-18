@@ -16,8 +16,8 @@ real_sec(real x)
         real y, h;
 
         // Mathematical algorithm
-        y = x->cos(x);
-        h = y->inverse(y);
+        y = real_cos(x);
+        h = real_inverse(y);
 
         // Free structures
         free(y);

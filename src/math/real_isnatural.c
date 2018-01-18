@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__isnatural(cml_t x)
+__isnatural(mfloat_t x)
 {
         return (__isinteger(x) && x > 0);
 }
@@ -11,5 +11,5 @@ __isnatural(cml_t x)
 bool
 real_isnatural(real x)
 {
-        return __isnatural(x->value(x));
+        return __isnatural(real_value(x));
 }

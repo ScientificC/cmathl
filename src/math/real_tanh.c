@@ -18,10 +18,10 @@ real_tanh(real x)
         real y, z, w, h;
 
         // Mathematic algorithm
-        y = x->sinh(x);
-        z = x->cosh(x);
-        w = z->inverse(z);
-        h = y->prod(y, w);
+        y = real_sinh(x);
+        z = real_cosh(x);
+        w = real_inverse(z);
+        h = real_prod(y, w);
 
         // Free structures
         free(y);

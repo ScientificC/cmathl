@@ -16,9 +16,11 @@ real_tan(real x)
         real y, z, h;
 
         // Mathematical algorithm
-        z = x->sin(x);
-        y = x->cos(x);
-        h = y->isNull(y) ? real_new(NAN) : z->div(z, y);
+        z = real_sin(x);
+        y = real_cos(x);
+        h = real_isnull(y) ?
+            real_new(NAN) :
+            real_div(z, y);
 
         // Free structures
         free(y);

@@ -17,7 +17,7 @@ real_sqrt(real x)
 
         // Mathematical algorithm
         w = real_new(2.0);
-        y = x->root(x, w);
+        y = real_root(x, w);
 
         // Free structures
         free(w);
