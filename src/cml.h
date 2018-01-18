@@ -40,8 +40,8 @@
                                                               mfloat_t: _complex_new \
                                                               ), \
                                            real_t*: _Generic((Y), \
-                                                     default: _complex_new, \
-                                                             real_t*: _complex_new \
+                                                     default: _complex_new_from_reals, \
+                                                             real_t*: _complex_new_from_reals \
                                                              ) \
                                            )(X, Y)
 

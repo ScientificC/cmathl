@@ -4,13 +4,13 @@
 typedef struct _complex
 {
         // Variables
-        real real_part;
-        real imaginary_part;
+        mfloat_t real_part;
+        mfloat_t imaginary_part;
         // Methods
         real (*real)(struct _complex *);
         real (*imaginary)(struct _complex *);
-        void (*setReal)(struct _complex *, real);
-        void (*setImaginary)(struct _complex *, real);
+        void (*setReal)(struct _complex *, mfloat_t);
+        void (*setImaginary)(struct _complex *, mfloat_t);
         real* (*parts)(struct _complex *);
         char * (*asString)(struct _complex *);
 
@@ -58,10 +58,11 @@ typedef struct _complex
 
 typedef complex_t* complex;
 
-complex_t _complex_create(real, real);
+complex_t _complex_create(mfloat_t, mfloat_t);
 
 // Construct & destruct
-complex _complex_new(real, real);
+complex _complex_new(mfloat_t, mfloat_t);
+complex _complex_new_from_reals(real, real);
 void _complex_free(complex);
 
 complex _complex_clone(complex);
@@ -75,8 +76,8 @@ real complex_get_imaginary(complex);
 real * complex_get_parts(complex self);
 
 // setters
-void complex_set_real(complex, real);
-void complex_set_imaginary(complex, real);
+void complex_set_real(complex, mfloat_t);
+void complex_set_imaginary(complex, mfloat_t);
 
 // Methods
 char * complex_as_string(complex);

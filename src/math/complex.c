@@ -4,24 +4,30 @@
 #include <cml.h>
 
 complex_t
-_complex_create(real real_part, real imaginary_part)
+_complex_create(mfloat_t real_part, mfloat_t imaginary_part)
 {
         complex_t z;
 
         init_complex(&z);
-        z.real_part = real_new(real_part->real_value);
-        z.imaginary_part = real_new(imaginary_part->real_value);
+        z.real_part = real_part;
+        z.imaginary_part = imaginary_part;
 
         return z;
 }
 
 complex_t*
-_complex_new(real real_part, real imaginary_part)
+_complex_new(mfloat_t real_part, mfloat_t imaginary_part)
 {
         complex_t* z = (complex_t*) malloc(sizeof (complex_t));
         (*z) = _complex_create(real_part, imaginary_part);
 
         return z;
+}
+
+complex_t*
+_complex_new_from_reals(real a, real b)
+{
+        return _complex_new(real_value(a), real_value(b));
 }
 
 complex_t*
@@ -42,23 +48,23 @@ _complex_free(complex_t* z)
 real
 complex_get_real(complex_t* z)
 {
-        return z->real_part;
+        return real_new(z->real_part);
 }
 
 real
 complex_get_imaginary(complex_t* z)
 {
-        return z->imaginary_part;
+        return real_new(z->imaginary_part);
 }
 
 void
-complex_set_real(complex_t* z, real x)
+complex_set_real(complex_t* z, mfloat_t x)
 {
         z->real_part = x;
 }
 
 void
-complex_set_imaginary(complex_t* z, real x)
+complex_set_imaginary(complex_t* z, mfloat_t x)
 {
         z->imaginary_part = x;
 }
@@ -78,11 +84,11 @@ complex_as_string(complex_t* z)
         char *x, *y, op[5], im[5];
         double im_value;
 
-        real* parts = z->parts(z);
-        im_value = parts[1]->value(parts[1]);
+        real* parts = complex_get_parts(z);
+        im_value = real_value(parts[1]);
 
-        x = (char*) parts[0]->asString(parts[0]);
-        y = (char*) parts[1]->asString(parts[1]);
+        x = (char*) real_as_string(parts[0]);
+        y = (char*) real_as_string(parts[1]);
 
         strcpy(op, (im_value >= 0.0 ? " + " : " "));
         strcpy(im, "i");
