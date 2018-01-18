@@ -17,27 +17,27 @@
                                                      ) \
                                    )(X, Y)
 
-       #define prod(X, Y) _Generic((X), \
+        #define prod(X, Y) _Generic((X), \
+                                    complex_t*: _Generic((Y), \
+                                                 default: complex_prod, \
+                                                         complex_t*: complex_prod \
+                                                         ), \
+                                    real_t*: _Generic((Y), \
+                                              default: real_prod, \
+                                                      real_t*: real_prod \
+                                                      ) \
+                                    )(X, Y)
+
+        #define sub(X, Y) _Generic((X), \
                                    complex_t*: _Generic((Y), \
-                                                default: complex_prod, \
-                                                        complex_t*: complex_prod \
+                                                default: complex_sub, \
+                                                        complex_t*: complex_sub \
                                                         ), \
                                    real_t*: _Generic((Y), \
-                                             default: real_prod, \
-                                                     real_t*: real_prod \
+                                             default: real_sub, \
+                                                     real_t*: real_sub \
                                                      ) \
                                    )(X, Y)
-
-       #define sub(X, Y) _Generic((X), \
-                                  complex_t*: _Generic((Y), \
-                                               default: complex_sub, \
-                                                       complex_t*: complex_sub \
-                                                       ), \
-                                  real_t*: _Generic((Y), \
-                                            default: real_sub, \
-                                                    real_t*: real_sub \
-                                                    ) \
-                                  )(X, Y)
 
         #define div(X, Y) _Generic((X), \
                                    complex_t*: _Generic((Y), \
