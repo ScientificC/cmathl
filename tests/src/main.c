@@ -55,7 +55,7 @@ void __cml_test__()
 
         z = complex_new(1.0, 4.0);
         w = sin(z);
-        g = z->log(z);
+        g = log(z);
 
         printf("%s\n", z->asString(z));
         printf("%s\n", w->asString(w));

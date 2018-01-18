@@ -50,6 +50,34 @@
                                                      ) \
                                    )(X, Y)
 
+        #define inverse(X) _Generic((X), \
+                                    complex_t*: complex_inverse, \
+                                    real_t*: real_inverse \
+                                    )(X)
+
+        #define exp(X) _Generic((X), \
+                                complex_t*: complex_exp, \
+                                real_t*: real_exp \
+                                )(X)
+
+        #define log(X) _Generic((X), \
+                                complex_t*: complex_log, \
+                                real_t*: real_ln \
+                                )(X)
+
+        #define ln(X) log(X)
+
+        #define log_b(X, Y) _Generic((X), \
+                                     complex_t*: _Generic((Y), \
+                                                  default: complex_log_b, \
+                                                          complex_t*: complex_log_b \
+                                                          ), \
+                                     real_t*: _Generic((Y), \
+                                               default: real_log_b, \
+                                                       real_t*: real_log_b \
+                                                       ) \
+                                     )(X, Y)
+
         #define sin(X) _Generic((X), \
                                 complex_t*: complex_sin, \
                                 real_t*: real_sin \
