@@ -20,9 +20,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <GL/gl.h>
 
 #define CML_SERIES_RESOLVER 1
-
+#define mfloat_t GLfloat
 #include <cml.h>
 
 static double was = 0.0;
@@ -52,7 +53,7 @@ void __cml_test__()
         x = real_new(1.0);
         y = real_new(4.0);
 
-        z = complex_new(x, y);
+        z = complex_new(1.0, 4.0);
         w = z->sin(z);
         g = z->log(z);
 

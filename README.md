@@ -30,7 +30,7 @@ Or include `cml.h` in a source or header. This second approach is useful, becaus
 
 ```c
 /* In a *.c file */
-#include <GL.h>
+#include <GL/gl.h>
 #define mfloat_t GLfloat
 #include <cml.h>
 ```
