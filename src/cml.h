@@ -36,11 +36,11 @@
                                              default: _complex_new \
                                                      ), \
                                            mfloat_t: _Generic((Y), \
-                                                              mfloat_t: _complex_new, \
-                                                              real_t*: _complex_new \
+                                                      default: _complex_new, \
+                                                              mfloat_t: _complex_new \
                                                               ), \
                                            real_t*: _Generic((Y), \
-                                                             mfloat_t: _complex_new, \
+                                                     default: _complex_new, \
                                                              real_t*: _complex_new \
                                                              ) \
                                            )(X, Y)
