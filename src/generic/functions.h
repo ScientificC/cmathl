@@ -6,6 +6,50 @@
 #define CML_GEN_FUNC_H
 
 #ifndef CML_NO_GENERIC
+        #define add(X, Y) _Generic((X), \
+                                   complex_t*: _Generic((Y), \
+                                                default: complex_add, \
+                                                        complex_t*: complex_add \
+                                                        ), \
+                                   real_t*: _Generic((Y), \
+                                             default: real_add, \
+                                                     real_t*: real_add \
+                                                     ) \
+                                   )(X, Y)
+
+       #define prod(X, Y) _Generic((X), \
+                                   complex_t*: _Generic((Y), \
+                                                default: complex_prod, \
+                                                        complex_t*: complex_prod \
+                                                        ), \
+                                   real_t*: _Generic((Y), \
+                                             default: real_prod, \
+                                                     real_t*: real_prod \
+                                                     ) \
+                                   )(X, Y)
+
+       #define sub(X, Y) _Generic((X), \
+                                  complex_t*: _Generic((Y), \
+                                               default: complex_sub, \
+                                                       complex_t*: complex_sub \
+                                                       ), \
+                                  real_t*: _Generic((Y), \
+                                            default: real_sub, \
+                                                    real_t*: real_sub \
+                                                    ) \
+                                  )(X, Y)
+
+        #define div(X, Y) _Generic((X), \
+                                   complex_t*: _Generic((Y), \
+                                                default: complex_div, \
+                                                        complex_t*: complex_div \
+                                                        ), \
+                                   real_t*: _Generic((Y), \
+                                             default: real_div, \
+                                                     real_t*: real_div \
+                                                     ) \
+                                   )(X, Y)
+
         #define sin(X) _Generic((X), \
                                 complex_t*: complex_sin, \
                                 real_t*: real_sin \

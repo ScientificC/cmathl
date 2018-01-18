@@ -19,13 +19,12 @@
 #endif
 
 #include <math/include/math.h>
+#include <generic/functions.h>
 
 #ifndef CML_NO_GENERIC
         #undef clone
         #undef complex_new
         #undef real_new
-
-        #include <generic/functions.h>
 
         #define clone(X) _Generic((X), \
                                   complex_t*: _complex_clone, \
