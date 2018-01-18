@@ -6,57 +6,61 @@
 real_t
 real_create(mfloat_t value)
 {
-        real_t self;
+        real_t x;
 
-        init_real(&self);
-        self.real_value = value;
+        init_real(&x);
+        x.real_value = value;
 
-        return self;
+        return x;
 }
 
-real
+real_t*
 real_new(mfloat_t value)
 {
-        real self = (real) malloc(sizeof (real_t));
-        (*self) = real_create(value);
+        real_t* x = (real_t*) malloc(sizeof (real_t));
+        (*x) = real_create(value);
 
-        return self;
+        return x;
 }
 
 void
-real_free(real self)
+real_free(real_t* x)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
 
 mfloat_t
-real_value(real self)
+real_value(real_t* x)
 {
-        return self->real_value;
+        return ((mfloat_t*) x)[0];
 }
 
 
 void
-real_set_value(real self, mfloat_t x)
+real_set_value(real_t* x, mfloat_t w)
 {
-        self->real_value = x;
+        if (sizeof(x->real_value) == sizeof(void*)) {
+                x->real_value = w;
+        }
 }
 
 char *
-real_as_string(real self)
+real_as_string(real_t* x)
 {
-        mfloat_t value = self->value(self);
+        mfloat_t value = ((mfloat_t*) x)[0];
+
         int size = snprintf(NULL, 0, "%g", value) + 1;
         char * string = (char*) malloc(size);
         snprintf(string, size, "%g", value);
+
         return string;
 }
 
 
 void
-init_real(real self)
+init_real(real_t* x)
 {
-        (*self) = (real_t)
+        (*x) = (real_t)
         {
                 .value = &real_value,
                 .setValue = &real_set_value,
