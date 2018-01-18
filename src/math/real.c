@@ -4,7 +4,7 @@
 #include <cml.h>
 
 real_t
-real_create(mfloat_t value)
+_real_create(mfloat_t value)
 {
         real_t x;
 
@@ -15,16 +15,25 @@ real_create(mfloat_t value)
 }
 
 real_t*
-real_new(mfloat_t value)
+_real_new(mfloat_t value)
 {
         real_t* x = (real_t*) malloc(sizeof (real_t));
-        (*x) = real_create(value);
+        (*x) = _real_create(value);
+
+        return x;
+}
+
+real_t*
+_real_clone(real_t* w)
+{
+        real_t* x = (real_t*) malloc(sizeof (real_t));
+        (*x) = _real_create(real_value(w));
 
         return x;
 }
 
 void
-real_free(real_t* x)
+_real_free(real_t* x)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }
@@ -108,6 +117,6 @@ init_real(real_t* x)
                 .csch = &real_csch,
                 .coth = &real_coth,
                 .atanh = &real_atanh,
-                .free = &real_free
+                .free = &_real_free
         };
 }

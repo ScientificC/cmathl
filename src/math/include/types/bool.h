@@ -10,7 +10,7 @@
 typedef unsigned char _Bool;
 #endif
 
-#if defined __STDC__ && defined __STDC_VERSION__ && __STDC_VERSION__ >= 199901L
+#if defined __STDC__ && defined PREDEF_STANDARD_C99
 #define bool  _Bool
 #define true  1
 #define false 0
