@@ -1,6 +1,6 @@
 # cml
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.7.1](https://img.shields.io/badge/Version-v1.7.1-blue.svg)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.7.2](https://img.shields.io/badge/Version-v1.7.2-blue.svg)
 
 ## Introduction
 
@@ -37,7 +37,7 @@ Or include `cml.h` in a source or header. This second approach is useful, becaus
 
 ### Bool Type
 
-If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.h` and will define a macro `bool` of type `int` to represent boolean values. This is useful for platforms where `stdbool.h` is not available.
+If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.h` and will define a type or macro `bool` of type `int`, `int32_t` or something like to represent boolean values. This is useful for platforms where `stdbool.h` is not available.
 
 ### Integer Type
 
