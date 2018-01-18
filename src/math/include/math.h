@@ -12,6 +12,12 @@
 #include "functions/functions.h"
 #include "functions/real.h"
 
+#define complex_clone(X) _complex_clone(X)
+#define complex_new(X, Y) _complex_new(X, Y)
+#define complex_new_from_reals(X, Y) _complex_new_from_reals(X, Y)
+#define real_clone(X) _real_clone(X)
+#define real_new(X) _real_new(X)
+
 #ifndef CML_SERIES_TOP_IT_L
 #define CML_SERIES_TOP_IT_L MAXLOG*14
 #endif

@@ -20,13 +20,11 @@
 
 #include <math/include/math.h>
 
-#ifdef CML_NO_GENERIC
-        #define complex_clone(X) _complex_clone(X)
-        #define complex_new(X, Y) _complex_new(X, Y)
-        #define complex_new_from_reals(X, Y) _complex_new_from_reals(X, Y)
-        #define real_clone(X) _real_clone(X)
-        #define real_new(X) _real_new(X)
-#else
+#ifndef CML_NO_GENERIC
+        #undef clone
+        #undef complex_new
+        #undef real_new
+
         #include <generic/functions.h>
 
         #define clone(X) _Generic((X), \
