@@ -8,7 +8,10 @@ _complex_create(mfloat_t real_part, mfloat_t imaginary_part)
 {
         complex_t z;
 
+        #ifndef CML_NO_FUNCTION_POINTER
         init_complex(&z);
+        #endif
+
         z.real_part = real_part;
         z.imaginary_part = imaginary_part;
 
@@ -73,8 +76,10 @@ real*
 complex_get_parts(complex_t* z)
 {
         real* parts = malloc(sizeof(*parts));
-        parts[0] = z->getReal(z);
-        parts[1] = z->getImaginary(z);
+
+        parts[0] = complex_get_real(z);
+        parts[1] = complex_get_imaginary(z);
+
         return parts;
 }
 
@@ -101,6 +106,7 @@ complex_as_string(complex_t* z)
         return x;
 }
 
+#ifndef CML_NO_FUNCTION_POINTER
 void
 init_complex(complex_t* z)
 {
@@ -136,3 +142,4 @@ init_complex(complex_t* z)
                 .free = &_complex_free
         };
 }
+#endif

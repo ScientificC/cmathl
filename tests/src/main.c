@@ -55,6 +55,7 @@ void __cml_test__()
         printf("%s\n", as_string(sin(x)));
         printf("%s\n", as_string(pow(x, x)));
         printf("%s\n", as_string(asin(x)));
+        printf("%ld\n", sizeof(real_t));
 }
 
 int main(int argc, char const *argv[])

@@ -3,10 +3,10 @@
 
 typedef struct _complex
 {
-        // Variables
         mfloat_t real_part;
         mfloat_t imaginary_part;
-        // Methods
+
+        #ifndef CML_NO_FUNCTION_POINTER
         real (*getReal)(struct _complex *);
         real (*getImaginary)(struct _complex *);
         void (*setReal)(struct _complex *, mfloat_t);
@@ -14,7 +14,6 @@ typedef struct _complex
         real* (*parts)(struct _complex *);
         char * (*asString)(struct _complex *);
 
-        // Functions
         struct _complex * (*add)(struct _complex *, struct _complex *);
         struct _complex * (*prod)(struct _complex *, struct _complex *);
 
@@ -51,9 +50,8 @@ typedef struct _complex
         struct _complex * (*coth)(struct _complex *);
         struct _complex * (*atanh)(struct _complex *);
 
-        // Destructor
         void (*free)(struct _complex *);
-
+        #endif
 } complex_t;
 
 typedef complex_t* complex;

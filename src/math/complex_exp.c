@@ -19,7 +19,7 @@ complex_exp(complex z)
         real n, m, h, x, y;
 
         // Mathematical algorithm
-        p = z->parts(z);
+        p = complex_get_parts(z);
         h = real_exp(p[0]);
         n = real_cos(p[1]);
         m = real_sin(p[1]);

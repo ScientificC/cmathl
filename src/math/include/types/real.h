@@ -4,9 +4,10 @@
 
 typedef struct _real
 {
-        // Variables
+
         mfloat_t real_value;
-        // Methods
+
+        #ifndef CML_NO_FUNCTION_POINTER
         mfloat_t (*value)(struct _real *);
         void (*setValue)(struct _real *, mfloat_t);
         char * (*asString)(struct _real *);
@@ -65,9 +66,8 @@ typedef struct _real
         struct _real * (*acosh)(struct _real *);
         struct _real * (*atanh)(struct _real *);
 
-        // Destructor
         void (*free)(struct _real *);
-
+        #endif
 } real_t;
 
 typedef real_t* real;
@@ -91,6 +91,5 @@ void real_set_value(real, mfloat_t);
 
 // Methods
 char * real_as_string(real);
-char * real_as_complex(real);
 
 #endif

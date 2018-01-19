@@ -21,6 +21,10 @@
         #define CML_EXTERN_INLINE
 #endif
 
+#ifndef CML_NO_GENERIC
+        #define CML_NO_FUNCTION_POINTER 1
+#endif
+
 #include <math/include/math.h>
 #include <generic/functions.h>
 

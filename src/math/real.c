@@ -8,7 +8,10 @@ _real_create(mfloat_t value)
 {
         real_t x;
 
+        #ifndef CML_NO_FUNCTION_POINTER
         init_real(&x);
+        #endif
+
         x.real_value = value;
 
         return x;
@@ -63,7 +66,7 @@ real_as_string(real_t* x)
         return string;
 }
 
-
+#ifndef CML_NO_FUNCTION_POINTER
 void
 init_real(real_t* x)
 {
@@ -122,3 +125,4 @@ init_real(real_t* x)
                 .free = &_real_free
         };
 }
+#endif
