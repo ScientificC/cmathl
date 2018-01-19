@@ -10,7 +10,7 @@ complex_tanh(complex z)
         if (!real_isnull(a)) {
                 free(a);
                 free(c);
-                return complex_new(real_new(NAN), real_new(NAN));
+                return complex_new(NAN, NAN);
         }
 
         free(a);

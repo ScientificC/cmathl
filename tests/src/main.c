@@ -24,6 +24,7 @@
 
 #define CML_SERIES_RESOLVER 1
 #define mfloat_t GLfloat
+
 #include <cml.h>
 
 static double was = 0.0;
@@ -48,7 +49,7 @@ void __series_test__()
 void __cml_test__()
 {
         real x, y;
-        complex z, w, g;
+        complex z, w, g, j;
 
         x = real_new(1.0);
         y = real_new(4.0);
@@ -56,10 +57,12 @@ void __cml_test__()
         z = complex_new(1.0, 4.0);
         w = sin(z);
         g = log(z);
+        j = add(w, g);
 
         printf("%s\n", z->asString(z));
         printf("%s\n", w->asString(w));
         printf("%s\n", g->asString(g));
+        printf("%s\n", j->asString(j));
 
         free(x);
         free(y);

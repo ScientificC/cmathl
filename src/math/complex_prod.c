@@ -11,7 +11,6 @@ complex_prod(complex z, complex k)
 {
         // Declaration of structures
         complex w;
-        real n, m;
         real *x, *y;
         cml_math_t a, b, c, d;
 
@@ -24,16 +23,11 @@ complex_prod(complex z, complex k)
         c = real_value(y[0]);
         d = real_value(y[1]);
 
-        n = real_new(a*c - b*d);
-        m = real_new(a*d + b*c);
-
-        w = complex_new(n, m);
+        w = complex_new(a*c - b*d, a*d + b*c);
 
         // Free structures
         free(x);
         free(y);
-        free(n);
-        free(m);
 
         // Return
         return w;

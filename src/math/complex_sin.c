@@ -30,7 +30,7 @@ complex_sin(complex z)
         n = real_prod(k, a);
         m = real_prod(h, b);
 
-        w = complex_new(n, m);
+        w = complex_new_from_reals(n, m);
 
         // Free structures
         free(x);

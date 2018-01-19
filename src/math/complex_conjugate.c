@@ -15,7 +15,7 @@ complex_conjugate(complex z)
 
         // Mathematical algorithm
         im = complex_get_imaginary(z);
-        r = complex_new(complex_get_real(z), real_opposite(im));
+        r = complex_new_from_reals(complex_get_real(z), real_opposite(im));
 
         // Free structures
         /* free(im); don't let im be free! */

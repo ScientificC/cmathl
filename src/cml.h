@@ -21,7 +21,9 @@
 #include <math/include/math.h>
 #include <generic/functions.h>
 
-#ifndef CML_NO_GENERIC
+#ifdef CML_NO_GENERIC
+/* Only work with the macros defined in <math/include/math.h> */
+#else
         #undef clone
         #undef complex_new
         #undef real_new

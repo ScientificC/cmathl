@@ -25,7 +25,7 @@ complex_inverse(complex z)
         n = real_div(x[0], b);
         m = real_div(x[1], b);
 
-        h = complex_new(n, m);
+        h = complex_new_from_reals(n, m);
 
         // Free structures
         free(w);

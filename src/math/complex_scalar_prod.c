@@ -12,7 +12,7 @@ complex_scalar_prod(complex z, real k)
         p = complex_get_parts(z);
         x = real_prod(k, p[0]);
         y = real_prod(k, p[1]);
-        w = complex_new(x, y);
+        w = complex_new_from_reals(x, y);
 
         // Free structures
         free(p);

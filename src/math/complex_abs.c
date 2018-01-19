@@ -18,6 +18,8 @@ complex_abs(complex z)
         h = real_sqrt(w);
 
         // Free structures
+        free(x[0]);
+        free(x[1]);
         free(x);
         free(n);
         free(a);

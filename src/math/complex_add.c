@@ -18,7 +18,7 @@ complex_add(complex z, complex k)
         y = complex_get_parts(k);
         n = real_add(x[0], y[0]);
         m = real_add(x[1], y[1]);
-        w = complex_new(n, m);
+        w = complex_new_from_reals(n, m);
 
         // Free structures
         free(x);

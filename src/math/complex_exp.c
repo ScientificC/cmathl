@@ -26,7 +26,7 @@ complex_exp(complex z)
         x = real_prod(h, n);
         y = real_prod(h, m);
 
-        w = complex_new(x, y);
+        w = complex_new_from_reals(x, y);
 
         // Free structures
         free(p);

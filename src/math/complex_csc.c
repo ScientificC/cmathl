@@ -10,7 +10,7 @@ complex_csc(complex self)
         if (!real_isnull(a)) {
                 free(a);
                 free(s);
-                return complex_new(real_new(NAN), real_new(NAN));
+                return complex_new(NAN, NAN);
         }
 
         free(a);
