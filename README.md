@@ -93,3 +93,30 @@ x = real(3.0);
 y = real(2.0);
 z = pow(x, y);
 ```
+
+### Complex
+
+CML defines a large number of operations for the set of complex numbers. For this, the type `complex` (alias of `complex_t*`) is provided. Here is an example on how to work with this type of data:
+
+```C
+complex z = complex(1.0, 4.0);
+```
+Another way to do the same can be the following:
+
+```C
+complex z = complex_new(1.0, 4.0);
+```
+
+or,
+
+```C
+complex x = new(complex, 1.0, 4.0);
+```
+Now, let's see an example of how to apply an operation between two reals. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
+
+```C
+complex z, w;
+
+z = complex(1.0, 4.0);
+w = exp(x, y);
+```
