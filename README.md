@@ -112,7 +112,7 @@ or,
 ```C
 complex x = new(complex, 1.0, 4.0);
 ```
-Now, let's see an example of how to apply an operation between two reals. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
+Now, let's see an example of how to apply an operation to any complex numbers. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
 
 ```C
 complex z, w;
