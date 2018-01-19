@@ -1,6 +1,6 @@
 # cml
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.7.5](https://img.shields.io/badge/Version-v1.7.5-blue.svg)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.7.6](https://img.shields.io/badge/Version-v1.7.6-blue.svg)
 
 ## Introduction
 
@@ -34,10 +34,7 @@ CML can be configured with the following preprocessors (described in the followi
 You can define these macros during compilation time with flags:
 
 ```
-
 gcc -DCML_NO_STDBOOL=ON -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
-
-`
 ```
 
 Or include `cml.h` in a source or header. This second approach is useful, because you can define `mfloat_t` as a different type other than the built-in types `float` or `double`, such as `GLfloat`:
@@ -47,7 +44,6 @@ Or include `cml.h` in a source or header. This second approach is useful, becaus
 #include <GL/gl.h>
 #define mfloat_t GLfloat
 #include <cml.h>
-`
 ```
 
 ### Bool Type
