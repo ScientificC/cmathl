@@ -17,7 +17,7 @@
 #define real_clone(X) _real_clone(X)
 #define real_new(X) _real_new(X)
 
-#define new(type, ...) { type ## _new(__VA_ARGS__) }
+#define new(type, ...) (type ## _t*) { type ## _new(__VA_ARGS__) }
 
 #ifndef CML_SERIES_TOP_IT_L
 #define CML_SERIES_TOP_IT_L MAXLOG*14
