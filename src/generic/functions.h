@@ -55,6 +55,10 @@
                                     real_t*: real_inverse \
                                     )(X)
 
+        #define opposite(X) _Generic((X), \
+                                     real_t*: real_opposite \
+                                     )(X)
+
         #define exp(X) _Generic((X), \
                                 complex_t*: complex_exp, \
                                 real_t*: real_exp \
@@ -77,6 +81,13 @@
                                                        real_t*: real_log_b \
                                                        ) \
                                      )(X, Y)
+
+         #define pow(X, Y) _Generic((X), \
+                                    real_t*: _Generic((Y), \
+                                              default: real_pow, \
+                                                      real_t*: real_pow \
+                                                      ) \
+                                    )(X, Y)
 
         #define sin(X) _Generic((X), \
                                 complex_t*: complex_sin, \
@@ -122,6 +133,11 @@
                                  complex_t*: complex_tanh, \
                                  real_t*: real_tanh \
                                  )(X)
+
+        #define as_string(X) _Generic((X), \
+                                      complex_t*: complex_as_string, \
+                                      real_t*: real_as_string \
+                                      )(X)
 #else
         #define add(X, Y) (X)->add(X, Y)
         #define prod(X, Y) (X)->prod(X, Y)
@@ -159,6 +175,7 @@
         #define csch(X) (X)->csch(X)
         #define coth(X) (X)->coth(X)
         #define atanh(X) (X)->atanh(X)
+        #define as_string(X) (X)->asString(X)
 #endif
 
 #endif

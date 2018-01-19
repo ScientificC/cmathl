@@ -17,7 +17,7 @@ real_pow(real x, real n)
         if (real_isnull(x)) {
                 return real_isnull(n) ?
                        real_new(NAN) :
-                       real_new((mfloat_t) real_value(x));
+                       real_clone(x);
         }
 
         // Declaration of structures
