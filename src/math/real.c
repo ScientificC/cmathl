@@ -41,7 +41,7 @@ _real_free(real_t* x)
 mfloat_t
 real_value(real_t* x)
 {
-        return ((mfloat_t*) x)[0];
+        return x->real_value;
 }
 
 
@@ -58,7 +58,7 @@ real_as_string(real_t* x)
 
         int size = snprintf(NULL, 0, "%G", value) + 1;
         char * string = (char*) malloc(size);
-        snprintf(string, size, "%g", value);
+        snprintf(string, size, "%G", value);
 
         return string;
 }
