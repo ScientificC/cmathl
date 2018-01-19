@@ -77,16 +77,12 @@
 /* log(sqrt((2*pi)) */
 #define LNSQRT2PI 0.9189385332046727417803297364056176398613974736377834128171
 
-
-
-
 /*
  * The above constants are not adequate for computation using `long double's.
  * Therefore we provide as an extension constants with similar names as a
  * GNU extension.  Provide enough digits for the 128-bit IEEE quad.
  *
  */
-
 #ifdef __USE_GNU
 /* e */
 #define El           2.718281828459045235360287471352662498L
