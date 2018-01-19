@@ -50,7 +50,7 @@
 
 void __cml_test__()
 {
-        real x = new(real, 0.5);
+        real x = real(0.5);
         printf("%s%s\n\n", "The following tests are performed with x = ", as_string(x));
         printf("%s\n", as_string(sin(x)));
         printf("%s\n", as_string(pow(x, x)));
