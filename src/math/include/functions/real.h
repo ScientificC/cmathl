@@ -43,6 +43,8 @@ real real_tan(real);
 real real_sec(real);
 real real_csc(real);
 real real_cot(real);
+real real_asin(real);
+real real_acos(real);
 real real_atan(real);
 real real_atan2(real, real);
 real real_sinh(real);
@@ -51,6 +53,8 @@ real real_tanh(real);
 real real_sech(real);
 real real_csch(real);
 real real_coth(real);
+real real_asinh(real);
+real real_acosh(real);
 real real_atanh(real);
 
 #endif

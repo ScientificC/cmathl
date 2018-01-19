@@ -106,6 +106,8 @@ init_real(real_t* x)
                 .sec = &real_sec,
                 .csc = &real_csc,
                 .cot = &real_cot,
+                .asin = &real_asin,
+                .acos = &real_acos,
                 .atan = &real_atan,
                 .atan2 = &real_atan2,
                 .sinh = &real_sinh,
@@ -114,6 +116,8 @@ init_real(real_t* x)
                 .sech = &real_sech,
                 .csch = &real_csch,
                 .coth = &real_coth,
+                .asinh = &real_asinh,
+                .acosh = &real_acosh,
                 .atanh = &real_atanh,
                 .free = &_real_free
         };

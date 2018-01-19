@@ -82,12 +82,12 @@
                                                        ) \
                                      )(X, Y)
 
-         #define pow(X, Y) _Generic((X), \
-                                    real_t*: _Generic((Y), \
-                                              default: real_pow, \
-                                                      real_t*: real_pow \
-                                                      ) \
-                                    )(X, Y)
+        #define pow(X, Y) _Generic((X), \
+                                   real_t*: _Generic((Y), \
+                                             default: real_pow, \
+                                                     real_t*: real_pow \
+                                                     ) \
+                                   )(X, Y)
 
         #define sin(X) _Generic((X), \
                                 complex_t*: complex_sin, \
@@ -134,6 +134,18 @@
                                  real_t*: real_tanh \
                                  )(X)
 
+        #define asinh(X) _Generic((X), \
+                                  real_t*: real_asinh \
+                                  )(X)
+
+        #define acosh(X) _Generic((X), \
+                                  real_t*: real_acosh \
+                                  )(X)
+
+        #define atanh(X) _Generic((X), \
+                                  real_t*: real_atanh \
+                                  )(X)
+
         #define as_string(X) _Generic((X), \
                                       complex_t*: complex_as_string, \
                                       real_t*: real_as_string \
@@ -166,6 +178,8 @@
         #define sec(X) (X)->sec(X)
         #define csc(X) (X)->csc(X)
         #define cot(X) (X)->cot(X)
+        #define asin(X) (X)->asin(X)
+        #define acos(X) (X)->acos(X)
         #define atan(X) (X)->atan(X)
         #define atan2(X, Y) (X)->atan2(X, Y)
         #define sinh(X) (X)->sinh(X)
@@ -174,6 +188,8 @@
         #define sech(X) (X)->sech(X)
         #define csch(X) (X)->csch(X)
         #define coth(X) (X)->coth(X)
+        #define asinh(X) (X)->asinh(X)
+        #define acosh(X) (X)->acosh(X)
         #define atanh(X) (X)->atanh(X)
         #define as_string(X) (X)->asString(X)
 #endif

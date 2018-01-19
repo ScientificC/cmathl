@@ -50,6 +50,8 @@ typedef struct _real
         struct _real * (*sec)(struct _real *);
         struct _real * (*csc)(struct _real *);
         struct _real * (*cot)(struct _real *);
+        struct _real * (*asin)(struct _real *);
+        struct _real * (*acos)(struct _real *);
         struct _real * (*atan)(struct _real *);
         struct _real * (*atan2)(struct _real *, struct _real *);
 
@@ -59,6 +61,8 @@ typedef struct _real
         struct _real * (*sech)(struct _real *);
         struct _real * (*csch)(struct _real *);
         struct _real * (*coth)(struct _real *);
+        struct _real * (*asinh)(struct _real *);
+        struct _real * (*acosh)(struct _real *);
         struct _real * (*atanh)(struct _real *);
 
         // Destructor
