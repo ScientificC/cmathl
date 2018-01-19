@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <cml.h>
 
-CML_EXTERN_INLINE double
-__sin__(double x)
+CML_EXTERN_INLINE cml_math_t
+__sin__(cml_math_t x)
 {
-        double ai, p;
+        cml_math_t ai, p;
         mint_t i;
 
         ai = x;

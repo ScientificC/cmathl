@@ -1,16 +1,16 @@
 #include <stdlib.h>
 #include <cml.h>
 
-CML_EXTERN_INLINE double
-__atan__(double x)
+CML_EXTERN_INLINE cml_math_t
+__atan__(cml_math_t x)
 {
         mint_t i;
-        double ai_n = x,
-               p = ai_n;
+        cml_math_t ai_n = x,
+                   p = ai_n;
 
         for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
                 ai_n = -ai_n*x*x;
-                p += ai_n/((double) i + 2.0);
+                p += ai_n/((cml_math_t) i + 2.0);
         }
 
         return p;

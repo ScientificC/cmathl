@@ -82,7 +82,7 @@ char *
 complex_as_string(complex_t* z)
 {
         char *x, *y, op[5], im[5];
-        double im_value;
+        mfloat_t im_value;
 
         real* parts = complex_get_parts(z);
         im_value = real_value(parts[1]);

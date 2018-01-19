@@ -3,7 +3,7 @@
 
 
 CML_EXTERN_INLINE bool
-__equals(double x, double y)
+__equals(mfloat_t x, mfloat_t y)
 {
         return x == y;
 }

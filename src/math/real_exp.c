@@ -14,7 +14,7 @@ real_exp(real x)
 {
         // Declaration of variables and structures
         mint_t i;
-        double ai, ex, value;
+        cml_math_t ai, ex, value;
 
         // Mathematical algorithm
         value = real_value(x);

@@ -13,7 +13,7 @@ complex_prod(complex z, complex k)
         complex w;
         real n, m;
         real *x, *y;
-        double a, b, c, d;
+        cml_math_t a, b, c, d;
 
         // Mathematical algorithm
         x = complex_get_parts(z);

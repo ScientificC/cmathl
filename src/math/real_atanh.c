@@ -9,10 +9,10 @@
  * @return real atanh(x)
  */
 
-CML_EXTERN_INLINE double
-__atanh__(double x)
+CML_EXTERN_INLINE cml_math_t
+__atanh__(cml_math_t x)
 {
-        double ai_n, p;
+        cml_math_t ai_n, p;
         mint_t i;
 
         ai_n = x;
