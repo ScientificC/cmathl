@@ -48,9 +48,7 @@ real_value(real_t* x)
 void
 real_set_value(real_t* x, mfloat_t w)
 {
-        if (sizeof(x->real_value) == sizeof(void*)) {
-                x->real_value = w;
-        }
+        x->real_value = w;
 }
 
 char *
