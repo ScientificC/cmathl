@@ -6,10 +6,6 @@
 
 CML is a compact C library with a great variety of mathematical functions.
 
-## Details
-
-Each of the functions of the library is developed using efficient mathematical definitions and this is one of the most important characteristics.
-
 ## Using the CMATHL
 
 Currently, CMATHL (or CML) does not have a make install option. As it is header-only, it is simple enough to copy the src header directory into your project, and setup your build to reference it.
@@ -118,5 +114,5 @@ Now, let's see an example of how to apply an operation to any complex numbers. S
 complex z, w;
 
 z = complex(1.0, 4.0);
-w = exp(x, y);
+w = exp(z);
 ```
