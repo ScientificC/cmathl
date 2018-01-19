@@ -18,7 +18,7 @@ SRC_FILES := $(shell find src/ -name "*.c")
 CFLAGS=-O3 -Wall -std=gnu11 -pthread -I./src
 
 # Uncomment to debug
-DEBUG=-g
+DEBUG=-g -ggdb
 
 ##################################
 # Rules
