@@ -23,7 +23,7 @@
 #include <GL/gl.h>
 
 #define CML_SERIES_RESOLVER 1
-#define mfloat_t double
+#define mfloat_t GLfloat
 
 #include <cml.h>
 
@@ -50,27 +50,11 @@
 
 void __cml_test__()
 {
-        real n = real_new((mfloat_t) -1.0); // For testing you should use a number between -HALFPI and HALFPI
-        printf("%s%s\n\n", "The following tests are performed with x = ", as_string(n));
-
-        // Basic trigonometric identities
-        printf("%s\n", "The following trigonometric identities are verified:");
-        printf("%s%s\n","   |--> cos^2(x)+sin^2(x) = ", as_string(add(pow(cos(n), real_new(2.0)), pow(sin(n), real_new(2.0)))));
-        printf("%s%s%s%s\n","   |--> sin(x) = ", as_string(sin(n)), " <==> sin(x + 2pi) = ", as_string(sin(add(n, real_new(TWOPI)))));
-        printf("%s%s%s%s\n","   |--> cos(x) = ", as_string(cos(n)), " <==> cos(x + 2pi) = ", as_string(cos(add(n, real_new(TWOPI)))));
-        printf("%s%s%s%s\n","   |--> tan(x) = ", as_string(tan(n)), " <==> tan(x + pi) = ", as_string(tan(add(n, real_new(PI)))));
-        printf("%s%s%s%s\n","   |--> sin(-x) = ", as_string(sin(opposite(n))), " <==> sin(x + pi) = ", as_string(sin(add(n, real_new(PI)))));
-        printf("%s%s%s%s\n","   |--> cos(-x) = ", as_string(cos(opposite(n))), " <==> -cos(x + pi) = ", as_string(opposite(cos(add(n, real_new(PI))))));
-        printf("%s%s%s%s\n","   |--> tan(-x) = ", as_string(tan(opposite(n))), " <==> -tan(x) = ", as_string(opposite(tan(n))));
-        printf("%s%s%s%s\n","   |--> cot(-x) = ", as_string(cot(opposite(n))), " <==> -cot(x) = ", as_string(opposite(cot(n))));
-        printf("%s%s%s%s\n","   |--> sin(x) = ", as_string(sin(n)), " <==> cos(PI/2 - x) = ", as_string(cos(sub(real_new(HALFPI), n))));
-        printf("%s%s%s%s\n","   |--> cos(x) = ", as_string(cos(n)), " <==> sin(PI/2 - x) = ", as_string(sin(sub(real_new(HALFPI), n))));
-        printf("%s%s%s%s\n","   |--> tan(x) = ", as_string(tan(n)), " <==> cot(PI/2 - x) = ", as_string(cot(sub(real_new(HALFPI), n))));
-
-        // Hyperbolic trigonometric identities
-        printf("\n");
-        printf("%s\n", "The following hyperbolic trigonometric identities are verified:");
-        printf("%s%s\n","   |--> cosh^2(x)-sinh^2(x) = ", as_string(sub(pow(cosh(n), real_new(2.0)), pow(sinh(n), real_new(2.0)))));
+        real x = real_new((mfloat_t) 100.0);
+        printf("%s%s\n\n", "The following tests are performed with x = ", as_string(x));
+        printf("%s\n", as_string(sin(x)));
+        printf("%s\n", as_string(pow(x, x)));
+        printf("%s\n", as_string(sinh(x)));
 }
 
 int main(int argc, char const *argv[])

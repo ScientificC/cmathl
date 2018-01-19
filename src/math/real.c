@@ -58,7 +58,7 @@ real_as_string(real_t* x)
 {
         mfloat_t value = ((mfloat_t*) x)[0];
 
-        int size = snprintf(NULL, 0, "%g", value) + 1;
+        int size = snprintf(NULL, 0, "%G", value) + 1;
         char * string = (char*) malloc(size);
         snprintf(string, size, "%g", value);
 
