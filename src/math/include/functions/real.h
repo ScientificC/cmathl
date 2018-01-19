@@ -1,6 +1,11 @@
 #ifndef CML_REAL_FUNC_H
 #define CML_REAL_FUNC_H
 
+bool __isgreater(mfloat_t, mfloat_t);
+bool __isless(mfloat_t, mfloat_t);
+bool __isinteger(mfloat_t);
+bool __isnatural(mfloat_t);
+bool __ismult(mfloat_t, mfloat_t);
 
 bool real_equals(real, real);
 bool real_isnull(real);

@@ -9,7 +9,6 @@
 #include "types.h"
 
 #include "functions/complex.h"
-#include "functions/functions.h"
 #include "functions/real.h"
 
 #define complex_clone(X) _complex_clone(X)
