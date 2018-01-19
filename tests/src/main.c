@@ -50,11 +50,11 @@
 
 void __cml_test__()
 {
-        real x = new(real, 2.0);
+        real x = new(real, 0.5);
         printf("%s%s\n\n", "The following tests are performed with x = ", as_string(x));
         printf("%s\n", as_string(sin(x)));
         printf("%s\n", as_string(pow(x, x)));
-        printf("%s\n", as_string(asinh(x)));
+        printf("%s\n", as_string(asin(x)));
 }
 
 int main(int argc, char const *argv[])

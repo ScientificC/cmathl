@@ -73,8 +73,8 @@ real*
 complex_get_parts(complex_t* z)
 {
         real* parts = malloc(sizeof(*parts));
-        parts[0] = z->real(z);
-        parts[1] = z->imaginary(z);
+        parts[0] = z->getReal(z);
+        parts[1] = z->getImaginary(z);
         return parts;
 }
 
@@ -106,8 +106,8 @@ init_complex(complex_t* z)
 {
         (*z) = (complex_t)
         {
-                .real = &complex_get_real,
-                .imaginary = &complex_get_imaginary,
+                .getReal = &complex_get_real,
+                .getImaginary = &complex_get_imaginary,
                 .setReal = &complex_set_real,
                 .setImaginary = &complex_set_imaginary,
                 .parts = &complex_get_parts,

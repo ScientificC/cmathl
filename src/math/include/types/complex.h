@@ -7,8 +7,8 @@ typedef struct _complex
         mfloat_t real_part;
         mfloat_t imaginary_part;
         // Methods
-        real (*real)(struct _complex *);
-        real (*imaginary)(struct _complex *);
+        real (*getReal)(struct _complex *);
+        real (*getImaginary)(struct _complex *);
         void (*setReal)(struct _complex *, mfloat_t);
         void (*setImaginary)(struct _complex *, mfloat_t);
         real* (*parts)(struct _complex *);

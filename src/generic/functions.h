@@ -119,6 +119,25 @@
                                 real_t*: real_cot \
                                 )(X)
 
+        #define asin(X) _Generic((X), \
+                                 real_t*: real_asin \
+                                 )(X)
+
+        #define acos(X) _Generic((X), \
+                                 real_t*: real_acos \
+                                 )(X)
+
+        #define atan(X) _Generic((X), \
+                                 real_t*: real_atan \
+                                 )(X)
+
+        #define atan2(X, Y) _Generic((X), \
+                                     real_t*: _Generic((Y), \
+                                               default: real_atan2, \
+                                                       real_t*: real_atan2 \
+                                                       ) \
+                                     )(X, Y)
+
         #define sinh(X) _Generic((X), \
                                  complex_t*: complex_sinh, \
                                  real_t*: real_sinh \
