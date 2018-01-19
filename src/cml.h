@@ -7,6 +7,9 @@
         #ifdef __STDC_VERSION__
                 #if __STDC_VERSION__ >= 199901L
                         #define PREDEF_STANDARD_C99
+                #else
+                        #define CML_DOUBLE_PRECISION 1
+                        #define mfloat_t double
                 #endif
         #endif
 #endif
