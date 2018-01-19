@@ -65,3 +65,31 @@ By default, CML will use single-precision internally. This can be changed by pre
 ## Types
 
 CML offers at the moment two types, `real_t` and `complex_t`, both corresponding to structures. In the same way, it is recommended to work with the `real` and `complex` types, these being `real_t *` and `complex_t *` respectively.
+
+### Real
+
+CML defines a large number of operations for the set of real numbers. For this, the type `real` (alias of `real_t*`) is provided. Here is an example on how to work with this type of data:
+
+```C
+real x = real(2.0);
+```
+Another way to do the same can be the following:
+
+```C
+real x = real_new(2.0);
+```
+
+or,
+
+```C
+real x = new(real, 2.0);
+```
+Now, let's see an example of how to apply an operation between two reals. Suppose we have a `pow` function which accepts two reals x and y, then the code would be as follows:
+
+```C
+real x, y, z;
+
+x = real(3.0);
+y = real(2.0);
+z = pow(x, y);
+```
