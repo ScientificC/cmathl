@@ -47,16 +47,20 @@ int main(int argc, char const *argv[])
 
 int run_tests()
 {
-        CATEGORY_BEGIN(Initialization)
+        CATEGORY_BEGIN(Real)
         {
-                TEST_BEGIN(Real)
+                TEST_BEGIN(Initialization)
                 {
                         real x = real(1.0f);
                         EXPECT_FLOAT_EQ(real_value(x), 1.0f);
                 }
                 TEST_END()
+        }
+        CATEGORY_END()
 
-                TEST_BEGIN(Complex)
+        CATEGORY_BEGIN(Complex)
+        {
+                TEST_BEGIN(Initialization)
                 {
                         complex z = complex(1.0f, 4.0f);
                         EXPECT_FLOAT_EQ(real_value(complex_get_real(z)), 1.0f);
