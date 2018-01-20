@@ -1,12 +1,12 @@
-SOURCE_FOLDER := ./source
-BIN_FOLDER := ./source/utils
+SOURCE_FOLDER := ./src
+BIN_FOLDER := ./src/utils
 MATH_FOLDER := $(SOURCE_FOLDER)/math
 TEST_FOLDER := ./tests/src
 BUILD_FOLDER := ./tests/.build
 TEMPORAL_FOLDER := ./tests/.temp
 TEST_OUTPUT_NAME := cmlMainTest.o
 
-SRC_FILES := $(shell find source/ -name "*.c")
+SRC_FILES := $(shell find src/ -name "*.c")
 
 
 #################################
@@ -15,10 +15,10 @@ SRC_FILES := $(shell find source/ -name "*.c")
 # Optimization: -O0 baja, -O1 normal, -O2 optimizado, -O3 alta
 # Show all warnings
 # Compiles in gnu11 std
-CFLAGS=-O3 -Wall -std=gnu11 -pthread -I./source
+CFLAGS=-O3 -Wall -std=gnu11 -pthread -I./src
 
 # Uncomment to debug
-DEBUG=-g
+DEBUG=-g -ggdb
 
 ##################################
 # Rules

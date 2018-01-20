@@ -8,3 +8,11 @@ end_of_line = LF
 [*.c]
 indent_style = space
 indent_size = 8
+
+[*.cpp]
+indent_style = space
+indent_size = 8
+
+[*.h]
+indent_style = space
+indent_size = 8
