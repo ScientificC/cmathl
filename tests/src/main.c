@@ -51,11 +51,16 @@
 void __cml_test__()
 {
         real x = real(0.5);
+        complex z = complex(1.0, 4.0);
+
         printf("%s%s\n\n", "The following tests are performed with x = ", as_string(x));
         printf("%s\n", as_string(sin(x)));
         printf("%s\n", as_string(pow(x, x)));
         printf("%s\n", as_string(asin(x)));
+        printf("%s\n", as_string(log(z)));
+
         printf("%ld\n", sizeof(real_t));
+        printf("%ld\n", sizeof(complex_t));
 }
 
 int main(int argc, char const *argv[])
