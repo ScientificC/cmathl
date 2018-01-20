@@ -1,40 +1,119 @@
-SOURCE_FOLDER := ./src
-BIN_FOLDER := ./src/utils
-MATH_FOLDER := $(SOURCE_FOLDER)/math
-TEST_FOLDER := ./tests/src
-BUILD_FOLDER := ./tests/.build
-TEMPORAL_FOLDER := ./tests/.temp
-TEST_OUTPUT_NAME := cmlMainTest.o
+SOURCE_FOLDER := src
+TEST_FOLDER := test/src
+BUILD_FOLDER := .build
+TEMPORAL_FOLDER := .tmp
+TEST_OUTPUT_NAME := test
+INSTALL_FOLDER=/usr/bin
 
-SRC_FILES := $(shell find src/ -name "*.c")
+SRC_UTILS_FILES := series_resolver
 
+SRC_MATH_FILES := real_acos \
+complex_tanh \
+real_equals \
+real_log_b \
+real_floor \
+real_exp \
+real_asinh \
+real_sqrt \
+real_isinteger \
+real_isnatural \
+complex_cos \
+complex_log_b \
+complex_csc \
+real_ceil \
+real_cosh \
+complex_add \
+real_cos \
+real_root \
+complex_tan \
+real_pow \
+complex_arg \
+real_div_e \
+real_coth \
+real_ismult \
+complex_sec \
+real_isgreater_or_equals \
+real_sgn \
+real_abs \
+real_sinh \
+complex_log \
+complex_exp \
+real_csch \
+real_asin \
+real_opposite \
+real_ared \
+real_mod \
+complex_scalar_prod \
+rational \
+real_acosh \
+real_sin \
+complex_div \
+real_add \
+complex_cot \
+real_sech \
+real_ln \
+real_isless \
+real_isnull \
+real_prod \
+complex_conjugate \
+real_atan2 \
+complex_cosh \
+real_csc \
+real_isgreater \
+complex_prod \
+real_tan \
+complex \
+real_tanh \
+complex_sin \
+complex_sinh \
+complex_inverse \
+real_cot \
+real_sec \
+real_isless_or_equals \
+real_atan \
+real_inverse \
+real \
+complex_abs \
+real_div \
+real_sub \
+real_atanh \
+complex_sub
 
-#################################
-# Compilation options
-#################################
-# Optimization: -O0 baja, -O1 normal, -O2 optimizado, -O3 alta
-# Show all warnings
-# Compiles in gnu11 std
-CFLAGS=-O3 -Wall -std=gnu11 -pthread -I./src
+CML_TEST_FILES := main
 
-# Uncomment to debug
+CFLAG=-Ofast -Wall -std=gnu11 -pthread -I$(SOURCE_FOLDER)
 DEBUG=-g -ggdb
 
-##################################
-# Rules
+.PHONY:	all clean folders test test-run cml.o test.o
+.IGNORE: clean
 
-.PHONY:	all clean folders test
-all:	folders c.o
+all: clean folders cml.o
 
-c.o:
-	gcc $(TEST_FOLDER)/main.c $(SRC_FILES) -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAGS) $(DEBUG)
+test: clean folders test.o $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
+	    gcc $(TEMPORAL_FOLDER)/** -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAG) $(DEBUG)
 
+cml.o:
+		for file in $(SRC_MATH_FILES); do \
+				gcc -c $(SOURCE_FOLDER)/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+		done
 
-clean:
-	rm -rf $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
+		for file in $(SRC_UTILS_FILES); do \
+				gcc -c $(SOURCE_FOLDER)/utils/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+		done
 
-folders:
-	-mkdir $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
+test.o: cml.o
+		for file in $(CML_TEST_FILES); do \
+				gcc -c $(TEST_FOLDER)/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+		done
 
-test:
-	$(BUILD_FOLDER)/$(TEST_OUTPUT_NAME)
+clean: ; -rm -rf $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
+
+folders: ; -mkdir $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
+
+lines:
+		@ printf "	.c files              "
+		@ find $(SOURCE_FOLDER)/ -name '*.c' | xargs wc -l | grep total
+		@ printf "	.h files      	       "
+		@ find $(SOURCE_FOLDER)/ -name '*.h' | xargs wc -l | grep total
+
+test-run: test ; @ ./$(BUILD_FOLDER)/test
