@@ -51,6 +51,36 @@ int run_tests()
                 {
                         real x = real(1.0f);
                         EXPECT_FLOAT_EQ(real_value(x), 1.0f);
+                        free(x);
+                }
+                TEST_END()
+
+                TEST_BEGIN(Trigonometry)
+                {
+                        // We have to be a little looser with our equality constraint
+                        // because of floating-point precision issues.
+                        const float trigAbsError = 0.0001f;
+
+                        EXPECT_NEAR(real_value(sin(real_new(0.0f))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real_new(PI / 2))), 1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real_new(PI))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real_new(3 * PI / 2))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real_new(-PI / 2))), -1.0f, trigAbsError);
+
+                        EXPECT_NEAR(real_value(cos(real_new(0.0f))), 1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real_new(PI / 2))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real_new(PI))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real_new(3 * PI / 2))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real_new(-PI))), -1.0f, trigAbsError);
+
+                        EXPECT_NEAR(real_value(tan(real_new(0.0f))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real_new(PI / 4))), 1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real_new(3 * PI / 4))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real_new(PI))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real_new(-PI / 4))), -1.0f, trigAbsError);
+
+                        // This isn't the most rigorous because we're really just sanity-
+                        // checking that things work by default.
                 }
                 TEST_END()
         }
@@ -63,6 +93,7 @@ int run_tests()
                         complex z = complex(1.0f, 4.0f);
                         EXPECT_FLOAT_EQ(real_value(complex_get_real(z)), 1.0f);
                         EXPECT_FLOAT_EQ(real_value(complex_get_imaginary(z)), 4.0f);
+                        free(z);
                 }
                 TEST_END()
         }
