@@ -19,14 +19,15 @@
         #define mint_t int32_t
 #endif
 
+#ifndef mfloat_t
+        #include <float.h>
+        #define mfloat_t float
+#endif
+
 #ifdef CML_DOUBLE_PRECISION
         #define cml_math_t double
 #else
         #define cml_math_t mfloat_t
-#endif
-
-#ifndef mfloat_t
-        #define mfloat_t float
 #endif
 
 #include "types/real.h"

@@ -7,22 +7,28 @@
         #ifdef __STDC_VERSION__
                 #if __STDC_VERSION__ >= 199901L
                         #define PREDEF_STANDARD_C99
-                #else
-                        #define CML_DOUBLE_PRECISION 1
-                        #define mfloat_t double
+                #endif
+                #if __STDC_VERSION__ >= 201112L
+                        #define PREDEF_STANDARD_C11
                 #endif
         #endif
 #endif
 
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
-        #define CML_EXTERN_INLINE extern inline
+        #define CML_EXTERN_INLINE extern inline __attribute__((always_inline))
 #else
         #define CML_EXTERN_INLINE
+        #define CML_DOUBLE_PRECISION
+        #define mfloat_t double
+#endif
+
+#ifndef PREDEF_STANDARD_C11
+        #define CML_NO_GENERIC
 #endif
 
 #ifndef CML_NO_GENERIC
-        #define CML_NO_FUNCTION_POINTER 1
+        #define CML_NO_FUNCTION_POINTER
 #endif
 
 #include <math/include/math.h>
