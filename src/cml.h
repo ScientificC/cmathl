@@ -72,8 +72,8 @@ extern "C"
                                      )(X)
 #endif
 
-#define real(X) real_new(X);
-#define complex(X, Y) complex_new(X, Y);
+#define real(X) real_new(X)
+#define complex(X, Y) complex_new(X, Y)
 
 #ifdef CML_SERIES_RESOLVER
         #include <utils/include/series_resolver.h>
