@@ -61,23 +61,23 @@ int run_tests()
                         // because of floating-point precision issues.
                         const float trigAbsError = 0.0001f;
 
-                        EXPECT_NEAR(real_value(sin(real_new(0.0f))), 0.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(sin(real_new(PI / 2))), 1.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(sin(real_new(PI))), 0.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(sin(real_new(3 * PI / 2))), -1.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(sin(real_new(-PI / 2))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real(0.0f))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real(PI / 2))), 1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real(PI))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real(3 * PI / 2))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(sin(real(-PI / 2))), -1.0f, trigAbsError);
 
-                        EXPECT_NEAR(real_value(cos(real_new(0.0f))), 1.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(cos(real_new(PI / 2))), 0.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(cos(real_new(PI))), -1.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(cos(real_new(3 * PI / 2))), 0.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(cos(real_new(-PI))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real(0.0f))), 1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real(PI / 2))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real(PI))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real(3 * PI / 2))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(cos(real(-PI))), -1.0f, trigAbsError);
 
-                        EXPECT_NEAR(real_value(tan(real_new(0.0f))), 0.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(tan(real_new(PI / 4))), 1.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(tan(real_new(3 * PI / 4))), -1.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(tan(real_new(PI))), 0.0f, trigAbsError);
-                        EXPECT_NEAR(real_value(tan(real_new(-PI / 4))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real(0.0f))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real(PI / 4))), 1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real(3 * PI / 4))), -1.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real(PI))), 0.0f, trigAbsError);
+                        EXPECT_NEAR(real_value(tan(real(-PI / 4))), -1.0f, trigAbsError);
 
                         // This isn't the most rigorous because we're really just sanity-
                         // checking that things work by default.
@@ -86,18 +86,18 @@ int run_tests()
 
                 TEST_BEGIN(SquareRoot)
                 {
-                        EXPECT_FLOAT_EQ(real_value(sqrt(real_new(16.0f))), 4.0f);
-                        EXPECT_NEAR(real_value(sqrt(real_new(10.0f))), 3.1616211f, 0.001f);
+                        EXPECT_FLOAT_EQ(real_value(sqrt(real(16.0f))), 4.0f);
+                        EXPECT_NEAR(real_value(sqrt(real(10.0f))), 3.1616211f, 0.001f);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Power)
                 {
-                        EXPECT_FLOAT_EQ(real_value(pow(real_new(2.0f), real_new(0))), 1.0f);
-                        EXPECT_FLOAT_EQ(real_value(pow(real_new(2.0f), real_new(4))), 16.0f);
-                        EXPECT_FLOAT_EQ(real_value(pow(real_new(2.0f), real_new(-2))), 0.25f);
-                        EXPECT_NEAR(real_value(pow(real_new(2.0f), real_new(4.1))), 17.148376f, 0.0001f);
-                        EXPECT_NEAR(real_value(pow(real_new(2.0f), real_new(-2.5))), 0.176777f, 0.0001f);
+                        EXPECT_FLOAT_EQ(real_value(pow(real(2.0f), real(0))), 1.0f);
+                        EXPECT_FLOAT_EQ(real_value(pow(real(2.0f), real(4))), 16.0f);
+                        EXPECT_FLOAT_EQ(real_value(pow(real(2.0f), real(-2))), 0.25f);
+                        EXPECT_NEAR(real_value(pow(real(2.0f), real(4.1))), 17.148376f, 0.0001f);
+                        EXPECT_NEAR(real_value(pow(real(2.0f), real(-2.5))), 0.176777f, 0.0001f);
                 }
                 TEST_END()
         }
