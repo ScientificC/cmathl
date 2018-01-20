@@ -41,8 +41,6 @@ int main(int argc, char const *argv[])
         printf("\n");
 
         return (cml_count_failedtests > 0);
-
-        return 0;
 }
 
 int run_tests()
