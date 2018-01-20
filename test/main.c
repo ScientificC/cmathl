@@ -83,6 +83,23 @@ int run_tests()
                         // checking that things work by default.
                 }
                 TEST_END()
+
+                TEST_BEGIN(SquareRoot)
+                {
+                        EXPECT_FLOAT_EQ(real_value(sqrt(real_new(16.0f))), 4.0f);
+                        EXPECT_NEAR(real_value(sqrt(real_new(10.0f))), 3.1616211f, 0.001f);
+                }
+                TEST_END()
+
+                TEST_BEGIN(Power)
+                {
+                        EXPECT_FLOAT_EQ(real_value(pow(real_new(2.0f), real_new(0))), 1.0f);
+                        EXPECT_FLOAT_EQ(real_value(pow(real_new(2.0f), real_new(4))), 16.0f);
+                        EXPECT_FLOAT_EQ(real_value(pow(real_new(2.0f), real_new(-2))), 0.25f);
+                        EXPECT_NEAR(real_value(pow(real_new(2.0f), real_new(4.1))), 17.148376f, 0.0001f);
+                        EXPECT_NEAR(real_value(pow(real_new(2.0f), real_new(-2.5))), 0.176777f, 0.0001f);
+                }
+                TEST_END()
         }
         CATEGORY_END()
 

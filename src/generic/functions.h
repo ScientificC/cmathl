@@ -89,6 +89,14 @@
                                                      ) \
                                    )(X, Y)
 
+        #define root(X) _Generic((X), \
+                                 real_t*: real_root \
+                                 )(X)
+
+        #define sqrt(X) _Generic((X), \
+                                 real_t*: real_sqrt \
+                                 )(X)
+
         #define sin(X) _Generic((X), \
                                 complex_t*: complex_sin, \
                                 real_t*: real_sin \
