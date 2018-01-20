@@ -177,7 +177,7 @@
         #define isgreater(X, Y) (X)->isGreater(X, Y)
         #define isless(X, Y) (X)->isLess(X, Y)
         #define isgreater_or_equals(X, Y) (X)->isGreaterOrEquals(X, Y)
-        #define isless_or_equals(X, Y) (X)->isLesOrEquals(X, Y)
+        #define isless_or_equals(X, Y) (X)->isLessOrEquals(X, Y)
         #define ismult(X, Y) (X)->isMult(X, Y)
         #define add(X, Y) (X)->add(X, Y)
         #define prod(X, Y) (X)->prod(X, Y)
