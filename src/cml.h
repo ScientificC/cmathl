@@ -23,7 +23,7 @@
         #define mfloat_t double
 #endif
 
-#ifndef PREDEF_STANDARD_C11
+#if !defined PREDEF_STANDARD_C11 || !defined _Generic
         #define CML_NO_GENERIC
 #endif
 
