@@ -31,11 +31,6 @@
         #define CML_NO_FUNCTION_POINTER
 #endif
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 #include "math/include/math.h"
 
 #ifndef CML_UNAMBIGUOUS_MODE
@@ -77,10 +72,6 @@ extern "C"
 
 #ifdef CML_SERIES_RESOLVER
         #include "utils/include/series_resolver.h"
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 #include "version.h"
