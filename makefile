@@ -81,7 +81,7 @@ complex_sub
 
 CML_TEST_FILES := main
 
-CFLAG=-Ofast -Wall -std=gnu11 -pthread -I$(SOURCE_FOLDER) -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
+CFLAG=-Ofast -Wall -std=c11 -pthread -I$(SOURCE_FOLDER) -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
 DEBUG=-g -ggdb
 
 .PHONY:	all clean folders test test-run cml.o test.o
