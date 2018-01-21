@@ -36,8 +36,8 @@ extern "C"
 {
 #endif
 
-#include <math/include/math.h>
-#include <generic/functions.h>
+#include "math/include/math.h"
+#include "generic/functions.h"
 
 #ifdef CML_NO_GENERIC
 /* Only work with the macros defined in <math/include/math.h> */
@@ -73,11 +73,13 @@ extern "C"
 #endif
 
 #ifdef CML_SERIES_RESOLVER
-        #include <utils/include/series_resolver.h>
+        #include "utils/include/series_resolver.h"
 #endif
 
 #ifdef __cplusplus
 }
 #endif
+
+#include "version.h"
 
 #endif
