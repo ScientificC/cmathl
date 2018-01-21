@@ -26,8 +26,10 @@
 
 #ifdef CML_DOUBLE_PRECISION
         #define cml_math_t double
+        #define MFLOAT_T(x) x
 #else
         #define cml_math_t mfloat_t
+        #define MFLOAT_T(x) x ## f
 #endif
 
 #ifndef __mfloat__

@@ -55,8 +55,8 @@ int run_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        real x = real(1.0f);
-                        EXPECT_FLOAT_EQ(__mfloat__ x, 1.0f);
+                        real x = real(MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ x, MFLOAT_T(1.0));
                         free(x);
                 }
                 TEST_END()
@@ -67,23 +67,23 @@ int run_tests()
                         // because of floating-point precision issues.
                         const float trigAbsError = 0.0001f;
 
-                        EXPECT_NEAR(__mfloat__ sin(real(0.0f)), 0.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ sin(real(PI / 2)), 1.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ sin(real(PI)), 0.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ sin(real(3 * PI / 2)), -1.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ sin(real(-PI / 2)), -1.0f, trigAbsError);
+                        EXPECT_NEAR(__mfloat__ sin(real(MFLOAT_T(0.0))), MFLOAT_T(0.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ sin(real(PI / 2)), MFLOAT_T(1.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ sin(real(PI)), MFLOAT_T(0.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ sin(real(3 * PI / 2)), MFLOAT_T(-1.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ sin(real(-PI / 2)), MFLOAT_T(-1.0), trigAbsError);
 
-                        EXPECT_NEAR(__mfloat__ cos(real(0.0f)), 1.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ cos(real(PI / 2)), 0.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ cos(real(PI)), -1.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ cos(real(3 * PI / 2)), 0.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ cos(real(-PI)), -1.0f, trigAbsError);
+                        EXPECT_NEAR(__mfloat__ cos(real(MFLOAT_T(0.0))), MFLOAT_T(1.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ cos(real(PI / 2)), MFLOAT_T(0.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ cos(real(PI)), MFLOAT_T(-1.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ cos(real(3 * PI / 2)), MFLOAT_T(0.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ cos(real(-PI)), MFLOAT_T(-1.0), trigAbsError);
 
-                        EXPECT_NEAR(__mfloat__ tan(real(0.0f)), 0.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ tan(real(PI / 4)), 1.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ tan(real(3 * PI / 4)), -1.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ tan(real(PI)), 0.0f, trigAbsError);
-                        EXPECT_NEAR(__mfloat__ tan(real(-PI / 4)), -1.0f, trigAbsError);
+                        EXPECT_NEAR(__mfloat__ tan(real(MFLOAT_T(0.0))), MFLOAT_T(0.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ tan(real(PI / 4)), MFLOAT_T(1.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ tan(real(3 * PI / 4)), MFLOAT_T(-1.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ tan(real(PI)), MFLOAT_T(0.0), trigAbsError);
+                        EXPECT_NEAR(__mfloat__ tan(real(-PI / 4)), MFLOAT_T(-1.0), trigAbsError);
 
                         // This isn't the most rigorous because we're really just sanity-
                         // checking that things work by default.
@@ -92,18 +92,18 @@ int run_tests()
 
                 TEST_BEGIN(SquareRoot)
                 {
-                        EXPECT_FLOAT_EQ(__mfloat__ sqrt(real(16.0f)), 4.0f);
-                        EXPECT_NEAR(__mfloat__ sqrt(real(10.0f)), 3.1616211f, 0.001f);
+                        EXPECT_FLOAT_EQ(__mfloat__ sqrt(real(16.0f)), MFLOAT_T(4.0));
+                        EXPECT_NEAR(__mfloat__ sqrt(real(MFLOAT_T(10.0))), MFLOAT_T(3.1616211), 0.001f);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Power)
                 {
-                        EXPECT_FLOAT_EQ(__mfloat__ pow(real(2.0f), real(0)), 1.0f);
-                        EXPECT_FLOAT_EQ(__mfloat__ pow(real(2.0f), real(4)), 16.0f);
-                        EXPECT_FLOAT_EQ(__mfloat__ pow(real(2.0f), real(-2)), 0.25f);
-                        EXPECT_NEAR(__mfloat__ pow(real(2.0f), real(4.1)), 17.148376f, 0.0001f);
-                        EXPECT_NEAR(__mfloat__ pow(real(2.0f), real(-2.5)), 0.176777f, 0.0001f);
+                        EXPECT_FLOAT_EQ(__mfloat__ pow(real(MFLOAT_T(2.0)), real(0)), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ pow(real(MFLOAT_T(2.0)), real(4)), MFLOAT_T(16.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ pow(real(MFLOAT_T(2.0)), real(-2)), MFLOAT_T(0.25));
+                        EXPECT_NEAR(__mfloat__ pow(real(MFLOAT_T(2.0)), real(4.1)), MFLOAT_T(17.148376), 0.0001f);
+                        EXPECT_NEAR(__mfloat__ pow(real(MFLOAT_T(2.0)), real(-2.5)), MFLOAT_T(0.176777), 0.0001f);
                 }
                 TEST_END()
         }
@@ -113,9 +113,9 @@ int run_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        complex z = complex(1.0f, 4.0f);
-                        EXPECT_FLOAT_EQ(__mfloat__ creal(z), 1.0f);
-                        EXPECT_FLOAT_EQ(__mfloat__ cimag(z), 4.0f);
+                        complex z = complex(MFLOAT_T(1.0), MFLOAT_T(4.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ creal(z), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ cimag(z), MFLOAT_T(4.0));
                         free(z);
                 }
                 TEST_END()
