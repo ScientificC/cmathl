@@ -38,7 +38,7 @@ extern "C"
 
 #include "math/include/math.h"
 
-#ifndef CML_NO_GENERIC_ALIAS
+#ifndef CML_UNAMBIGUOUS_MODE
         #include "generic/functions.h"
 #endif
 
