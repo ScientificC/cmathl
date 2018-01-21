@@ -6,7 +6,7 @@ os:
   - linux
 
 compiler:
-  - gcc-4.8
+  - gcc-7.2
 
 script:
   - make
