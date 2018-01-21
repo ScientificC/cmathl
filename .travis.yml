@@ -1,0 +1,15 @@
+language: c
+
+sudo: false
+
+os:
+  - linux
+  - osx
+
+compiler:
+  - gcc
+
+script:
+  - make
+  - make test
+  - make test-run

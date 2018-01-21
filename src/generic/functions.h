@@ -89,6 +89,14 @@
                                                      ) \
                                    )(X, Y)
 
+        #define root(X) _Generic((X), \
+                                 real_t*: real_root \
+                                 )(X)
+
+        #define sqrt(X) _Generic((X), \
+                                 real_t*: real_sqrt \
+                                 )(X)
+
         #define sin(X) _Generic((X), \
                                 complex_t*: complex_sin, \
                                 real_t*: real_sin \
@@ -170,6 +178,15 @@
                                       real_t*: real_as_string \
                                       )(X)
 #else
+        #define equals(X, Y) (X)->equals(X, Y)
+        #define isnull(X) (X)->isNull(X, Y)
+        #define isnatural(X) (X)->isNatural(X)
+        #define isinteger(X) (X)->isInteger(X)
+        #define isgreater(X, Y) (X)->isGreater(X, Y)
+        #define isless(X, Y) (X)->isLess(X, Y)
+        #define isgreater_or_equals(X, Y) (X)->isGreaterOrEquals(X, Y)
+        #define isless_or_equals(X, Y) (X)->isLessOrEquals(X, Y)
+        #define ismult(X, Y) (X)->isMult(X, Y)
         #define add(X, Y) (X)->add(X, Y)
         #define prod(X, Y) (X)->prod(X, Y)
         #define sub(X, Y) (X)->sub(X, Y)

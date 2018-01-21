@@ -7,9 +7,9 @@
         #ifdef __STDC_VERSION__
                 #if __STDC_VERSION__ >= 199901L
                         #define PREDEF_STANDARD_C99
-                #endif
-                #if __STDC_VERSION__ >= 201112L
-                        #define PREDEF_STANDARD_C11
+                        #if __STDC_VERSION__ >= 201112L
+                                #define PREDEF_STANDARD_C11
+                        #endif
                 #endif
         #endif
 #endif
@@ -29,6 +29,11 @@
 
 #ifndef CML_NO_GENERIC
         #define CML_NO_FUNCTION_POINTER
+#endif
+
+#ifdef __cplusplus
+extern "C"
+{
 #endif
 
 #include <math/include/math.h>
@@ -67,11 +72,15 @@
                                      )(X)
 #endif
 
-#define real(X) real_new(X);
-#define complex(X, Y) complex_new(X, Y);
+#define real(X) real_new(X)
+#define complex(X, Y) complex_new(X, Y)
 
 #ifdef CML_SERIES_RESOLVER
         #include <utils/include/series_resolver.h>
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif
