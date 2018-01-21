@@ -57,8 +57,8 @@
                          )(X, Y) \
         })
 #elif !defined _CML_NO_BUILTIN_TYPES
-
-        #define _CML_FUNC(_type, _func) ({ \
+        #undef _CML_MATH_FUNC
+        #define _CML_MATH_FUNC(_type, _func) ({ \
                 if (_CML_B_T_C_P(_type, real) \
                     || _CML_B_T_C_P(_type, (real_t*))) { \
                         {real_ ## _func} \
@@ -104,7 +104,7 @@
                 typeof(X)_tmp; \
                 if (_CML_B_T_C_P(typeof(X), real) \
                     || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), _func)(X); \
+                        _tmp = _CML_MATH_FUNC(typeof(X), _func)(X); \
                 } \
                 tmp; \
         })
@@ -113,7 +113,7 @@
                 typeof(X)_tmp; \
                 if (_CML_B_T_C_P(typeof(X), real) \
                     || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), _func)(X, Y); \
+                        _tmp = _CML_MATH_FUNC(typeof(X), _func)(X, Y); \
                 } \
                 tmp; \
         })

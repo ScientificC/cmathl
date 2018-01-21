@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.8](https://img.shields.io/badge/Version-v1.8-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.8.0.1](https://img.shields.io/badge/Version-v1.8.0.1-blue.svg)
 
 ## Introduction
 
@@ -75,12 +75,6 @@ Another way to do the same can be the following:
 real x = real_new(2.0);
 ```
 
-or,
-
-```c
-real x = new(real, 2.0);
-```
-
 Now, let's see an example of how to apply an operation between two reals. Suppose we have a `pow` function which accepts two reals x and y, then the code would be as follows:
 
 ```c
@@ -103,12 +97,6 @@ Another way to do the same can be the following:
 
 ```c
 complex z = complex_new(1.0, 4.0);
-```
-
-or,
-
-```c
-complex x = new(complex, 1.0, 4.0);
 ```
 
 Now, let's see an example of how to apply an operation to any complex numbers. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
