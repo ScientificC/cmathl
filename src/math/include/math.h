@@ -17,6 +17,8 @@
 #define real_clone(X) _real_clone(X)
 #define real_new(X) _real_new(X)
 
+#define real(X) real_new(X)
+#define complex(X, Y) complex_new(X, Y)
 #define new(type, ...) (type ## _t*) { type ## _new(__VA_ARGS__) }
 
 #ifndef CML_SERIES_TOP_IT_L
