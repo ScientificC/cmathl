@@ -28,6 +28,8 @@ int run_tests();
 
 int main(int argc, char const *argv[])
 {
+        clock_t cl = clock();
+
         run_tests();
 
         if (cml_count_failedtests > 0) {
@@ -36,9 +38,13 @@ int main(int argc, char const *argv[])
                 printf(GREEN);
         }
 
-        printf("\n%d/%d tests passed overall, %d failures\n" RESET, cml_count_tests - cml_count_failedtests, cml_count_tests, cml_count_failures);
+        printf("\n%d/%d tests passed overall, %d failures\n" RESET,
+               cml_count_tests - cml_count_failedtests,
+               cml_count_tests,
+               cml_count_failures
+               );
 
-        printf("\n");
+        printf("%Lg%s\n\n", (long double) (clock()-cl)/CLOCKS_PER_SEC, "s");
 
         return (cml_count_failedtests > 0);
 }
