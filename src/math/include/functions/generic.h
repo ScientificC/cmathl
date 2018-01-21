@@ -231,7 +231,15 @@
         #define as_string(X) (X)->asString(X)
 #else
 
-        #define _CML_FUNC(_type, _func) {_type ## _ ## _func}
+        #define _CML_FUNC(_type, _func) ({ \
+                if (_CML_B_T_C_P(_type, real) \
+                    || _CML_B_T_C_P(_type, (real_t*))) { \
+                        {real_ ## _func} \
+                } else if (_CML_B_T_C_P(_type, complex) \
+                           || _CML_B_T_C_P(_type, (complex_t*))) { \
+                        {complex_ ## _func} \
+                } \
+        })
 
         #define equals(X, Y) ({ \
                 typeof(X)_tmp; \
@@ -251,54 +259,420 @@
                 tmp; \
         })
 
-        #define isnatural(X) (X)->isNatural(X)
-        #define isinteger(X) (X)->isInteger(X)
-        #define isgreater(X, Y) (X)->isGreater(X, Y)
-        #define isless(X, Y) (X)->isLess(X, Y)
-        #define isgreater_or_equals(X, Y) (X)->isGreaterOrEquals(X, Y)
-        #define isless_or_equals(X, Y) (X)->isLessOrEquals(X, Y)
-        #define ismult(X, Y) (X)->isMult(X, Y)
-        #define add(X, Y) (X)->add(X, Y)
-        #define prod(X, Y) (X)->prod(X, Y)
-        #define sub(X, Y) (X)->sub(X, Y)
-        #define div(X, Y) (X)->div(X, Y)
-        #define sgn(X) (X)->sgn(X)
-        #define abs(X) (X)->abs(X)
-        #define floor(X) (X)->floor(X)
-        #define ceil(X) (X)->ceil(X)
-        #define div_e(X, Y) (X)->div_e(X, Y)
-        #define mod(X, Y) (X)->mod(X, Y)
-        #define inverse(X) (X)->inverse(X)
-        #define opposite(X) (X)->opposite(X)
-        #define ared(X) (X)->ared(X)
-        #define fact(X) (X)->fact(X)
-        #define exp(X) (X)->exp(X)
-        #define ln(X) (X)->ln(X)
-        #define log(X) (X)->log(X)
-        #define log_b(X, Y) (X)->logB(X)
-        #define pow(X, Y) (X)->pow(X, Y)
-        #define root(X, Y) (X)->root(X, Y)
-        #define sqrt(X) (X)->sqrt(X)
-        #define sin(X) (X)->sin(X)
-        #define cos(X) (X)->cos(X)
-        #define tan(X) (X)->tan(X)
-        #define sec(X) (X)->sec(X)
-        #define csc(X) (X)->csc(X)
-        #define cot(X) (X)->cot(X)
-        #define asin(X) (X)->asin(X)
-        #define acos(X) (X)->acos(X)
-        #define atan(X) (X)->atan(X)
-        #define atan2(X, Y) (X)->atan2(X, Y)
-        #define sinh(X) (X)->sinh(X)
-        #define cosh(X) (X)->cosh(X)
-        #define tanh(X) (X)->tanh(X)
-        #define sech(X) (X)->sech(X)
-        #define csch(X) (X)->csch(X)
-        #define coth(X) (X)->coth(X)
-        #define asinh(X) (X)->asinh(X)
-        #define acosh(X) (X)->acosh(X)
-        #define atanh(X) (X)->atanh(X)
-        #define as_string(X) (X)->asString(X)
+        #define isnatural(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), isnatural)(X); \
+                } \
+                tmp; \
+        })
+
+        #define isinteger(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), isinteger)(X); \
+                } \
+                tmp; \
+        })
+
+        #define isgreater(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), isgreater)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define isless(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), isless)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define isgreater_or_equals(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), isgreater_or_equals)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define isless_or_equals(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), isless_or_equals)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define ismult(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), ismult)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define add(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), add)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define prod(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), prod)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define sub(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), sub)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define div(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), div)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define sgn(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), sgn)(X); \
+                } \
+                tmp; \
+        })
+
+        #define abs(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), abs)(X); \
+                } \
+                tmp; \
+        })
+
+        #define floor(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), floor)(X); \
+                } \
+                tmp; \
+        })
+
+        #define ceil(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), ceil)(X); \
+                } \
+                tmp; \
+        })
+
+        #define div_e(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), div_e)(X); \
+                } \
+                tmp; \
+        })
+
+        #define mod(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), mod)(X); \
+                } \
+                tmp; \
+        })
+
+        #define inverse(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), inverse)(X); \
+                } \
+                tmp; \
+        })
+
+        #define opposite(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), opposite)(X); \
+                } \
+                tmp; \
+        })
+
+        #define ared(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), ared)(X); \
+                } \
+                tmp; \
+        })
+
+        #define fact(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), as_string)(X); \
+                } \
+                tmp; \
+        })
+
+        #define exp(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), exp)(X); \
+                } \
+                tmp; \
+        })
+
+        #define ln(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), ln)(X); \
+                } \
+                tmp; \
+        })
+
+        #define log(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), log)(X); \
+                } \
+                tmp; \
+        })
+
+        #define log_b(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), log_b)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define pow(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), pow)(X); \
+                } \
+                tmp; \
+        })
+
+        #define root(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), root)(X); \
+                } \
+                tmp; \
+        })
+
+        #define sqrt(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), sqrt)(X); \
+                } \
+                tmp; \
+        })
+
+        #define sin(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), sin)(X); \
+                } \
+                tmp; \
+        })
+
+        #define cos(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), cos)(X); \
+                } \
+                tmp; \
+        })
+
+        #define tan(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), tan)(X); \
+                } \
+                tmp; \
+        })
+
+        #define sec(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), sec)(X); \
+                } \
+                tmp; \
+        })
+
+        #define csc(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), csc)(X); \
+                } \
+                tmp; \
+        })
+
+        #define cot(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), cot)(X); \
+                } \
+                tmp; \
+        })
+
+        #define asin(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), asin)(X); \
+                } \
+                tmp; \
+        })
+
+        #define acos(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), acos)(X); \
+                } \
+                tmp; \
+        })
+        #define atan(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), atan)(X); \
+                } \
+                tmp; \
+        })
+
+        #define atan2(X, Y) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = _CML_FUNC(typeof(X), atan2)(X, Y); \
+                } \
+                tmp; \
+        })
+
+        #define sinh(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), sinh)(X); \
+                } \
+                tmp; \
+        })
+
+        #define cosh(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), cosh)(X); \
+                } \
+                tmp; \
+        })
+
+        #define tanh(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), tanh)(X); \
+                } \
+                tmp; \
+        })
+
+        #define sech(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), sech)(X); \
+                } \
+                tmp; \
+        })
+
+        #define csch(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), csch)(X); \
+                } \
+                tmp; \
+        })
+
+        #define coth(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), coth)(X); \
+                } \
+                tmp; \
+        })
+
+        #define asinh(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), asinh)(X); \
+                } \
+                tmp; \
+        })
+
+        #define acosh(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), acosh)(X); \
+                } \
+                tmp; \
+        })
+
+        #define atanh(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), atanh)(X); \
+                } \
+                tmp; \
+        })
+
+        #define as_string(X) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), as_string)(X); \
+                } \
+                tmp; \
+        })
 #endif
 #endif
 #endif

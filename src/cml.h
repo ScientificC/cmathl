@@ -24,17 +24,21 @@
 #endif
 
 #if !defined PREDEF_STANDARD_C11 || !defined _Generic
+        #undef _CML_NO_GENERIC
         #define _CML_NO_GENERIC
+#endif
+
+#ifndef typeof
+        #define typeof(X) __typeof__(X)
 #endif
 
 #ifndef __builtin_types_compatible_p
         #define _CML_NO_BUILTIN_TYPES
 #else
         #define _CML_B_T_C_P __builtin_types_compatible_p
-#endif
-
-#ifndef typeof
-#define typeof(X) __typeof__(X)
+        #ifndef __same_type
+                #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
+        #endif
 #endif
 
 #if !defined _CML_NO_GENERIC || !defined _CML_NO_BUILTIN_TYPES
