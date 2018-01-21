@@ -37,7 +37,10 @@ extern "C"
 #endif
 
 #include "math/include/math.h"
-#include "generic/functions.h"
+
+#ifndef CML_NO_GENERIC_ALIAS
+        #include "generic/functions.h"
+#endif
 
 #ifdef CML_NO_GENERIC
 /* Only work with the macros defined in <math/include/math.h> */
