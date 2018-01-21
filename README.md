@@ -1,6 +1,6 @@
 # cml
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.8](https://img.shields.io/badge/Version-v1.8-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.8](https://img.shields.io/badge/Version-v1.8-blue.svg)
 
 ## Introduction
 
@@ -66,23 +66,25 @@ CML offers at the moment two types, `real_t` and `complex_t`, both corresponding
 
 CML defines a large number of operations for the set of real numbers. For this, the type `real` (alias of `real_t*`) is provided. Here is an example on how to work with this type of data:
 
-```C
+```c
 real x = real(2.0);
 ```
+
 Another way to do the same can be the following:
 
-```C
+```c
 real x = real_new(2.0);
 ```
 
 or,
 
-```C
+```c
 real x = new(real, 2.0);
 ```
+
 Now, let's see an example of how to apply an operation between two reals. Suppose we have a `pow` function which accepts two reals x and y, then the code would be as follows:
 
-```C
+```c
 real x, y, z;
 
 x = real(3.0);
@@ -94,23 +96,25 @@ z = pow(x, y);
 
 CML defines a large number of operations for the set of complex numbers. For this, the type `complex` (alias of `complex_t*`) is provided. Here is an example on how to work with this type of data:
 
-```C
+```c
 complex z = complex(1.0, 4.0);
 ```
+
 Another way to do the same can be the following:
 
-```C
+```c
 complex z = complex_new(1.0, 4.0);
 ```
 
 or,
 
-```C
+```c
 complex x = new(complex, 1.0, 4.0);
 ```
+
 Now, let's see an example of how to apply an operation to any complex numbers. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
 
-```C
+```c
 complex z, w;
 
 z = complex(1.0, 4.0);
