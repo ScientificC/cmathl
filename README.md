@@ -21,7 +21,6 @@ gcc ... -I./lib/cml/src
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
 - `CML_DOUBLE_PRECISION`
-- `CML_NO_GENERIC`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
 - `mfloat_t`

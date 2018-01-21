@@ -24,51 +24,25 @@
 #endif
 
 #if !defined PREDEF_STANDARD_C11 || !defined _Generic
-        #define CML_NO_GENERIC
+        #define _CML_NO_GENERIC
 #endif
 
-#ifndef CML_NO_GENERIC
+#ifndef __builtin_types_compatible_p
+        #define _CML_NO_BUILTIN_TYPES
+#else
+        #define _CML_B_T_C_P __builtin_types_compatible_p
+#endif
+
+#ifndef typeof
+#define typeof(X) __typeof__(X)
+#endif
+
+#if !defined _CML_NO_GENERIC || !defined _CML_NO_BUILTIN_TYPES
+        #undef CML_NO_FUNCTION_POINTER
         #define CML_NO_FUNCTION_POINTER
 #endif
 
 #include "math/include/math.h"
-
-#ifndef CML_UNAMBIGUOUS_MODE
-        #include "generic/functions.h"
-#endif
-
-#ifdef CML_NO_GENERIC
-/* Only work with the macros defined in <math/include/math.h> */
-#else
-        #undef clone
-        #undef complex_new
-        #undef real_new
-
-        #define clone(X) _Generic((X), \
-                                  complex_t*: _complex_clone, \
-                                  real_t*: _real_clone \
-                                  )(X)
-
-        #define complex_new(X, Y) _Generic((X), \
-                                   default: _Generic((Y), \
-                                             default: _complex_new \
-                                                     ), \
-                                           mfloat_t: _Generic((Y), \
-                                                      default: _complex_new, \
-                                                              mfloat_t: _complex_new \
-                                                              ), \
-                                           real_t*: _Generic((Y), \
-                                                     default: _complex_new_from_reals, \
-                                                             real_t*: _complex_new_from_reals \
-                                                             ) \
-                                           )(X, Y)
-
-        #define real_new(X) _Generic((X), \
-                             default: _real_new, \
-                                     mfloat_t: _real_new, \
-                                     real_t*: _real_clone \
-                                     )(X)
-#endif
 
 #ifdef CML_SERIES_RESOLVER
         #include "utils/include/series_resolver.h"
