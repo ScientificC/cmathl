@@ -6,179 +6,120 @@
 #define CML_MATH_GEN_FUNC_H
 
 #ifndef _CML_NO_GENERIC
-        #define add(X, Y) _Generic((X), \
-                                   complex_t*: _Generic((Y), \
-                                                default: complex_add, \
-                                                        complex_t*: complex_add \
-                                                        ), \
-                                   real_t*: _Generic((Y), \
-                                             default: real_add, \
-                                                     real_t*: real_add \
-                                                     ) \
-                                   )(X, Y)
 
-        #define prod(X, Y) _Generic((X), \
-                                    complex_t*: _Generic((Y), \
-                                                 default: complex_prod, \
-                                                         complex_t*: complex_prod \
-                                                         ), \
-                                    real_t*: _Generic((Y), \
-                                              default: real_prod, \
-                                                      real_t*: real_prod \
-                                                      ) \
-                                    )(X, Y)
+        #define _CML_REAL_GENERIC_FUNC_1(X, _func) ({ \
+                _Generic((X), \
+                         real_t*: {real_ ## _func} \
+                         )(X) \
+        })
 
-        #define sub(X, Y) _Generic((X), \
-                                   complex_t*: _Generic((Y), \
-                                                default: complex_sub, \
-                                                        complex_t*: complex_sub \
-                                                        ), \
-                                   real_t*: _Generic((Y), \
-                                             default: real_sub, \
-                                                     real_t*: real_sub \
-                                                     ) \
-                                   )(X, Y)
+        #define _CML_COMPLEX_GENERIC_FUNC_1(X, _func) ({ \
+                _Generic((X), \
+                         complex_t*: {complex_ ## _func} \
+                         )(X) \
+        })
 
-        #define div(X, Y) _Generic((X), \
-                                   complex_t*: _Generic((Y), \
-                                                default: complex_div, \
-                                                        complex_t*: complex_div \
-                                                        ), \
-                                   real_t*: _Generic((Y), \
-                                             default: real_div, \
-                                                     real_t*: real_div \
-                                                     ) \
-                                   )(X, Y)
+        #define _CML_REAL_GENERIC_FUNC_2(X, Y, _func) ({ \
+                _Generic((X), \
+                         real_t*: _Generic((Y), \
+                                   default: {real_ ## _func}, \
+                                           real_t*: {real_ ## _func} \
+                                           ) \
+                         )(X, Y) \
+        })
 
-        #define inverse(X) _Generic((X), \
-                                    complex_t*: complex_inverse, \
-                                    real_t*: real_inverse \
-                                    )(X)
+        #define _CML_COMPLEX_GENERIC_FUNC_2(X, Y, _func) ({ \
+                _Generic((X), \
+                         complex_t*: _Generic((Y), \
+                                      default: {complex_ ## _func}, \
+                                              complex_t*: {complex_ ## _func} \
+                                              ) \
+                         )(X, Y) \
+        })
 
-        #define opposite(X) _Generic((X), \
-                                     real_t*: real_opposite \
-                                     )(X)
+        #define _CML_BOTH_GENERIC_FUNC_1(X, _func) ({ \
+                _Generic((X), \
+                         complex_t*: {complex_ ## _func}, \
+                         real_t*: {real_ ## _func} \
+                         )(X) \
+        })
 
-        #define exp(X) _Generic((X), \
-                                complex_t*: complex_exp, \
-                                real_t*: real_exp \
-                                )(X)
+        #define _CML_BOTH_GENERIC_FUNC_2(X, Y, _func) ({ \
+                _Generic((X), \
+                         complex_t*: _Generic((Y), \
+                                      default: {complex_ ## _func}, \
+                                              complex_t*: {complex_ ## _func} \
+                                              ), \
+                         real_t*: _Generic((Y), \
+                                   default: {real_ ## _func}, \
+                                           real_t*: {real_ ## _func} \
+                                           ) \
+                         )(X, Y) \
+        })
+#elif !defined _CML_NO_BUILTIN_TYPES
 
-        #define log(X) _Generic((X), \
-                                complex_t*: complex_log, \
-                                real_t*: real_ln \
-                                )(X)
+        #define _CML_FUNC(_type, _func) ({ \
+                if (_CML_B_T_C_P(_type, real) \
+                    || _CML_B_T_C_P(_type, (real_t*))) { \
+                        {real_ ## _func} \
+                } else if (_CML_B_T_C_P(_type, complex) \
+                           || _CML_B_T_C_P(_type, (complex_t*))) { \
+                        {complex_ ## _func} \
+                } \
+        })
 
-        #define ln(X) log(X)
+        #define _CML_REAL_GENERIC_FUNC_1(X, _func) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = {real_ ## _func} (X); \
+                } \
+                tmp; \
+        })
 
-        #define log_b(X, Y) _Generic((X), \
-                                     complex_t*: _Generic((Y), \
-                                                  default: complex_log_b, \
-                                                          complex_t*: complex_log_b \
-                                                          ), \
-                                     real_t*: _Generic((Y), \
-                                               default: real_log_b, \
-                                                       real_t*: real_log_b \
-                                                       ) \
-                                     )(X, Y)
+        #define _CML_REAL_GENERIC_FUNC_2(X, Y, _func) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real)) { \
+                        _tmp = {real_ ## _func} (X, Y); \
+                } \
+                tmp; \
+        })
 
-        #define pow(X, Y) _Generic((X), \
-                                   real_t*: _Generic((Y), \
-                                             default: real_pow, \
-                                                     real_t*: real_pow \
-                                                     ) \
-                                   )(X, Y)
+        #define _CML_COMPLEX_GENERIC_FUNC_1(X, _func) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = {complex_ ## _func} (X); \
+                } \
+                tmp; \
+        })
 
-        #define root(X) _Generic((X), \
-                                 real_t*: real_root \
-                                 )(X)
+        #define _CML_COMPLEX_GENERIC_FUNC_2(X, Y, _func) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = {complex_ ## _func} (X, Y); \
+                } \
+                tmp; \
+        })
 
-        #define sqrt(X) _Generic((X), \
-                                 real_t*: real_sqrt \
-                                 )(X)
+        #define _CML_BOTH_GENERIC_FUNC_1(X, _func) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), _func)(X); \
+                } \
+                tmp; \
+        })
 
-        #define sin(X) _Generic((X), \
-                                complex_t*: complex_sin, \
-                                real_t*: real_sin \
-                                )(X)
+        #define _CML_BOTH_GENERIC_FUNC_2(X, Y, _func) ({ \
+                typeof(X)_tmp; \
+                if (_CML_B_T_C_P(typeof(X), real) \
+                    || _CML_B_T_C_P(typeof(X), complex)) { \
+                        _tmp = _CML_FUNC(typeof(X), _func)(X, Y); \
+                } \
+                tmp; \
+        })
+#endif
 
-        #define cos(X) _Generic((X), \
-                                complex_t*: complex_cos, \
-                                real_t*: real_cos \
-                                )(X)
-
-        #define tan(X) _Generic((X), \
-                                complex_t*: complex_tan, \
-                                real_t*: real_tan \
-                                )(X)
-
-        #define sec(X) _Generic((X), \
-                                complex_t*: complex_sec, \
-                                real_t*: real_sec \
-                                )(X)
-
-        #define csc(X) _Generic((X), \
-                                complex_t*: complex_csc, \
-                                real_t*: real_csc \
-                                )(X)
-
-        #define cot(X) _Generic((X), \
-                                complex_t*: complex_cot, \
-                                real_t*: real_cot \
-                                )(X)
-
-        #define asin(X) _Generic((X), \
-                                 real_t*: real_asin \
-                                 )(X)
-
-        #define acos(X) _Generic((X), \
-                                 real_t*: real_acos \
-                                 )(X)
-
-        #define atan(X) _Generic((X), \
-                                 real_t*: real_atan \
-                                 )(X)
-
-        #define atan2(X, Y) _Generic((X), \
-                                     real_t*: _Generic((Y), \
-                                               default: real_atan2, \
-                                                       real_t*: real_atan2 \
-                                                       ) \
-                                     )(X, Y)
-
-        #define sinh(X) _Generic((X), \
-                                 complex_t*: complex_sinh, \
-                                 real_t*: real_sinh \
-                                 )(X)
-
-        #define cosh(X) _Generic((X), \
-                                 complex_t*: complex_cosh, \
-                                 real_t*: real_cosh \
-                                 )(X)
-
-        #define tanh(X) _Generic((X), \
-                                 complex_t*: complex_tanh, \
-                                 real_t*: real_tanh \
-                                 )(X)
-
-        #define asinh(X) _Generic((X), \
-                                  real_t*: real_asinh \
-                                  )(X)
-
-        #define acosh(X) _Generic((X), \
-                                  real_t*: real_acosh \
-                                  )(X)
-
-        #define atanh(X) _Generic((X), \
-                                  real_t*: real_atanh \
-                                  )(X)
-
-        #define as_string(X) _Generic((X), \
-                                      complex_t*: complex_as_string, \
-                                      real_t*: real_as_string \
-                                      )(X)
-#else
-#ifdef _CML_NO_BUILTIN_TYPES
+#ifndef CML_NO_FUNCTION_POINTER
         #define equals(X, Y) (X)->equals(X, Y)
         #define isnull(X) (X)->isNull(X, Y)
         #define isnatural(X) (X)->isNatural(X)
@@ -230,449 +171,64 @@
         #define atanh(X) (X)->atanh(X)
         #define as_string(X) (X)->asString(X)
 #else
-
-        #define _CML_FUNC(_type, _func) ({ \
-                if (_CML_B_T_C_P(_type, real) \
-                    || _CML_B_T_C_P(_type, (real_t*))) { \
-                        {real_ ## _func} \
-                } else if (_CML_B_T_C_P(_type, complex) \
-                           || _CML_B_T_C_P(_type, (complex_t*))) { \
-                        {complex_ ## _func} \
-                } \
-        })
-
-        #define equals(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), equals)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define isnull(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), isnull)(X); \
-                } \
-                tmp; \
-        })
-
-        #define isnatural(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), isnatural)(X); \
-                } \
-                tmp; \
-        })
-
-        #define isinteger(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), isinteger)(X); \
-                } \
-                tmp; \
-        })
-
-        #define isgreater(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), isgreater)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define isless(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), isless)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define isgreater_or_equals(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), isgreater_or_equals)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define isless_or_equals(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), isless_or_equals)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define ismult(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), ismult)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define add(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), add)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define prod(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), prod)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define sub(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), sub)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define div(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), div)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define sgn(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), sgn)(X); \
-                } \
-                tmp; \
-        })
-
-        #define abs(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), abs)(X); \
-                } \
-                tmp; \
-        })
-
-        #define floor(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), floor)(X); \
-                } \
-                tmp; \
-        })
-
-        #define ceil(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), ceil)(X); \
-                } \
-                tmp; \
-        })
-
-        #define div_e(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), div_e)(X); \
-                } \
-                tmp; \
-        })
-
-        #define mod(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), mod)(X); \
-                } \
-                tmp; \
-        })
-
-        #define inverse(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), inverse)(X); \
-                } \
-                tmp; \
-        })
-
-        #define opposite(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), opposite)(X); \
-                } \
-                tmp; \
-        })
-
-        #define ared(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), ared)(X); \
-                } \
-                tmp; \
-        })
-
-        #define fact(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), as_string)(X); \
-                } \
-                tmp; \
-        })
-
-        #define exp(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), exp)(X); \
-                } \
-                tmp; \
-        })
-
-        #define ln(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), ln)(X); \
-                } \
-                tmp; \
-        })
-
-        #define log(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), log)(X); \
-                } \
-                tmp; \
-        })
-
-        #define log_b(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), log_b)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define pow(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), pow)(X); \
-                } \
-                tmp; \
-        })
-
-        #define root(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), root)(X); \
-                } \
-                tmp; \
-        })
-
-        #define sqrt(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), sqrt)(X); \
-                } \
-                tmp; \
-        })
-
-        #define sin(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), sin)(X); \
-                } \
-                tmp; \
-        })
-
-        #define cos(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), cos)(X); \
-                } \
-                tmp; \
-        })
-
-        #define tan(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), tan)(X); \
-                } \
-                tmp; \
-        })
-
-        #define sec(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), sec)(X); \
-                } \
-                tmp; \
-        })
-
-        #define csc(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), csc)(X); \
-                } \
-                tmp; \
-        })
-
-        #define cot(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), cot)(X); \
-                } \
-                tmp; \
-        })
-
-        #define asin(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), asin)(X); \
-                } \
-                tmp; \
-        })
-
-        #define acos(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), acos)(X); \
-                } \
-                tmp; \
-        })
-        #define atan(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), atan)(X); \
-                } \
-                tmp; \
-        })
-
-        #define atan2(X, Y) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = _CML_FUNC(typeof(X), atan2)(X, Y); \
-                } \
-                tmp; \
-        })
-
-        #define sinh(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), sinh)(X); \
-                } \
-                tmp; \
-        })
-
-        #define cosh(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), cosh)(X); \
-                } \
-                tmp; \
-        })
-
-        #define tanh(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), tanh)(X); \
-                } \
-                tmp; \
-        })
-
-        #define sech(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), sech)(X); \
-                } \
-                tmp; \
-        })
-
-        #define csch(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), csch)(X); \
-                } \
-                tmp; \
-        })
-
-        #define coth(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), coth)(X); \
-                } \
-                tmp; \
-        })
-
-        #define asinh(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), asinh)(X); \
-                } \
-                tmp; \
-        })
-
-        #define acosh(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), acosh)(X); \
-                } \
-                tmp; \
-        })
-
-        #define atanh(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), atanh)(X); \
-                } \
-                tmp; \
-        })
-
-        #define as_string(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_FUNC(typeof(X), as_string)(X); \
-                } \
-                tmp; \
-        })
-#endif
+        #define equals(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, equals)
+        #define isnull(X) _CML_BOTH_GENERIC_FUNC_1(X, isnull)
+        #define isnatural(X) _CML_REAL_GENERIC_FUNC_1(X, isnatural)
+        #define isinteger(X) _CML_REAL_GENERIC_FUNC_1(X, isinteger)
+        #define isgreater(X, Y) _CML_REAL_GENERIC_FUNC_2(X, Y, isgreater)
+        #define isless(X, Y) _CML_REAL_GENERIC_FUNC_2(X, Y, isless)
+        #define isgreater_or_equals(X, Y) _CML_REAL_GENERIC_FUNC_2( \
+                X, Y, \
+                isgreater_or_equals \
+                )
+        #define isless_or_equals(X, Y) _CML_REAL_GENERIC_FUNC_2( \
+                X, Y, \
+                isless_or_equals \
+                )
+        #define ismult(X, Y) _CML_REAL_GENERIC_FUNC_2( \
+                X, Y, \
+                ismult \
+                )
+        #define add(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, add)
+        #define prod(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, prod)
+        #define sub(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, sub)
+        #define div(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, div)
+        #define sgn(X, Y) _CML_REAL_GENERIC_FUNC_1(X, Y, sgn)
+        #define abs(X) _CML_REAL_GENERIC_FUNC_1(X, abs)
+        #define floor(X) _CML_REAL_GENERIC_FUNC_1(X, floor)
+        #define ceil(X) _CML_REAL_GENERIC_FUNC_1(X, ceil)
+        #define div_e(X) _CML_REAL_GENERIC_FUNC_1(X, div_e)
+        #define mod(X) _CML_REAL_GENERIC_FUNC_1(X, mod)
+        #define inverse(X) _CML_BOTH_GENERIC_FUNC_1(X, inverse)
+        #define opposite(X) _CML_BOTH_GENERIC_FUNC_1(X, opposite)
+        #define ared(X) _CML_REAL_GENERIC_FUNC_1(X, ared)
+        #define fact(X) _CML_REAL_GENERIC_FUNC_1(X, fact)
+        #define exp(X) _CML_BOTH_GENERIC_FUNC_1(X, exp)
+        #define ln(X) _CML_BOTH_GENERIC_FUNC_1(X, ln)
+        #define log(X) _CML_BOTH_GENERIC_FUNC_1(X, log)
+        #define log_b(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, log_b)
+        #define pow(X) _CML_BOTH_GENERIC_FUNC_1(X, pow)
+        #define root(X) _CML_BOTH_GENERIC_FUNC_1(X, root)
+        #define sqrt(X) _CML_BOTH_GENERIC_FUNC_1(X, sqrt)
+        #define sin(X) _CML_BOTH_GENERIC_FUNC_1(X, sin)
+        #define cos(X) _CML_BOTH_GENERIC_FUNC_1(X, cos)
+        #define tan(X) _CML_BOTH_GENERIC_FUNC_1(X, tan)
+        #define sec(X) _CML_BOTH_GENERIC_FUNC_1(X, sec)
+        #define csc(X) _CML_BOTH_GENERIC_FUNC_1(X, csc)
+        #define cot(X) _CML_BOTH_GENERIC_FUNC_1(X, cot)
+        #define asin(X) _CML_BOTH_GENERIC_FUNC_1(X, asin)
+        #define acos(X) _CML_BOTH_GENERIC_FUNC_1(X, acos)
+        #define atan(X) _CML_BOTH_GENERIC_FUNC_1(X, atan)
+        #define atan2(X, Y) _CML_BOTH_GENERIC_FUNC_1(X, Y, atan2)
+        #define sinh(X) _CML_BOTH_GENERIC_FUNC_1(X, sinh)
+        #define cosh(X) _CML_BOTH_GENERIC_FUNC_1(X, cosh)
+        #define tanh(X) _CML_BOTH_GENERIC_FUNC_1(X, tanh)
+        #define sech(X) _CML_BOTH_GENERIC_FUNC_1(X, sech)
+        #define csch(X) _CML_BOTH_GENERIC_FUNC_1(X, csch)
+        #define coth(X) _CML_BOTH_GENERIC_FUNC_1(X, coth)
+        #define asinh(X) _CML_BOTH_GENERIC_FUNC_1(X, asinh)
+        #define acosh(X) _CML_BOTH_GENERIC_FUNC_1(X, acosh)
+        #define atanh(X) _CML_BOTH_GENERIC_FUNC_1(X, atanh)
+        #define as_string(X) _CML_BOTH_GENERIC_FUNC_1(X, as_string)
 #endif
 #endif
