@@ -30,6 +30,18 @@
         #define cml_math_t mfloat_t
 #endif
 
+#ifndef __mfloat__
+        #define __mfloat__ *(mfloat_t*)
+#endif
+
+#ifndef creal
+        #define creal(X) complex_get_real(X)
+#endif
+
+#ifndef cimag
+        #define cimag(X) complex_get_imaginary(X)
+#endif
+
 #include "types/real.h"
 #include "types/rational.h"
 #include "types/complex.h"
