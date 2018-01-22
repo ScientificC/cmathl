@@ -21,6 +21,7 @@ gcc ... -I./lib/cml/src
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
 - `CML_DOUBLE_PRECISION`
+- `CML_NO_EASING_FUNCTIONS`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
 - `mfloat_t`
@@ -52,6 +53,14 @@ By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If th
 ### Float-point Type
 
 The float type used by CML is defined by the macro `mfloat_t`, which is by default `float`.
+
+### Easing Functions
+
+The easing functions are an implementation of the functions presented in [easings.net](http://easings.net/), useful particularly for animations. Easing is a method of distorting time to control apparent motion in animation. It is most commonly used for slow-in, slow-out. By easing time, animated transitions are smoother and exhibit more plausible motion.
+
+Easing functions take a value inside the range `[0.0, 1.0]` and usually will return a value inside that same range. However, in some of the easing functions, the returned value extrapolate that range (Check the [easings.net](http://easings.net/) to see those functions).
+
+By defining `CML_NO_EASING_FUNCTIONS`, the easing functions will not be defined.
 
 ### Math Precision
 
