@@ -28,18 +28,19 @@
         #define _CML_NO_GENERIC
 #endif
 
-#ifndef typeof
-        #define typeof(X) __typeof__(X)
-#endif
+#define _CML_ARGS_FIRST(A, ...) A
 
 #define _CML_B_T_C_P(X, Y) __builtin_types_compatible_p(X, Y)
-
 #ifndef __same_type
-        #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
+        #define __same_type(a, b) __builtin_types_compatible_p(__typeof(a), __typeof(b))
 #endif
 
+#define _CML_NO_EXTENSIONS /* Important for testing */
+
 #ifndef _CML_NO_GENERIC
-        #define CML_NO_FUNCTION_POINTER
+        #ifndef _CML_NO_EXTENSIONS
+                #define CML_NO_FUNCTION_POINTER
+        #endif
 #endif
 
 #include "math/include/math.h"
