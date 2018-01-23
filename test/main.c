@@ -57,8 +57,7 @@ int run_tests()
                 {
                         real x = real(MFLOAT_T(1.0));
                         EXPECT_FLOAT_EQ(__mfloat__ x, MFLOAT_T(1.0));
-                        printf("\nSize of real_t: %ld\n", sizeof(real_t));
-                        free(x);
+                        printf(" Size of real_t: %ld  ", sizeof(real_t));
                 }
                 TEST_END()
 
@@ -93,7 +92,7 @@ int run_tests()
 
                 TEST_BEGIN(SquareRoot)
                 {
-                        EXPECT_FLOAT_EQ(__mfloat__ sqrt(real(16.0f)), MFLOAT_T(4.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ sqrt(real(MFLOAT_T(16.0))), MFLOAT_T(4.0));
                         EXPECT_NEAR(__mfloat__ sqrt(real(MFLOAT_T(10.0))), MFLOAT_T(3.1616211), 0.001f);
                 }
                 TEST_END()
@@ -117,7 +116,54 @@ int run_tests()
                         complex z = complex(MFLOAT_T(1.0), MFLOAT_T(4.0));
                         EXPECT_FLOAT_EQ(__mfloat__ creal(z), MFLOAT_T(1.0));
                         EXPECT_FLOAT_EQ(__mfloat__ cimag(z), MFLOAT_T(4.0));
-                        free(z);
+                }
+                TEST_END()
+        }
+        CATEGORY_END()
+
+        CATEGORY_BEGIN(Easings)
+        {
+                TEST_BEGIN(Back)
+                {
+                        EXPECT_FLOAT_EQ(__mfloat__ (back_ease_in(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (back_ease_in(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (back_ease_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (back_ease_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (back_ease_in_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (back_ease_in_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                }
+                TEST_END()
+
+                TEST_BEGIN(Bounce)
+                {
+                        EXPECT_FLOAT_EQ(__mfloat__ (bounce_ease_in(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (bounce_ease_in(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (bounce_ease_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (bounce_ease_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (bounce_ease_in_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (bounce_ease_in_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                }
+                TEST_END()
+
+                TEST_BEGIN(Circular)
+                {
+                        EXPECT_FLOAT_EQ(__mfloat__ (circular_ease_in(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (circular_ease_in(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (circular_ease_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (circular_ease_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (circular_ease_in_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (circular_ease_in_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                }
+                TEST_END()
+
+                TEST_BEGIN(Cubic)
+                {
+                        EXPECT_FLOAT_EQ(__mfloat__ (cubic_ease_in(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (cubic_ease_in(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (cubic_ease_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (cubic_ease_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (cubic_ease_in_out(real(MFLOAT_T(0.0)))), MFLOAT_T(0.0));
+                        EXPECT_FLOAT_EQ(__mfloat__ (cubic_ease_in_out(real(MFLOAT_T(1.0)))), MFLOAT_T(1.0));
                 }
                 TEST_END()
         }
