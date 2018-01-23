@@ -5,8 +5,11 @@
 #ifndef CML_MATH_GEN_FUNC_H
 #define CML_MATH_GEN_FUNC_H
 
-#ifndef _CML_NO_GENERIC
+#ifndef _CML_MATH_FUNC
         #define _CML_MATH_FUNC(_type, _func) _type ## _ ## _func
+#endif
+
+#ifndef _CML_NO_GENERIC
 
         #define _CML_REAL_GENERIC_FUNC(_func, ...) \
         _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
@@ -25,7 +28,19 @@
                  )(__VA_ARGS__)
 
 #elif !defined _CML_NO_EXTENSIONS
-/* Not yet */
+        #define _CML_REAL_GENERIC_FUNC(_func, ...) real_ ## _func(__VA_ARGS__)
+
+        #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) complex_ ## _func(__VA_ARGS__)
+
+        #define _CML_BOTH_GENERIC_FUNC(_func, ...) ({ \
+                if (_CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), real) \
+                    || _CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), real_t*)) { \
+                        real_ ## _func(__VA_ARGS__); \
+                } else if (_CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), complex) \
+                           || _CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), complex_t*)) { \
+                        complex_ ## _func(__VA_ARGS__); \
+                } \
+        })
 #endif
 
 #if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)
