@@ -4,7 +4,7 @@
 
 ## Introduction
 
-CML is a compact C library with a great variety of mathematical functions.
+CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
 ## Using the CMATHL
 
