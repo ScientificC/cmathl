@@ -95,7 +95,7 @@ SRC_MATH_FILES := real_acos \
 CML_TEST_FILES := main
 
 CFLAG=-Ofast -Wall -std=c11 -pthread -I$(SOURCE_FOLDER) \
--Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON -D_CML_NO_GENERIC
+-Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON -D_CML_NO_GENERIC=ON
 
 DEBUG=-g -ggdb
 
