@@ -3,10 +3,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <pthread.h>
-
-#define CML_SERIES_RESOLVER
 #include <cml.h>
 
+#ifdef CML_SERIES_RESOLVER
 static pthread_mutex_t lock;
 
 block_t
@@ -81,3 +80,4 @@ series_resolver(block_t *block, int max_loops, int max_threads)
 
         pthread_mutex_destroy(&lock);
 }
+#endif

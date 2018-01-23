@@ -75,7 +75,7 @@ complex_set_imaginary(complex_t* z, mfloat_t x)
 real*
 complex_get_parts(complex_t* z)
 {
-        real* parts = malloc(sizeof(*parts));
+        real* parts = (real*) malloc(sizeof(parts));
 
         parts[0] = complex_get_real(z);
         parts[1] = complex_get_imaginary(z);

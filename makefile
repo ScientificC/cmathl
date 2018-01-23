@@ -94,7 +94,7 @@ SRC_MATH_FILES := real_acos \
 
 CML_TEST_FILES := main
 
-CFLAG=-Ofast -Wall -std=c11 -pthread -I$(SOURCE_FOLDER) \
+CFLAG=-Ofast -Wall -pthread -I$(SOURCE_FOLDER) \
 -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON -D_CML_NO_GENERIC=ON
 
 DEBUG=-g -ggdb
@@ -105,24 +105,24 @@ DEBUG=-g -ggdb
 all: clean folders cml.o
 
 test: clean folders test.o $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
-	    gcc $(TEMPORAL_FOLDER)/** -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAG) $(DEBUG)
+	    $(CC) $(TEMPORAL_FOLDER)/** -o $(BUILD_FOLDER)/$(TEST_OUTPUT_NAME) $(CFLAG) $(DEBUG)
 
 cml.o:
 		for file in $(SRC_MATH_FILES); do \
-				gcc -c $(SOURCE_FOLDER)/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(SOURCE_FOLDER)/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 		for file in $(SRC_EASING_FILES); do \
-				gcc -c $(SOURCE_FOLDER)/easings/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(SOURCE_FOLDER)/easings/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 		for file in $(SRC_UTILS_FILES); do \
-				gcc -c $(SOURCE_FOLDER)/utils/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(SOURCE_FOLDER)/utils/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 test.o: cml.o
 		for file in $(CML_TEST_FILES); do \
-				gcc -c $(TEST_FOLDER)/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(TEST_FOLDER)/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 clean: ; -rm -rf $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
