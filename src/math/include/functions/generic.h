@@ -32,15 +32,7 @@
 
         #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) complex_ ## _func(__VA_ARGS__)
 
-        #define _CML_BOTH_GENERIC_FUNC(_func, ...) ({ \
-                if (_CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), real) \
-                    || _CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), real_t*)) { \
-                        real_ ## _func(__VA_ARGS__); \
-                } else if (_CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), complex) \
-                           || _CML_B_T_C_P(__typeof(_CML_ARGS_FIRST(__VA_ARGS__)), complex_t*)) { \
-                        complex_ ## _func(__VA_ARGS__); \
-                } \
-        })
+        #define _CML_BOTH_GENERIC_FUNC(_func, ...)  real_ ## _func(__VA_ARGS__)
 #endif
 
 #if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)

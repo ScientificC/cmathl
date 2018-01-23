@@ -35,12 +35,10 @@
         #define __same_type(a, b) __builtin_types_compatible_p(__typeof(a), __typeof(b))
 #endif
 
-#define _CML_NO_EXTENSIONS /* Important for testing */
+// #define _CML_NO_EXTENSIONS /* Important for testing */
 
-#ifndef _CML_NO_GENERIC
-        #ifndef _CML_NO_EXTENSIONS
-                #define CML_NO_FUNCTION_POINTER
-        #endif
+#if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)
+        #define CML_NO_FUNCTION_POINTER
 #endif
 
 #include "math/include/math.h"
