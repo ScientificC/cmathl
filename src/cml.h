@@ -14,9 +14,15 @@
         #endif
 #endif
 
+#ifdef _MSC_VER
+        #define _CML_INLINE __forceinline
+#else
+        #define _CML_INLINE inline __attribute__((always_inline))
+#endif
+
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
-        #define _CML_EXTERN_INLINE extern inline __attribute__((always_inline))
+        #define _CML_EXTERN_INLINE extern _CML_INLINE
 #else
         #undef _CML_EXTERN_INLINE
         #undef CML_DOUBLE_PRECISION

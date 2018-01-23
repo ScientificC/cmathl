@@ -12,11 +12,13 @@
         #include <stdbool.h>
 #endif
 
-#ifdef CML_NO_STDINT
-        #define mint_t int
-#else
-        #include <stdint.h>
-        #define mint_t int32_t
+#ifndef mint_t
+        #ifdef CML_NO_STDINT
+                #define mint_t int
+        #else
+                #include <stdint.h>
+                #define mint_t int32_t
+        #endif
 #endif
 
 #ifndef mfloat_t
