@@ -8,43 +8,49 @@
 #ifndef _CML_NO_GENERIC
         #define _CML_MATH_FUNC(_type, _func) _type ## _ ## _func
 
-        #define _CML_REAL_GENERIC_FUNC_1(X, _func) _Generic((X), \
-                                                            real_t*: _CML_MATH_FUNC(real, _func) \
-                                                            )(X)
+        #define _CML_REAL_GENERIC_FUNC_1(X, _func) \
+        _Generic((X), \
+                 real_t*: _CML_MATH_FUNC(real, _func) \
+                 )(X)
 
-        #define _CML_COMPLEX_GENERIC_FUNC_1(X, _func) _Generic((X), \
-                                                               complex_t*: _CML_MATH_FUNC(complex, _func) \
-                                                               )(X)
+        #define _CML_COMPLEX_GENERIC_FUNC_1(X, _func) \
+        _Generic((X), \
+                 complex_t*: _CML_MATH_FUNC(complex, _func) \
+                 )(X)
 
-        #define _CML_REAL_GENERIC_FUNC_2(X, Y, _func) _Generic((X), \
-                                                               real_t*: _Generic((Y), \
-                                                                         default: _CML_MATH_FUNC(real, _func), \
-                                                                                 real_t*: _CML_MATH_FUNC(real, _func) \
-                                                                                 ) \
-                                                               )(X, Y)
+        #define _CML_REAL_GENERIC_FUNC_2(X, Y, _func) \
+        _Generic((X), \
+                 real_t*: _Generic((Y), \
+                           default: _CML_MATH_FUNC(real, _func), \
+                                   real_t*: _CML_MATH_FUNC(real, _func) \
+                                   ) \
+                 )(X, Y)
 
-        #define _CML_COMPLEX_GENERIC_FUNC_2(X, Y, _func) _Generic((X), \
-                                                                  complex_t*: _Generic((Y), \
-                                                                               default: _CML_MATH_FUNC(complex, _func), \
-                                                                                       complex_t*: _CML_MATH_FUNC(complex, _func) \
-                                                                                       ) \
-                                                                  )(X, Y)
+        #define _CML_COMPLEX_GENERIC_FUNC_2(X, Y, _func) \
+        _Generic((X), \
+                 complex_t*: _Generic((Y), \
+                              default: _CML_MATH_FUNC(complex, _func), \
+                                      complex_t*: _CML_MATH_FUNC(complex, _func) \
+                                      ) \
+                 )(X, Y)
 
-        #define _CML_BOTH_GENERIC_FUNC_1(X, _func) _Generic((X), \
-                                                            complex_t*: _CML_MATH_FUNC(complex, _func), \
-                                                            real_t*: _CML_MATH_FUNC(real, _func) \
-                                                            )(X)
+        #define _CML_BOTH_GENERIC_FUNC_1(X, _func) \
+        _Generic((X), \
+                 complex_t*: _CML_MATH_FUNC(complex, _func), \
+                 real_t*: _CML_MATH_FUNC(real, _func) \
+                 )(X)
 
-        #define _CML_BOTH_GENERIC_FUNC_2(X, Y, _func) _Generic((X), \
-                                                               complex_t*: _Generic((Y), \
-                                                                            default: _CML_MATH_FUNC(complex, _func), \
-                                                                                    complex_t*: _CML_MATH_FUNC(complex, _func) \
-                                                                                    ), \
-                                                               real_t*: _Generic((Y), \
-                                                                         default: _CML_MATH_FUNC(real, _func), \
-                                                                                 real_t*: _CML_MATH_FUNC(real, _func) \
-                                                                                 ) \
-                                                               )(X, Y)
+        #define _CML_BOTH_GENERIC_FUNC_2(X, Y, _func) \
+        _Generic((X), \
+                 complex_t*: _Generic((Y), \
+                              default: _CML_MATH_FUNC(complex, _func), \
+                                      complex_t*: _CML_MATH_FUNC(complex, _func) \
+                                      ), \
+                 real_t*: _Generic((Y), \
+                           default: _CML_MATH_FUNC(real, _func), \
+                                   real_t*: _CML_MATH_FUNC(real, _func) \
+                                   ) \
+                 )(X, Y)
 
         #define equals(X, Y) _CML_BOTH_GENERIC_FUNC_2(X, Y, equals)
         #define isnull(X) _CML_BOTH_GENERIC_FUNC_1(X, isnull)
