@@ -4,7 +4,7 @@
 complex
 complex_csc(complex self)
 {
-        // Domain check
+        /* Domain check */
         complex s = complex_sin(self);
         real a = complex_abs(s);
         if (!real_isnull(a)) {
@@ -15,15 +15,15 @@ complex_csc(complex self)
 
         free(a);
 
-        // Declaration of structures
+        /* Declaration of structures */
         complex w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         w = complex_inverse(s);
 
-        // Free structures
+        /* Free structures */
         free(s);
 
-        // Return
+        /* Return */
         return w;
 }

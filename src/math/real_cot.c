@@ -12,20 +12,20 @@
 real
 real_cot(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real y, z, h;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         z = real_cos(x);
         y = real_sin(x);
         h = real_isnull(y) ?
             real_new(NAN) :
             real_div(z, y);
 
-        // Free structures
+        /* Free structures */
         free(z);
         free(y);
 
-        // Return
+        /* Return */
         return h;
 }

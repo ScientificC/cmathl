@@ -13,28 +13,28 @@
 real
 real_ln(real x)
 {
-        // Domain check
+        /* Domain check */
         if (real_value(x) <= 0) {
                 return real_new(NAN);
         }
 
-        // Declaration of structures
+        /* Declaration of structures */
         real y, z, w, k, h;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         y = real_prod(x, x);
         z = real_new(real_value(y) - 1.0);
         w = real_new(real_value(y) + 1.0);
         k = real_div(z, w);
         h = real_atanh(k);
 
-        // Free structures
+        /* Free structures */
         free(y);
         free(z);
         free(w);
         free(k);
 
-        // Return
+        /* Return */
         return h;
 
 }

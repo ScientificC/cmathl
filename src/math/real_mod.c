@@ -4,18 +4,18 @@
 real
 real_mod(real x, real y)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real z, w, k;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         z = real_div_e(x, y);
         w = real_prod(y, z);
         k = real_sub(x, w);
 
-        // Free structures
+        /* Free structures */
         free(z);
         free(w);
 
-        // Return
+        /* Return */
         return k;
 }

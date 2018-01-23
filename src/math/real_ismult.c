@@ -2,7 +2,7 @@
 #include <cml.h>
 
 
-CML_EXTERN_INLINE bool
+_CML_EXTERN_INLINE bool
 __ismult(mfloat_t x, mfloat_t y)
 {
         mfloat_t z = x/y;

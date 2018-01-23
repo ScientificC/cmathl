@@ -7,18 +7,18 @@
 complex
 complex_log_b(complex z, complex b)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex k, h, w;
 
-        // Mathematic algorithm
+        /* Mathematical algorithm */
         k = complex_log(z);
         h = complex_log(b);
         w = complex_div(k, h);
 
-        // Free structures
+        /* Free structures */
         free(k);
         free(h);
 
-        // Return
+        /* Return */
         return w;
 }

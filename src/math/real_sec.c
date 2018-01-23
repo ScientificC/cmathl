@@ -12,16 +12,16 @@
 real
 real_sec(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real y, h;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         y = real_cos(x);
         h = real_inverse(y);
 
-        // Free structures
+        /* Free structures */
         free(y);
 
-        // Return
+        /* Return */
         return h;
 }

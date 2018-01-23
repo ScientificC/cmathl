@@ -73,23 +73,12 @@ typedef struct _real
 typedef real_t* real;
 
 real_t _real_create(mfloat_t);
-
-// Construct & destruct
 real _real_new(mfloat_t);
 void _real_free(real);
-
 real _real_clone(real);
-
-// Initialization
 void init_real(real);
-
-// getters
 mfloat_t real_value(real);
-
-// setters
 void real_set_value(real, mfloat_t);
-
-// Methods
 char * real_as_string(real);
 
 #endif

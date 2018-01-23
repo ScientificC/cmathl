@@ -9,10 +9,10 @@
 real
 real_atan2(real y, real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real s, h, k, j, z, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         s = real_sgn(y);
         h = real_new(HALFPI);
         k = real_div(x, y);
@@ -20,13 +20,13 @@ real_atan2(real y, real x)
         z = real_prod(h, s);
         w = real_sub(z, j);
 
-        // Free structures
+        /* Free structures */
         free(s);
         free(h);
         free(k);
         free(j);
         free(z);
 
-        // Return
+        /* Return */
         return w;
 }

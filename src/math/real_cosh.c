@@ -12,12 +12,12 @@
 real
 real_cosh(real x)
 {
-        // Domain check
+        /* Domain check */
 
-        // Declaration of variables and structures
+        /* Declaration of variables and structures */
         real y, z, w, k, c, h;
 
-        // Mathematic algorithm
+        /* Mathematical algorithm */
         c = real_new(2.0);
         y = real_opposite(x);
         z = real_exp(x);
@@ -25,13 +25,13 @@ real_cosh(real x)
         k = real_add(z, w);
         h = real_div(z, c);
 
-        // Free structures
+        /* Free structures */
         free(y);
         free(z);
         free(w);
         free(k);
         free(c);
 
-        // Return
+        /* Return */
         return h;
 }

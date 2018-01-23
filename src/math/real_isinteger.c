@@ -2,7 +2,7 @@
 #include <cml.h>
 
 
-CML_EXTERN_INLINE bool
+_CML_EXTERN_INLINE bool
 __isinteger(mfloat_t x)
 {
         mint_t x_int = (mint_t) x;

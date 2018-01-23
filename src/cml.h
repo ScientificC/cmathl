@@ -16,9 +16,13 @@
 
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
-        #define CML_EXTERN_INLINE extern inline __attribute__((always_inline))
+        #define _CML_EXTERN_INLINE extern inline __attribute__((always_inline))
 #else
-        #define CML_EXTERN_INLINE
+        #undef _CML_EXTERN_INLINE
+        #undef CML_DOUBLE_PRECISION
+        #undef mfloat_t
+
+        #define _CML_EXTERN_INLINE
         #define CML_DOUBLE_PRECISION
         #define mfloat_t double
 #endif
@@ -35,7 +39,7 @@
         #define __same_type(a, b) _CML_TYPES_COMPATIBLE(__typeof(a), __typeof(b))
 #endif
 
-// #define _CML_NO_EXTENSIONS /* Important for testing */
+/* #define _CML_NO_EXTENSIONS */
 
 #if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)
         #define CML_NO_FUNCTION_POINTER

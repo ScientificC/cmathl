@@ -2,7 +2,7 @@
 #include <cml.h>
 
 
-CML_EXTERN_INLINE bool
+_CML_EXTERN_INLINE bool
 __isnull(mfloat_t x)
 {
         return x == 0.0;

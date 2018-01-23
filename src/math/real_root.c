@@ -12,18 +12,18 @@
 real
 real_root(real x, real n)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real w, y, z;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         w = real_new(-1.0);
         y = real_pow(n, w);
         z = real_pow(x, y);
 
-        // Free structures
+        /* Free structures */
         free(w);
         free(y);
 
-        // Return
+        /* Return */
         return z;
 }

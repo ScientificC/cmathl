@@ -4,12 +4,12 @@
 real
 complex_abs(complex z)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real *x;
         real n, a, b, w, h;
 
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         x = complex_get_parts(z);
         n = real_new(2.0);
         a = real_pow(x[0], n);
@@ -17,7 +17,7 @@ complex_abs(complex z)
         w = real_add(a, b);
         h = real_sqrt(w);
 
-        // Free structures
+        /* Free structures */
         free(x[0]);
         free(x[1]);
         free(x);
@@ -26,6 +26,6 @@ complex_abs(complex z)
         free(b);
         free(w);
 
-        // Return
+        /* Return */
         return h;
 }

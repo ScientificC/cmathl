@@ -2,7 +2,7 @@
 #include <cml.h>
 
 
-CML_EXTERN_INLINE bool
+_CML_EXTERN_INLINE bool
 __isnatural(mfloat_t x)
 {
         return (__isinteger(x) && x > 0);

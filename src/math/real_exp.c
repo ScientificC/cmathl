@@ -12,11 +12,11 @@
 real
 real_exp(real x)
 {
-        // Declaration of variables and structures
+        /* Declaration of variables and structures */
         mint_t i;
         cml_math_t ai, ex, value;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         value = real_value(x);
 
         ai = 1.0;
@@ -27,8 +27,8 @@ real_exp(real x)
                 ex = ex + ai;
         }
 
-        // Free structures
+        /* Free structures */
 
-        // Return
+        /* Return */
         return real_new((mfloat_t) ex);
 }

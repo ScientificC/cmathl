@@ -4,16 +4,16 @@
 complex
 complex_div(complex z, complex k)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex r, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         r = complex_inverse(k);
         w = complex_prod(z, r);
 
-        // Free structures
+        /* Free structures */
         free(r);
 
-        // Return
+        /* Return */
         return w;
 }

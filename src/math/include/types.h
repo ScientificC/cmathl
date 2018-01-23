@@ -5,7 +5,7 @@
 #ifndef CML_TYPES_H
 #define CML_TYPES_H
 
-// Quick boolean definition
+/* Quick boolean definition */
 #ifdef CML_NO_STDBOOL
         #include "types/bool.h"
 #else

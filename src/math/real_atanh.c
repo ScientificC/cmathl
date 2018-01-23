@@ -9,7 +9,7 @@
  * @return real atanh(x)
  */
 
-CML_EXTERN_INLINE cml_math_t
+_CML_EXTERN_INLINE cml_math_t
 __atanh__(cml_math_t x)
 {
         cml_math_t ai_n, p;
@@ -29,11 +29,11 @@ __atanh__(cml_math_t x)
 real
 real_atanh(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real y, c, h;
         mfloat_t r;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         y = real_abs(x);
         c = real_new(1.0);
         r = (mfloat_t) __atanh__(real_value(x));
@@ -41,10 +41,10 @@ real_atanh(real x)
             real_new(r) :
             real_new(NAN);
 
-        // Free structures
+        /* Free structures */
         free(c);
         free(y);
 
-        // Return
+        /* Return */
         return h;
 }

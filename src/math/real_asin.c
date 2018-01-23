@@ -6,10 +6,10 @@
 real
 real_asin(real x)
 {
-        // Declaration of variables and structures
+        /* Declaration of variables and structures */
         real y, z, w, k, b, c, h;
 
-        // Mathematic algorithm
+        /* Mathematical algorithm */
         b = real_new(2.0);
         c = real_new(1.0);
         y = real_pow(x, b);
@@ -18,7 +18,7 @@ real_asin(real x)
         k = real_div(x, w);
         h = real_atan(k);
 
-        // Free structures
+        /* Free structures */
         free(y);
         free(z);
         free(w);
@@ -26,6 +26,6 @@ real_asin(real x)
         free(b);
         free(c);
 
-        // Return
+        /* Return */
         return h;
 }

@@ -64,8 +64,8 @@ int run_tests()
 
                 TEST_BEGIN(Trigonometry)
                 {
-                        // We have to be a little looser with our equality constraint
-                        // because of floating-point precision issues.
+                        /* We have to be a little looser with our equality constraint
+                           because of floating-point precision issues. */
                         const float trigAbsError = 0.0001f;
 
                         EXPECT_NEAR(__mfloat__ sin(real(MFLOAT_T(0.0))), MFLOAT_T(0.0), trigAbsError);
@@ -86,8 +86,8 @@ int run_tests()
                         EXPECT_NEAR(__mfloat__ tan(real(PI)), MFLOAT_T(0.0), trigAbsError);
                         EXPECT_NEAR(__mfloat__ tan(real(-PI / 4)), MFLOAT_T(-1.0), trigAbsError);
 
-                        // This isn't the most rigorous because we're really just sanity-
-                        // checking that things work by default.
+                        /* This isn't the most rigorous because we're really just sanity-
+                           checking that things work by default. */
                 }
                 TEST_END()
 

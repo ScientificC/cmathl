@@ -12,18 +12,18 @@
 real
 real_csch(real x)
 {
-        // Domain check
+        /* Domain check */
 
-        // Declaration of variables and structures
+        /* Declaration of variables and structures */
         real y, h;
 
-        // Mathematic algorithm
+        /* Mathematical algorithm */
         y = real_sinh(x);
         h = real_inverse(y);
 
-        // Free structures
+        /* Free structures */
         free(y);
 
-        // Return
+        /* Return */
         return h;
 }

@@ -4,7 +4,7 @@
 complex
 complex_sec(complex z)
 {
-        // Domain check
+        /* Domain check */
         complex c = complex_cos(z);
         real a = complex_abs(c);
         if (!real_isnull(a)) {
@@ -15,15 +15,15 @@ complex_sec(complex z)
 
         free(a);
 
-        // Declaration of structures
+        /* Declaration of structures */
         complex w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         w = complex_inverse(c);
 
-        // Free structures
+        /* Free structures */
         free(c);
 
-        // Return
+        /* Return */
         return w;
 }

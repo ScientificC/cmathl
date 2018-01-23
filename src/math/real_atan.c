@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-CML_EXTERN_INLINE cml_math_t
+_CML_EXTERN_INLINE cml_math_t
 __atan__(cml_math_t x)
 {
         mint_t i;
@@ -20,7 +20,7 @@ __atan__(cml_math_t x)
 real
 real_atan(real x)
 {
-        // Domain check
+        /* Domain check */
         real a, u;
         a = real_abs(x);
         u = real_new(1.0);
@@ -34,22 +34,22 @@ real_atan(real x)
          */
 
 
-        // Declaration of structures
+        /* Declaration of structures */
         mfloat_t y;
         real s, h, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         s = real_sgn(x);
         y = (mfloat_t) __atan__(real_value(a));
         h = real_new(y);
         w = real_prod(s, h);
 
-        // Free structures
+        /* Free structures */
         free(a);
         free(u);
         free(s);
         free(h);
 
-        // Return
+        /* Return */
         return w;
 }

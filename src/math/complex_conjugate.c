@@ -9,17 +9,17 @@
 complex
 complex_conjugate(complex z)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex r;
         real im;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         im = complex_get_imaginary(z);
         r = complex_new_from_reals(complex_get_real(z), real_opposite(im));
 
-        // Free structures
+        /* Free structures */
         /* free(im); don't let im be free! */
 
-        // Return
+        /* Return */
         return r;
 }

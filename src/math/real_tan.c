@@ -12,20 +12,20 @@
 real
 real_tan(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real y, z, h;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         z = real_sin(x);
         y = real_cos(x);
         h = real_isnull(y) ?
             real_new(NAN) :
             real_div(z, y);
 
-        // Free structures
+        /* Free structures */
         free(y);
         free(z);
 
-        // Return
+        /* Return */
         return h;
 }

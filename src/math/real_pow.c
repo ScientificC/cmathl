@@ -13,17 +13,17 @@
 real
 real_pow(real x, real n)
 {
-        // Domain check
+        /* Domain check */
         if (real_isnull(x)) {
                 return real_isnull(n) ?
                        real_new(NAN) :
                        real_clone(x);
         }
 
-        // Declaration of structures
+        /* Declaration of structures */
         real s, y, z, w, k, h;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         s = real_sgn(x);
         y = real_abs(x);
         z = real_ln(y);
@@ -31,13 +31,13 @@ real_pow(real x, real n)
         k = real_exp(w);
         h = real_prod(s, k);
 
-        // Free structures
+        /* Free structures */
         free(s);
         free(y);
         free(z);
         free(w);
         free(k);
 
-        // Return
+        /* Return */
         return h;
 }

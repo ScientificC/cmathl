@@ -12,16 +12,16 @@
 real
 real_sqrt(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real w, y;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         w = real_new(2.0);
         y = real_root(x, w);
 
-        // Free structures
+        /* Free structures */
         free(w);
 
-        // Return
+        /* Return */
         return y;
 }

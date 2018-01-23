@@ -10,13 +10,13 @@
 complex
 complex_inverse(complex z)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex w, h;
         real *x;
         real a, b, i, m, n;
 
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         w = complex_conjugate(z);
         x = complex_get_parts(w);
         a = complex_abs(z);
@@ -27,7 +27,7 @@ complex_inverse(complex z)
 
         h = complex_new_from_reals(n, m);
 
-        // Free structures
+        /* Free structures */
         free(w);
         free(x);
         free(a);
@@ -36,6 +36,6 @@ complex_inverse(complex z)
         free(n);
         free(m);
 
-        // Return
+        /* Return */
         return h;
 }

@@ -4,7 +4,7 @@
 complex
 complex_tan(complex z)
 {
-        // Domain check
+        /* Domain check */
         complex c = complex_cos(z);
         real a = complex_abs(c);
         if (!real_isnull(a)) {
@@ -15,17 +15,17 @@ complex_tan(complex z)
 
         free(a);
 
-        // Declaration of structures
+        /* Declaration of structures */
         complex s, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         s = complex_sin(z);
         w = complex_div(s, c);
 
-        // Free structures
+        /* Free structures */
         free(s);
         free(c);
 
-        // Return
+        /* Return */
         return w;
 }

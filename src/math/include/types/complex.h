@@ -57,27 +57,16 @@ typedef struct _complex
 typedef complex_t* complex;
 
 complex_t _complex_create(mfloat_t, mfloat_t);
-
-// Construct & destruct
 complex _complex_new(mfloat_t, mfloat_t);
 complex _complex_new_from_reals(real, real);
 void _complex_free(complex);
-
 complex _complex_clone(complex);
-
-// Initialization
 void init_complex(complex);
-
-// getters
 real complex_get_real(complex);
 real complex_get_imaginary(complex);
 real * complex_get_parts(complex self);
-
-// setters
 void complex_set_real(complex, mfloat_t);
 void complex_set_imaginary(complex, mfloat_t);
-
-// Methods
 char * complex_as_string(complex);
 
 #endif

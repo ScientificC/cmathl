@@ -14,12 +14,12 @@
 complex
 complex_cos(complex z)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex w;
         real *x;
         real k, h, a, b, n, m;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         x = complex_get_parts(z);
 
         k = real_cos(x[0]);
@@ -32,7 +32,7 @@ complex_cos(complex z)
 
         w = complex_new_from_reals(n, m);
 
-        // Free structures
+        /* Free structures */
         free(x);
         free(k);
         free(h);
@@ -41,6 +41,6 @@ complex_cos(complex z)
         free(n);
         free(m);
 
-        // Return
+        /* Return */
         return w;
 }

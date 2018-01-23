@@ -4,16 +4,16 @@
 real
 real_div_e(real x, real y)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real z, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         z = real_div(x, y);
         w = real_floor(z);
 
-        // Free structures
+        /* Free structures */
         free(z);
 
-        // Return
+        /* Return */
         return w;
 }

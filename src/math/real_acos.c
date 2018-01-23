@@ -6,18 +6,18 @@
 real
 real_acos(real x)
 {
-        // Declaration of variables and structures
+        /* Declaration of variables and structures */
         real y, c, h;
 
-        // Mathematic algorithm
+        /* Mathematical algorithm */
         c = real_new(HALFPI);
         y = real_asin(x);
         h = real_sub(c, x);
 
-        // Free structures
+        /* Free structures */
         free(y);
         free(c);
 
-        // Return
+        /* Return */
         return h;
 }

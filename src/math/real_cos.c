@@ -12,20 +12,20 @@
 real
 real_cos(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real half_pi, y, z, h;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         half_pi = real_new(HALFPI);
         y = real_abs(x);
         z = real_add(y, half_pi);
         h = real_sin(z);
 
-        // Free structures
+        /* Free structures */
         free(half_pi);
         free(y);
         free(z);
 
-        // Return
+        /* Return */
         return h;
 }

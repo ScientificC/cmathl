@@ -9,23 +9,23 @@
 complex
 complex_add(complex z, complex k)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex w;
         real n, m, *x, *y;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         x = complex_get_parts(z);
         y = complex_get_parts(k);
         n = real_add(x[0], y[0]);
         m = real_add(x[1], y[1]);
         w = complex_new_from_reals(n, m);
 
-        // Free structures
+        /* Free structures */
         free(x);
         free(y);
         free(n);
         free(m);
 
-        // Return
+        /* Return */
         return w;
 }

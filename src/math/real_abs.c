@@ -4,16 +4,16 @@
 real
 real_abs(real x)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real sgn, y;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         sgn = real_sgn(x);
         y = real_prod(x, sgn);
 
-        // Free structures
+        /* Free structures */
         free(sgn);
 
-        // Return
+        /* Return */
         return y;
 }

@@ -14,19 +14,19 @@
 real
 real_log_b(real x, real b)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         real y, z, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         y = real_ln(x);
         z = real_ln(b);
         w = real_div(y, z);
 
-        // Free structures
+        /* Free structures */
         free(y);
         free(z);
 
-        // Return
+        /* Return */
         return w;
 
 }

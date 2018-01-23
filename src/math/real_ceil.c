@@ -2,7 +2,7 @@
 #include <cml.h>
 
 
-// Returns the smallest integer value greater than or equal to x.
+/* Return the smallest integer value greater than or equal to x. */
 
 real
 real_ceil(real x)

@@ -4,7 +4,7 @@
 complex
 complex_cot(complex z)
 {
-        // Domain check
+        /* Domain check */
         complex s = complex_sin(z);
         real a = complex_abs(s);
         if (!real_isnull(a)) {
@@ -15,17 +15,17 @@ complex_cot(complex z)
 
         free(a);
 
-        // Declaration of structures
+        /* Declaration of structures */
         complex c, w;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         c = complex_cos(z);
         w = complex_div(c, s);
 
-        // Free structures
+        /* Free structures */
         free(c);
         free(s);
 
-        // Return
+        /* Return */
         return w;
 }

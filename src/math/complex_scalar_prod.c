@@ -4,21 +4,21 @@
 complex
 complex_scalar_prod(complex z, real k)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex w;
         real *p, x, y;
 
-        // Mathematic algorithm
+        /* Mathematical algorithm */
         p = complex_get_parts(z);
         x = real_prod(k, p[0]);
         y = real_prod(k, p[1]);
         w = complex_new_from_reals(x, y);
 
-        // Free structures
+        /* Free structures */
         free(p);
         free(x);
         free(y);
 
-        // Return
+        /* Return */
         return w;
 }

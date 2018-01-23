@@ -4,11 +4,11 @@
 complex
 complex_sub(complex z, complex k)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex h, w;
         real n, m, *x;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         x = complex_get_parts(k);
         n = real_opposite(x[0]);
         m = real_opposite(x[1]);
@@ -16,12 +16,12 @@ complex_sub(complex z, complex k)
 
         h = complex_add(z, w);
 
-        // Free structures
+        /* Free structures */
         free(x);
         free(n);
         free(m);
         free(w);
 
-        // Return
+        /* Return */
         return h;
 }

@@ -13,12 +13,12 @@
 complex
 complex_exp(complex z)
 {
-        // Declaration of structures
+        /* Declaration of structures */
         complex w;
         real *p;
         real n, m, h, x, y;
 
-        // Mathematical algorithm
+        /* Mathematical algorithm */
         p = complex_get_parts(z);
         h = real_exp(p[0]);
         n = real_cos(p[1]);
@@ -28,7 +28,7 @@ complex_exp(complex z)
 
         w = complex_new_from_reals(x, y);
 
-        // Free structures
+        /* Free structures */
         free(p);
         free(n);
         free(m);
@@ -36,6 +36,6 @@ complex_exp(complex z)
         free(x);
         free(y);
 
-        // Return
+        /* Return */
         return w;
 }
