@@ -25,6 +25,7 @@
 
 #ifndef _Generic
         #undef _CML_NO_GENERIC
+        #undef _CML_NO_GENERIC
 #endif
 
 #ifndef typeof
@@ -37,7 +38,7 @@
         #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
 #endif
 
-#ifndef _CML_NO_GENERIC
+#ifdef _CML_NO_GENERIC
         #define CML_NO_FUNCTION_POINTER
 #endif
 
