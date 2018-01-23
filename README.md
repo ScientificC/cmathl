@@ -13,7 +13,7 @@ Currently, CMATHL (or CML) does not have a make install option. As it is header-
 In other words, you can include the repository in the `lib` directory and reference it in the following way:
 
 ```
-gcc ... -I./lib/cml/src
+cc ... -I./lib/cml/src
 ```
 
 ## Configuration Macros
@@ -30,7 +30,7 @@ CML can be configured with the following preprocessors (described in the followi
 You can define these macros during compilation time with flags:
 
 ```
-gcc -DCML_NO_STDBOOL=ON -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
+cc -DCML_NO_STDBOOL=ON -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
 ```
 
 Or include `cml.h` in a source or header. This second approach is useful, because you can define `mfloat_t` as a different type other than the built-in types `float` or `double`, such as `GLfloat`:
