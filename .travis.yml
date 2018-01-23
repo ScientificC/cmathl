@@ -8,6 +8,8 @@ os:
 compiler:
   - gcc
   - g++
+  - clang
+  - clang++
 
 script:
   - make
