@@ -5,6 +5,7 @@
 #ifndef CML_EASINGS_H
 #define CML_EASINGS_H
 
+real linear_interpolation(real p);
 real quadratic_ease_in(real p);
 real quadratic_ease_out(real p);
 real quadratic_ease_in_out(real p);

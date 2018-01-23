@@ -112,7 +112,9 @@ cml.o:
 				gcc -c $(SOURCE_FOLDER)/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
-
+		for file in $(SRC_EASING_FILES); do \
+				gcc -c $(SOURCE_FOLDER)/easings/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+		done
 
 		for file in $(SRC_UTILS_FILES); do \
 				gcc -c $(SOURCE_FOLDER)/utils/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
