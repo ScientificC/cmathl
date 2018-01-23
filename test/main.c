@@ -57,6 +57,7 @@ int run_tests()
                 {
                         real x = real(MFLOAT_T(1.0));
                         EXPECT_FLOAT_EQ(__mfloat__ x, MFLOAT_T(1.0));
+                        EXPECT_FLOAT_EQ(sizeof(real_t), (mfloat_t) sizeof(mfloat_t));
                         free(x);
                 }
                 TEST_END()

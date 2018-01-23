@@ -23,26 +23,21 @@
         #define mfloat_t double
 #endif
 
-#if !defined PREDEF_STANDARD_C11 || !defined _Generic
+#ifndef _Generic
         #undef _CML_NO_GENERIC
-        #define _CML_NO_GENERIC
 #endif
 
 #ifndef typeof
         #define typeof(X) __typeof__(X)
 #endif
 
-#ifndef __builtin_types_compatible_p
-        #define _CML_NO_BUILTIN_TYPES
-#else
-        #define _CML_B_T_C_P __builtin_types_compatible_p
-        #ifndef __same_type
-                #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
-        #endif
+#define _CML_B_T_C_P(X, Y) __builtin_types_compatible_p(X, Y)
+
+#ifndef __same_type
+        #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
 #endif
 
-#if !defined _CML_NO_GENERIC || !defined _CML_NO_BUILTIN_TYPES
-        #undef CML_NO_FUNCTION_POINTER
+#ifndef _CML_NO_GENERIC
         #define CML_NO_FUNCTION_POINTER
 #endif
 

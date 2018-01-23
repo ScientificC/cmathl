@@ -5,22 +5,29 @@
 #ifndef CML_MATH_H
 #define CML_MATH_H
 
-#ifndef _CML_NO_BUILTIN_TYPES
-        #undef _CML_MATH_FUNC
-        #define _CML_MATH_FUNC(_type, _func) ({ \
-                if (_CML_B_T_C_P(_type, real) \
-                    || _CML_B_T_C_P(_type, (real_t*))) { \
-                        {real_ ## _func} \
-                } else if (_CML_B_T_C_P(_type, complex) \
-                           || _CML_B_T_C_P(_type, (complex_t*))) { \
-                        {complex_ ## _func} \
-                } \
-        })
-#endif
-
 #include "consts.h"
 #include "types.h"
 #include "functions.h"
+
+#ifndef complex_clone
+        #define complex_clone(X) _complex_clone(X)
+#endif
+
+#ifndef complex_new
+        #define complex_new(X, Y) _complex_new(X, Y)
+#endif
+
+#ifndef complex_new_from_reals
+        #define complex_new_from_reals(X, Y) _complex_new_from_reals(X, Y)
+#endif
+
+#ifndef real_clone
+        #define real_clone(X) _real_clone(X)
+#endif
+
+#ifndef real_new
+        #define real_new(X) _real_new(X)
+#endif
 
 #ifndef _CML_NO_GENERIC
         #undef clone
@@ -51,41 +58,6 @@
                                      mfloat_t: _real_new, \
                                      real_t*: _real_clone \
                                      )(X)
-#elif !defined _CML_NO_BUILTIN_TYPES
-        #define clone(X) ({ \
-                typeof(X)_tmp; \
-                if (_CML_B_T_C_P(typeof(X), real) \
-                    || _CML_B_T_C_P(typeof(X), complex)) { \
-                        _tmp = _CML_MATH_FUNC(typeof(X), clone); \
-                } \
-                _tmp; \
-        })
-
-        #define complex_new(X, Y) ({ \
-                complex_t* _tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = complex_new_from_reals(X, Y); \
-                } else { \
-                        _tmp = complex_new(X); \
-                } \
-                _tmp; \
-        })
-
-        #define real_new(X) ({ \
-                real_t* _tmp; \
-                if (_CML_B_T_C_P(typeof(X), real)) { \
-                        _tmp = real_clone(X); \
-                } else { \
-                        _tmp = real_new(X); \
-                } \
-                _tmp; \
-        })
-#else
-        #define complex_clone(X) _complex_clone(X)
-        #define complex_new(X, Y) _complex_new(X, Y)
-        #define complex_new_from_reals(X, Y) _complex_new_from_reals(X, Y)
-        #define real_clone(X) _real_clone(X)
-        #define real_new(X) _real_new(X)
 #endif
 
 #define real(X) real_new(X)
