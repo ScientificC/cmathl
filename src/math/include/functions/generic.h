@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <math/functions.h> directly; include <cml.h> instead."
+#error "Never use <math/include/functions/generic.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MATH_GEN_FUNC_H
@@ -27,12 +27,8 @@
                  real_t: _CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
-#elif !defined _CML_NO_EXTENSIONS
-        #define _CML_REAL_GENERIC_FUNC(_func, ...) real_ ## _func(__VA_ARGS__)
-
-        #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) complex_ ## _func(__VA_ARGS__)
-
-        #define _CML_BOTH_GENERIC_FUNC(_func, ...) _CML_REAL_GENERIC_FUNC(_func, __VA_ARGS__)
+#else
+        #error "<math/include/functions/generic.h> not implemented for this compiler"
 #endif
 
 #if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)
