@@ -1,20 +1,16 @@
 #include <stdlib.h>
 #include <cml.h>
 
-real
-real_mod(real x, real y)
+real_t
+real_mod(real_t x, real_t y)
 {
-        /* Declaration of structures */
-        real z, w, k;
+        /* Declaration of variables and structures */
+        real_t z, w, k;
 
         /* Mathematical algorithm */
         z = real_div_e(x, y);
         w = real_prod(y, z);
         k = real_sub(x, w);
-
-        /* Free structures */
-        free(z);
-        free(w);
 
         /* Return */
         return k;

@@ -4,15 +4,13 @@
 
 /* Return the smallest integer value greater than or equal to x. */
 
-real
-real_ceil(real x)
+real_t
+real_ceil(real_t x)
 {
         mint_t w;
-        mfloat_t v;
 
-        v = real_value(x);
-        w = (mint_t) v;
-        return (v - w == 0) ?
-               real_new(v) :
-               real_new(w + 1);
+        w = (mint_t) x;
+        return (x - w == 0.0) ?
+               MFLOAT_T(x) :
+               MFLOAT_T(w + 1.0);
 }

@@ -17,13 +17,14 @@ __atan__(cml_math_t x)
 }
 
 
-real
-real_atan(real x)
+real_t
+real_atan(real_t x)
 {
         /* Domain check */
-        real a, u;
+        real_t a;
+        // real_t u;
         a = real_abs(x);
-        u = real_new(1.0);
+        // u = MFLOAT_T(1.0);
 
         /*
            if (real_isgreater_or_equals(a, u)) {
@@ -34,21 +35,12 @@ real_atan(real x)
          */
 
 
-        /* Declaration of structures */
-        mfloat_t y;
-        real s, h, w;
+        /* Declaration of variables and structures */
+        real_t s, w;
 
         /* Mathematical algorithm */
         s = real_sgn(x);
-        y = (mfloat_t) __atan__(real_value(a));
-        h = real_new(y);
-        w = real_prod(s, h);
-
-        /* Free structures */
-        free(a);
-        free(u);
-        free(s);
-        free(h);
+        w = real_prod(s, __atan__(a));
 
         /* Return */
         return w;

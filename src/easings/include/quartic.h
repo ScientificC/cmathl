@@ -5,8 +5,8 @@
 #ifndef CML_EASINGS_QUARTIC_H
 #define CML_EASINGS_QUARTIC_H
 
-real quartic_ease_in(real p);
-real quartic_ease_out(real p);
-real quartic_ease_in_out(real p);
+real_tquartic_ease_in(real_tp);
+real_tquartic_ease_out(real_tp);
+real_tquartic_ease_in_out(real_tp);
 
 #endif

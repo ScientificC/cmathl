@@ -1,18 +1,15 @@
 #include <stdlib.h>
 #include <cml.h>
 
-real
-real_div_e(real x, real y)
+real_t
+real_div_e(real_t x, real_t y)
 {
-        /* Declaration of structures */
-        real z, w;
+        /* Declaration of variables and structures */
+        real_t z, w;
 
         /* Mathematical algorithm */
         z = real_div(x, y);
         w = real_floor(z);
-
-        /* Free structures */
-        free(z);
 
         /* Return */
         return w;

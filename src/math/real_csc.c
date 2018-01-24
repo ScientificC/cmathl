@@ -9,18 +9,15 @@
  * @return real csc(x)
  */
 
-real
-real_csc(real x)
+real_t
+real_csc(real_t x)
 {
-        /* Declaration of structures */
-        real y, h;
+        /* Declaration of variables and structures */
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_sin(x);
         h = real_inverse(y);
-
-        /* Free structures */
-        free(y);
 
         /* Return */
         return h;

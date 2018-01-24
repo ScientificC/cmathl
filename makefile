@@ -5,7 +5,7 @@ TEMPORAL_FOLDER := .tmp
 TEST_OUTPUT_NAME := test
 INSTALL_FOLDER=/usr/bin
 
-SRC_UTILS_FILES := series_resolver
+SRC_UTILS_FILES :=
 
 SRC_EASING_FILES := exponential \
 										quadratic \
@@ -57,7 +57,6 @@ SRC_MATH_FILES := real_acos \
 									real_ared \
 									real_mod \
 									complex_scalar_prod \
-									rational \
 									real_acosh \
 									real_sin \
 									complex_div \
@@ -85,12 +84,12 @@ SRC_MATH_FILES := real_acos \
 									real_isless_or_equals \
 									real_atan \
 									real_inverse \
-									real \
 									complex_abs \
 									real_div \
 									real_sub \
 									real_atanh \
-									complex_sub
+									complex_sub \
+									real
 
 CML_TEST_FILES := main
 

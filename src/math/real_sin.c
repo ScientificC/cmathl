@@ -26,37 +26,23 @@ __sin__(cml_math_t x)
  * @return real sin(x)
  */
 
-real
-real_sin(real x)
+real_t
+real_sin(real_t x)
 {
         /* Domain check */
-        real c = real_new(PI);
-        if (real_ismult(x, c)) {
-                free(c);
-                return real_new(0.0);
+        if (real_ismult(x, MFLOAT_T(PI))) {
+                return MFLOAT_T(0.0);
         }
 
         /* Declaration of variables and structures */
-        real s, y, z, w, h;
-        mfloat_t r;
-
+        real_t s, y, z, w, h;
 
         /* Mathematical algorithm */
         s = real_sgn(x);
         y = real_abs(x);
         z = real_ared(y);
-
-        r = (mfloat_t) __sin__(real_value(z));
-
-        w = real_new(r);
+        w = MFLOAT_T((mfloat_t) __sin__(z));
         h = real_prod(w, s);
-
-        /* Free structures */
-        free(s);
-        free(y);
-        free(z);
-        free(w);
-        free(c);
 
         /* Return */
         return h;

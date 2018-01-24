@@ -26,24 +26,18 @@ __atanh__(cml_math_t x)
         return p;
 }
 
-real
-real_atanh(real x)
+real_t
+real_atanh(real_t x)
 {
-        /* Declaration of structures */
-        real y, c, h;
-        mfloat_t r;
+        /* Declaration of variables and structures */
+        real_t y, c, h;
 
         /* Mathematical algorithm */
         y = real_abs(x);
-        c = real_new(1.0);
-        r = (mfloat_t) __atanh__(real_value(x));
+        c = MFLOAT_T(1.0);
         h = real_isgreater(c, y) ?
-            real_new(r) :
-            real_new(NAN);
-
-        /* Free structures */
-        free(c);
-        free(y);
+            MFLOAT_T((real_t) __atanh__(x)) :
+            MFLOAT_T(NAN);
 
         /* Return */
         return h;

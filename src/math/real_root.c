@@ -9,20 +9,16 @@
  * @return real root(f, g)
  */
 
-real
-real_root(real x, real n)
+real_t
+real_root(real_t x, real_t n)
 {
-        /* Declaration of structures */
-        real w, y, z;
+        /* Declaration of variables and structures */
+        real_t w, y, z;
 
         /* Mathematical algorithm */
-        w = real_new(-1.0);
+        w = MFLOAT_T(-1.0);
         y = real_pow(n, w);
         z = real_pow(x, y);
-
-        /* Free structures */
-        free(w);
-        free(y);
 
         /* Return */
         return z;

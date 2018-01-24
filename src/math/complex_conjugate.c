@@ -9,16 +9,11 @@
 complex
 complex_conjugate(complex z)
 {
-        /* Declaration of structures */
+        /* Declaration of variables and structures */
         complex r;
-        real im;
 
         /* Mathematical algorithm */
-        im = complex_get_imaginary(z);
-        r = complex_new_from_reals(complex_get_real(z), real_opposite(im));
-
-        /* Free structures */
-        /* free(im); don't let im be free! */
+        r = complex_new(z->re, real_opposite(z->im));
 
         /* Return */
         return r;

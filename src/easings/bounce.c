@@ -4,17 +4,17 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Bounce */
 real
-bounce_ease_in(real p)
+bounce_ease_in(real_tp)
 {
-        mfloat_t f = MFLOAT_T(0.0), f_p = __mfloat__ p;
-        f = __mfloat__ (bounce_ease_out(real(MFLOAT_T(1.0) - f_p)));
+        real_t f = MFLOAT_T(0.0), f_p =  p;
+        f =  (bounce_ease_out(real(MFLOAT_T(1.0) - f_p)));
         return real(MFLOAT_T(1.0) - f);
 }
 
 real
-bounce_ease_out(real p)
+bounce_ease_out(real_tp)
 {
-        mfloat_t f = MFLOAT_T(0.0), f_p = __mfloat__ p;
+        real_t f = MFLOAT_T(0.0), f_p =  p;
 
         if (f_p < MFLOAT_T(4.0) / MFLOAT_T(11.0)) {
                 f = (MFLOAT_T(121.0) * f_p * f_p) / MFLOAT_T(16.0);
@@ -30,14 +30,14 @@ bounce_ease_out(real p)
 }
 
 real
-bounce_ease_in_out(real p)
+bounce_ease_in_out(real_tp)
 {
-        mfloat_t f = MFLOAT_T(0.0), f_p = __mfloat__ p;
+        real_t f = MFLOAT_T(0.0), f_p =  p;
 
         if (f_p < MFLOAT_T(0.5)) {
-                f = MFLOAT_T(0.5) * __mfloat__ (bounce_ease_in(real(f_p * MFLOAT_T(2.0))));
+                f = MFLOAT_T(0.5) *  (bounce_ease_in(real(f_p * MFLOAT_T(2.0))));
         } else {
-                f = MFLOAT_T(0.5) * __mfloat__ (bounce_ease_out(real(f_p * MFLOAT_T(2.0) - MFLOAT_T(1.0)))) + MFLOAT_T(0.5);
+                f = MFLOAT_T(0.5) *  (bounce_ease_out(real(f_p * MFLOAT_T(2.0) - MFLOAT_T(1.0)))) + MFLOAT_T(0.5);
         }
 
         return real(f);

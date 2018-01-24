@@ -9,19 +9,8 @@
  * @return real root(f)
  */
 
-real
-real_sqrt(real x)
+real_t
+real_sqrt(real_t x)
 {
-        /* Declaration of structures */
-        real w, y;
-
-        /* Mathematical algorithm */
-        w = real_new(2.0);
-        y = real_root(x, w);
-
-        /* Free structures */
-        free(w);
-
-        /* Return */
-        return y;
+        return real_root(x, MFLOAT_T(2.0));
 }

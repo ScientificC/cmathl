@@ -9,20 +9,15 @@
  * @return real sech(x)
  */
 
-real
-real_sech(real x)
+real_t
+real_sech(real_t x)
 {
-        /* Domain check */
-
         /* Declaration of variables and structures */
-        real y, h;
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_cosh(x);
         h = real_inverse(y);
-
-        /* Free structures */
-        free(y);
 
         /* Return */
         return h;

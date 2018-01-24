@@ -34,20 +34,15 @@
         #define MFLOAT_T(x) x ## f
 #endif
 
-#ifndef __mfloat__
-        #define __mfloat__ *(mfloat_t*)
-#endif
+#include "types/real.h"
+#include "types/complex.h"
 
 #ifndef creal
-        #define creal(X) complex_get_real(X)
+        #define creal(X) (X)->p[0]
 #endif
 
 #ifndef cimag
-        #define cimag(X) complex_get_imaginary(X)
+        #define cimag(X) (X)->p[1]
 #endif
-
-#include "types/real.h"
-#include "types/rational.h"
-#include "types/complex.h"
 
 #endif

@@ -9,22 +9,16 @@
  * @return real cos(x)
  */
 
-real
-real_cos(real x)
+real_t
+real_cos(real_t x)
 {
-        /* Declaration of structures */
-        real half_pi, y, z, h;
+        /* Declaration of variables and structures */
+        real_t y, z, h;
 
         /* Mathematical algorithm */
-        half_pi = real_new(HALFPI);
         y = real_abs(x);
-        z = real_add(y, half_pi);
+        z = real_add(y, MFLOAT_T(HALFPI));
         h = real_sin(z);
-
-        /* Free structures */
-        free(half_pi);
-        free(y);
-        free(z);
 
         /* Return */
         return h;

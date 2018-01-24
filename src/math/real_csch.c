@@ -9,20 +9,15 @@
  * @return real csch(x)
  */
 
-real
-real_csch(real x)
+real_t
+real_csch(real_t x)
 {
-        /* Domain check */
-
         /* Declaration of variables and structures */
-        real y, h;
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_sinh(x);
         h = real_inverse(y);
-
-        /* Free structures */
-        free(y);
 
         /* Return */
         return h;

@@ -9,23 +9,16 @@
  * @return real tan(x)
  */
 
-real
-real_tan(real x)
+real_t
+real_tan(real_t x)
 {
-        /* Declaration of structures */
-        real y, z, h;
+        /* Declaration of variables and structures */
+        real_t y;
 
         /* Mathematical algorithm */
-        z = real_sin(x);
         y = real_cos(x);
-        h = real_isnull(y) ?
-            real_new(NAN) :
-            real_div(z, y);
 
-        /* Free structures */
-        free(y);
-        free(z);
-
-        /* Return */
-        return h;
+        return real_isnull(y) ?
+               NAN :
+               real_div(real_sin(x), y);;
 }

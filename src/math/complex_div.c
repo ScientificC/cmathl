@@ -4,7 +4,7 @@
 complex
 complex_div(complex z, complex k)
 {
-        /* Declaration of structures */
+        /* Declaration of variables and structures */
         complex r, w;
 
         /* Mathematical algorithm */

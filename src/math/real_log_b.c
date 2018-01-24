@@ -11,20 +11,16 @@
  * @return real log_b(x)
  */
 
-real
-real_log_b(real x, real b)
+real_t
+real_log_b(real_t x, real_t b)
 {
-        /* Declaration of structures */
-        real y, z, w;
+        /* Declaration of variables and structures */
+        real_t y, z, w;
 
         /* Mathematical algorithm */
         y = real_ln(x);
         z = real_ln(b);
         w = real_div(y, z);
-
-        /* Free structures */
-        free(y);
-        free(z);
 
         /* Return */
         return w;

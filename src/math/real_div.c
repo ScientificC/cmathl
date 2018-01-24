@@ -1,13 +1,8 @@
 #include <stdlib.h>
 #include <cml.h>
 
-real
-real_div(real x, real y)
+real_t
+real_div(real_t x, real_t y)
 {
-        mfloat_t k, w;
-
-        k = real_value(x);
-        w = real_value(y);
-
-        return real_new((mfloat_t) k/w);
+        return x / y;
 }

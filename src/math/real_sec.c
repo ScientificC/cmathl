@@ -9,18 +9,15 @@
  * @return real sec(x)
  */
 
-real
-real_sec(real x)
+real_t
+real_sec(real_t x)
 {
-        /* Declaration of structures */
-        real y, h;
+        /* Declaration of variables and structures */
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_cos(x);
         h = real_inverse(y);
-
-        /* Free structures */
-        free(y);
 
         /* Return */
         return h;

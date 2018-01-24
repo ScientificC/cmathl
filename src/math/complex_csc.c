@@ -6,16 +6,13 @@ complex_csc(complex self)
 {
         /* Domain check */
         complex s = complex_sin(self);
-        real a = complex_abs(s);
+        real_t a = complex_abs(s);
         if (!real_isnull(a)) {
-                free(a);
                 free(s);
                 return complex_new(NAN, NAN);
         }
 
-        free(a);
-
-        /* Declaration of structures */
+        /* Declaration of variables and structures */
         complex w;
 
         /* Mathematical algorithm */

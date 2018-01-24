@@ -9,22 +9,17 @@
  * @return real cot(x)
  */
 
-real
-real_cot(real x)
+real_t
+real_cot(real_t x)
 {
-        /* Declaration of structures */
-        real y, z, h;
+        /* Declaration of variables and structures */
+        real_t y, h;
 
         /* Mathematical algorithm */
-        z = real_cos(x);
         y = real_sin(x);
         h = real_isnull(y) ?
-            real_new(NAN) :
-            real_div(z, y);
-
-        /* Free structures */
-        free(z);
-        free(y);
+            NAN :
+            real_div(real_cos(x), y);
 
         /* Return */
         return h;

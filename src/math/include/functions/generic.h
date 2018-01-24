@@ -13,7 +13,7 @@
 
         #define _CML_REAL_GENERIC_FUNC(_func, ...) \
         _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
-                 real_t*: _CML_MATH_FUNC(real, _func) \
+                 real_t: _CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
         #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) \
@@ -24,7 +24,7 @@
         #define _CML_BOTH_GENERIC_FUNC(_func, ...) \
         _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
                  complex_t*: _CML_MATH_FUNC(complex, _func), \
-                 real_t*: _CML_MATH_FUNC(real, _func) \
+                 real_t: _CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
 #elif !defined _CML_NO_EXTENSIONS
@@ -92,57 +92,6 @@
         #define acosh(X) _CML_BOTH_GENERIC_FUNC(acosh, X)
         #define atanh(X) _CML_BOTH_GENERIC_FUNC(atanh, X)
         #define as_string(X) _CML_BOTH_GENERIC_FUNC(as_string)
-#else
-        #define equals(X, Y) (X)->equals(X, Y)
-        #define isnull(X) (X)->isNull(X)
-        #define isnatural(X) (X)->isNatural(X)
-        #define isinteger(X) (X)->isInteger(X)
-        #define isgreater(X, Y) (X)->isGreater(X, Y)
-        #define isless(X, Y) (X)->isLess(X, Y)
-        #define isgreater_or_equals(X, Y) (X)->isGreaterOrEquals(X, Y)
-        #define isless_or_equals(X, Y) (X)->isLessOrEquals(X, Y)
-        #define ismult(X, Y) (X)->isMult(X, Y)
-        #define add(X, Y) (X)->add(X, Y)
-        #define prod(X, Y) (X)->prod(X, Y)
-        #define sub(X, Y) (X)->sub(X, Y)
-        #define div(X, Y) (X)->div(X, Y)
-        #define sgn(X) (X)->sgn(X)
-        #define abs(X) (X)->abs(X)
-        #define floor(X) (X)->floor(X)
-        #define ceil(X) (X)->ceil(X)
-        #define div_e(X, Y) (X)->div_e(X, Y)
-        #define mod(X, Y) (X)->mod(X, Y)
-        #define inverse(X) (X)->inverse(X)
-        #define opposite(X) (X)->opposite(X)
-        #define ared(X) (X)->ared(X)
-        #define fact(X) (X)->fact(X)
-        #define exp(X) (X)->exp(X)
-        #define ln(X) (X)->ln(X)
-        #define log(X) (X)->log(X)
-        #define log_b(X, Y) (X)->logB(X)
-        #define pow(X, Y) (X)->pow(X, Y)
-        #define root(X, Y) (X)->root(X, Y)
-        #define sqrt(X) (X)->sqrt(X)
-        #define sin(X) (X)->sin(X)
-        #define cos(X) (X)->cos(X)
-        #define tan(X) (X)->tan(X)
-        #define sec(X) (X)->sec(X)
-        #define csc(X) (X)->csc(X)
-        #define cot(X) (X)->cot(X)
-        #define asin(X) (X)->asin(X)
-        #define acos(X) (X)->acos(X)
-        #define atan(X) (X)->atan(X)
-        #define atan2(X, Y) (X)->atan2(X, Y)
-        #define sinh(X) (X)->sinh(X)
-        #define cosh(X) (X)->cosh(X)
-        #define tanh(X) (X)->tanh(X)
-        #define sech(X) (X)->sech(X)
-        #define csch(X) (X)->csch(X)
-        #define coth(X) (X)->coth(X)
-        #define asinh(X) (X)->asinh(X)
-        #define acosh(X) (X)->acosh(X)
-        #define atanh(X) (X)->atanh(X)
-        #define as_string(X) (X)->asString(X)
 #endif
 
 

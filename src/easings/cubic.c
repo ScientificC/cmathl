@@ -4,29 +4,29 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Cubic */
 real
-cubic_ease_in(real p)
+cubic_ease_in(real_tp)
 {
-        mfloat_t f_p = __mfloat__ p;
+        real_t f_p =  p;
 
         return real(f_p * f_p * f_p);
 }
 
 real
-cubic_ease_out(real p)
+cubic_ease_out(real_tp)
 {
-        mfloat_t f_p, f;
+        real_t f_p, f;
 
-        f_p = __mfloat__ p;
+        f_p =  p;
         f = (f_p - MFLOAT_T(1.0));
 
         return real(f * f * f + MFLOAT_T(1.0));
 }
 
 real
-cubic_ease_in_out(real p)
+cubic_ease_in_out(real_tp)
 {
-        mfloat_t f_p, f;
-        f_p = __mfloat__ p;
+        real_t f_p, f;
+        f_p =  p;
         f = MFLOAT_T(0.0);
 
         if (f_p < MFLOAT_T(0.5)) {

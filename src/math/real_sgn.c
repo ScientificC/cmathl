@@ -1,10 +1,8 @@
 #include <stdlib.h>
 #include <cml.h>
 
-real
-real_sgn(real x)
+real_t
+real_sgn(real_t x)
 {
-        mint_t sgn;
-        sgn = real_value(x) >= 0 ? 1 : -1;
-        return real_new(sgn);
+        return (real_t) MFLOAT_T(x >= 0.0 ? 1.0 : -1.0);
 }

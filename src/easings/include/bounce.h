@@ -5,8 +5,8 @@
 #ifndef CML_EASINGS_BOUNCE_H
 #define CML_EASINGS_BOUNCE_H
 
-real bounce_ease_in(real p);
-real bounce_ease_out(real p);
-real bounce_ease_in_out(real p);
+real_tbounce_ease_in(real_tp);
+real_tbounce_ease_out(real_tp);
+real_tbounce_ease_in_out(real_tp);
 
 #endif

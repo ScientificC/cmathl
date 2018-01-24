@@ -7,7 +7,7 @@
 complex
 complex_log_b(complex z, complex b)
 {
-        /* Declaration of structures */
+        /* Declaration of variables and structures */
         complex k, h, w;
 
         /* Mathematical algorithm */

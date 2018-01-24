@@ -4,46 +4,46 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Back */
 real
-back_ease_in(real p)
+back_ease_in(real_tp)
 {
-        mfloat_t f, g,  f_p = __mfloat__ p;
-        real x, y;
+        real_t f, g,  f_p =  p;
+        real_tx, y;
         x = real(f_p * PI);
         y = sin(x);
-        g = __mfloat__ y;
+        g =  y;
         f = f_p * f_p * f_p - f_p * g;
 
-        free(x);
-        free(y);
+        
+        
 
         return real(f);
 }
 
 real
-back_ease_out(real p)
+back_ease_out(real_tp)
 {
-        mfloat_t g, f = (MFLOAT_T(1.0) - __mfloat__ p);
-        real x, y;
+        real_t g, f = (MFLOAT_T(1.0) -  p);
+        real_tx, y;
 
         x = real(f * PI);
         y = sin(x);
-        g = __mfloat__ y;
+        g =  y;
 
-        free(x);
-        free(y);
+        
+        
 
         return real(MFLOAT_T(1.0) - (f * f * f - f * g));
 }
 
 real
-back_ease_in_out(real p)
+back_ease_in_out(real_tp)
 {
-        mfloat_t g, f = MFLOAT_T(0.0), f_p = __mfloat__ p;
-        real x, y;
+        real_t g, f = MFLOAT_T(0.0), f_p =  p;
+        real_tx, y;
 
         x = real(f * PI);
         y = sin(x);
-        g = __mfloat__ y;
+        g =  y;
 
         if (f_p < MFLOAT_T(0.5)) {
                 f = MFLOAT_T(2.0) * f_p;
@@ -53,8 +53,8 @@ back_ease_in_out(real p)
                 f = MFLOAT_T(0.5) * (MFLOAT_T(1.0) - (f * f * f - f * g)) + MFLOAT_T(0.5);
         }
 
-        free(x);
-        free(y);
+        
+        
 
         return real(f);
 }

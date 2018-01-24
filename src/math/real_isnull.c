@@ -1,15 +1,8 @@
 #include <stdlib.h>
 #include <cml.h>
 
-
-_CML_EXTERN_INLINE bool
-__isnull(mfloat_t x)
+bool
+real_isnull(real_t x)
 {
         return x == 0.0;
-}
-
-bool
-real_isnull(real x)
-{
-        return __isnull(real_value(x));
 }

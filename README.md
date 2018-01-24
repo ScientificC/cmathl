@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.8.2](https://img.shields.io/badge/Version-v1.8.2-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.8.2b](https://img.shields.io/badge/Version-v1.8.2b-blue.svg)
 
 ## Introduction
 

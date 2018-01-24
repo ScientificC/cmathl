@@ -10,29 +10,23 @@
  * @return real log(x)
  */
 
-real
-real_ln(real x)
+real_t
+real_ln(real_t x)
 {
         /* Domain check */
-        if (real_value(x) <= 0) {
-                return real_new(NAN);
+        if (x <= 0) {
+                return NAN;
         }
 
-        /* Declaration of structures */
-        real y, z, w, k, h;
+        /* Declaration of variables and structures */
+        real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
         y = real_prod(x, x);
-        z = real_new(real_value(y) - 1.0);
-        w = real_new(real_value(y) + 1.0);
+        z = MFLOAT_T(y - 1.0);
+        w = MFLOAT_T(y + 1.0);
         k = real_div(z, w);
         h = real_atanh(k);
-
-        /* Free structures */
-        free(y);
-        free(z);
-        free(w);
-        free(k);
 
         /* Return */
         return h;

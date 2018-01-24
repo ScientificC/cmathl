@@ -2,14 +2,8 @@
 #include <cml.h>
 
 
-_CML_EXTERN_INLINE bool
-__isgreater(mfloat_t x, mfloat_t y)
+bool
+real_isgreater(real_t x, real_t y)
 {
         return x > y;
-}
-
-bool
-real_isgreater(real x, real y)
-{
-        return __isgreater(real_value(x), real_value(y));
 }

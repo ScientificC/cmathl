@@ -3,8 +3,8 @@
 
 /* Return the largest integer value less than or equal to x. */
 
-real
-real_floor(real x)
+real_t
+real_floor(real_t x)
 {
-        return real_new((mint_t) real_value(x));
+        return (real_t) ((mint_t) x);
 }

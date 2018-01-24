@@ -9,28 +9,19 @@
  * @return real real_cosh(x)
  */
 
-real
-real_cosh(real x)
+real_t
+real_cosh(real_t x)
 {
-        /* Domain check */
-
         /* Declaration of variables and structures */
-        real y, z, w, k, c, h;
+        real_t y, z, w, k, c, h;
 
         /* Mathematical algorithm */
-        c = real_new(2.0);
+        c = MFLOAT_T(2.0);
         y = real_opposite(x);
         z = real_exp(x);
         w = real_exp(y);
         k = real_add(z, w);
-        h = real_div(z, c);
-
-        /* Free structures */
-        free(y);
-        free(z);
-        free(w);
-        free(k);
-        free(c);
+        h = real_div(k, c);
 
         /* Return */
         return h;

@@ -2,22 +2,16 @@
 #include <cml.h>
 
 complex
-complex_scalar_prod(complex z, real k)
+complex_scalar_prod(complex z, real_t k)
 {
-        /* Declaration of structures */
+        /* Declaration of variables and structures */
         complex w;
-        real *p, x, y;
+        real_t x, y;
 
         /* Mathematical algorithm */
-        p = complex_get_parts(z);
-        x = real_prod(k, p[0]);
-        y = real_prod(k, p[1]);
-        w = complex_new_from_reals(x, y);
-
-        /* Free structures */
-        free(p);
-        free(x);
-        free(y);
+        x = real_prod(k, z->p[0]);
+        y = real_prod(k, z->p[1]);
+        w = complex_new(x, y);
 
         /* Return */
         return w;

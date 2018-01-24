@@ -5,8 +5,8 @@
 #ifndef CML_EASINGS_H
 #define CML_EASINGS_H
 
-real quadratic_ease_in(real p);
-real quadratic_ease_out(real p);
-real quadratic_ease_in_out(real p);
+real_tquadratic_ease_in(real_tp);
+real_tquadratic_ease_out(real_tp);
+real_tquadratic_ease_in_out(real_tp);
 
 #endif

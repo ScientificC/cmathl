@@ -5,8 +5,8 @@
 #ifndef CML_EASINGS_BACK_H
 #define CML_EASINGS_BACK_H
 
-real back_ease_in(real p);
-real back_ease_out(real p);
-real back_ease_in_out(real p);
+real_tback_ease_in(real_tp);
+real_tback_ease_out(real_tp);
+real_tback_ease_in_out(real_tp);
 
 #endif

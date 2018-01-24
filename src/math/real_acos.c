@@ -1,22 +1,15 @@
 #include <stdlib.h>
 #include <cml.h>
 
-/* acosh(x) = log(x + sqrt(x² - 1)) */
-
-real
-real_acos(real x)
+real_t
+real_acos(real_t x)
 {
         /* Declaration of variables and structures */
-        real y, c, h;
+        real_t h, y;
 
         /* Mathematical algorithm */
-        c = real_new(HALFPI);
         y = real_asin(x);
-        h = real_sub(c, x);
-
-        /* Free structures */
-        free(y);
-        free(c);
+        h = real_sub(MFLOAT_T(HALFPI), y);
 
         /* Return */
         return h;

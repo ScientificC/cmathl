@@ -1,12 +1,12 @@
 #ifndef CML_COMPLEX_FUNC_H
 #define CML_COMPLEX_FUNC_H
 
-real complex_abs(complex);
-real complex_arg(complex);
+real_t complex_abs(complex);
+real_t complex_arg(complex);
 
 complex complex_add(complex, complex);
 complex complex_prod(complex, complex);
-complex complex_scalar_prod(complex, real);
+complex complex_scalar_prod(complex, real_t);
 complex complex_sub(complex, complex);
 complex complex_div(complex, complex);
 complex complex_inverse(complex);

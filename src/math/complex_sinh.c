@@ -14,32 +14,20 @@
 complex
 complex_sinh(complex z)
 {
-        /* Declaration of structures */
+        /* Declaration of variables and structures */
         complex w;
-        real *x;
-        real k, h, a, b, n, m;
+        real_t k, h, a, b, n, m;
 
         /* Mathematical algorithm */
-        x = complex_get_parts(z);
-
-        k = real_cos(x[1]);
-        h = real_sin(x[1]);
-        a = real_sinh(x[0]);
-        b = real_cosh(x[0]);
+        k = real_cos(z->im);
+        h = real_sin(z->im);
+        a = real_sinh(z->re);
+        b = real_cosh(z->re);
 
         n = real_prod(k, a);
         m = real_prod(h, b);
 
-        w = complex_new_from_reals(n, m);
-
-        /* Free structures */
-        free(x);
-        free(k);
-        free(h);
-        free(a);
-        free(b);
-        free(n);
-        free(m);
+        w = complex_new(n, m);
 
         /* Return */
         return w;

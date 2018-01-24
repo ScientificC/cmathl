@@ -6,26 +6,19 @@
  *
  */
 
-real
-real_atan2(real y, real x)
+real_t
+real_atan2(real_t y, real_t x)
 {
-        /* Declaration of structures */
-        real s, h, k, j, z, w;
+        /* Declaration of variables and structures */
+        real_t s, h, k, j, z, w;
 
         /* Mathematical algorithm */
         s = real_sgn(y);
-        h = real_new(HALFPI);
+        h = MFLOAT_T(HALFPI);
         k = real_div(x, y);
         j = real_atan(k);
         z = real_prod(h, s);
         w = real_sub(z, j);
-
-        /* Free structures */
-        free(s);
-        free(h);
-        free(k);
-        free(j);
-        free(z);
 
         /* Return */
         return w;

@@ -9,14 +9,14 @@ typedef struct _quaternion
 {
         union
         {
-                real q[4];
+                real_t q[4];
                 struct
                 {
-                        real x, y, z, w;
+                        real_t x, y, z, w;
                 };
                 struct
                 {
-                        real i, j, k, a;
+                        real_t i, j, k, a;
                 };
         };
 } quaternion_t;

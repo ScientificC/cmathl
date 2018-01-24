@@ -1,19 +1,14 @@
 #include <stdlib.h>
 #include <cml.h>
 
-real
+real_t
 complex_arg(complex z)
 {
-        /* Declaration of structures */
-        real w;
-        real *p;
+        /* Declaration of variables and structures */
+        real_t w;
 
         /* Mathematical algorithm */
-        p = complex_get_parts(z);
-        w = real_atan2(p[1], p[0]);
-
-        /* Free structures */
-        free(p);
+        w = real_atan2(z->p[1], z->p[0]);
 
         /* Return */
         return w;
