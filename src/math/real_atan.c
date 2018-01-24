@@ -20,25 +20,11 @@ __atan__(cml_math_t x)
 real_t
 real_atan(real_t x)
 {
-        /* Domain check */
-        real_t a;
-        // real_t u;
-        a = real_abs(x);
-        // u = MFLOAT_T(1.0);
-
-        /*
-           if (real_isgreater_or_equals(a, u)) {
-                free(a);
-                free(u);
-                return real_new(NAN);
-           }
-         */
-
-
         /* Declaration of variables and structures */
-        real_t s, w;
+        real_t s, w, a;
 
         /* Mathematical algorithm */
+        a = real_abs(x);
         s = real_sgn(x);
         w = real_prod(s, __atan__(a));
 
