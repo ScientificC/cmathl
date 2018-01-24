@@ -57,10 +57,6 @@
         #include "easings/include/functions.h"
 #endif
 
-#ifdef CML_SERIES_RESOLVER
-        #include "utils/include/series_resolver.h"
-#endif
-
 #include "version.h"
 
 #endif
