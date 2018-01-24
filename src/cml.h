@@ -40,9 +40,14 @@
 
 #define _CML_ARGS_FIRST(A, ...) A
 
-#define _CML_TYPES_COMPATIBLE(X, Y) __builtin_types_compatible_p(X, Y)
+#ifndef __type
+#define __type(__e, __t)                                                \
+        __builtin_types_compatible_p(__typeof(__e), __t)
+#endif
+
 #ifndef __same_type
-        #define __same_type(a, b) _CML_TYPES_COMPATIBLE(__typeof(a), __typeof(b))
+        #define __same_type(__a, __b) \
+        __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
 /* #define _CML_NO_EXTENSIONS */

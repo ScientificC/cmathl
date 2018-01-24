@@ -16,9 +16,9 @@ typedef struct _complex
 
 typedef complex_t* complex;
 
-complex _complex_new(mfloat_t, mfloat_t);
-void _complex_free(complex);
-complex _complex_clone(complex);
+complex complex_new(mfloat_t, mfloat_t);
+void complex_free(complex);
+complex complex_clone(complex);
 char * complex_as_string(complex);
 
 #endif

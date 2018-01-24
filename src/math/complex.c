@@ -4,7 +4,7 @@
 #include <cml.h>
 
 complex_t
-_complex_create(real_t real_part, real_t imaginary_part)
+complex_create(real_t real_part, real_t imaginary_part)
 {
         complex_t z;
 
@@ -15,25 +15,25 @@ _complex_create(real_t real_part, real_t imaginary_part)
 }
 
 complex_t*
-_complex_new(real_t real_part, real_t imaginary_part)
+complex_new(real_t real_part, real_t imaginary_part)
 {
         complex_t* z = (complex_t*) malloc(sizeof (complex_t));
-        (*z) = _complex_create(real_part, imaginary_part);
+        (*z) = complex_create(real_part, imaginary_part);
 
         return z;
 }
 
 complex_t*
-_complex_clone(complex_t* w)
+complex_clone(complex_t* w)
 {
         complex_t* z = (complex_t*) malloc(sizeof (complex_t));
-        (*z) = _complex_create(w->re, w->im);
+        (*z) = complex_create(w->re, w->im);
 
         return z;
 }
 
 void
-_complex_free(complex_t* z)
+complex_free(complex_t* z)
 {
         printf("%s\n", "You should free memory by using the function 'free' on the struct.");
 }

@@ -32,7 +32,13 @@
 
         #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) complex_ ## _func(__VA_ARGS__)
 
-        #define _CML_BOTH_GENERIC_FUNC(_func, ...)  real_ ## _func(__VA_ARGS__)
+        #define _CML_BOTH_GENERIC_FUNC(_func, ...) \
+        __builtin_choose_expr(__type(_CML_ARGS_FIRST(__VA_ARGS__), real_t), \
+                              _CML_REAL_GENERIC_FUNC(_func, __VA_ARGS__), \
+                              __builtin_choose_expr(__type(_CML_ARGS_FIRST(__VA_ARGS__), complex_t*), \
+                                                    _CML_REAL_GENERIC_FUNC(_func, __VA_ARGS__), \
+                                                    (void)0) \
+                              )
 #endif
 
 #if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)

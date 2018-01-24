@@ -9,14 +9,6 @@
 #include "types.h"
 #include "functions.h"
 
-#ifndef complex_clone
-        #define complex_clone(X) _complex_clone(X)
-#endif
-
-#ifndef complex_new
-        #define complex_new(X, Y) _complex_new(X, Y)
-#endif
-
 #define complex(X, Y) complex_new(X, Y)
 
 #ifndef CML_SERIES_TOP_IT_L
