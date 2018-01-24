@@ -53,7 +53,6 @@
 
 #include "math/include/math.h"
 
-#define CML_NO_EASING_FUNCTIONS
 #ifndef CML_NO_EASING_FUNCTIONS
         #include "easings/include/functions.h"
 #endif

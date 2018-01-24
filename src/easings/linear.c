@@ -3,10 +3,10 @@
 
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Linear Interpolation */
-real
-linear_interpolation(real_tp)
+real_t
+linear_interpolation(real_t p)
 {
-        return real_clone(p);
+        return p;
 }
 
 #endif

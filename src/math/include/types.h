@@ -34,6 +34,8 @@
         #define MFLOAT_T(x) x ## f
 #endif
 
+#define real(X) MFLOAT_T(X)
+
 #include "types/real.h"
 #include "types/complex.h"
 

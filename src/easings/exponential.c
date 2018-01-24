@@ -3,57 +3,41 @@
 
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Exponential */
-real
-exponential_ease_in(real_tp)
+real_t
+exponential_ease_in(real_t p)
 {
-        real_t f = MFLOAT_T(0.0), f_p;
-        f_p =  p;
-        f = f_p;
+        real_t f = p;
 
-        if (f_p != MFLOAT_T(0.0)) {
-                real_t g = MFLOAT_T(2.0),
-                         e = MFLOAT_T(10.0) * (f_p - MFLOAT_T(1.0));
-
-                f =  pow(real(g), real(e));
+        if (p != MFLOAT_T(0.0)) {
+                f = pow(MFLOAT_T(2.0), MFLOAT_T(10.0) * (p - MFLOAT_T(1.0)));
         }
 
-        return real(f);
+        return f;
 }
 
-real
-exponential_ease_out(real_tp)
+real_t
+exponential_ease_out(real_t p)
 {
-        real_t f = MFLOAT_T(0.0), f_p =  p;
+        real_t f = p;
 
-        if (f_p != MFLOAT_T(1.0)) {
-                real_t g = MFLOAT_T(2.0),
-                         e = -MFLOAT_T(10.0) * f_p;
-
-                f = MFLOAT_T(1.0) -  pow(real(g), real(e));
+        if (p != MFLOAT_T(1.0)) {
+                f = MFLOAT_T(1.0) - pow(MFLOAT_T(2.0), -MFLOAT_T(10.0) * p);
         }
 
-        return real(f);
+        return f;
 }
 
-real
-exponential_ease_in_out(real_tp)
+real_t
+exponential_ease_in_out(real_t p)
 {
-        real_t f = MFLOAT_T(0.0), f_p =  p;
+        real_t f = p;
 
-        if (f_p < MFLOAT_T(0.5)) {
-                f = MFLOAT_T(0.5) *  pow(
-                        real(MFLOAT_T(2.0)),
-                        real((MFLOAT_T(20.0) * f_p) - MFLOAT_T(10.0))
-                        );
+        if (p < MFLOAT_T(0.5)) {
+                f = MFLOAT_T(0.5) * pow(MFLOAT_T(2.0), (MFLOAT_T(20.0) * p) - MFLOAT_T(10.0));
         } else {
-                f = (-MFLOAT_T(0.5) * (
-                              pow(
-                                     real(MFLOAT_T(2.0)),
-                                     real((-MFLOAT_T(20.0) * f_p) + MFLOAT_T(10.0)))
-                             )
-                     ) + MFLOAT_T(1.0);
+                f = -MFLOAT_T(0.5) * pow(MFLOAT_T(2.0), (-MFLOAT_T(20.0) * p) + MFLOAT_T(10.0)) + MFLOAT_T(1.0);
         }
 
-        return real(f);
+        return f;
 }
 #endif

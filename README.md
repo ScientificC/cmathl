@@ -68,26 +68,20 @@ By default, CML will use single-precision internally. This can be changed by pre
 
 ## Types
 
-CML offers at the moment two types, `real_t` and `complex_t`, both corresponding to structures. In the same way, it is recommended to work with the `real` and `complex` types, these being `real_t *` and `complex_t *` respectively.
+CML offers at the moment two types, `real_t` and `complex`. `real` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex` is equivalent to the type `complex_t*` being `complex_t` a structure.
 
 ### Real
 
-CML defines a large number of operations for the set of real numbers. For this, the type `real` (alias of `real_t*`) is provided. Here is an example on how to work with this type of data:
+CML defines a large number of operations for the set of real numbers. For this, the type `real` is provided. Here is an example on how to work with this type of data:
 
 ```c
-real x = real(2.0);
-```
-
-Another way to do the same can be the following:
-
-```c
-real x = real_new(2.0);
+real_t x = real(2.0);
 ```
 
 Now, let's see an example of how to apply an operation between two reals. Suppose we have a `pow` function which accepts two reals x and y, then the code would be as follows:
 
 ```c
-real x, y, z;
+real_t x, y, z;
 
 x = real(3.0);
 y = real(2.0);
@@ -105,7 +99,7 @@ complex z = complex(1.0, 4.0);
 Another way to do the same can be the following:
 
 ```c
-complex z = complex_new(1.0, 4.0);
+complex_t* z = complex_new(1.0, 4.0);
 ```
 
 Now, let's see an example of how to apply an operation to any complex numbers. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:

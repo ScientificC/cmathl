@@ -5,8 +5,8 @@
 #ifndef CML_EASINGS_SINE_H
 #define CML_EASINGS_SINE_H
 
-real_tsine_ease_in(real_tp);
-real_tsine_ease_out(real_tp);
-real_tsine_ease_in_out(real_tp);
+real_t sine_ease_in(real_t p);
+real_t sine_ease_out(real_t p);
+real_t sine_ease_in_out(real_t p);
 
 #endif

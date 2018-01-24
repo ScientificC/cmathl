@@ -5,8 +5,8 @@
 #ifndef CML_EASINGS_CIRCULAR_H
 #define CML_EASINGS_CIRCULAR_H
 
-real_tcircular_ease_in(real_tp);
-real_tcircular_ease_out(real_tp);
-real_tcircular_ease_in_out(real_tp);
+real_t circular_ease_in(real_t p);
+real_t circular_ease_out(real_t p);
+real_t circular_ease_in_out(real_t p);
 
 #endif
