@@ -14,6 +14,17 @@
         #endif
 #endif
 
+#ifdef __cplusplus__
+        #ifdef __cplusplus
+                #if __cplusplus >= 199901L
+                        #define PREDEF_STANDARD_C99
+                        #if __cplusplus >= 201112L
+                                #define PREDEF_STANDARD_C11
+                        #endif
+                #endif
+        #endif
+#endif
+
 #ifdef _MSC_VER
         #define _CML_INLINE __forceinline
 #else
