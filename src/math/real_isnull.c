@@ -2,7 +2,7 @@
 #include <cml.h>
 
 bool
-real_isnull(real_t x)
+real_is_null(real_t x)
 {
         return x == 0.0;
 }

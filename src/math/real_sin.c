@@ -30,7 +30,7 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_ismult(x, MFLOAT_T(PI))) {
+        if (real_is_mult(x, MFLOAT_T(PI))) {
                 return MFLOAT_T(0.0);
         }
 

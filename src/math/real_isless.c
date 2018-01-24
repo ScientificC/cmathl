@@ -2,7 +2,7 @@
 #include <cml.h>
 
 bool
-real_isless(real_t x, real_t y)
+real_is_less(real_t x, real_t y)
 {
         return x < y;
 }

@@ -3,7 +3,7 @@
 
 
 _CML_EXTERN_INLINE bool
-__ismult(real_t x, real_t y)
+__is_mult(real_t x, real_t y)
 {
         real_t z = real_div(x, y);
         mint_t z_int = (mint_t) z;
@@ -11,7 +11,7 @@ __ismult(real_t x, real_t y)
 }
 
 bool
-real_ismult(real_t x, real_t y)
+real_is_mult(real_t x, real_t y)
 {
-        return __ismult(x, y);
+        return __is_mult(x, y);
 }

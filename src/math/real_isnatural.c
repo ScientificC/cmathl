@@ -3,7 +3,7 @@
 
 
 bool
-real_isnatural(real_t x)
+real_is_natural(real_t x)
 {
-        return real_isinteger(x) && x > 0.0;
+        return real_is_integer(x) && x > 0.0;
 }

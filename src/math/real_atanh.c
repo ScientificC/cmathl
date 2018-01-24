@@ -35,7 +35,7 @@ real_atanh(real_t x)
         /* Mathematical algorithm */
         y = real_abs(x);
         c = MFLOAT_T(1.0);
-        h = real_isgreater(c, y) ?
+        h = real_is_greater(c, y) ?
             MFLOAT_T((real_t) __atanh__(x)) :
             MFLOAT_T(NAN);
 

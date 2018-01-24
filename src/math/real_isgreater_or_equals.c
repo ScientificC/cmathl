@@ -3,7 +3,7 @@
 
 
 bool
-real_isgreater_or_equals(real_t x, real_t y)
+real_is_greater_or_equals(real_t x, real_t y)
 {
-        return real_isgreater(x, y) || real_equals(x, y);
+        return real_is_greater(x, y) || real_equals(x, y);
 }

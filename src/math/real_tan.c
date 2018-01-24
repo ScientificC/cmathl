@@ -18,7 +18,7 @@ real_tan(real_t x)
         /* Mathematical algorithm */
         y = real_cos(x);
 
-        return real_isnull(y) ?
+        return real_is_null(y) ?
                NAN :
                real_div(real_sin(x), y);;
 }

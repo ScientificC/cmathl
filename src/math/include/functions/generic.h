@@ -29,20 +29,20 @@
 
 
         #define equals(X, Y) _CML_BOTH_GENERIC_FUNC(equals, X, Y)
-        #define isnull(X) _CML_BOTH_GENERIC_FUNC(isnull, X)
-        #define isnatural(X) _CML_REAL_GENERIC_FUNC(isnatural, X)
-        #define isinteger(X) _CML_REAL_GENERIC_FUNC(isinteger, X)
-        #define isgreater(X, Y) _CML_REAL_GENERIC_FUNC(isgreater, X, Y)
-        #define isless(X, Y) _CML_REAL_GENERIC_FUNC(isless, X, Y)
-        #define isgreater_or_equals(X, Y) _CML_REAL_GENERIC_FUNC( \
-                isgreater_or_equals, \
+        #define is_null(X) _CML_BOTH_GENERIC_FUNC(is_null, X)
+        #define is_natural(X) _CML_REAL_GENERIC_FUNC(is_natural, X)
+        #define is_integer(X) _CML_REAL_GENERIC_FUNC(is_integer, X)
+        #define is_greater(X, Y) _CML_REAL_GENERIC_FUNC(is_greater, X, Y)
+        #define is_less(X, Y) _CML_REAL_GENERIC_FUNC(is_less, X, Y)
+        #define is_greater_or_equals(X, Y) _CML_REAL_GENERIC_FUNC( \
+                is_greater_or_equals, \
                 X, Y \
                 )
-        #define isless_or_equals(X, Y) _CML_REAL_GENERIC_FUNC( \
-                isless_or_equals, \
+        #define is_less_or_equals(X, Y) _CML_REAL_GENERIC_FUNC( \
+                is_less_or_equals, \
                 X, Y \
                 )
-        #define ismult(X, Y) _CML_REAL_GENERIC_FUNC(ismult, X, Y)
+        #define is_mult(X, Y) _CML_REAL_GENERIC_FUNC(is_mult, X, Y)
         #define add(X, Y) _CML_BOTH_GENERIC_FUNC(add, X, Y)
         #define prod(X, Y) _CML_BOTH_GENERIC_FUNC(prod, X, Y)
         #define sub(X, Y) _CML_BOTH_GENERIC_FUNC(sub, X, Y)
@@ -87,14 +87,14 @@
 
 #else
         #define equals(X, Y) real_equals(X, Y)
-        #define isnull(X) real_isnull(X)
-        #define isnatural(X) real_isnatural(X)
-        #define isinteger(X) real_isinteger(X)
-        #define isgreater(X, Y) real_isinteger(X, Y)
-        #define isless(X, Y) real_isless(X, Y)
-        #define isgreater_or_equals(X, Y) real_isgreater_or_equals(X, Y)
-        #define isless_or_equals(X, Y) real_isless_or_equals(X, Y)
-        #define ismult(X, Y) real_ismult(X, Y)
+        #define is_null(X) real_is_null(X)
+        #define is_natural(X) real_is_natural(X)
+        #define is_integer(X) real_is_integer(X)
+        #define is_greater(X, Y) real_is_integer(X, Y)
+        #define is_less(X, Y) real_is_less(X, Y)
+        #define is_greater_or_equals(X, Y) real_is_greater_or_equals(X, Y)
+        #define is_less_or_equals(X, Y) real_is_less_or_equals(X, Y)
+        #define is_mult(X, Y) real_is_mult(X, Y)
         #define add(X, Y) real_add(X, Y)
         #define prod(X, Y) real_prod(X, Y)
         #define sub(X, Y) real_sub(X, Y)
@@ -138,8 +138,8 @@
 #endif
 
 #define cequals(X, Y) complex_equals(X, Y)
-#define cisnull(X) complex_isnull(X)
-#define cismult(X, Y) complex_ismult(X, Y)
+#define cis_null(X) complex_is_null(X)
+#define cis_mult(X, Y) complex_is_mult(X, Y)
 #define cadd(X, Y) complex_add(X, Y)
 #define cprod(X, Y) complex_prod(X, Y)
 #define csub(X, Y) complex_sub(X, Y)

@@ -17,7 +17,7 @@ real_cot(real_t x)
 
         /* Mathematical algorithm */
         y = real_sin(x);
-        h = real_isnull(y) ?
+        h = real_is_null(y) ?
             NAN :
             real_div(real_cos(x), y);
 

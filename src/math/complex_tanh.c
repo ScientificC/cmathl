@@ -7,7 +7,7 @@ complex_tanh(complex z)
         /* Domain check */
         complex c = complex_cosh(z);
         real_t a = complex_abs(c);
-        if (!real_isnull(a)) {
+        if (!real_is_null(a)) {
                 free(c);
                 return complex_new(NAN, NAN);
         }
