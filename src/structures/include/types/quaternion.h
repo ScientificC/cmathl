@@ -21,6 +21,6 @@ typedef struct _quaternion
         };
 } quaternion_t;
 
-typedef quaternion_t* quaternion;
+#define _QUATERNION_EPS 1e-14
 
 #endif
