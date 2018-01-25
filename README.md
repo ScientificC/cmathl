@@ -68,11 +68,11 @@ By default, CML will use single-precision internally. This can be changed by pre
 
 ## Types
 
-CML offers at the moment two types, `real_t` and `complex`. `real` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex` is equivalent to the type `complex_t*` being `complex_t` a structure.
+CML offers at the moment two types, `real_t` and `complex`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex` is equivalent to the type `complex_t*` being `complex_t` a structure.
 
 ### Real
 
-CML defines a large number of operations for the set of real numbers. For this, the type `real` is provided. Here is an example on how to work with this type of data:
+CML defines a large number of operations for the set of real numbers. For this, the type `real_t` is provided. Here is an example on how to work with this type of data:
 
 ```c
 real_t x = real(2.0);
