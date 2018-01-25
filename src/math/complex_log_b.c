@@ -4,20 +4,16 @@
 /*
  * logb(z) = log(z)/log(b)
  */
-complex
-complex_log_b(complex z, complex b)
+complex_t
+complex_log_b(complex_t z, complex_t b)
 {
         /* Declaration of variables and structures */
-        complex k, h, w;
+        complex_t k, h, w;
 
         /* Mathematical algorithm */
         k = complex_log(z);
         h = complex_log(b);
         w = complex_div(k, h);
-
-        /* Free structures */
-        free(k);
-        free(h);
 
         /* Return */
         return w;

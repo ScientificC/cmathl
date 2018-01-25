@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.9](https://img.shields.io/badge/Version-v1.9-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) ![Version: v1.9.1b](https://img.shields.io/badge/Version-v1.9.1b-blue.svg)
 
 ## Introduction
 
@@ -68,7 +68,7 @@ By default, CML will use single-precision internally. This can be changed by pre
 
 ## Types
 
-CML offers at the moment two types, `real_t` and `complex`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex` is equivalent to the type `complex_t*` being `complex_t` a structure.
+CML offers at the moment two types, `real_t` and `complex_t`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex_t` being a structure.
 
 ### Real
 
@@ -90,22 +90,22 @@ z = pow(x, y);
 
 ### Complex
 
-CML defines a large number of operations for the set of complex numbers. For this, the type `complex` (alias of `complex_t*`) is provided. Here is an example on how to work with this type of data:
+CML defines a large number of operations for the set of complex numbers. For this, the type `complex_t` is provided. Here is an example on how to work with this type of data:
 
 ```c
-complex z = complex(1.0, 4.0);
+complex_t z = complex(1.0, 4.0);
 ```
 
 Another way to do the same can be the following:
 
 ```c
-complex_t* z = complex_new(1.0, 4.0);
+complex_t z = { 1.0, 4.0 };
 ```
 
 Now, let's see an example of how to apply an operation to any complex numbers. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
 
 ```c
-complex z, w;
+complex_t z, w;
 
 z = complex(1.0, 4.0);
 w = cexp(z);

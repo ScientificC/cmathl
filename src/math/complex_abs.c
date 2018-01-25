@@ -2,7 +2,7 @@
 #include <cml.h>
 
 real_t
-complex_abs(complex z)
+complex_abs(complex_t z)
 {
         /* Declaration of variables and structures */
         real_t n, a, b, w, h;

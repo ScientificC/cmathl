@@ -1,18 +1,15 @@
 #include <stdlib.h>
 #include <cml.h>
 
-complex
-complex_div(complex z, complex k)
+complex_t
+complex_div(complex_t z, complex_t k)
 {
         /* Declaration of variables and structures */
-        complex r, w;
+        complex_t r, w;
 
         /* Mathematical algorithm */
         r = complex_inverse(k);
         w = complex_prod(z, r);
-
-        /* Free structures */
-        free(r);
 
         /* Return */
         return w;

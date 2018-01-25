@@ -1,8 +1,8 @@
 #ifndef CML_COMPLEX_EXP_FUNC_H
 #define CML_COMPLEX_EXP_FUNC_H
 
-complex complex_exp(complex);
-complex complex_log(complex);
-complex complex_log_b(complex, complex);
+complex_t complex_exp(complex_t);
+complex_t complex_log(complex_t);
+complex_t complex_log_b(complex_t, complex_t);
 
 #endif

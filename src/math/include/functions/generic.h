@@ -19,13 +19,13 @@
 
         #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) \
         _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
-                 complex_t*: _CML_MATH_FUNC(complex, _func) \
+                 complex_t: _CML_MATH_FUNC(complex, _func) \
                  )(__VA_ARGS__)
 
         #define _CML_BOTH_GENERIC_FUNC(_func, ...) \
         _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
          default: _CML_MATH_FUNC(real, _func), \
-                 complex_t*: _CML_MATH_FUNC(complex, _func), \
+                 complex_t: _CML_MATH_FUNC(complex, _func), \
                  real_t: _CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 

@@ -9,7 +9,7 @@
 #include "types.h"
 #include "functions.h"
 
-#define complex(X, Y) complex_new(X, Y)
+#define complex(X, Y) complex(X, Y)
 
 #ifndef CML_SERIES_TOP_IT_L
 #define CML_SERIES_TOP_IT_L MAXLOG*14

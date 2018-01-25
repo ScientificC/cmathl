@@ -113,7 +113,7 @@ int run_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        complex z = complex(1.0, 4.0);
+                        complex_t z = complex(1.0, 4.0);
                         EXPECT_FLOAT_EQ(creal(z), 1.0);
                         EXPECT_FLOAT_EQ(cimag(z), 4.0);
                 }

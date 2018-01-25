@@ -6,17 +6,17 @@
  *
  */
 
-complex
-complex_add(complex z, complex k)
+complex_t
+complex_add(complex_t z, complex_t k)
 {
         /* Declaration of variables and structures */
-        complex w;
+        complex_t w;
         real_t n, m;
 
         /* Mathematical algorithm */
         n = real_add(creal(z), creal(k));
         m = real_add(cimag(z), cimag(k));
-        w = complex_new(n, m);
+        w = complex(n, m);
 
         /* Return */
         return w;

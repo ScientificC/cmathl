@@ -6,20 +6,20 @@
  *
  */
 
-complex
-complex_prod(complex z, complex k)
+complex_t
+complex_prod(complex_t z, complex_t k)
 {
         /* Declaration of variables and structures */
-        complex w;
+        complex_t w;
         real_t a, b, c, d;
 
         /* Mathematical algorithm */
-        a = z->p[0];
-        b = z->p[1];
-        c = k->p[0];
-        d = k->p[1];
+        a = z.p[0];
+        b = z.p[1];
+        c = k.p[0];
+        d = k.p[1];
 
-        w = complex_new(a*c - b*d, a*d + b*c);
+        w = complex(a*c - b*d, a*d + b*c);
 
         /* Return */
         return w;

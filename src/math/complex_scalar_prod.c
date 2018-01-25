@@ -1,17 +1,17 @@
 #include <stdlib.h>
 #include <cml.h>
 
-complex
-complex_scalar_prod(complex z, real_t k)
+complex_t
+complex_scalar_prod(complex_t z, real_t k)
 {
         /* Declaration of variables and structures */
-        complex w;
+        complex_t w;
         real_t x, y;
 
         /* Mathematical algorithm */
-        x = real_prod(k, z->p[0]);
-        y = real_prod(k, z->p[1]);
-        w = complex_new(x, y);
+        x = real_prod(k, z.p[0]);
+        y = real_prod(k, z.p[1]);
+        w = complex(x, y);
 
         /* Return */
         return w;

@@ -5,20 +5,17 @@ typedef struct _complex
 {
         union
         {
-                mfloat_t p[2];
+                real_t p[2];
                 struct
                 {
-                        mfloat_t re;
-                        mfloat_t im;
+                        real_t re;
+                        real_t im;
                 };
         };
 } complex_t;
 
-typedef complex_t* complex;
-
-complex complex_new(mfloat_t, mfloat_t);
-void complex_free(complex);
-complex complex_clone(complex);
-char * complex_as_string(complex);
+complex_t complex(real_t, real_t);
+complex_t complex_clone(complex_t);
+char * complex_as_string(complex_t);
 
 #endif

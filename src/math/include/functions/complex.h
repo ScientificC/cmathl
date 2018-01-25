@@ -45,11 +45,11 @@
         #define catanh(X) complex_atanh(X)
 
         #ifndef creal
-                #define creal(X) (X)->p[0]
+                #define creal(X) (X).p[0]
         #endif
 
         #ifndef cimag
-                #define cimag(X) (X)->p[1]
+                #define cimag(X) (X).p[1]
         #endif
 #endif
 #endif

@@ -1,25 +1,21 @@
 #include <stdlib.h>
 #include <cml.h>
 
-complex
-complex_csc(complex self)
+complex_t
+complex_csc(complex_t z)
 {
         /* Domain check */
-        complex s = complex_sin(self);
+        complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
         if (!real_is_null(a)) {
-                free(s);
-                return complex_new(NAN, NAN);
+                return complex(NAN, NAN);
         }
 
         /* Declaration of variables and structures */
-        complex w;
+        complex_t w;
 
         /* Mathematical algorithm */
         w = complex_inverse(s);
-
-        /* Free structures */
-        free(s);
 
         /* Return */
         return w;

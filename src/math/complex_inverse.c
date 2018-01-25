@@ -7,26 +7,22 @@
  *
  */
 
-complex
-complex_inverse(complex z)
+complex_t
+complex_inverse(complex_t z)
 {
         /* Declaration of variables and structures */
-        complex w, h;
-        real_t a, b, i, m, n;
+        complex_t w, h;
+        real_t a, b, m, n;
 
 
         /* Mathematical algorithm */
         w = complex_conjugate(z);
         a = complex_abs(z);
-        i = (2.0);
-        b = real_pow(a, i);
-        n = real_div(w->p[0], b);
-        m = real_div(w->p[1], b);
+        b = real_pow(a, 2.0);
+        n = real_div(w.p[0], b);
+        m = real_div(w.p[1], b);
 
-        h = complex_new(n, m);
-
-        /* Free structures */
-        free(w);
+        h = complex(n, m);
 
         /* Return */
         return h;

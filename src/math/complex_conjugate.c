@@ -6,14 +6,14 @@
  *
  */
 
-complex
-complex_conjugate(complex z)
+complex_t
+complex_conjugate(complex_t z)
 {
         /* Declaration of variables and structures */
-        complex r;
+        complex_t r;
 
         /* Mathematical algorithm */
-        r = complex_new(z->re, real_opposite(z->im));
+        r = complex(z.re, real_opposite(z.im));
 
         /* Return */
         return r;

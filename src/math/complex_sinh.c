@@ -11,23 +11,23 @@
  *
  */
 
-complex
-complex_sinh(complex z)
+complex_t
+complex_sinh(complex_t z)
 {
         /* Declaration of variables and structures */
-        complex w;
+        complex_t w;
         real_t k, h, a, b, n, m;
 
         /* Mathematical algorithm */
-        k = real_cos(z->im);
-        h = real_sin(z->im);
-        a = real_sinh(z->re);
-        b = real_cosh(z->re);
+        k = real_cos(z.im);
+        h = real_sin(z.im);
+        a = real_sinh(z.re);
+        b = real_cosh(z.re);
 
         n = real_prod(k, a);
         m = real_prod(h, b);
 
-        w = complex_new(n, m);
+        w = complex(n, m);
 
         /* Return */
         return w;

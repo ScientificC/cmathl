@@ -1,21 +1,18 @@
 #include <stdlib.h>
 #include <cml.h>
 
-complex
-complex_sub(complex z, complex k)
+complex_t
+complex_sub(complex_t z, complex_t k)
 {
         /* Declaration of variables and structures */
-        complex h, w;
+        complex_t h, w;
         real_t n, m;
 
         /* Mathematical algorithm */
-        n = real_opposite(z->re);
-        m = real_opposite(z->im);
-        w = complex_new(n, m);
+        n = real_opposite(z.re);
+        m = real_opposite(z.im);
+        w = complex(n, m);
         h = complex_add(z, w);
-
-        /* Free structures */
-        free(w);
 
         /* Return */
         return h;
