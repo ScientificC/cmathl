@@ -8,7 +8,7 @@ real_inverse(real_t x)
         real_t y, h;
 
         /* Mathematical algorithm */
-        y = MFLOAT_T(1.0);
+        y = (1.0);
         h = real_is_null(x) ?
             NAN :
             real_div(y, x);

@@ -44,7 +44,7 @@ complex_as_string(complex_t* z)
         char *x, *y, op[5], im[5];
         real_t im_value;
 
-        im_value = MFLOAT_T(z->im);
+        im_value = (z->im);
 
         x = (char*) real_as_string(z->re);
         y = (char*) real_as_string(z->im);

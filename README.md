@@ -75,7 +75,7 @@ CML offers at the moment two types, `real_t` and `complex`. `real_t` corresponds
 CML defines a large number of operations for the set of real numbers. For this, the type `real_t` is provided. Here is an example on how to work with this type of data:
 
 ```c
-real_t x = real(2.0);
+real_t x = 2.0;
 ```
 
 Now, let's see an example of how to apply an operation between two reals. Suppose we have a `pow` function which accepts two reals x and y, then the code would be as follows:
@@ -83,8 +83,8 @@ Now, let's see an example of how to apply an operation between two reals. Suppos
 ```c
 real_t x, y, z;
 
-x = real(3.0);
-y = real(2.0);
+x = 3.0;
+y = 2.0;
 z = pow(x, y);
 ```
 
@@ -108,5 +108,5 @@ Now, let's see an example of how to apply an operation to any complex numbers. S
 complex z, w;
 
 z = complex(1.0, 4.0);
-w = exp(z);
+w = cexp(z);
 ```

@@ -16,7 +16,7 @@ real_sinh(real_t x)
         real_t y, z, w, k, c, h;
 
         /* Mathematical algorithm */
-        c = MFLOAT_T(2.0);
+        c = (2.0);
         y = real_opposite(x);
         z = real_exp(x);
         w = real_exp(y);

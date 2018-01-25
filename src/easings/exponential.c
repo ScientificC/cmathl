@@ -8,8 +8,8 @@ exponential_ease_in(real_t p)
 {
         real_t f = p;
 
-        if (p != MFLOAT_T(0.0)) {
-                f = pow(MFLOAT_T(2.0), MFLOAT_T(10.0) * (p - MFLOAT_T(1.0)));
+        if (p != (0.0)) {
+                f = pow((2.0), (10.0) * (p - (1.0)));
         }
 
         return f;
@@ -20,8 +20,8 @@ exponential_ease_out(real_t p)
 {
         real_t f = p;
 
-        if (p != MFLOAT_T(1.0)) {
-                f = MFLOAT_T(1.0) - pow(MFLOAT_T(2.0), -MFLOAT_T(10.0) * p);
+        if (p != (1.0)) {
+                f = (1.0) - pow((2.0), -(10.0) * p);
         }
 
         return f;
@@ -32,10 +32,10 @@ exponential_ease_in_out(real_t p)
 {
         real_t f = p;
 
-        if (p < MFLOAT_T(0.5)) {
-                f = MFLOAT_T(0.5) * pow(MFLOAT_T(2.0), (MFLOAT_T(20.0) * p) - MFLOAT_T(10.0));
+        if (p < (0.5)) {
+                f = (0.5) * pow((2.0), ((20.0) * p) - (10.0));
         } else {
-                f = -MFLOAT_T(0.5) * pow(MFLOAT_T(2.0), (-MFLOAT_T(20.0) * p) + MFLOAT_T(10.0)) + MFLOAT_T(1.0);
+                f = -(0.5) * pow((2.0), (-(20.0) * p) + (10.0)) + (1.0);
         }
 
         return f;

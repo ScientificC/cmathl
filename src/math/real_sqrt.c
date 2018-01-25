@@ -12,5 +12,5 @@
 real_t
 real_sqrt(real_t x)
 {
-        return real_root(x, MFLOAT_T(2.0));
+        return real_root(x, (2.0));
 }

@@ -28,13 +28,9 @@
 
 #ifdef CML_DOUBLE_PRECISION
         #define cml_math_t double
-        #define MFLOAT_T(x) x
 #else
         #define cml_math_t mfloat_t
-        #define MFLOAT_T(x) x ## f
 #endif
-
-#define real(X) MFLOAT_T(X)
 
 #include "types/real.h"
 #include "types/complex.h"

@@ -11,6 +11,6 @@ real_ceil(real_t x)
 
         w = (mint_t) x;
         return (x - w == 0.0) ?
-               MFLOAT_T(x) :
-               MFLOAT_T(w + 1.0);
+               (x) :
+               (w + 1.0);
 }

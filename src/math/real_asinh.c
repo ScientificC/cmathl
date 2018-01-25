@@ -10,8 +10,8 @@ real_asinh(real_t x)
         real_t y, z, w, k, b, c, h;
 
         /* Mathematical algorithm */
-        b = MFLOAT_T(2.0);
-        c = MFLOAT_T(1.0);
+        b = (2.0);
+        c = (1.0);
         y = real_pow(x, b);
         z = real_add(y, c);
         w = real_sqrt(z);

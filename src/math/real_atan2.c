@@ -14,7 +14,7 @@ real_atan2(real_t y, real_t x)
 
         /* Mathematical algorithm */
         s = real_sgn(y);
-        h = MFLOAT_T(HALFPI);
+        h = (HALFPI);
         k = real_div(x, y);
         j = real_atan(k);
         z = real_prod(h, s);

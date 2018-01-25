@@ -17,7 +17,7 @@ real_cos(real_t x)
 
         /* Mathematical algorithm */
         y = real_abs(x);
-        z = real_add(y, MFLOAT_T(HALFPI));
+        z = real_add(y, (HALFPI));
         h = real_sin(z);
 
         /* Return */

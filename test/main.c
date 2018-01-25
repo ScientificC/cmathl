@@ -55,8 +55,8 @@ int run_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        real_t x = real(1.0);
-                        EXPECT_FLOAT_EQ(x, real(1.0));
+                        real_t x = 1.0;
+                        EXPECT_FLOAT_EQ(x, 1.0);
                         printf(" Size of real_t: %ld  ", sizeof(real_t));
                 }
                 TEST_END()
@@ -67,23 +67,23 @@ int run_tests()
                            because of floating-point precision issues. */
                         const float trigAbsError = 0.0001f;
 
-                        EXPECT_NEAR(sin(real(0.0)), real(0.0), trigAbsError);
-                        EXPECT_NEAR(sin(PI / 2), real(1.0), trigAbsError);
-                        EXPECT_NEAR(sin(PI), real(0.0), trigAbsError);
-                        EXPECT_NEAR(sin(3 * PI / 2), real(-1.0), trigAbsError);
-                        EXPECT_NEAR(sin(-PI / 2), real(-1.0), trigAbsError);
+                        EXPECT_NEAR(sin(0.0), 0.0, trigAbsError);
+                        EXPECT_NEAR(sin(PI / 2), 1.0, trigAbsError);
+                        EXPECT_NEAR(sin(PI), 0.0, trigAbsError);
+                        EXPECT_NEAR(sin(3 * PI / 2), -1.0, trigAbsError);
+                        EXPECT_NEAR(sin(-PI / 2), -1.0, trigAbsError);
 
-                        EXPECT_NEAR(cos(real(0.0)), real(1.0), trigAbsError);
-                        EXPECT_NEAR(cos(PI / 2), real(0.0), trigAbsError);
-                        EXPECT_NEAR(cos(PI), real(-1.0), trigAbsError);
-                        EXPECT_NEAR(cos(3 * PI / 2), real(0.0), trigAbsError);
-                        EXPECT_NEAR(cos(-PI), real(-1.0), trigAbsError);
+                        EXPECT_NEAR(cos(0.0), 1.0, trigAbsError);
+                        EXPECT_NEAR(cos(PI / 2), 0.0, trigAbsError);
+                        EXPECT_NEAR(cos(PI), -1.0, trigAbsError);
+                        EXPECT_NEAR(cos(3 * PI / 2), 0.0, trigAbsError);
+                        EXPECT_NEAR(cos(-PI), -1.0, trigAbsError);
 
-                        EXPECT_NEAR(tan(real(0.0)), real(0.0), trigAbsError);
-                        EXPECT_NEAR(tan(PI / 4), real(1.0), trigAbsError);
-                        EXPECT_NEAR(tan(3 * PI / 4), real(-1.0), trigAbsError);
-                        EXPECT_NEAR(tan(PI), real(0.0), trigAbsError);
-                        EXPECT_NEAR(tan(-PI / 4), real(-1.0), trigAbsError);
+                        EXPECT_NEAR(tan(0.0), 0.0, trigAbsError);
+                        EXPECT_NEAR(tan(PI / 4), 1.0, trigAbsError);
+                        EXPECT_NEAR(tan(3 * PI / 4), -1.0, trigAbsError);
+                        EXPECT_NEAR(tan(PI), 0.0, trigAbsError);
+                        EXPECT_NEAR(tan(-PI / 4), -1.0, trigAbsError);
 
                         /* This isn't the most rigorous because we're really just sanity-
                            checking that things work by default. */
@@ -92,18 +92,18 @@ int run_tests()
 
                 TEST_BEGIN(SquareRoot)
                 {
-                        EXPECT_FLOAT_EQ(sqrt(real(16.0)), real(4.0));
-                        EXPECT_NEAR(sqrt(real(10.0)), real(3.1616211), 0.001f);
+                        EXPECT_FLOAT_EQ(sqrt(16.0), 4.0);
+                        EXPECT_NEAR(sqrt(10.0), 3.1616211, 0.001f);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Power)
                 {
-                        EXPECT_FLOAT_EQ(pow(real(2.0), 0), real(1.0));
-                        EXPECT_FLOAT_EQ(pow(real(2.0), 4), real(16.0));
-                        EXPECT_FLOAT_EQ(pow(real(2.0), -2), real(0.25));
-                        EXPECT_NEAR(pow(real(2.0), 4.1), real(17.148376), 0.0001f);
-                        EXPECT_NEAR(pow(real(2.0), -2.5), real(0.176777), 0.0001f);
+                        EXPECT_FLOAT_EQ(pow(2.0, 0), 1.0);
+                        EXPECT_FLOAT_EQ(pow(2.0, 4), 16.0);
+                        EXPECT_FLOAT_EQ(pow(2.0, -2), 0.25);
+                        EXPECT_NEAR(pow(2.0, 4.1), 17.148376, 0.0001f);
+                        EXPECT_NEAR(pow(2.0, -2.5), 0.176777, 0.0001f);
                 }
                 TEST_END()
         }
@@ -113,9 +113,9 @@ int run_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        complex z = complex(real(1.0), real(4.0));
-                        EXPECT_FLOAT_EQ(creal(z), real(1.0));
-                        EXPECT_FLOAT_EQ(cimag(z), real(4.0));
+                        complex z = complex(1.0, 4.0);
+                        EXPECT_FLOAT_EQ(creal(z), 1.0);
+                        EXPECT_FLOAT_EQ(cimag(z), 4.0);
                 }
                 TEST_END()
         }
@@ -126,45 +126,45 @@ int run_tests()
         {
                 TEST_BEGIN(Back)
                 {
-                        EXPECT_FLOAT_EQ(back_ease_in(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(back_ease_in(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(back_ease_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(back_ease_out(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(back_ease_in_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(back_ease_in_out(real(1.0)), real(1.0));
+                        EXPECT_FLOAT_EQ(back_ease_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(back_ease_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(back_ease_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(back_ease_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(back_ease_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(back_ease_in_out(1.0), 1.0);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Bounce)
                 {
-                        EXPECT_FLOAT_EQ(bounce_ease_in(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(bounce_ease_in(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(bounce_ease_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(bounce_ease_out(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(bounce_ease_in_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(bounce_ease_in_out(real(1.0)), real(1.0));
+                        EXPECT_FLOAT_EQ(bounce_ease_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(bounce_ease_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(bounce_ease_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(bounce_ease_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(bounce_ease_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(bounce_ease_in_out(1.0), 1.0);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Circular)
                 {
-                        EXPECT_FLOAT_EQ(circular_ease_in(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(circular_ease_in(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(circular_ease_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(circular_ease_out(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(circular_ease_in_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(circular_ease_in_out(real(1.0)), real(1.0));
+                        EXPECT_FLOAT_EQ(circular_ease_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(circular_ease_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(circular_ease_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(circular_ease_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(circular_ease_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(circular_ease_in_out(1.0), 1.0);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Cubic)
                 {
-                        EXPECT_FLOAT_EQ(cubic_ease_in(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(cubic_ease_in(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(cubic_ease_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(cubic_ease_out(real(1.0)), real(1.0));
-                        EXPECT_FLOAT_EQ(cubic_ease_in_out(real(0.0)), real(0.0));
-                        EXPECT_FLOAT_EQ(cubic_ease_in_out(real(1.0)), real(1.0));
+                        EXPECT_FLOAT_EQ(cubic_ease_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(cubic_ease_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(cubic_ease_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(cubic_ease_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(cubic_ease_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(cubic_ease_in_out(1.0), 1.0);
                 }
                 TEST_END()
         }

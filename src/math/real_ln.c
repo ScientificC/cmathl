@@ -23,8 +23,8 @@ real_ln(real_t x)
 
         /* Mathematical algorithm */
         y = real_prod(x, x);
-        z = MFLOAT_T(y - 1.0);
-        w = MFLOAT_T(y + 1.0);
+        z = (y - 1.0);
+        w = (y + 1.0);
         k = real_div(z, w);
         h = real_atanh(k);
 

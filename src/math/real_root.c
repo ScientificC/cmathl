@@ -16,7 +16,7 @@ real_root(real_t x, real_t n)
         real_t w, y, z;
 
         /* Mathematical algorithm */
-        w = MFLOAT_T(-1.0);
+        w = (-1.0);
         y = real_pow(n, w);
         z = real_pow(x, y);
 

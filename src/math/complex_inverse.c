@@ -18,7 +18,7 @@ complex_inverse(complex z)
         /* Mathematical algorithm */
         w = complex_conjugate(z);
         a = complex_abs(z);
-        i = MFLOAT_T(2.0);
+        i = (2.0);
         b = real_pow(a, i);
         n = real_div(w->p[0], b);
         m = real_div(w->p[1], b);

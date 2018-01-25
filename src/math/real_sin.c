@@ -30,8 +30,8 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_is_mult(x, MFLOAT_T(PI))) {
-                return MFLOAT_T(0.0);
+        if (real_is_mult(x, (PI))) {
+                return (0.0);
         }
 
         /* Declaration of variables and structures */
@@ -41,7 +41,7 @@ real_sin(real_t x)
         s = real_sgn(x);
         y = real_abs(x);
         z = real_ared(y);
-        w = MFLOAT_T((mfloat_t) __sin__(z));
+        w = ((mfloat_t) __sin__(z));
         h = real_prod(w, s);
 
         /* Return */

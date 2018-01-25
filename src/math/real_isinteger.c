@@ -12,5 +12,5 @@ __is_integer(real_t x)
 bool
 real_is_integer(real_t x)
 {
-        return __is_integer(MFLOAT_T(x));
+        return __is_integer((x));
 }
