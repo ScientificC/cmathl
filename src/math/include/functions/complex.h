@@ -2,6 +2,7 @@
 #define CML_COMPLEX_FUNC_H
 
 #include "complex/basic.h"
+#include "complex/error.h"
 #include "complex/exponential.h"
 #include "complex/hyperbolic.h"
 #include "complex/trigonometric.h"

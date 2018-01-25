@@ -3,6 +3,7 @@
 
 #include "real/basic.h"
 #include "real/classification.h"
+#include "real/error-gamma.h"
 #include "real/exponential.h"
 #include "real/nearest-integer.h"
 #include "real/power.h"
