@@ -3,22 +3,23 @@
 
 quaternion_t
 quaternion_create_from_spherical_coords(real_t vartheta, real_t varphi) {
-        real_t ct = cos(vartheta/2.);
-        real_t cp = cos(varphi/2.);
-        real_t st = sin(vartheta/2.);
-        real_t sp = sin(varphi/2.);
+        real_t ct = real_cos(vartheta/2.),
+               cp = real_cos(varphi/2.),
+               st = real_sin(vartheta/2.),
+               sp = real_sin(varphi/2.);
 
         return (quaternion_t) { cp*ct, -sp*st, st*cp, sp*ct };
 }
 
 quaternion_t
 quaternion_create_from_euler_angles(real_t alpha, real_t beta, real_t gamma) {
-        real_t ca = cos(alpha/2.);
-        real_t cb = cos(beta/2.);
-        real_t cc = cos(gamma/2.);
-        real_t sa = sin(alpha/2.);
-        real_t sb = sin(beta/2.);
-        real_t sc = sin(gamma/2.);
+        real_t ca = real_cos(alpha/2.),
+               cb = real_cos(beta/2.),
+               cc = real_cos(gamma/2.),
+               sa = real_sin(alpha/2.),
+               sb = real_sin(beta/2.),
+               sc = real_sin(gamma/2.);
+
         return (quaternion_t) {
                        ca*cb*cc-sa*cb*sc,
                             ca*sb*sc-sa*sb*cc,
@@ -28,15 +29,15 @@ quaternion_create_from_euler_angles(real_t alpha, real_t beta, real_t gamma) {
 }
 
 quaternion_t
-quaternion_sqrt(quaternion_t q)
+quaternion_real_sqrt(quaternion_t q)
 {
         real_t absolute = quaternion_absolute(q);
         quaternion_t r;
 
-        if(abs(1 + q.w/absolute) < _QUATERNION_EPS*absolute) {
+        if(real_abs(1 + q.w/absolute) < _QUATERNION_EPS*absolute) {
                 r = {0.0, 1.0, 0.0, 0.0};
         } else {
-                real_t c = sqrt(absolute/(2 + 2*q.w/absolute));
+                real_t c = real_sqrt(absolute/(2 + 2*q.w/absolute));
                 r = {
                         (1.0 + q.w/absolute)*c,
                         q.x*c/absolute,
@@ -49,70 +50,74 @@ quaternion_sqrt(quaternion_t q)
 }
 
 quaternion_t
-quaternion_log(quaternion_t q)
+quaternion_real_log(quaternion_t q)
 {
-        real_t b = sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
         quaternion_t r;
+        real_t b = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
-        if(abs(b) <= _QUATERNION_EPS*abs(q.w)) {
+        if(real_abs(b) <= _QUATERNION_EPS*real_abs(q.w)) {
                 if(q.w < 0.0) {
                         /* fprintf(stderr, "Input quaternion(%.15g, %.15g, %.15g, %.15g)
                            has no unique logarithm; returning one arbitrarily.",
                            q.w, q.x, q.y, q.z);*/
-                        if(abs(q.w + 1)>_QUATERNION_EPS) {
-                                r = { log(-q.w), PI, 0., 0. };
+                        if(real_abs(q.w + 1)>_QUATERNION_EPS) {
+                                r = { real_log(-q.w), PI, 0., 0. };
                         } else {
                                 r = {0., PI, 0., 0.};
                         }
                 } else {
-                        r = {log(q.w), 0., 0., 0.};
+                        r = {real_log(q.w), 0., 0., 0.};
                 }
         } else {
-                real_t v = atan2(b, q.w);
-                real_t f = v/b;
-                r = { log(q.w*q.w + b*b)/2.0, f*q.x, f*q.y, f*q.z };
+                real_t v = real_atan2(b, q.w),
+                       f = v/b;
+
+                r = { real_log(q.w*q.w + b*b)/2.0, f*q.x, f*q.y, f*q.z };
         }
 
         return r;
 }
 
 real_t
-_quaternion_scalar_log(real_t s) {
-        return log(s);
+_quaternion_scalar_real_log(real_t s) {
+        return real_log(s);
 }
 
 quaternion_t
 quaternion_scalar_power(real_t s, quaternion_t q)
 {
         /* Unlike the quaternion^quaternion power, this is unambiguous.*/
-        if(is_null(s)) { /*log(s)=-inf */
+        if(is_null(s)) { /*real_log(s)=-inf */
+                quaternion_t r;
+
                 if(!quaternion_nonzero(q)) {
-                        quaternion_t r = {1.0, 0.0, 0.0, 0.0};      /* consistent with python */
-                        return r;
+                        r = {1.0, 0.0, 0.0, 0.0};
                 } else {
-                        quaternion_t r = {0.0, 0.0, 0.0, 0.0};      /* consistent with python */
-                        return r;
+                        r = {0.0, 0.0, 0.0, 0.0};
                 }
-        } else if(s < 0.0) {               /* log(s)=nan */
+
+                return r;
+        } else if(s < 0.0) {               /* real_log(s)=nan */
                 // fprintf(stderr, "Input scalar (%.15g) has no unique logarithm; returning one arbitrarily.", s);
-                quaternion_t t = {log(-s), PI, 0, 0};
+                quaternion_t t = {real_log(-s), PI, 0, 0};
                 return quaternion_exp(quaternion_multiply(q, t));
         }
-        return quaternion_exp(quaternion_multiply_scalar(q, log(s)));
+        return quaternion_exp(quaternion_multiply_scalar(q, real_log(s)));
 }
 
 quaternion_t
 quaternion_exp(quaternion_t q)
 {
-        real_t vnorm = sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
         quaternion_t r;
+        real_t vnorm = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
         if (vnorm > _QUATERNION_EPS) {
-                real_t s = sin(vnorm) / vnorm;
-                real_t e = exp(q.w);
-                r = {e*cos(vnorm), e*s*q.x, e*s*q.y, e*s*q.z};
+                real_t s = real_sin(vnorm) / vnorm,
+                       e = real_exp(q.w);
+
+                r = {e*real_cos(vnorm), e*s*q.x, e*s*q.y, e*s*q.z};
         } else {
-                r = { exp(q.w), 0, 0, 0 };
+                r = { real_exp(q.w), 0, 0, 0 };
         }
 
         return r;

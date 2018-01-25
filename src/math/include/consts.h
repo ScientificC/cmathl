@@ -32,7 +32,7 @@
 
 /* Positive infinity. */
 #ifndef INF
-#define INF 1/0
+#define INF 1.0/0.0
 #endif
 
 /* Negative infinity. */
