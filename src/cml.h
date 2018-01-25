@@ -61,12 +61,6 @@
         __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
-/* #define _CML_NO_EXTENSIONS */
-
-#if !(defined _CML_NO_GENERIC && defined _CML_NO_EXTENSIONS)
-        #define CML_NO_FUNCTION_POINTER
-#endif
-
 #include "math/include/math.h"
 
 #ifndef CML_NO_EASING_FUNCTIONS

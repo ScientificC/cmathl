@@ -39,12 +39,4 @@
 #include "types/real.h"
 #include "types/complex.h"
 
-#ifndef creal
-        #define creal(X) (X)->p[0]
-#endif
-
-#ifndef cimag
-        #define cimag(X) (X)->p[1]
-#endif
-
 #endif

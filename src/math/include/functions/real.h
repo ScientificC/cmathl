@@ -1,54 +1,63 @@
 #ifndef CML_REAL_FUNC_H
 #define CML_REAL_FUNC_H
 
-bool real_equals(real_t, real_t);
-bool real_is_null(real_t);
-bool real_is_natural(real_t);
-bool real_is_integer(real_t);
-bool real_is_greater(real_t, real_t);
-bool real_is_less(real_t, real_t);
-bool real_is_greater_or_equals(real_t, real_t);
-bool real_is_less_or_equals(real_t, real_t);
-bool real_is_mult(real_t, real_t);
+#include "real/basic.h"
+#include "real/classification.h"
+#include "real/exponential.h"
+#include "real/nearest-integer.h"
+#include "real/power.h"
+#include "real/trigonometric.h"
+#include "real/hyperbolic.h"
 
-real_t real_add(real_t, real_t);
-real_t real_prod(real_t, real_t);
-real_t real_sub(real_t, real_t);
-real_t real_div(real_t, real_t);
-real_t real_sgn(real_t);
-real_t real_abs(real_t);
-real_t real_floor(real_t);
-real_t real_ceil(real_t);
-real_t real_div_e(real_t, real_t);
-real_t real_mod(real_t, real_t);
-real_t real_inverse(real_t);
-real_t real_opposite(real_t);
-real_t real_ared(real_t);
-real_t real_fact(real_t);
-real_t real_exp(real_t);
-real_t real_ln(real_t);
-real_t real_log_b(real_t, real_t);
-real_t real_pow(real_t, real_t);
-real_t real_root(real_t, real_t);
-real_t real_sqrt(real_t);
-real_t real_sin(real_t);
-real_t real_cos(real_t);
-real_t real_tan(real_t);
-real_t real_sec(real_t);
-real_t real_csc(real_t);
-real_t real_cot(real_t);
-real_t real_asin(real_t);
-real_t real_acos(real_t);
-real_t real_atan(real_t);
-real_t real_atan2(real_t, real_t);
-real_t real_sinh(real_t);
-real_t real_cosh(real_t);
-real_t real_tanh(real_t);
-real_t real_sech(real_t);
-real_t real_csch(real_t);
-real_t real_coth(real_t);
-real_t real_asinh(real_t);
-real_t real_acosh(real_t);
-real_t real_atanh(real_t);
-
+#if (defined _CML_NO_GENERIC && !defined CML_UNAMBIGUOUS_MODE)
+        #define equals(X, Y) real_equals(X, Y)
+        #define is_null(X) real_is_null(X)
+        #define is_natural(X) real_is_natural(X)
+        #define is_integer(X) real_is_integer(X)
+        #define is_greater(X, Y) real_is_integer(X, Y)
+        #define is_less(X, Y) real_is_less(X, Y)
+        #define is_greater_or_equals(X, Y) real_is_greater_or_equals(X, Y)
+        #define is_less_or_equals(X, Y) real_is_less_or_equals(X, Y)
+        #define is_mult(X, Y) real_is_mult(X, Y)
+        #define add(X, Y) real_add(X, Y)
+        #define prod(X, Y) real_prod(X, Y)
+        #define sub(X, Y) real_sub(X, Y)
+        #define div(X, Y) real_div(X, Y)
+        #define sgn(X, Y) real_sgn(X, Y)
+        #define abs(X) real_abs(X)
+        #define floor(X) real_floor(X)
+        #define ceil(X) real_ceil(X)
+        #define div_e(X) real_div_e(X)
+        #define mod(X) real_mod(X)
+        #define inverse(X) real_inverse(X)
+        #define opposite(X) real_opposite(X)
+        #define ared(X) real_ared(X)
+        #define fact(X) real_fact(X)
+        #define exp(X) real_exp(X)
+        #define ln(X) real_ln(X)
+        #define log(X) real_log(X)
+        #define log_b(X, Y) real_log_b(X, Y)
+        #define pow(X, Y) real_pow(X, Y)
+        #define root(X) real_root(X)
+        #define sqrt(X) real_sqrt(X)
+        #define sin(X) real_sin(X)
+        #define cos(X) real_cos(X)
+        #define tan(X) real_tan(X)
+        #define sec(X) real_sec(X)
+        #define csc(X) real_csc(X)
+        #define cot(X) real_cot(X)
+        #define asin(X) real_asin(X)
+        #define acos(X) real_acos(X)
+        #define atan(X) real_atan(X)
+        #define atan2(X, Y) real_atan2(X, Y)
+        #define sinh(X) real_sinh(X)
+        #define cosh(X) real_cosh(X)
+        #define tanh(X) real_tanh(X)
+        #define sech(X) real_sech(X)
+        #define csch(X) real_csch(X)
+        #define coth(X) real_coth(X)
+        #define asinh(X) real_asinh(X)
+        #define acosh(X) real_acosh(X)
+        #define atanh(X) real_atanh(X)
+#endif
 #endif
