@@ -14,7 +14,7 @@
         #endif
 #endif
 
-#ifdef __cplusplus__
+#ifdef __cplusplus
         #ifdef __cplusplus
                 #if __cplusplus >= 199901L
                         #define PREDEF_STANDARD_CPP99
