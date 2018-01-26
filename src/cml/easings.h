@@ -5,6 +5,6 @@
 #ifndef CML_EASIGNS_H
 #define CML_EASIGNS_H
 
-#include <cml/easings/include/functions.h>
+#include "easings/include/functions.h"
 
 #endif
