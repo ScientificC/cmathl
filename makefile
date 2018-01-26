@@ -108,15 +108,15 @@ test: clean folders test.o $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
 
 cml.o:
 		for file in $(SRC_MATH_FILES); do \
-				$(CC) -c $(SOURCE_FOLDER)/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(SOURCE_FOLDER)/cml/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 		for file in $(SRC_EASING_FILES); do \
-				$(CC) -c $(SOURCE_FOLDER)/easings/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(SOURCE_FOLDER)/cml/easings/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 		for file in $(SRC_UTILS_FILES); do \
-				$(CC) -c $(SOURCE_FOLDER)/utils/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+				$(CC) -c $(SOURCE_FOLDER)/cml/utils/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 test.o: cml.o

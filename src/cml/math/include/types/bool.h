@@ -1,5 +1,5 @@
-#ifndef CML_TYPES_BOOL_H
-#define CML_TYPES_BOOL_H
+#ifndef CML_MATH_TYPES_BOOL_H
+#define CML_MATH_TYPES_BOOL_H
 
 #ifndef __cplusplus
 

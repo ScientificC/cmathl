@@ -1,9 +1,9 @@
 #ifndef CML_H
-#error "Never use <math/include/types.h> directly; include <cml.h> instead."
+#error "Never use <cml/math/include/types.h> directly; include <cml.h> instead."
 #endif
 
-#ifndef CML_TYPES_H
-#define CML_TYPES_H
+#ifndef CML_MATH_TYPES_H
+#define CML_MATH_TYPES_H
 
 /* Quick boolean definition */
 #ifdef CML_NO_STDBOOL

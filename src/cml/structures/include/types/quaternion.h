@@ -2,8 +2,8 @@
 #error "Never use <structures/include/types/quaternion.h> directly; include <cml.h> instead."
 #endif
 
-#ifndef CML_TYPES_QUATERNION_H
-#define CML_TYPES_QUATERNION_H
+#ifndef CML_MATH_TYPES_QUATERNION_H
+#define CML_MATH_TYPES_QUATERNION_H
 
 typedef struct _quaternion
 {

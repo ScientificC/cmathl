@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <math/include/consts.h> directly; include <cml.h> instead."
+#error "Never use <cml/math/include/consts.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MATH_CONSTS_H
