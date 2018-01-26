@@ -2,22 +2,21 @@
 #include <cml.h>
 
 /**
- * root(f, g) function developed by using the exponentiation process
+ * Computes real root function by using the exponentiation process
  *
- * @param real x
- *
- * @return real root(f, g)
+ * @param real_t x
+ * @param real_t n: exponent
+ * @return real_t
  */
 
 real_t
 real_root(real_t x, real_t n)
 {
         /* Declaration of variables and structures */
-        real_t w, y, z;
+        real_t y, z;
 
         /* Mathematical algorithm */
-        w = (-1.0);
-        y = real_pow(n, w);
+        y = real_div(1.0, n);
         z = real_pow(x, y);
 
         /* Return */

@@ -1,6 +1,14 @@
 #include <stdlib.h>
 #include <cml.h>
 
+/*
+ * remainder of the floating point division operation
+ *
+ * @param real_t x
+ * @param real_t y
+ * @return real_t
+ */
+
 real_t
 real_mod(real_t x, real_t y)
 {

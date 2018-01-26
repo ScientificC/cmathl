@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * Hyperbolic cotangent "coth(x)" function developed by using Euler relationships
+ * Computes real hyperbolic cotangent
  *
- * @param real x
- *
- * @return real coth(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

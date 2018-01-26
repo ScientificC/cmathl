@@ -2,26 +2,25 @@
 #include <cml.h>
 
 /*
- * Hyperbolic cosine "real_cosh(x)" function developed by using Euler relationships
+ * Computes real hyperbolic cosine
+ * --| cosh(x) = 1/2 * (exp(x) + exp(−x))
  *
- * @param real x
- *
- * @return real real_cosh(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t
 real_cosh(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, c, h;
+        real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
-        c = (2.0);
         y = real_opposite(x);
         z = real_exp(x);
         w = real_exp(y);
         k = real_add(z, w);
-        h = real_div(k, c);
+        h = real_div(k, 2.0);
 
         /* Return */
         return h;

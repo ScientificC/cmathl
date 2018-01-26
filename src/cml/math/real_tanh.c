@@ -2,11 +2,11 @@
 #include <cml.h>
 
 /*
- * Hyperbolic tangent "tanh(x)" function developed by using Euler relationships
+ * Computes real hyperbolic tangent
+ * --| tanh(x) = sinh(x) / cosh(x)
  *
- * @param real x
- *
- * @return real tanh(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

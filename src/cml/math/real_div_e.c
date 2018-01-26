@@ -1,6 +1,14 @@
 #include <stdlib.h>
 #include <cml.h>
 
+/*
+ * Computes the quotient and remainder of integer division
+ *
+ * @param real_t x
+ * @param real_t y
+ * @return real_t
+ */
+
 real_t
 real_div_e(real_t x, real_t y)
 {

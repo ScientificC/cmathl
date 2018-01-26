@@ -63,7 +63,7 @@ SRC_MATH_FILES := real_acos \
 									real_add \
 									complex_cot \
 									real_sech \
-									real_ln \
+									real_log \
 									real_isless \
 									real_isnull \
 									real_prod \

@@ -2,7 +2,12 @@
 #include <cml.h>
 
 
-/* Return the smallest integer value greater than or equal to x. */
+/*
+ * Returns the nearest integer not less than the given value
+ *
+ * @param real_t x
+ * @return real_t
+ */
 
 real_t
 real_ceil(real_t x)
@@ -11,6 +16,6 @@ real_ceil(real_t x)
 
         w = (mint_t) x;
         return (x - w == 0.0) ?
-               (x) :
-               (w + 1.0);
+               x :
+               w + 1.0;
 }

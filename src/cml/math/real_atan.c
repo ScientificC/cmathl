@@ -16,6 +16,12 @@ __atan__(cml_math_t x)
         return p;
 }
 
+/*
+ * Computes real arc tangent
+ *
+ * @param real_t x
+ * @return real_t
+ */
 
 real_t
 real_atan(real_t x)

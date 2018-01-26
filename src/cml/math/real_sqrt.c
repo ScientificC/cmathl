@@ -2,15 +2,14 @@
 #include <cml.h>
 
 /**
- * root(f) function developed by using the exponentiation process
+ * Computes real square root function developed by using the exponentiation process
  *
- * @param real x
- *
- * @return real root(f)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t
 real_sqrt(real_t x)
 {
-        return real_root(x, (2.0));
+        return real_root(x, 2.0);
 }

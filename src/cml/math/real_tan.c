@@ -2,11 +2,11 @@
 #include <cml.h>
 
 /*
- * tan(x) function developed by using trigonometric identities
+ * Computes real tangent
+ * --| tan(x) = sin(x) / cos(x)
  *
- * @param real x
- *
- * @return real tan(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

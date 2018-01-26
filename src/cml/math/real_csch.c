@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * "csch(x)" function developed by using Euler relationships
+ * Computes real hyperbolic cosecant
  *
- * @param real x
- *
- * @return real csch(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

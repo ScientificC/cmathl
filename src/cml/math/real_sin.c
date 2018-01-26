@@ -19,11 +19,10 @@ __sin__(cml_math_t x)
 }
 
 /*
- * sin(x) function developed by using Taylor Series
+ * Computes real sine function by using Taylor Series
  *
- * @param real x
- *
- * @return real sin(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t
@@ -38,7 +37,7 @@ real_sin(real_t x)
         real_t s, y, z, w, h;
 
         /* Mathematical algorithm */
-        s = real_sgn(x);
+        s = real_sgn(x); /* sin(-x) = -sin(x) */
         y = real_abs(x);
         z = real_ared(y);
         w = ((mfloat_t) __sin__(z));

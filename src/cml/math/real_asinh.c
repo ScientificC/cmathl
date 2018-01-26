@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <cml.h>
 
-/* asinh(x) = log(x + sqrt(x² + 1)) */
+/*
+ * Computes real hyperbolic arc sine
+ * --| asinh(x) = log(x + sqrt(x² + 1))
+ *
+ * @param real_t x
+ * @return real_t
+ */
 
 real_t
 real_asinh(real_t x)
@@ -16,7 +22,7 @@ real_asinh(real_t x)
         z = real_add(y, c);
         w = real_sqrt(z);
         k = real_add(x, w);
-        h = real_ln(k);
+        h = real_log(k);
 
         /* Return */
         return h;

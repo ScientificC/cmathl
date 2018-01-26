@@ -35,7 +35,7 @@
         #define ared(X) real_ared(X)
         #define fact(X) real_fact(X)
         #define exp(X) real_exp(X)
-        #define ln(X) real_ln(X)
+        #define ln(X) real_log(X)
         #define log(X) real_log(X)
         #define log_b(X, Y) real_log_b(X, Y)
         #define pow(X, Y) real_pow(X, Y)

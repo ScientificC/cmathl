@@ -1,6 +1,13 @@
 #include <stdlib.h>
 #include <cml.h>
 
+/*
+ * Computes absolute value of a floating point value
+ *
+ * @param real_t x
+ * @return real_t
+ */
+
 real_t
 real_abs(real_t x)
 {

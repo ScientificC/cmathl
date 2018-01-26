@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <cml.h>
 
-/* asin(x) = atan(x / sqrt(1 − x²)) */
+/*
+ * Computes real arc sine
+ * --| asin(x) = atan(x / sqrt(1 − x²))
+ *
+ * @param real_t x
+ * @return real_t
+ */
 
 real_t
 real_asin(real_t x)

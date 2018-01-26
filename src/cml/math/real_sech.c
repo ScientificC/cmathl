@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * "sech(x)" function developed by using Euler relationships
+ * Computes real hyperbolic secant function by using Euler relationships
  *
- * @param real x
- *
- * @return real sech(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

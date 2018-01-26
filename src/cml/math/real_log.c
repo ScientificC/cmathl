@@ -2,16 +2,15 @@
 #include <cml.h>
 
 /*
- * ln(x) function developed by using hyperbolic definition of Taylor Series
- * where ln(x) = arctanh((x^2 - 1)/(x^2 + 1))
+ * Computes real natural logarithm function by using hyperbolic definition
+ * --| log(x) = arctanh((x^2 - 1)/(x^2 + 1))
  *
- * @param real x
- *
- * @return real log(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t
-real_ln(real_t x)
+real_log(real_t x)
 {
         /* Domain check */
         if (x <= 0) {

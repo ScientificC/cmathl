@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * atanh(x) function developed by using trigonometric identities
+ * Computes real hyperbolic arc tangent
  *
- * @param real x
- *
- * @return real atanh(x)
+ * @param real_t x
+ * @return real_t
  */
 
 _CML_EXTERN_INLINE cml_math_t

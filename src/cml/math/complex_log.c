@@ -14,7 +14,7 @@ complex_log(complex_t z)
 
         /* Mathematical algorithm */
         a = complex_abs(z);
-        x = real_ln(a);
+        x = real_log(a);
         y = complex_arg(z);
         w = complex(x, y);
 

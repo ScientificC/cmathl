@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * csc(x) function developed by using trigonometric identities
+ * Computes real cosecant
  *
- * @param real x
- *
- * @return real csc(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

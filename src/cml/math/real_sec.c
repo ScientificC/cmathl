@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * sec(x) function developed by using trigonometric identities
+ * Computes real secant function by using trigonometric identities
  *
- * @param real x
- *
- * @return real sec(x)
+ * @param real_t x
+ * @return real_t
  */
 
 real_t

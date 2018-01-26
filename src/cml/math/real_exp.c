@@ -2,11 +2,10 @@
 #include <cml.h>
 
 /*
- * Development of the Taylor series of the function e^x
+ * Returns e raised to the given power
  *
- * @param real x: Exponent of the function
- *
- * @return real e^x
+ * @param real_t x: Exponent of the function
+ * @return real_t
  */
 
 real_t
