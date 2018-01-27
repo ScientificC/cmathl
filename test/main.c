@@ -51,6 +51,18 @@ int main(int argc, char const *argv[])
 
 int run_tests()
 {
+        CATEGORY_BEGIN(Macros)
+        {
+                TEST_BEGIN(Math)
+                {
+                        EXPECT_FLOAT_EQ(NAN, NAN);
+                        EXPECT_FLOAT_EQ(INF, INF);
+                        EXPECT_FLOAT_EQ(NINF, -INF);
+                }
+                TEST_END()
+        }
+        CATEGORY_END()
+
         CATEGORY_BEGIN(Real)
         {
                 TEST_BEGIN(Initialization)
