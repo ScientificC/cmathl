@@ -29,12 +29,12 @@ quaternion_create_from_euler_angles(real_t alpha, real_t beta, real_t gamma) {
 }
 
 quaternion_t
-quaternion_real_sqrt(quaternion_t q)
+quaternion_sqrt(quaternion_t q)
 {
         real_t absolute = quaternion_absolute(q);
         quaternion_t r;
 
-        if(real_abs(1 + q.w/absolute) < _QUATERNION_EPS*absolute) {
+        if(real_abs(1 + q.w/absolute) < _CML_QUATERNION_EPS*absolute) {
                 r = {0.0, 1.0, 0.0, 0.0};
         } else {
                 real_t c = real_sqrt(absolute/(2 + 2*q.w/absolute));
@@ -50,17 +50,17 @@ quaternion_real_sqrt(quaternion_t q)
 }
 
 quaternion_t
-quaternion_real_log(quaternion_t q)
+quaternion_log(quaternion_t q)
 {
         quaternion_t r;
         real_t b = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
-        if(real_abs(b) <= _QUATERNION_EPS*real_abs(q.w)) {
+        if(real_abs(b) <= _CML_QUATERNION_EPS*real_abs(q.w)) {
                 if(q.w < 0.0) {
                         /* fprintf(stderr, "Input quaternion(%.15g, %.15g, %.15g, %.15g)
                            has no unique logarithm; returning one arbitrarily.",
                            q.w, q.x, q.y, q.z);*/
-                        if(real_abs(q.w + 1)>_QUATERNION_EPS) {
+                        if(real_abs(q.w + 1)>_CML_QUATERNION_EPS) {
                                 r = { real_log(-q.w), PI, 0., 0. };
                         } else {
                                 r = {0., PI, 0., 0.};
@@ -111,7 +111,7 @@ quaternion_exp(quaternion_t q)
         quaternion_t r;
         real_t vnorm = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
-        if (vnorm > _QUATERNION_EPS) {
+        if (vnorm > _CML_QUATERNION_EPS) {
                 real_t s = real_sin(vnorm) / vnorm,
                        e = real_exp(q.w);
 
