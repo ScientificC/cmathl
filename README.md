@@ -21,6 +21,7 @@ cc ... -I./lib/cml/src
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
 - `CML_DOUBLE_PRECISION`
+- `CML_NO_ALIASES`
 - `CML_NO_EASING_FUNCTIONS`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
@@ -61,6 +62,12 @@ The easing functions are an implementation of the functions presented in [easing
 Easing functions take a value inside the range `[0.0, 1.0]` and usually will return a value inside that same range. However, in some of the easing functions, the returned value extrapolate that range (Check the [easings.net](http://easings.net/) to see those functions).
 
 By defining `CML_NO_EASING_FUNCTIONS`, the easing functions will not be defined.
+
+### Math functions aliases
+
+Currently, all functions defined in cml have an alias which allows greater readability when working with the library. These aliases allow, for example, functions such as `real_sin` and`complex_cosh` to have aliases that are much more readable, such as `sin` and`ccosh` respectively. Then, this could bring certain incompatibilities with libraries like `math`, since these aliases will be defined as long as they are not indicated otherwise, and this may not be compatible with math definitions.
+
+By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only the original functions names and, thus, allowing greater compatibility.
 
 ### Math Precision
 
