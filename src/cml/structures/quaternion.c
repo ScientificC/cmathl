@@ -102,6 +102,7 @@ quaternion_scalar_power(real_t s, quaternion_t q)
                 quaternion_t t = {real_log(-s), PI, 0, 0};
                 return quaternion_exp(quaternion_multiply(q, t));
         }
+
         return quaternion_exp(quaternion_multiply_scalar(q, real_log(s)));
 }
 

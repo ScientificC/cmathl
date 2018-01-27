@@ -19,77 +19,21 @@ SRC_EASING_FILES := exponential \
 										elastic \
 										circular
 
+SRC_MATH_FILES := real \
+									complex
 
-SRC_MATH_FILES := real_acos \
-									complex_tanh \
-									real_equals \
-									real_log_b \
-									real_floor \
-									real_exp \
-									real_asinh \
-									real_sqrt \
-									real_isinteger \
-									real_isnatural \
-									complex_cos \
-									complex_log_b \
-									complex_csc \
-									real_ceil \
-									real_cosh \
-									complex_add \
-									real_cos \
-									real_root \
-									complex_tan \
-									real_pow \
-									complex_arg \
-									real_div_e \
-									real_coth \
-									real_ismult \
-									complex_sec \
-									real_isgreater_or_equals \
-									real_sgn \
-									real_abs \
-									real_sinh \
-									complex_log \
-									complex_exp \
-									real_csch \
-									real_asin \
-									real_opposite \
-									real_ared \
-									real_mod \
-									complex_scalar_prod \
-									real_acosh \
-									real_sin \
-									complex_div \
-									real_add \
-									complex_cot \
-									real_sech \
-									real_log \
-									real_isless \
-									real_isnull \
-									real_prod \
-									complex_conjugate \
-									real_atan2 \
-									complex_cosh \
-									real_csc \
-									real_isgreater \
-									complex_prod \
-									real_tan \
-									complex \
-									real_tanh \
-									complex_sin \
-									complex_sinh \
-									complex_inverse \
-									real_cot \
-									real_sec \
-									real_isless_or_equals \
-									real_atan \
-									real_inverse \
-									complex_abs \
-									real_div \
-									real_sub \
-									real_atanh \
-									complex_sub \
-									real
+SRC_MATH_REAL_FILES := basic \
+										   classification \
+											 exponential \
+											 hyperbolic \
+											 nearest-integer \
+											 power \
+											 trigonometric
+
+SRC_MATH_COMPLEX_FILES := basic \
+													exponential \
+													hyperbolic \
+													trigonometric
 
 CML_TEST_FILES := main
 
@@ -109,6 +53,14 @@ test: clean folders test.o $(TEMPORAL_FOLDER) $(BUILD_FOLDER)
 cml.o:
 		for file in $(SRC_MATH_FILES); do \
 				$(CC) -c $(SOURCE_FOLDER)/cml/math/$$file.c -o $(TEMPORAL_FOLDER)/$$file.o $(CFLAG) $(DEBUG); \
+		done
+
+		for file in $(SRC_MATH_REAL_FILES); do \
+				$(CC) -c $(SOURCE_FOLDER)/cml/math/real/$$file.c -o $(TEMPORAL_FOLDER)/real_$$file.o $(CFLAG) $(DEBUG); \
+		done
+
+		for file in $(SRC_MATH_COMPLEX_FILES); do \
+				$(CC) -c $(SOURCE_FOLDER)/cml/math/complex/$$file.c -o $(TEMPORAL_FOLDER)/complex_$$file.o $(CFLAG) $(DEBUG); \
 		done
 
 		for file in $(SRC_EASING_FILES); do \

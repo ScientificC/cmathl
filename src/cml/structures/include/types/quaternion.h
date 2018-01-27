@@ -21,6 +21,9 @@ typedef struct _quaternion
         };
 } quaternion_t;
 
-#define _QUATERNION_EPS 1e-14
+#define _CML_QUATERNION_EPS 1e-14
+
+quaternion_t quaternion_create_from_spherical_coords(real_t, real_t);
+quaternion_t quaternion_create_from_euler_angles(real_t, real_t, real_t);
 
 #endif
