@@ -9,8 +9,8 @@ complex_abs(complex_t z)
 
         /* Mathematical algorithm */
         n = 2.0;
-        a = real_pow(creal(z), n);
-        b = real_pow(cimag(z), n);
+        a = real_pow(z.re, n);
+        b = real_pow(z.im, n);
         w = real_add(a, b);
         h = real_sqrt(w);
 
@@ -32,8 +32,8 @@ complex_add(complex_t z, complex_t k)
         real_t n, m;
 
         /* Mathematical algorithm */
-        n = real_add(creal(z), creal(k));
-        m = real_add(cimag(z), cimag(k));
+        n = real_add(z.re, creal(k));
+        m = real_add(z.im, cimag(k));
         w = complex(n, m);
 
         /* Return */
