@@ -14,11 +14,33 @@ complex(real_t real_part, real_t imaginary_part)
         return z;
 }
 
+
+complex_t
+complex_nan()
+{
+        return complex(
+                real_nan(),
+                real_nan()
+                );
+}
+
+
+complex_t
+complex_inf()
+{
+        return complex(
+                real_inf(),
+                real_inf()
+                );
+}
+
+
 complex_t
 complex_clone(complex_t w)
 {
         return complex(w.re, w.im);
 }
+
 
 char *
 complex_as_string(complex_t z)

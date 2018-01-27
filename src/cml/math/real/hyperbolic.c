@@ -91,7 +91,7 @@ real_atanh(real_t x)
         c = (1.0);
         h = real_is_greater(c, y) ?
             ((real_t) __atanh__(x)) :
-            (NAN);
+            (real_nan());
 
         /* Return */
         return h;

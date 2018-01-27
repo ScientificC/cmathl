@@ -108,7 +108,7 @@ real_inverse(real_t x)
         /* Mathematical algorithm */
         y = (1.0);
         h = real_is_null(x) ?
-            NAN :
+            real_nan() :
             real_div(y, x);
 
         /* Return */

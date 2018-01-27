@@ -15,7 +15,14 @@ typedef struct _complex
 } complex_t;
 
 complex_t complex(real_t, real_t);
+complex_t complex_nan();
+complex_t complex_inf();
 complex_t complex_clone(complex_t);
 char * complex_as_string(complex_t);
+
+#ifndef CML_UNAMBIGUOUS_MODE
+        #define nan() complex_nan()
+        #define inf() complex_inf()
+#endif
 
 #endif

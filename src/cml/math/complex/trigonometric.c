@@ -41,7 +41,7 @@ complex_cot(complex_t z)
         complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
         if (!real_is_null(a)) {
-                return complex(NAN, NAN);
+                return complex_nan();
         }
 
         /* Declaration of variables and structures */
@@ -63,7 +63,7 @@ complex_csc(complex_t z)
         complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
         if (!real_is_null(a)) {
-                return complex(NAN, NAN);
+                return complex_nan();
         }
 
         /* Declaration of variables and structures */
@@ -84,7 +84,7 @@ complex_sec(complex_t z)
         complex_t c = complex_cos(z);
         real_t a = complex_abs(c);
         if (!real_is_null(a)) {
-                return complex(NAN, NAN);
+                return complex_nan();
         }
 
         /* Declaration of variables and structures */
@@ -138,7 +138,7 @@ complex_tan(complex_t z)
         complex_t c = complex_cos(z);
         real_t a = complex_abs(c);
         if (!real_is_null(a)) {
-                return complex(NAN, NAN);
+                return complex_nan();
         }
 
         /* Declaration of variables and structures */

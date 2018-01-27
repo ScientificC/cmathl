@@ -17,7 +17,7 @@ real_pow(real_t x, real_t n)
         /* Domain check */
         if (real_is_null(x)) {
                 return real_is_null(n) ?
-                       NAN :
+                       real_nan() :
                        x;
         }
 

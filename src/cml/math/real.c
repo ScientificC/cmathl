@@ -3,6 +3,20 @@
 #include <string.h>
 #include <cml.h>
 
+real_t
+real_nan()
+{
+        return (real_t) NAN;
+}
+
+
+real_t
+real_inf()
+{
+        return (real_t) INF;
+}
+
+
 char *
 real_as_string(real_t x)
 {

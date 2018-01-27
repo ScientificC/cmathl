@@ -69,7 +69,7 @@ real_log(real_t x)
 {
         /* Domain check */
         if (x <= 0) {
-                return NAN;
+                return real_nan();
         }
 
         /* Declaration of variables and structures */

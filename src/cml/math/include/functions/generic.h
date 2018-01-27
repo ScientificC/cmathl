@@ -29,7 +29,6 @@
                  real_t: _CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
-
         #define equals(X, Y) _CML_BOTH_GENERIC_FUNC(equals, X, Y)
         #define is_null(X) _CML_BOTH_GENERIC_FUNC(is_null, X)
         #define is_natural(X) _CML_REAL_GENERIC_FUNC(is_natural, X)
