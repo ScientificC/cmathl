@@ -95,6 +95,97 @@ y = 2.0;
 z = pow(x, y);
 ```
 
+#### Functions
+
+##### Basic Functions
+
+```c
+real_t real_abs(real_t);
+real_t real_add(real_t, real_t);
+real_t real_ared(real_t);
+real_t real_div_e(real_t, real_t);
+real_t real_div(real_t, real_t);
+real_t real_inverse(real_t);
+real_t real_mod(real_t, real_t);
+real_t real_opposite(real_t);
+real_t real_prod(real_t, real_t);
+real_t real_sgn(real_t);
+real_t real_sub(real_t, real_t);
+```
+
+##### Exponential Functions
+
+```c
+real_t real_exp(real_t);
+real_t real_log(real_t);
+real_t real_log_b(real_t, real_t);
+```
+
+##### Power Functions
+
+```c
+real_t real_pow(real_t, real_t);
+real_t real_root(real_t, real_t);
+real_t real_sqrt(real_t);
+```
+
+##### Trigonometric Functions
+
+```c
+real_t real_acos(real_t);
+real_t real_asin(real_t);
+real_t real_atan(real_t);
+real_t real_atan2(real_t, real_t);
+real_t real_cos(real_t);
+real_t real_cot(real_t);
+real_t real_csc(real_t);
+real_t real_sec(real_t);
+real_t real_sin(real_t);
+real_t real_tan(real_t);
+```
+
+##### Hyperbolic Functions
+
+```c
+real_t real_acosh(real_t);
+real_t real_asinh(real_t);
+real_t real_atanh(real_t);
+real_t real_cosh(real_t);
+real_t real_coth(real_t);
+real_t real_csch(real_t);
+real_t real_sech(real_t);
+real_t real_sinh(real_t);
+real_t real_tanh(real_t);
+```
+
+##### Error and Gamma Functions
+
+```c
+real_t real_gamma(real_t);
+real_t real_error(real_t);
+```
+
+##### Nearest Integer Floating Point Operations
+
+```c
+real_t real_ceil(real_t);
+real_t real_floor(real_t);
+```
+
+##### Classification Functions
+
+```c
+bool real_equals(real_t, real_t);
+bool real_is_greater_or_equals(real_t, real_t);
+bool real_is_greater(real_t, real_t);
+bool real_is_integer(real_t);
+bool real_is_less_or_equals(real_t, real_t);
+bool real_is_less(real_t, real_t);
+bool real_is_mult(real_t, real_t);
+bool real_is_natural(real_t);
+bool real_is_null(real_t);
+```
+
 ### Complex
 
 CML defines a large number of operations for the set of complex numbers. For this, the type `complex_t` is provided. Here is an example on how to work with this type of data:
