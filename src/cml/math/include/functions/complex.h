@@ -7,7 +7,7 @@
 #include "complex/hyperbolic.h"
 #include "complex/trigonometric.h"
 
-#ifndef CML_UNAMBIGUOUS_MODE
+#ifndef CML_NO_ALIASES
         #define cequals(X, Y) complex_equals(X, Y)
         #define cis_null(X) complex_is_null(X)
         #define cis_mult(X, Y) complex_is_mult(X, Y)

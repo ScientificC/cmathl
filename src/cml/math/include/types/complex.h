@@ -20,7 +20,7 @@ complex_t complex_inf();
 complex_t complex_clone(complex_t);
 char * complex_as_string(complex_t);
 
-#ifndef CML_UNAMBIGUOUS_MODE
+#ifndef CML_NO_ALIASES
         #define cnan() complex_nan()
         #define cinf() complex_inf()
 #endif

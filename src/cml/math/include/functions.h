@@ -8,7 +8,7 @@
 #include "functions/complex.h"
 #include "functions/real.h"
 
-#if !(defined CML_UNAMBIGUOUS_MODE || defined _CML_NO_GENERIC)
+#if !(defined CML_NO_ALIASES || defined _CML_NO_GENERIC)
         #include "functions/generic.h"
 #endif
 

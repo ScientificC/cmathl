@@ -10,7 +10,7 @@
 #include "real/trigonometric.h"
 #include "real/hyperbolic.h"
 
-#if (defined _CML_NO_GENERIC && !defined CML_UNAMBIGUOUS_MODE)
+#if (defined _CML_NO_GENERIC && !defined CML_NO_ALIASES)
         #define equals(X, Y) real_equals(X, Y)
         #define is_null(X) real_is_null(X)
         #define is_natural(X) real_is_natural(X)
