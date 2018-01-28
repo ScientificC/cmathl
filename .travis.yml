@@ -7,11 +7,11 @@ os:
 
 compiler:
   - gcc
-  - g++
   - clang
-  - clang++
 
 script:
+  - mkdir build
+  - cd build
+  - cmake .. -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double -DCML_BUILD_TESTS=ON
   - make
   - make test
-  - make test-run

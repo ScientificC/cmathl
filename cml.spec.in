@@ -1,0 +1,62 @@
+Name:		@CPACK_PACKAGE_NAME@
+Version:	@CPACK_PACKAGE_VERSION@
+Release:	@CPACK_RPM_PACKAGE_RELEASE@%{dist}
+Summary:	A pure-C math library with a great variety of mathematical functions. Seeks to be close to C89/C90 compliant for portability.
+
+Vendor:         @CPACK_PACKAGE_VENDOR@
+Packager:	@CPACK_PACKAGE_VENDOR@ <@CPACK_PACKAGE_CONTACT@>
+
+License:        GNU
+URL:            @CPACK_PACKAGE_URL@
+Source0:	%{name}-%{version}.tar.gz
+
+BuildRequires:  cmake >= 3.0
+BuildRequires:	gcc, make
+#Prefix: @CPACK_PACKAGING_INSTALL_PREFIX@
+
+%description
+%{name} A pure-C math library with a great variety of mathematical functions. Seeks to be close to C89/C90 compliant for portability.
+
+%package        development
+Summary:        Header files, libraries and development documentation for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+
+%description    devel
+This package contains the header files for %{name}.
+
+%package        doc
+Summary:        Development documentation for %{name}
+BuildArch:      noarch
+
+%description    doc
+This package contains the development documentation for %{name}.
+
+%prep
+%setup -q
+#%setup -q -n %{name}-%{version}
+
+%build
+%cmake . -DCML_BUILD_STATIC=OFF -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double && \
+ctest -V %{?_smp_mflags} -DCML_BUILD_STATIC=OFF -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double && \
+make %{?_smp_mflags} all
+
+%install
+make install DESTDIR=$RPM_BUILD_ROOT
+
+%check
+ctest -V %{?_smp_mflags}
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%files
+%license %{_licensedir}/lib%{name}/LICENSE
+%{_libdir}/libcml*.so.*
+
+%files devel
+%{_includedir}/%{name}/
+%{_libdir}/libcml.so
+
+%files doc
+%{_docdir}/lib%{name}/README.md

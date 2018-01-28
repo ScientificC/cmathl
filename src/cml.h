@@ -71,6 +71,4 @@
         #include <cml/include/easings.h>
 #endif
 
-#include <cml/include/version.h>
-
 #endif
