@@ -97,6 +97,8 @@ z = pow(x, y);
 
 #### Functions
 
+Below are the prototypes of the functions provided for this type of data.
+
 ##### Basic Functions
 
 ```c
@@ -117,8 +119,8 @@ real_t real_sub(real_t, real_t);
 
 ```c
 real_t real_exp(real_t);
-real_t real_log(real_t);
 real_t real_log_b(real_t, real_t);
+real_t real_log(real_t);
 ```
 
 ##### Power Functions
@@ -207,6 +209,75 @@ complex_t z, w;
 
 z = complex(1.0, 4.0);
 w = cexp(z);
+```
+
+#### Functions
+
+Below are the prototypes of the functions provided for this type of data.
+
+##### Basic Functions
+
+```c
+real_t complex_abs(complex_t);
+real_t complex_arg(complex_t);
+complex_t complex_add(complex_t, complex_t);
+complex_t complex_conjugate(complex_t);
+complex_t complex_div(complex_t, complex_t);
+complex_t complex_inverse(complex_t);
+complex_t complex_prod(complex_t, complex_t);
+complex_t complex_scalar_prod(complex_t, real_t);
+complex_t complex_sub(complex_t, complex_t);
+```
+
+##### Exponential Functions
+
+```c
+complex_t complex_exp(complex_t);
+complex_t complex_log_b(complex_t, complex_t);
+complex_t complex_log(complex_t);
+```
+
+##### Power Functions
+
+```c
+complex_t complex_pow(complex_t, complex_t);
+complex_t complex_root(complex_t, complex_t);
+complex_t complex_sqrt(complex_t);
+```
+
+##### Trigonometric Functions
+
+```c
+complex_t complex_sin(complex_t);
+complex_t complex_cos(complex_t);
+complex_t complex_tan(complex_t);
+complex_t complex_sec(complex_t);
+complex_t complex_csc(complex_t);
+complex_t complex_cot(complex_t);
+complex_t complex_asin(complex_t);
+complex_t complex_acos(complex_t);
+complex_t complex_atan(complex_t);
+complex_t complex_atan2(complex_t, complex_t);
+```
+
+##### Hyperbolic Functions
+
+```c
+complex_t complex_sinh(complex_t);
+complex_t complex_cosh(complex_t);
+complex_t complex_tanh(complex_t);
+complex_t complex_csch(complex_t);
+complex_t complex_sech(complex_t);
+complex_t complex_coth(complex_t);
+complex_t complex_asinh(complex_t);
+complex_t complex_acosh(complex_t);
+complex_t complex_atanh(complex_t);
+```
+
+##### Error and Gamma Functions
+
+```c
+complex_t complex_error(complex_t);
 ```
 
 ## A simple example
