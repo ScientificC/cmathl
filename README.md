@@ -229,17 +229,12 @@ complex_t complex_scalar_prod(complex_t, real_t);
 complex_t complex_sub(complex_t, complex_t);
 ```
 
-##### Exponential Functions
+##### Exponentiation Functions
 
 ```c
 complex_t complex_exp(complex_t);
 complex_t complex_log_b(complex_t, complex_t);
 complex_t complex_log(complex_t);
-```
-
-##### Power Functions
-
-```c
 complex_t complex_pow(complex_t, complex_t);
 complex_t complex_root(complex_t, complex_t);
 complex_t complex_sqrt(complex_t);

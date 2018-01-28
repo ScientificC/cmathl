@@ -31,7 +31,7 @@ SRC_MATH_REAL_FILES := basic \
 											 trigonometric
 
 SRC_MATH_COMPLEX_FILES := basic \
-													exponential \
+													exponentiation \
 													hyperbolic \
 													trigonometric
 

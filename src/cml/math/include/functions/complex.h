@@ -3,7 +3,7 @@
 
 #include "complex/basic.h"
 #include "complex/error.h"
-#include "complex/exponential.h"
+#include "complex/exponentiation.h"
 #include "complex/hyperbolic.h"
 #include "complex/trigonometric.h"
 
