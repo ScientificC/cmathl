@@ -22,8 +22,8 @@ build_script:
    --config %configuration%
    -DCMAKE_BUILD_TYPE=%configuration%
    -DCMAKE_INSTALL_PREFIX=../install
-   -DHYPATIA_BUILD_STATIC=ON
-   -DHYPATIA_BUILD_SHARED=ON
+   -DCML_BUILD_STATIC=ON
+   -DCML_BUILD_SHARED=ON
    -Dmfloat_t=double
    -DCML_DOUBLE_PRECISION=ON
    ..
