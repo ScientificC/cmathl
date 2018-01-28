@@ -18,7 +18,8 @@ script:
   - cd build
   - cmake --version
   - cmake -trace --warn-uninitialized --warn-unused_vars -Wdev -G "Unix Makefiles" .. -DCML_BUILD_TESTS=ON $FLAGS
-  - make && ctest && make install && cpack -G "TGZ"
+  - make && ctest
+  - sudo make install && cpack -G "TGZ"
 
 addons:
   apt:
