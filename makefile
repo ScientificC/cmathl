@@ -1,7 +1,7 @@
 SOURCE_FOLDER := src
 TEST_FOLDER := test
-BUILD_FOLDER := .build
-TEMPORAL_FOLDER := .tmp
+BUILD_FOLDER := build
+TEMPORAL_FOLDER := tmp
 TEST_OUTPUT_NAME := test
 INSTALL_FOLDER=/usr/bin
 
