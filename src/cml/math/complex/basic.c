@@ -166,8 +166,8 @@ complex_sub(complex_t z, complex_t k)
         real_t n, m;
 
         /* Mathematical algorithm */
-        n = real_opposite(z.re);
-        m = real_opposite(z.im);
+        n = real_opposite(k.re);
+        m = real_opposite(k.im);
         w = complex(n, m);
         h = complex_add(z, w);
 
