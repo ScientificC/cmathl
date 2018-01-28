@@ -14,73 +14,61 @@
         #endif
 #endif
 
+#ifdef __cplusplus
+        #ifdef __cplusplus
+                #if __cplusplus >= 199901L
+                        #define PREDEF_STANDARD_CPP99
+                        #if __cplusplus >= 201112L
+                                #define PREDEF_STANDARD_CPP11
+                        #endif
+                #endif
+        #endif
+#endif
+
+#ifdef _MSC_VER
+        #define _CML_INLINE __forceinline
+#else
+        #define _CML_INLINE inline __attribute__((always_inline))
+#endif
+
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
-        #define CML_EXTERN_INLINE extern inline __attribute__((always_inline))
+        #define _CML_EXTERN_INLINE extern _CML_INLINE
 #else
-        #define CML_EXTERN_INLINE
+        #undef _CML_EXTERN_INLINE
+        #undef CML_DOUBLE_PRECISION
+        #undef mfloat_t
+
+        #define _CML_EXTERN_INLINE
         #define CML_DOUBLE_PRECISION
         #define mfloat_t double
 #endif
 
-#if !defined PREDEF_STANDARD_C11 || !defined _Generic
-        #define CML_NO_GENERIC
+#ifndef PREDEF_STANDARD_C11
+        #undef _CML_NO_GENERIC
+        #define _CML_NO_GENERIC
 #endif
 
-#ifndef CML_NO_GENERIC
-        #define CML_NO_FUNCTION_POINTER
+#define _CML_ARGS_FIRST(A, ...) A
+
+#ifndef __type
+#define __type(__e, __t)                                                \
+        __builtin_types_compatible_p(__typeof(__e), __t)
 #endif
 
-#ifdef __cplusplus
-extern "C"
-{
+#ifndef __same_type
+        #define __same_type(__a, __b) \
+        __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
-#include <math/include/math.h>
-#include <generic/functions.h>
+#include "cml/include/math.h"
 
-#ifdef CML_NO_GENERIC
-/* Only work with the macros defined in <math/include/math.h> */
-#else
-        #undef clone
-        #undef complex_new
-        #undef real_new
-
-        #define clone(X) _Generic((X), \
-                                  complex_t*: _complex_clone, \
-                                  real_t*: _real_clone \
-                                  )(X)
-
-        #define complex_new(X, Y) _Generic((X), \
-                                   default: _Generic((Y), \
-                                             default: _complex_new \
-                                                     ), \
-                                           mfloat_t: _Generic((Y), \
-                                                      default: _complex_new, \
-                                                              mfloat_t: _complex_new \
-                                                              ), \
-                                           real_t*: _Generic((Y), \
-                                                     default: _complex_new_from_reals, \
-                                                             real_t*: _complex_new_from_reals \
-                                                             ) \
-                                           )(X, Y)
-
-        #define real_new(X) _Generic((X), \
-                             default: _real_new, \
-                                     mfloat_t: _real_new, \
-                                     real_t*: _real_clone \
-                                     )(X)
+#ifndef CML_NO_STRUCTURES
+        #include "cml/include/structures.h"
 #endif
 
-#define real(X) real_new(X)
-#define complex(X, Y) complex_new(X, Y)
-
-#ifdef CML_SERIES_RESOLVER
-        #include <utils/include/series_resolver.h>
-#endif
-
-#ifdef __cplusplus
-}
+#ifndef CML_NO_EASING_FUNCTIONS
+        #include "cml/include/easings.h"
 #endif
 
 #endif

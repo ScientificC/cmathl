@@ -1,5 +1,6 @@
-.build/*
-.tmp/*
+src/config.h
+build/*
+tmp/*
 
 # Prerequisites
 *.d

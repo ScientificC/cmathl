@@ -1,0 +1,4 @@
+#ifndef CML_QUATERNION_FUNC_H
+#define CML_QUATERNION_FUNC_H
+
+#endif
