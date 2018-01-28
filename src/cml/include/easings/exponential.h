@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <easings/include/exponential.h> directly; include <cml.h> instead."
+#error "Never use <cml/include/easings/exponential.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_EASINGS_EXPONENTIAL_H

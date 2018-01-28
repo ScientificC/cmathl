@@ -5,9 +5,9 @@
 #ifndef CML_MATH_H
 #define CML_MATH_H
 
-#include "math/include/consts.h"
-#include "math/include/types.h"
-#include "math/include/functions.h"
+#include "math/consts.h"
+#include "math/types.h"
+#include "math/functions.h"
 
 #ifndef CML_SERIES_TOP_IT_L
 #define CML_SERIES_TOP_IT_L MAXLOG*14

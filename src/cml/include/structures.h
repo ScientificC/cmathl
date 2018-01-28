@@ -5,6 +5,6 @@
 #ifndef CML_STRUCTURES_H
 #define CML_STRUCTURES_H
 
-#include "structures/include/types.h"
+#include "structures/types.h"
 
 #endif
