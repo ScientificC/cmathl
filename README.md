@@ -143,7 +143,6 @@ real_t real_cot(real_t);
 real_t real_asin(real_t);
 real_t real_acos(real_t);
 real_t real_atan(real_t);
-real_t real_atan2(real_t, real_t);
 ```
 
 ##### Hyperbolic Functions
