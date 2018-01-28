@@ -1,0 +1,17 @@
+INCLUDE_DIRECTORIES(${Cml_SOURCE_DIR}/src)
+
+
+INCLUDE(../cmake/CMakeBuildFlags.cmake)
+
+
+IF(HYPATIA_BUILD_SHARED)
+	ADD_EXECUTABLE(test_cml_shared main.c)
+	TARGET_LINK_LIBRARIES(test_cml_shared cml ${LIBM})
+	ADD_TEST(NAME test_cml_shared COMMAND test_cml_shared)
+ENDIF()
+
+IF(HYPATIA_BUILD_STATIC)
+	ADD_EXECUTABLE(test_cml_static main.c)
+	TARGET_LINK_LIBRARIES(test_cml_static cml_static ${LIBM})
+	ADD_TEST(NAME test_cml_static COMMAND test_cml_static)
+ENDIF()
