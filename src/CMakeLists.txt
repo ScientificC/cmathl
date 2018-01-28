@@ -1,7 +1,7 @@
 INCLUDE_DIRECTORIES(.)
 
-OPTION(CML_DOUBLE_PRECISION_FLOATS "Use double precision floating point values" BOOL:FALSE)
-IF(CML_DOUBLE_PRECISION_FLOATS)
+OPTION(CML_DOUBLE_PRECISION "Use double precision floating point values" BOOL:FALSE)
+IF(CML_DOUBLE_PRECISION)
 	MESSAGE(STATUS "Using double-precision floating point values")
 ELSE()
 	MESSAGE(STATUS "Using single-precision floating point values")
@@ -15,7 +15,6 @@ configure_file(
 SET( CML_HEADERS
 		cml.h
 		cml/include/structures.h
-		cml/include/version.h
 		cml/include/math.h
 		cml/include/structures/functions/quaternion.h
 		cml/include/structures/types.h
@@ -59,7 +58,6 @@ SET( CML_HEADERS
 )
 
 SET( Cml_SRCS
-		cml/structures/quaternion.c
 		cml/math/complex/trigonometric.c
 		cml/math/complex/hyperbolic.c
 		cml/math/complex/basic.c
@@ -106,7 +104,7 @@ INCLUDE(../cmake/CMakeBuildFlags.cmake)
 
 # unit tests do not use strict-prototypes, so this is here
 IF(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstrict-prototypes")
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 ENDIF()
 
 SET(CMAKE_POSITION_INDEPENDENT_CODE ON)

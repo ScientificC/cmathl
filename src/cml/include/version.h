@@ -1,8 +1,0 @@
-#ifndef CML_VERSION_H
-#define CML_VERSION_H
-
-#define CML_VERSION 100900200
-
-#define CML_VERSION_STRING "1.9.2"
-
-#endif
