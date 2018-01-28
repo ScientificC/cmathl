@@ -132,30 +132,30 @@ real_t real_sqrt(real_t);
 ##### Trigonometric Functions
 
 ```c
-real_t real_acos(real_t);
+real_t real_sin(real_t);
+real_t real_cos(real_t);
+real_t real_tan(real_t);
+real_t real_sec(real_t);
+real_t real_csc(real_t);
+real_t real_cot(real_t);
 real_t real_asin(real_t);
+real_t real_acos(real_t);
 real_t real_atan(real_t);
 real_t real_atan2(real_t, real_t);
-real_t real_cos(real_t);
-real_t real_cot(real_t);
-real_t real_csc(real_t);
-real_t real_sec(real_t);
-real_t real_sin(real_t);
-real_t real_tan(real_t);
 ```
 
 ##### Hyperbolic Functions
 
 ```c
-real_t real_acosh(real_t);
-real_t real_asinh(real_t);
-real_t real_atanh(real_t);
+real_t real_sinh(real_t);
 real_t real_cosh(real_t);
-real_t real_coth(real_t);
+real_t real_tanh(real_t);
 real_t real_csch(real_t);
 real_t real_sech(real_t);
-real_t real_sinh(real_t);
-real_t real_tanh(real_t);
+real_t real_coth(real_t);
+real_t real_asinh(real_t);
+real_t real_acosh(real_t);
+real_t real_atanh(real_t);
 ```
 
 ##### Error and Gamma Functions
