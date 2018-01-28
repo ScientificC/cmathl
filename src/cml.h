@@ -61,14 +61,14 @@
         __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
-#include <cml/include/math.h>
+#include "cml/include/math.h"
 
 #ifndef CML_NO_STRUCTURES
-        #include <cml/include/structures.h>
+        #include "cml/include/structures.h"
 #endif
 
 #ifndef CML_NO_EASING_FUNCTIONS
-        #include <cml/include/easings.h>
+        #include "cml/include/easings.h"
 #endif
 
 #endif

@@ -12,49 +12,64 @@ configure_file(
 	${CMAKE_CURRENT_SOURCE_DIR}/config.h
 )
 
-SET( CML_HEADERS
+SET(CML_MAIN_HEADERS
 		cml.h
-		cml/include/structures.h
-		cml/include/math.h
-		cml/include/structures/functions/quaternion.h
-		cml/include/structures/types.h
-		cml/include/structures/types/matrix4.h
-		cml/include/structures/types/quaternion.h
-		cml/include/structures/types/matrix3.h
-		cml/include/math/consts.h
-		cml/include/math/functions/complex/basic.h
-		cml/include/math/functions/complex/hyperbolic.h
-		cml/include/math/functions/complex/error.h
-		cml/include/math/functions/complex/exponentiation.h
-		cml/include/math/functions/complex/trigonometric.h
-		cml/include/math/functions/real.h
-		cml/include/math/functions/complex.h
-		cml/include/math/functions/generic.h
-		cml/include/math/functions/real/basic.h
-		cml/include/math/functions/real/classification.h
-		cml/include/math/functions/real/hyperbolic.h
-		cml/include/math/functions/real/power.h
-		cml/include/math/functions/real/exponential.h
-		cml/include/math/functions/real/nearest-integer.h
-		cml/include/math/functions/real/trigonometric.h
-		cml/include/math/functions/real/error-gamma.h
-		cml/include/math/functions.h
-		cml/include/math/types.h
-		cml/include/math/types/real.h
-		cml/include/math/types/complex.h
-		cml/include/math/types/bool.h
-		cml/include/easings.h
-		cml/include/easings/quadratic.h
-		cml/include/easings/linear.h
-		cml/include/easings/bounce.h
-		cml/include/easings/quartic.h
-		cml/include/easings/quintic.h
-		cml/include/easings/circular.h
-		cml/include/easings/back.h
-		cml/include/easings/exponential.h
-		cml/include/easings/sine.h
-		cml/include/easings/cubic.h
-		cml/include/easings/elastic.h
+)
+
+SET(CML_CML_HEADERS
+	cml/include/structures.h
+	cml/include/math.h
+	cml/include/easings.h)
+
+SET(CML_MATH_HEADERS
+	cml/include/math/consts.h
+	cml/include/math/functions.h
+	cml/include/math/types.h
+)
+
+SET(CML_MATH_TYPES_HEADERS
+	cml/include/math/types/real.h
+	cml/include/math/types/complex.h
+	cml/include/math/types/bool.h
+)
+
+SET(CML_MATH_FUNC_HEADERS
+	cml/include/math/functions/real.h
+	cml/include/math/functions/complex.h
+	cml/include/math/functions/generic.h
+)
+
+SET(CML_MATH_COMPLEX_HEADERS
+	cml/include/math/functions/complex/basic.h
+	cml/include/math/functions/complex/hyperbolic.h
+	cml/include/math/functions/complex/error.h
+	cml/include/math/functions/complex/exponentiation.h
+	cml/include/math/functions/complex/trigonometric.h
+)
+
+SET(CML_MATH_REAL_HEADERS
+	cml/include/math/functions/real/basic.h
+	cml/include/math/functions/real/classification.h
+	cml/include/math/functions/real/hyperbolic.h
+	cml/include/math/functions/real/power.h
+	cml/include/math/functions/real/exponential.h
+	cml/include/math/functions/real/nearest-integer.h
+	cml/include/math/functions/real/trigonometric.h
+	cml/include/math/functions/real/error-gamma.h
+)
+
+SET(CML_EASINGS_HEADERS
+	cml/include/easings/linear.h
+	cml/include/easings/bounce.h
+	cml/include/easings/quartic.h
+	cml/include/easings/quintic.h
+	cml/include/easings/circular.h
+	cml/include/easings/back.h
+	cml/include/easings/exponential.h
+	cml/include/easings/sine.h
+	cml/include/easings/cubic.h
+	cml/include/easings/elastic.h
+	cml/include/easings/quadratic.h
 )
 
 SET( Cml_SRCS
@@ -101,11 +116,6 @@ IF(CMAKE_COMPILER_IS_WINDOWS)
 ENDIF()
 
 INCLUDE(../cmake/CMakeBuildFlags.cmake)
-
-# unit tests do not use strict-prototypes, so this is here
-IF(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-ENDIF()
 
 SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
@@ -159,7 +169,14 @@ INSTALL(TARGETS ${CML_LIB_TARGET}
 		LIBRARY DESTINATION lib${LIB_SUFFIX}
 		ARCHIVE DESTINATION lib${LIB_SUFFIX}
 		)
-INSTALL(FILES ${CML_HEADERS} DESTINATION include/cml)
+INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
+INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml)
+INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/include/math)
+INSTALL(FILES ${CML_MATH_TYPES_HEADERS} DESTINATION include/cml/include/math/types)
+INSTALL(FILES ${CML_MATH_FUNC_HEADERS} DESTINATION include/cml/include/math/functions)
+INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/include/math/functions/complex)
+INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/include/math/functions/real)
+INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/include/easings)
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 #	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/cml.pdb DESTINATION bin)

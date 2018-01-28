@@ -36,8 +36,8 @@ This package contains the development documentation for %{name}.
 #%setup -q -n %{name}-%{version}
 
 %build
-%cmake . -DCML_BUILD_STATIC=OFF -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double && \
-ctest -V %{?_smp_mflags} -DCML_BUILD_STATIC=OFF -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double && \
+%cmake . && \
+ctest -V %{?_smp_mflags} && \
 make %{?_smp_mflags} all
 
 %install
