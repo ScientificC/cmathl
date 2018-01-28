@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <GL/gl.h>
 #include <cml.h>
 #include "include/test.h"
 
