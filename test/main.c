@@ -8,7 +8,7 @@
 
 int run_tests();
 
-int main(int argc, char const *argv[])
+int main()
 {
         clock_t cl = clock();
 

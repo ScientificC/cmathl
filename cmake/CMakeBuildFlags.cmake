@@ -11,12 +11,14 @@ endif()
 if(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
 	FIND_LIBRARY(LIBM m)
 
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Ofast")
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra -Wall")
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wundef -Wpointer-arith -Werror -Wcast-qual -Wcast-align")
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-missing-braces")
 endif()
 
 if(CMAKE_COMPILER_IS_GNUC)
 	if(CMAKE_C_COMPILER_VERSION VERSION_GREATER "5.3.0" AND NOT APPLE)
-		SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+		SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wtrampolines -Wunsafe-loop-optimizations")
 	endif()
 endif()
 
