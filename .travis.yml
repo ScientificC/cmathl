@@ -4,14 +4,23 @@ sudo: false
 
 os:
   - linux
+  - osx
 
 compiler:
   - gcc
   - clang
 
+env:
+  - FLAGS="-DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double"
+
 script:
   - mkdir build
   - cd build
-  - cmake .. -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double -DCML_BUILD_TESTS=ON
-  - make
-  - make test
+  - cmake --version
+  - cmake -trace --warn-uninitialized --warn-unused_vars -Wdev -G "Unix Makefiles" .. -DCML_BUILD_TESTS=ON $FLAGS
+  - make && ctest && make install && cpack -G "TGZ"
+
+addons:
+  apt:
+    packages:
+    - cmake
