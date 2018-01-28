@@ -27,8 +27,6 @@ build_script:
    -Dmfloat_t=double
    -DCML_DOUBLE_PRECISION=ON
    ..
- - cmake --build "%cd%" --config %configuration%
- - cmd: '"c:\Program Files (x86)\CMake\bin\cpack.exe" -G "ZIP" -C %configuration%'
 
 test_script:
  - ctest --output-on-failure
