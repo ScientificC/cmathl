@@ -1,12 +1,5 @@
 INCLUDE_DIRECTORIES(.)
 
-OPTION(CML_DOUBLE_PRECISION "Use double precision floating point values" BOOL:FALSE)
-IF(CML_DOUBLE_PRECISION)
-	MESSAGE(STATUS "Using double-precision floating point values")
-ELSE()
-	MESSAGE(STATUS "Using single-precision floating point values")
-ENDIF()
-
 configure_file(
 	${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake
 	${CMAKE_CURRENT_SOURCE_DIR}/config.h
