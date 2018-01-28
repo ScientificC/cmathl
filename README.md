@@ -143,6 +143,7 @@ real_t real_cot(real_t);
 real_t real_asin(real_t);
 real_t real_acos(real_t);
 real_t real_atan(real_t);
+real_t real_atan2(real_t, real_t);
 ```
 
 ##### Hyperbolic Functions
@@ -251,7 +252,6 @@ complex_t complex_cot(complex_t);
 complex_t complex_asin(complex_t);
 complex_t complex_acos(complex_t);
 complex_t complex_atan(complex_t);
-complex_t complex_atan2(complex_t, complex_t);
 ```
 
 ##### Hyperbolic Functions
