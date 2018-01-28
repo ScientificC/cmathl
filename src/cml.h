@@ -63,9 +63,11 @@
 
 #include "cml/include/math.h"
 
-#ifndef CML_NO_STRUCTURES
-        #include "cml/include/structures.h"
-#endif
+/*
+ #ifndef CML_NO_STRUCTURES
+ #include "cml/include/structures.h"
+ #endif
+ */
 
 #ifndef CML_NO_EASING_FUNCTIONS
         #include "cml/include/easings.h"
