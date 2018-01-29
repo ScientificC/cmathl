@@ -45,8 +45,8 @@ $ cmake .. -DCML_BUILD_TESTS=OFF
 - CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
 
 ```shell
-$ cmake .. -CMAKE_BUILD_TYPE=Release
-$ cmake .. -CMAKE_BUILD_TYPE=Debug
+$ cmake .. -DCMAKE_BUILD_TYPE=Release
+$ cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
 - CMAKE_INSTALL_PREFIX: (Default /usr) Allows you to specify where `make install` sends the output.
