@@ -6,6 +6,8 @@
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
+You can read the following [file](./docs/CML.md) to learn more about CML.
+
 ## Using the CMATHL
 
 NOTE: This will install in /usr. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
@@ -104,10 +106,6 @@ By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only th
 ### Math Precision
 
 By default, CML will use single-precision internally. This can be changed by predefining `CML_DOUBLE_PRECISION`. If the macro `CML_DOUBLE_PRECISION` is defined, the math constants macros will be defined with double precision and the library will use internally the math functions for double types. Otherwise, the math constants macros will be defined with float precision and the library will internally use the math functions for float types.
-
---------------------------------------------------------------------------------
-
-You can read the following [file](./docs/CML.md) to learn more about CML.
 
 ## A simple example
 
