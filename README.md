@@ -19,6 +19,44 @@ $ cmake .. <flags-described-bellow>
 $ make && make install
 ```
 
+### Build Options
+
+- CML_BUILD_SHARED: (Default ON) Controls if the shared library is built
+
+```shell
+$ cmake .. -DCML_BUILD_SHARED=ON
+$ cmake .. -DCML_BUILD_SHARED=OFF
+```
+
+- CML_BUILD_STATIC: (Default ON) Controls if the static library is built
+
+```shell
+$ cmake .. -DCML_BUILD_STATIC=ON
+$ cmake .. -DCML_BUILD_STATIC=OFF
+```
+
+- CML_BUILD_TESTS: (Default ON) Build the unit tests
+
+```shell
+$ cmake .. -DCML_BUILD_TESTS=ON
+$ cmake .. -DCML_BUILD_TESTS=OFF
+```
+
+- CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
+
+```shell
+$ cmake .. -CMAKE_BUILD_TYPE=Release
+$ cmake .. -CMAKE_BUILD_TYPE=Debug
+```
+
+- CMAKE_INSTALL_PREFIX: (Default /usr) Allows you to specify where `make install` sends the output.
+
+```shell
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/cml/
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/Projects/myproject/
+$ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
+```
+
 ## Configuration Macros
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
