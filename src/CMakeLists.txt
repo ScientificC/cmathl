@@ -7,6 +7,7 @@ configure_file(
 
 SET(CML_MAIN_HEADERS
 		cml.h
+		config.h
 )
 
 SET(CML_CML_HEADERS
