@@ -25,7 +25,7 @@ build_script:
    -DCML_BUILD_STATIC=ON
    -DCML_BUILD_SHARED=ON
    -Dmfloat_t=double
-   -DCML_DOUBLE_PRECISION=ON
+   -DCML_SINGLE_PRECISION=ON
    ..
 
 test_script:

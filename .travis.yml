@@ -11,7 +11,7 @@ compiler:
   - clang
 
 env:
-  - FLAGS="-DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double"
+  - FLAGS="-DCML_SINGLE_PRECISION=ON -Dmfloat_t=double"
 
 script:
   - mkdir build

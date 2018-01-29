@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 PROJECT(cml
 	LANGUAGES C
-	VERSION 1.9.2.0)
+	VERSION 1.9.3.0)
 
 enable_testing()
 

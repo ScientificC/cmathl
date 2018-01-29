@@ -26,10 +26,10 @@
         #define mfloat_t float
 #endif
 
-#ifdef CML_DOUBLE_PRECISION
-        #define cml_math_t double
-#else
+#ifdef CML_SINGLE_PRECISION
         #define cml_math_t mfloat_t
+#else
+        #define cml_math_t double
 #endif
 
 #include "types/real.h"

@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.2](https://img.shields.io/badge/Version-v1.9.2-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.3](https://img.shields.io/badge/Version-v1.9.3-blue.svg)
 
 ## Introduction
 
@@ -63,18 +63,18 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
-- `CML_DOUBLE_PRECISION`
 - `CML_NO_ALIASES`
 - `CML_NO_EASING_FUNCTIONS`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
+- `CML_SINGLE_PRECISION`
 - `mfloat_t`
 - `mint_t`
 
 You can define these macros during compilation time with flags:
 
 ```
-cmake .. -DCML_NO_STDBOOL=ON -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
+cmake .. -DCML_NO_STDBOOL=ON -Dmfloat_t=float -DCML_SINGLE_PRECISION=ON
 ```
 
 ### Bool Type
@@ -85,9 +85,9 @@ If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.
 
 By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If the header `stdint.h` is not avaliable, disabled by defining `CML_NO_STDINT`, `mint_t` is a `int`. This can be changed by predefining `mint_t` as a desired type.
 
-### Float-point Type
+### Float-Point Type
 
-The float type used by CML is defined by the macro `mfloat_t`, which is by default `float`.
+The float type used by CML is defined by the macro `mfloat_t`, which is by default `double`.
 
 ### Easing Functions
 
@@ -105,7 +105,7 @@ By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only th
 
 ### Math Precision
 
-By default, CML will use single-precision internally. This can be changed by predefining `CML_DOUBLE_PRECISION`. If the macro `CML_DOUBLE_PRECISION` is defined, the math constants macros will be defined with double precision and the library will use internally the math functions for double types. Otherwise, the math constants macros will be defined with float precision and the library will internally use the math functions for float types.
+By default, CML will use double-precision internally. This can be changed by predefining `CML_SINGLE_PRECISION`. If the macro `CML_SINGLE_PRECISION` is defined, the math constants macros will be defined with single precision and the library will use internally the math functions for float types. Otherwise, the math constants macros will be defined with double precision and the library will internally use the math functions for double types.
 
 ## A simple example
 

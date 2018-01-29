@@ -56,10 +56,10 @@
 #endif
 
 #ifndef FLT_EPSILON
-        #ifdef CML_DOUBLE_PRECISION
-                #define FLT_EPSILON ((mfloat_t)1e-9)
-        #else
+        #ifdef CML_SINGLE_PRECISION
                 #define FLT_EPSILON ((mfloat_t)1e-5)
+        #else
+                #define FLT_EPSILON ((mfloat_t)1e-9)
         #endif
 #endif
 

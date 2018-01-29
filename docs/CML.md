@@ -1,6 +1,4 @@
-# cml
-
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.2](https://img.shields.io/badge/Version-v1.9.2-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.3](https://img.shields.io/badge/Version-v1.9.3-blue.svg)
 
 # Easing Functions
 

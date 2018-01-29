@@ -7,7 +7,7 @@ rm -rf build
 mkdir build
 cd build
 
-cmake -G "Unix Makefiles" .. -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release -DCML_DOUBLE_PRECISION=ON -Dmfloat_t=double && \
+cmake -G "Unix Makefiles" .. -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release && \
 	make && \
 	ctest && \
 	make install && \
