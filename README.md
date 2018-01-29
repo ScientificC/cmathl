@@ -17,46 +17,8 @@ $ git clone https://github.com/CMATHL/cml.git
 $ cd cml
 $ mkdir build
 $ cd build
-$ cmake .. <flags-described-bellow>
+$ cmake .. <[flags-described-bellow](#build-options)>
 $ make && make install
-```
-
-### Build Options
-
-- CML_BUILD_SHARED: (Default ON) Controls if the shared library is built
-
-```shell
-$ cmake .. -DCML_BUILD_SHARED=ON
-$ cmake .. -DCML_BUILD_SHARED=OFF
-```
-
-- CML_BUILD_STATIC: (Default ON) Controls if the static library is built
-
-```shell
-$ cmake .. -DCML_BUILD_STATIC=ON
-$ cmake .. -DCML_BUILD_STATIC=OFF
-```
-
-- CML_BUILD_TESTS: (Default ON) Build the unit tests
-
-```shell
-$ cmake .. -DCML_BUILD_TESTS=ON
-$ cmake .. -DCML_BUILD_TESTS=OFF
-```
-
-- CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
-
-```shell
-$ cmake .. -DCMAKE_BUILD_TYPE=Release
-$ cmake .. -DCMAKE_BUILD_TYPE=Debug
-```
-
-- CMAKE_INSTALL_PREFIX: (Default /usr) Allows you to specify where `make install` sends the output.
-
-```shell
-$ cmake .. -DCMAKE_INSTALL_PREFIX=~/cml/
-$ cmake .. -DCMAKE_INSTALL_PREFIX=~/Projects/myproject/
-$ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 ```
 
 ## Configuration Macros
@@ -106,6 +68,44 @@ By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only th
 ### Math Precision
 
 By default, CML will use double-precision internally. This can be changed by predefining `CML_SINGLE_PRECISION`. If the macro `CML_SINGLE_PRECISION` is defined, the math constants macros will be defined with single precision and the library will use internally the math functions for float types. Otherwise, the math constants macros will be defined with double precision and the library will internally use the math functions for double types.
+
+## Build Options
+
+- CML_BUILD_SHARED: (Default ON) Controls if the shared library is built
+
+```shell
+$ cmake .. -DCML_BUILD_SHARED=ON
+$ cmake .. -DCML_BUILD_SHARED=OFF
+```
+
+- CML_BUILD_STATIC: (Default ON) Controls if the static library is built
+
+```shell
+$ cmake .. -DCML_BUILD_STATIC=ON
+$ cmake .. -DCML_BUILD_STATIC=OFF
+```
+
+- CML_BUILD_TESTS: (Default ON) Build the unit tests
+
+```shell
+$ cmake .. -DCML_BUILD_TESTS=ON
+$ cmake .. -DCML_BUILD_TESTS=OFF
+```
+
+- CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
+
+```shell
+$ cmake .. -DCMAKE_BUILD_TYPE=Release
+$ cmake .. -DCMAKE_BUILD_TYPE=Debug
+```
+
+- CMAKE_INSTALL_PREFIX: (Default /usr) Allows you to specify where `make install` sends the output.
+
+```shell
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/cml/
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/Projects/myproject/
+$ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
+```
 
 ## A simple example
 
