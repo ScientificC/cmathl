@@ -42,6 +42,7 @@
         #undef mfloat_t
 
         #define _CML_EXTERN_INLINE
+        #define mfloat_t double
 #endif
 
 #ifndef PREDEF_STANDARD_C11

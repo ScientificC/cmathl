@@ -22,8 +22,7 @@
 #endif
 
 #ifndef mfloat_t
-        #include <float.h>
-        #define mfloat_t float
+        #define mfloat_t double
 #endif
 
 #ifdef CML_SINGLE_PRECISION
