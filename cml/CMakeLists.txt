@@ -8,6 +8,7 @@ configure_file(
 
 SET(CML_MAIN_HEADERS
 		include/cml.h
+		include/cml.hpp
 )
 
 SET(CML_CML_HEADERS

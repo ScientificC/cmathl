@@ -29,10 +29,6 @@
         #define _CML_INLINE inline __attribute__((always_inline))
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include "cml/config.h"
 
 /* Use `extern inline` for C99 or later */
@@ -74,10 +70,6 @@ extern "C" {
 
 #ifndef CML_NO_EASING_FUNCTIONS
         #include "cml/easings.h"
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 #endif
