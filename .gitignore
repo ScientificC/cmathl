@@ -51,7 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-src/config.h
+cml/include/config.h
 build/*
 tmp/*
 install/*
