@@ -4,7 +4,6 @@ PROJECT(cml
 	LANGUAGES C
 	VERSION 1.9.3.0)
 
-enable_testing()
 
 INCLUDE(${CMAKE_SOURCE_DIR}/cmake/CPackConfig.cmake)
 CONFIGURE_FILE("${CMAKE_CURRENT_SOURCE_DIR}/cml.spec.in" "${CMAKE_CURRENT_BINARY_DIR}/cml.spec" @ONLY IMMEDIATE)
@@ -19,6 +18,7 @@ ADD_SUBDIRECTORY("cml")
 
 OPTION(CML_BUILD_TESTS "Build unit tests" ON)
 IF(CML_BUILD_TESTS)
+	enable_testing()
 	ADD_SUBDIRECTORY("test")
 ENDIF(CML_BUILD_TESTS)
 
