@@ -15,12 +15,10 @@
 #endif
 
 #ifdef __cplusplus
-        #ifdef __cplusplus
-                #if __cplusplus >= 199901L
-                        #define PREDEF_STANDARD_CPP99
-                        #if __cplusplus >= 201112L
-                                #define PREDEF_STANDARD_CPP11
-                        #endif
+        #if __cplusplus >= 199901L
+                #define PREDEF_STANDARD_CPP99
+                #if __cplusplus >= 201112L
+                        #define PREDEF_STANDARD_CPP11
                 #endif
         #endif
 #endif
