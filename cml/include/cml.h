@@ -31,7 +31,7 @@
         #define _CML_INLINE inline __attribute__((always_inline))
 #endif
 
-#include "config.h"
+#include "cml/config.h"
 
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
@@ -62,16 +62,16 @@
         __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
-#include "cml/include/math.h"
+#include "cml/math.h"
 
 /*
  #ifndef CML_NO_STRUCTURES
- #include "cml/include/structures.h"
+ #include "cml/structures.h"
  #endif
  */
 
 #ifndef CML_NO_EASING_FUNCTIONS
-        #include "cml/include/easings.h"
+        #include "cml/easings.h"
 #endif
 
 #endif
