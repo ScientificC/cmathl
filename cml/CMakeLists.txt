@@ -1,96 +1,98 @@
 INCLUDE_DIRECTORIES(.)
+INCLUDE_DIRECTORIES(include)
 
 configure_file(
-	${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake
-	${CMAKE_CURRENT_SOURCE_DIR}/config.h
+	${CMAKE_CURRENT_SOURCE_DIR}/include/config.h.cmake
+	${CMAKE_CURRENT_SOURCE_DIR}/include/config.h
 )
 
 SET(CML_MAIN_HEADERS
-		cml.h
-		config.h
+		include/cml.h
+		include/config.h
 )
 
 SET(CML_CML_HEADERS
-	cml/include/structures.h
-	cml/include/math.h
-	cml/include/easings.h)
+	include/cml/structures.h
+	include/cml/math.h
+	include/cml/easings.h
+)
 
 SET(CML_MATH_HEADERS
-	cml/include/math/consts.h
-	cml/include/math/functions.h
-	cml/include/math/types.h
+	include/cml/math/consts.h
+	include/cml/math/functions.h
+	include/cml/math/types.h
 )
 
 SET(CML_MATH_TYPES_HEADERS
-	cml/include/math/types/real.h
-	cml/include/math/types/complex.h
-	cml/include/math/types/bool.h
+	include/cml/math/types/real.h
+	include/cml/math/types/complex.h
+	include/cml/math/types/bool.h
 )
 
 SET(CML_MATH_FUNC_HEADERS
-	cml/include/math/functions/real.h
-	cml/include/math/functions/complex.h
-	cml/include/math/functions/generic.h
+	include/cml/math/functions/real.h
+	include/cml/math/functions/complex.h
+	include/cml/math/functions/generic.h
 )
 
 SET(CML_MATH_COMPLEX_HEADERS
-	cml/include/math/functions/complex/basic.h
-	cml/include/math/functions/complex/hyperbolic.h
-	cml/include/math/functions/complex/error.h
-	cml/include/math/functions/complex/exponentiation.h
-	cml/include/math/functions/complex/trigonometric.h
+	include/cml/math/functions/complex/basic.h
+	include/cml/math/functions/complex/hyperbolic.h
+	include/cml/math/functions/complex/error.h
+	include/cml/math/functions/complex/exponentiation.h
+	include/cml/math/functions/complex/trigonometric.h
 )
 
 SET(CML_MATH_REAL_HEADERS
-	cml/include/math/functions/real/basic.h
-	cml/include/math/functions/real/classification.h
-	cml/include/math/functions/real/hyperbolic.h
-	cml/include/math/functions/real/power.h
-	cml/include/math/functions/real/exponential.h
-	cml/include/math/functions/real/nearest-integer.h
-	cml/include/math/functions/real/trigonometric.h
-	cml/include/math/functions/real/error-gamma.h
+	include/cml/math/functions/real/basic.h
+	include/cml/math/functions/real/classification.h
+	include/cml/math/functions/real/hyperbolic.h
+	include/cml/math/functions/real/power.h
+	include/cml/math/functions/real/exponential.h
+	include/cml/math/functions/real/nearest-integer.h
+	include/cml/math/functions/real/trigonometric.h
+	include/cml/math/functions/real/error-gamma.h
 )
 
 SET(CML_EASINGS_HEADERS
-	cml/include/easings/linear.h
-	cml/include/easings/bounce.h
-	cml/include/easings/quartic.h
-	cml/include/easings/quintic.h
-	cml/include/easings/circular.h
-	cml/include/easings/back.h
-	cml/include/easings/exponential.h
-	cml/include/easings/sine.h
-	cml/include/easings/cubic.h
-	cml/include/easings/elastic.h
-	cml/include/easings/quadratic.h
+	include/cml/easings/linear.h
+	include/cml/easings/bounce.h
+	include/cml/easings/quartic.h
+	include/cml/easings/quintic.h
+	include/cml/easings/circular.h
+	include/cml/easings/back.h
+	include/cml/easings/exponential.h
+	include/cml/easings/sine.h
+	include/cml/easings/cubic.h
+	include/cml/easings/elastic.h
+	include/cml/easings/quadratic.h
 )
 
 SET( CML_SRCS
-		cml/math/complex/trigonometric.c
-		cml/math/complex/hyperbolic.c
-		cml/math/complex/basic.c
-		cml/math/complex/exponentiation.c
-		cml/math/complex.c
-		cml/math/real/nearest-integer.c
-		cml/math/real/trigonometric.c
-		cml/math/real/power.c
-		cml/math/real/exponential.c
-		cml/math/real/hyperbolic.c
-		cml/math/real/basic.c
-		cml/math/real/classification.c
-		cml/math/real.c
-		cml/easings/exponential.c
-		cml/easings/quadratic.c
-		cml/easings/quartic.c
-		cml/easings/linear.c
-		cml/easings/cubic.c
-		cml/easings/back.c
-		cml/easings/bounce.c
-		cml/easings/quintic.c
-		cml/easings/sine.c
-		cml/easings/elastic.c
-		cml/easings/circular.c
+		src/math/complex/trigonometric.c
+		src/math/complex/hyperbolic.c
+		src/math/complex/basic.c
+		src/math/complex/exponentiation.c
+		src/math/complex.c
+		src/math/real/nearest-integer.c
+		src/math/real/trigonometric.c
+		src/math/real/power.c
+		src/math/real/exponential.c
+		src/math/real/hyperbolic.c
+		src/math/real/basic.c
+		src/math/real/classification.c
+		src/math/real.c
+		src/easings/exponential.c
+		src/easings/quadratic.c
+		src/easings/quartic.c
+		src/easings/linear.c
+		src/easings/cubic.c
+		src/easings/back.c
+		src/easings/bounce.c
+		src/easings/quintic.c
+		src/easings/sine.c
+		src/easings/elastic.c
+		src/easings/circular.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 
@@ -165,12 +167,12 @@ INSTALL(TARGETS ${CML_LIB_TARGET}
 		)
 INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
 INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml/include)
-INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/include/math)
-INSTALL(FILES ${CML_MATH_TYPES_HEADERS} DESTINATION include/cml/include/math/types)
-INSTALL(FILES ${CML_MATH_FUNC_HEADERS} DESTINATION include/cml/include/math/functions)
-INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/include/math/functions/complex)
-INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/include/math/functions/real)
-INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/include/easings)
+INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/math)
+INSTALL(FILES ${CML_MATH_TYPES_HEADERS} DESTINATION include/cml/math/types)
+INSTALL(FILES ${CML_MATH_FUNC_HEADERS} DESTINATION include/cml/math/functions)
+INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/math/functions/complex)
+INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/math/functions/real)
+INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/easings)
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 #	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/cml.pdb DESTINATION bin)
