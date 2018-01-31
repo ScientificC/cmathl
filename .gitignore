@@ -1,7 +1,3 @@
-src/config.h
-build/*
-tmp/*
-
 # Prerequisites
 *.d
 
@@ -54,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+cml/include/config.h
+build/*
+tmp/*
+install/*

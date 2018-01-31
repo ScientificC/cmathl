@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <GL/gl.h>
 #include <cml.h>
 #include "include/test.h"
 
 int run_tests();
 
-int main(int argc, char const *argv[])
+int main()
 {
         clock_t cl = clock();
 

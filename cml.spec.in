@@ -6,7 +6,7 @@ Summary:	A pure-C math library with a great variety of mathematical functions. S
 Vendor:         @CPACK_PACKAGE_VENDOR@
 Packager:	@CPACK_PACKAGE_VENDOR@ <@CPACK_PACKAGE_CONTACT@>
 
-License:        GNU
+License:        MIT
 URL:            @CPACK_PACKAGE_URL@
 Source0:	%{name}-%{version}.tar.gz
 
@@ -21,15 +21,12 @@ BuildRequires:	gcc, make
 Summary:        Header files, libraries and development documentation for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description    devel
+%description    development
 This package contains the header files for %{name}.
 
 %package        doc
 Summary:        Development documentation for %{name}
 BuildArch:      noarch
-
-%description    doc
-This package contains the development documentation for %{name}.
 
 %prep
 %setup -q

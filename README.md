@@ -1,10 +1,12 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) ![Version: v1.8](https://img.shields.io/badge/Version-v1.8-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.3](https://img.shields.io/badge/Version-v1.9.3-blue.svg)
 
 ## Introduction
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
+
+You can read the following [file](./docs/CML.md) to learn more about CML.
 
 ## Using the CMATHL
 
@@ -15,26 +17,28 @@ $ git clone https://github.com/CMATHL/cml.git
 $ cd cml
 $ mkdir build
 $ cd build
-$ cmake .. <flags-described-bellow>
+$ cmake .. <build options>
 $ make && make install
 ```
+[_Build Options_](#build-options)
+
 
 ## Configuration Macros
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
-- `CML_DOUBLE_PRECISION`
 - `CML_NO_ALIASES`
 - `CML_NO_EASING_FUNCTIONS`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
+- `CML_SINGLE_PRECISION`
 - `mfloat_t`
 - `mint_t`
 
 You can define these macros during compilation time with flags:
 
 ```
-cmake .. -DCML_NO_STDBOOL=ON -Dmfloat_t=double -DCML_DOUBLE_PRECISION=ON
+cmake .. -DCML_NO_STDBOOL=ON -Dmfloat_t=float -DCML_SINGLE_PRECISION=ON
 ```
 
 ### Bool Type
@@ -45,9 +49,9 @@ If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.
 
 By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If the header `stdint.h` is not avaliable, disabled by defining `CML_NO_STDINT`, `mint_t` is a `int`. This can be changed by predefining `mint_t` as a desired type.
 
-### Float-point Type
+### Float-Point Type
 
-The float type used by CML is defined by the macro `mfloat_t`, which is by default `float`.
+The float type used by CML is defined by the macro `mfloat_t`, which is by default `double`.
 
 ### Easing Functions
 
@@ -65,207 +69,44 @@ By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only th
 
 ### Math Precision
 
-By default, CML will use single-precision internally. This can be changed by predefining `CML_DOUBLE_PRECISION`. If the macro `CML_DOUBLE_PRECISION` is defined, the math constants macros will be defined with double precision and the library will use internally the math functions for double types. Otherwise, the math constants macros will be defined with float precision and the library will internally use the math functions for float types.
+By default, CML will use double-precision internally. This can be changed by predefining `CML_SINGLE_PRECISION`. If the macro `CML_SINGLE_PRECISION` is defined, the math constants macros will be defined with single precision and the library will use internally the math functions for float types. Otherwise, the math constants macros will be defined with double precision and the library will internally use the math functions for double types.
 
-## Types
+## Build Options
 
-CML offers at the moment two types, `real_t` and `complex_t`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex_t` being a structure.
+- CML_BUILD_SHARED: (Default ON) Controls if the shared library is built
 
-### Real
-
-CML defines a large number of operations for the set of real numbers. For this, the type `real_t` is provided. Here is an example on how to work with this type of data:
-
-```c
-real_t x = 2.0;
+```shell
+$ cmake .. -DCML_BUILD_SHARED=ON
+$ cmake .. -DCML_BUILD_SHARED=OFF
 ```
 
-Now, let's see an example of how to apply an operation between two reals. Suppose we have a `pow` function which accepts two reals x and y, then the code would be as follows:
+- CML_BUILD_STATIC: (Default ON) Controls if the static library is built
 
-```c
-real_t x, y, z;
-
-x = 3.0;
-y = 2.0;
-z = pow(x, y);
+```shell
+$ cmake .. -DCML_BUILD_STATIC=ON
+$ cmake .. -DCML_BUILD_STATIC=OFF
 ```
 
-#### Functions
+- CML_BUILD_TESTS: (Default ON) Build the unit tests
 
-Below are the prototypes of the functions provided for this type of data.
-
-##### Basic Functions
-
-```c
-real_t real_abs(real_t);
-real_t real_add(real_t, real_t);
-real_t real_ared(real_t);
-real_t real_div_e(real_t, real_t);
-real_t real_div(real_t, real_t);
-real_t real_inverse(real_t);
-real_t real_mod(real_t, real_t);
-real_t real_opposite(real_t);
-real_t real_prod(real_t, real_t);
-real_t real_sgn(real_t);
-real_t real_sub(real_t, real_t);
+```shell
+$ cmake .. -DCML_BUILD_TESTS=ON
+$ cmake .. -DCML_BUILD_TESTS=OFF
 ```
 
-##### Exponential Functions
+- CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
 
-```c
-real_t real_exp(real_t);
-real_t real_log_b(real_t, real_t);
-real_t real_log(real_t);
+```shell
+$ cmake .. -DCMAKE_BUILD_TYPE=Release
+$ cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
-##### Power Functions
+- CMAKE_INSTALL_PREFIX: (Default /usr) Allows you to specify where `make install` sends the output.
 
-```c
-real_t real_pow(real_t, real_t);
-real_t real_root(real_t, real_t);
-real_t real_sqrt(real_t);
-```
-
-##### Trigonometric Functions
-
-```c
-real_t real_sin(real_t);
-real_t real_cos(real_t);
-real_t real_tan(real_t);
-real_t real_sec(real_t);
-real_t real_csc(real_t);
-real_t real_cot(real_t);
-real_t real_asin(real_t);
-real_t real_acos(real_t);
-real_t real_atan(real_t);
-real_t real_atan2(real_t, real_t);
-```
-
-##### Hyperbolic Functions
-
-```c
-real_t real_sinh(real_t);
-real_t real_cosh(real_t);
-real_t real_tanh(real_t);
-real_t real_csch(real_t);
-real_t real_sech(real_t);
-real_t real_coth(real_t);
-real_t real_asinh(real_t);
-real_t real_acosh(real_t);
-real_t real_atanh(real_t);
-```
-
-##### Error and Gamma Functions
-
-```c
-real_t real_gamma(real_t);
-real_t real_error(real_t);
-```
-
-##### Nearest Integer Floating Point Operations
-
-```c
-real_t real_ceil(real_t);
-real_t real_floor(real_t);
-```
-
-##### Classification Functions
-
-```c
-bool real_equals(real_t, real_t);
-bool real_is_greater_or_equals(real_t, real_t);
-bool real_is_greater(real_t, real_t);
-bool real_is_integer(real_t);
-bool real_is_less_or_equals(real_t, real_t);
-bool real_is_less(real_t, real_t);
-bool real_is_mult(real_t, real_t);
-bool real_is_natural(real_t);
-bool real_is_null(real_t);
-```
-
-### Complex
-
-CML defines a large number of operations for the set of complex numbers. For this, the type `complex_t` is provided. Here is an example on how to work with this type of data:
-
-```c
-complex_t z = complex(1.0, 4.0);
-```
-
-Another way to do the same can be the following:
-
-```c
-complex_t z = { 1.0, 4.0 };
-```
-
-Now, let's see an example of how to apply an operation to any complex numbers. Suppose we have a `exp` function which accepts one complex z, then the code would be as follows:
-
-```c
-complex_t z, w;
-
-z = complex(1.0, 4.0);
-w = cexp(z);
-```
-
-#### Functions
-
-Below are the prototypes of the functions provided for this type of data.
-
-##### Basic Functions
-
-```c
-real_t complex_abs(complex_t);
-real_t complex_arg(complex_t);
-complex_t complex_add(complex_t, complex_t);
-complex_t complex_conjugate(complex_t);
-complex_t complex_div(complex_t, complex_t);
-complex_t complex_inverse(complex_t);
-complex_t complex_prod(complex_t, complex_t);
-complex_t complex_scalar_prod(complex_t, real_t);
-complex_t complex_sub(complex_t, complex_t);
-```
-
-##### Exponentiation Functions
-
-```c
-complex_t complex_exp(complex_t);
-complex_t complex_log_b(complex_t, complex_t);
-complex_t complex_log(complex_t);
-complex_t complex_pow(complex_t, complex_t);
-complex_t complex_root(complex_t, complex_t);
-complex_t complex_sqrt(complex_t);
-```
-
-##### Trigonometric Functions
-
-```c
-complex_t complex_sin(complex_t);
-complex_t complex_cos(complex_t);
-complex_t complex_tan(complex_t);
-complex_t complex_sec(complex_t);
-complex_t complex_csc(complex_t);
-complex_t complex_cot(complex_t);
-complex_t complex_asin(complex_t);
-complex_t complex_acos(complex_t);
-complex_t complex_atan(complex_t);
-```
-
-##### Hyperbolic Functions
-
-```c
-complex_t complex_sinh(complex_t);
-complex_t complex_cosh(complex_t);
-complex_t complex_tanh(complex_t);
-complex_t complex_csch(complex_t);
-complex_t complex_sech(complex_t);
-complex_t complex_coth(complex_t);
-complex_t complex_asinh(complex_t);
-complex_t complex_acosh(complex_t);
-complex_t complex_atanh(complex_t);
-```
-
-##### Error and Gamma Functions
-
-```c
-complex_t complex_error(complex_t);
+```shell
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/cml/
+$ cmake .. -DCMAKE_INSTALL_PREFIX=~/Projects/myproject/
+$ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 ```
 
 ## A simple example
@@ -293,4 +134,10 @@ main(int argc, char const *argv[])
 
         return 0;
 }
+```
+
+Compile and run
+
+```shell
+$ gcc -lcml main.c -o main && ./main
 ```

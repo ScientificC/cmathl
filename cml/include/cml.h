@@ -31,16 +31,17 @@
         #define _CML_INLINE inline __attribute__((always_inline))
 #endif
 
+#include "config.h"
+
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
         #define _CML_EXTERN_INLINE extern _CML_INLINE
 #else
         #undef _CML_EXTERN_INLINE
-        #undef CML_DOUBLE_PRECISION
+        #undef CML_SINGLE_PRECISION
         #undef mfloat_t
 
         #define _CML_EXTERN_INLINE
-        #define CML_DOUBLE_PRECISION
         #define mfloat_t double
 #endif
 
@@ -63,9 +64,11 @@
 
 #include "cml/include/math.h"
 
-#ifndef CML_NO_STRUCTURES
-        #include "cml/include/structures.h"
-#endif
+/*
+ #ifndef CML_NO_STRUCTURES
+ #include "cml/include/structures.h"
+ #endif
+ */
 
 #ifndef CML_NO_EASING_FUNCTIONS
         #include "cml/include/easings.h"

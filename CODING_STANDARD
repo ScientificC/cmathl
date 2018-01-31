@@ -1,0 +1,8 @@
+CODING STANDARD
+---------------
+- indent with tabs
+- lower case function names for public-facing functions
+- all CAPS for public constants.  CML is the prefix for public constants
+- math entities are mutable (conscious design choice)
+- 2 vertical line breaks between functions
+- blank line at the end of every file
