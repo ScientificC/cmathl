@@ -1,4 +1,4 @@
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/src)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/cml/include)
 
 INCLUDE(../cmake/CMakeBuildFlags.cmake)
 

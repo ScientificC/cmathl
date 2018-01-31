@@ -3,7 +3,7 @@ INCLUDE_DIRECTORIES(include)
 
 configure_file(
 	${CMAKE_CURRENT_SOURCE_DIR}/include/config.h.cmake
-	${CMAKE_CURRENT_SOURCE_DIR}/include/config.h
+	${CMAKE_CURRENT_SOURCE_DIR}/include/cml/config.h
 )
 
 SET(CML_MAIN_HEADERS

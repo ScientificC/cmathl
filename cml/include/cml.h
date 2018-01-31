@@ -31,7 +31,7 @@
         #define _CML_INLINE inline __attribute__((always_inline))
 #endif
 
-#include "config.h"
+#include "cml/config.h"
 
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
