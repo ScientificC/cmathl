@@ -8,10 +8,10 @@ configure_file(
 
 SET(CML_MAIN_HEADERS
 		include/cml.h
-		include/config.h
 )
 
 SET(CML_CML_HEADERS
+	include/cml/config.h
 	include/cml/structures.h
 	include/cml/math.h
 	include/cml/easings.h
@@ -166,7 +166,7 @@ INSTALL(TARGETS ${CML_LIB_TARGET}
 		ARCHIVE DESTINATION lib${LIB_SUFFIX}
 		)
 INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
-INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml/include)
+INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml)
 INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/math)
 INSTALL(FILES ${CML_MATH_TYPES_HEADERS} DESTINATION include/cml/math/types)
 INSTALL(FILES ${CML_MATH_FUNC_HEADERS} DESTINATION include/cml/math/functions)
