@@ -222,7 +222,7 @@ int
 main(int argc, char const *argv[])
 {
         real_t x, y;
-        complex_t z;
+        complex_t z, w;
 
         x = 2.0;
         y = 3.0;
