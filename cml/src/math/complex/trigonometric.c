@@ -40,7 +40,7 @@ complex_cot(complex_t z)
         /* Domain check */
         complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
-        if (!real_is_null(a)) {
+        if (!real_isnull(a)) {
                 return complex_nan();
         }
 
@@ -62,7 +62,7 @@ complex_csc(complex_t z)
         /* Domain check */
         complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
-        if (!real_is_null(a)) {
+        if (!real_isnull(a)) {
                 return complex_nan();
         }
 
@@ -83,7 +83,7 @@ complex_sec(complex_t z)
         /* Domain check */
         complex_t c = complex_cos(z);
         real_t a = complex_abs(c);
-        if (!real_is_null(a)) {
+        if (!real_isnull(a)) {
                 return complex_nan();
         }
 
@@ -137,7 +137,7 @@ complex_tan(complex_t z)
         /* Domain check */
         complex_t c = complex_cos(z);
         real_t a = complex_abs(c);
-        if (!real_is_null(a)) {
+        if (!real_isnull(a)) {
                 return complex_nan();
         }
 

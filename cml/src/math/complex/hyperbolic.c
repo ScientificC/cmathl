@@ -73,7 +73,7 @@ complex_tanh(complex_t z)
         /* Domain check */
         complex_t c = complex_cosh(z);
         real_t a = complex_abs(c);
-        if (!real_is_null(a)) {
+        if (!real_isnull(a)) {
                 return complex_nan();
         }
 

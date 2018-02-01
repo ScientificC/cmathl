@@ -9,8 +9,8 @@
 
 #ifndef CML_NO_ALIASES
         #define cequals(X, Y) complex_equals(X, Y)
-        #define cis_null(X) complex_is_null(X)
-        #define cis_mult(X, Y) complex_is_mult(X, Y)
+        #define cisnull(X) complex_isnull(X)
+        #define cismult(X, Y) complex_ismult(X, Y)
         #define cadd(X, Y) complex_add(X, Y)
         #define cprod(X, Y) complex_prod(X, Y)
         #define csub(X, Y) complex_sub(X, Y)

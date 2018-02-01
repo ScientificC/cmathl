@@ -2,7 +2,7 @@
 #include <cml.h>
 
 _CML_EXTERN_INLINE bool
-__is_integer(real_t x)
+__isinteger(real_t x)
 {
         mint_t x_int = (mint_t) x;
         return ((x - x_int) == 0);
@@ -10,7 +10,7 @@ __is_integer(real_t x)
 
 
 _CML_EXTERN_INLINE bool
-__is_mult(real_t x, real_t y)
+__ismult(real_t x, real_t y)
 {
         real_t z = real_div(x, y);
         mint_t z_int = (mint_t) z;
@@ -26,56 +26,56 @@ real_equals(real_t x, real_t y)
 
 
 bool
-real_is_greater_or_equals(real_t x, real_t y)
+real_isgreaterorequals(real_t x, real_t y)
 {
-        return real_is_greater(x, y) || real_equals(x, y);
+        return real_isgreater(x, y) || real_equals(x, y);
 }
 
 
 bool
-real_is_greater(real_t x, real_t y)
+real_isgreater(real_t x, real_t y)
 {
         return x > y;
 }
 
 
 bool
-real_is_integer(real_t x)
+real_isinteger(real_t x)
 {
-        return __is_integer((x));
+        return __isinteger((x));
 }
 
 
 bool
-real_is_less_or_equals(real_t x, real_t y)
+real_islessorequals(real_t x, real_t y)
 {
-        return real_is_less(x, y) || real_equals(x, y);
+        return real_isless(x, y) || real_equals(x, y);
 }
 
 
 bool
-real_is_less(real_t x, real_t y)
+real_isless(real_t x, real_t y)
 {
         return x < y;
 }
 
 
 bool
-real_is_mult(real_t x, real_t y)
+real_ismult(real_t x, real_t y)
 {
-        return __is_mult(x, y);
+        return __ismult(x, y);
 }
 
 
 bool
-real_is_natural(real_t x)
+real_isnatural(real_t x)
 {
-        return real_is_integer(x) && x > 0.0;
+        return real_isinteger(x) && x > 0.0;
 }
 
 
 bool
-real_is_null(real_t x)
+real_isnull(real_t x)
 {
         return x == 0.0;
 }

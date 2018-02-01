@@ -174,7 +174,7 @@ real_cot(real_t x)
 
         /* Mathematical algorithm */
         y = real_sin(x);
-        h = real_is_null(y) ?
+        h = real_isnull(y) ?
             real_nan() :
             real_div(real_cos(x), y);
 
@@ -238,7 +238,7 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_is_mult(x, (PI))) {
+        if (real_ismult(x, (PI))) {
                 return (0.0);
         }
 
@@ -274,7 +274,7 @@ real_tan(real_t x)
         /* Mathematical algorithm */
         y = real_cos(x);
 
-        return real_is_null(y) ?
+        return real_isnull(y) ?
                real_nan() :
                real_div(real_sin(x), y);;
 }

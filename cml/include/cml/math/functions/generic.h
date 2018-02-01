@@ -30,20 +30,20 @@
                  )(__VA_ARGS__)
 
         #define equals(X, Y) _CML_BOTH_GENERIC_FUNC(equals, X, Y)
-        #define is_null(X) _CML_BOTH_GENERIC_FUNC(is_null, X)
-        #define is_natural(X) _CML_REAL_GENERIC_FUNC(is_natural, X)
-        #define is_integer(X) _CML_REAL_GENERIC_FUNC(is_integer, X)
-        #define is_greater(X, Y) _CML_REAL_GENERIC_FUNC(is_greater, X, Y)
-        #define is_less(X, Y) _CML_REAL_GENERIC_FUNC(is_less, X, Y)
-        #define is_greater_or_equals(X, Y) _CML_REAL_GENERIC_FUNC( \
-                is_greater_or_equals, \
+        #define isnull(X) _CML_BOTH_GENERIC_FUNC(isnull, X)
+        #define isnatural(X) _CML_REAL_GENERIC_FUNC(isnatural, X)
+        #define isinteger(X) _CML_REAL_GENERIC_FUNC(isinteger, X)
+        #define isgreater(X, Y) _CML_REAL_GENERIC_FUNC(isgreater, X, Y)
+        #define isless(X, Y) _CML_REAL_GENERIC_FUNC(isless, X, Y)
+        #define isgreaterorequals(X, Y) _CML_REAL_GENERIC_FUNC( \
+                isgreaterorequals, \
                 X, Y \
                 )
-        #define is_less_or_equals(X, Y) _CML_REAL_GENERIC_FUNC( \
-                is_less_or_equals, \
+        #define islessorequals(X, Y) _CML_REAL_GENERIC_FUNC( \
+                islessorequals, \
                 X, Y \
                 )
-        #define is_mult(X, Y) _CML_REAL_GENERIC_FUNC(is_mult, X, Y)
+        #define ismult(X, Y) _CML_REAL_GENERIC_FUNC(ismult, X, Y)
         #define add(X, Y) _CML_BOTH_GENERIC_FUNC(add, X, Y)
         #define prod(X, Y) _CML_BOTH_GENERIC_FUNC(prod, X, Y)
         #define sub(X, Y) _CML_BOTH_GENERIC_FUNC(sub, X, Y)
