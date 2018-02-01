@@ -31,13 +31,11 @@ real_t
 real_acosh(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, b, c, h;
+        real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
-        b = (2.0);
-        c = (1.0);
-        y = real_pow(x, b);
-        z = real_sub(y, c);
+        y = real_pow(x, 2.0);
+        z = real_sub(y, 1.0);
         w = real_sqrt(z);
         k = real_add(x, w);
         h = real_log(k);
@@ -84,14 +82,13 @@ real_t
 real_atanh(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, c, h;
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_abs(x);
-        c = (1.0);
-        h = real_isgreater(c, y) ?
-            ((real_t) __atanh__(x)) :
-            (real_nan());
+        h = real_isgreater(1.0, y) ?
+            (real_t) __atanh__(x) :
+            real_nan();
 
         /* Return */
         return h;

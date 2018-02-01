@@ -77,8 +77,8 @@ real_log(real_t x)
 
         /* Mathematical algorithm */
         y = real_prod(x, x);
-        z = (y - 1.0);
-        w = (y + 1.0);
+        z = y - 1.0;
+        w = y + 1.0;
         k = real_div(z, w);
         h = real_atanh(k);
 

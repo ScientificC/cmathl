@@ -49,7 +49,7 @@ real_acos(real_t x)
 
         /* Mathematical algorithm */
         y = real_asin(x);
-        h = real_sub((HALFPI), y);
+        h = real_sub(HALFPI, y);
 
         /* Return */
         return h;

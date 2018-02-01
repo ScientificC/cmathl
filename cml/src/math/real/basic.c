@@ -103,13 +103,12 @@ real_t
 real_inverse(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, h;
+        real_t h;
 
         /* Mathematical algorithm */
-        y = (1.0);
         h = real_isnull(x) ?
             real_nan() :
-            real_div(y, x);
+            real_div(1.0, x);
 
         /* Return */
         return h;
