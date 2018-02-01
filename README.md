@@ -142,7 +142,7 @@ Compile and run
 $ gcc -lcml main.c -o main && ./main
 ```
 
-or using C++,
+### or using C++,
 
 ```c++
 #include <iostream>
@@ -163,9 +163,9 @@ main(int argc, char const *argv[])
         w = csin(z);
 
         cout << sin(x) << endl;
-        cout <<  log(y) << endl;
-        cout <<  creal(w) << endl;
-        cout <<  cimag(w) << endl;
+        cout << log(y) << endl;
+        cout << creal(w) << endl;
+        cout << cimag(w) << endl;
 
         return 0;
 }
