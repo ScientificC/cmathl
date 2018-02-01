@@ -28,5 +28,6 @@ quaternion_t quaternion_create_from_euler_angles(real_t, real_t, real_t);
 
 #include "quaternion/basic.h"
 #include "quaternion/parity.h"
+#include "quaternion/exponentiation.h"
 
 #endif
