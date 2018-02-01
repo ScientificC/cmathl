@@ -229,3 +229,27 @@ quaternion_inplace_divide_scalar(quaternion_t* q, real_t s)
         q->z /= s;
         return;
 }
+
+quaternion_t
+quaternion_opposite(quaternion_t q)
+{
+        quaternion r = {-q.w, -q.x, -q.y, -q.z};
+        return r;
+}
+
+
+quaternion_t
+quaternion_conjugate(quaternion_t q)
+{
+        quaternion r = {q.w, -q.x, -q.y, -q.z};
+        return r;
+}
+
+
+quaternion_t
+quaternion_inverse(quaternion_t q)
+{
+        real_t norm = quaternion_norm(q);
+        quaternion r = {q.w/norm, -q.x/norm, -q.y/norm, -q.z/norm};
+        return r;
+}

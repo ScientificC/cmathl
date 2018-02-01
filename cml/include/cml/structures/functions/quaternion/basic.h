@@ -22,6 +22,9 @@ quaternion_t quaternion_divide(quaternion_t, quaternion_t);
 void quaternion_inplace_divide(quaternion_t*, quaternion_t);
 quaternion_t quaternion_scalar_divide(real_t, quaternion_t);
 quaternion_t quaternion_divide_scalar(quaternion_t, real_t);
-void quaternion_inplace_divide_scalar(quaternion_t*, real_t)
+void quaternion_inplace_divide_scalar(quaternion_t*, real_t);
+quaternion_t quaternion_opposite(quaternion_t);
+quaternion_t quaternion_conjugate(quaternion_t);
+quaternion_t quaternion_inverse(quaternion_t);
 
 #endif
