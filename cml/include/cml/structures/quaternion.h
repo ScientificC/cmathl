@@ -1,9 +1,9 @@
 #ifndef CML_H
-#error "Never use <structures/include/types/quaternion.h> directly; include <cml.h> instead."
+#error "Never use <cml/structures/quaternion.h> directly; include <cml.h> instead."
 #endif
 
-#ifndef CML_MATH_TYPES_QUATERNION_H
-#define CML_MATH_TYPES_QUATERNION_H
+#ifndef CML_STRUCTURES_TYPES_QUATERNION_H
+#define CML_STRUCTURES_TYPES_QUATERNION_H
 
 typedef struct _quaternion
 {
@@ -25,5 +25,8 @@ typedef struct _quaternion
 
 quaternion_t quaternion_create_from_spherical_coords(real_t, real_t);
 quaternion_t quaternion_create_from_euler_angles(real_t, real_t, real_t);
+
+#include "quaternion/basic.h"
+#include "quaternion/parity.h"
 
 #endif

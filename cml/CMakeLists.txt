@@ -20,39 +20,29 @@ SET(CML_CML_HEADERS
 
 SET(CML_MATH_HEADERS
 	include/cml/math/consts.h
-	include/cml/math/functions.h
-	include/cml/math/types.h
-)
-
-SET(CML_MATH_TYPES_HEADERS
-	include/cml/math/types/real.h
-	include/cml/math/types/complex.h
-	include/cml/math/types/bool.h
-)
-
-SET(CML_MATH_FUNC_HEADERS
-	include/cml/math/functions/real.h
-	include/cml/math/functions/complex.h
-	include/cml/math/functions/generic.h
+	include/cml/math/real.h
+	include/cml/math/complex.h
+	include/cml/math/bool.h
+	include/cml/math/generic.h
 )
 
 SET(CML_MATH_COMPLEX_HEADERS
-	include/cml/math/functions/complex/basic.h
-	include/cml/math/functions/complex/hyperbolic.h
-	include/cml/math/functions/complex/error.h
-	include/cml/math/functions/complex/exponentiation.h
-	include/cml/math/functions/complex/trigonometric.h
+	include/cml/math/complex/basic.h
+	include/cml/math/complex/hyperbolic.h
+	include/cml/math/complex/error.h
+	include/cml/math/complex/exponentiation.h
+	include/cml/math/complex/trigonometric.h
 )
 
 SET(CML_MATH_REAL_HEADERS
-	include/cml/math/functions/real/basic.h
-	include/cml/math/functions/real/classification.h
-	include/cml/math/functions/real/hyperbolic.h
-	include/cml/math/functions/real/power.h
-	include/cml/math/functions/real/exponential.h
-	include/cml/math/functions/real/nearest-integer.h
-	include/cml/math/functions/real/trigonometric.h
-	include/cml/math/functions/real/error-gamma.h
+	include/cml/math/real/basic.h
+	include/cml/math/real/classification.h
+	include/cml/math/real/hyperbolic.h
+	include/cml/math/real/power.h
+	include/cml/math/real/exponential.h
+	include/cml/math/real/nearest-integer.h
+	include/cml/math/real/trigonometric.h
+	include/cml/math/real/error-gamma.h
 )
 
 SET(CML_EASINGS_HEADERS
@@ -169,10 +159,8 @@ INSTALL(TARGETS ${CML_LIB_TARGET}
 INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
 INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml)
 INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/math)
-INSTALL(FILES ${CML_MATH_TYPES_HEADERS} DESTINATION include/cml/math/types)
-INSTALL(FILES ${CML_MATH_FUNC_HEADERS} DESTINATION include/cml/math/functions)
-INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/math/functions/complex)
-INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/math/functions/real)
+INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/math/complex)
+INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/math/real)
 INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/easings)
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")

@@ -1,9 +1,9 @@
 #ifndef CML_H
-#error "Never use <structures/include/types/matrix4.h> directly; include <cml.h> instead."
+#error "Never use <cml/structures/matrix4.h> directly; include <cml.h> instead."
 #endif
 
-#ifndef CML_MATH_TYPES_MATRIX4_H
-#define CML_MATH_TYPES_MATRIX4_H
+#ifndef CML_STRUCTURES_TYPES_MATRIX4_H
+#define CML_STRUCTURES_TYPES_MATRIX4_H
 
 typedef struct _matrix4
 {

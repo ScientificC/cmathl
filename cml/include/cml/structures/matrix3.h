@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <structures/include/types/matrix3.h> directly; include <cml.h> instead."
+#error "Never use <cml/structures/matrix3.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MATH_TYPES_MATRIX3_H

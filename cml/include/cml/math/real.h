@@ -1,5 +1,15 @@
-#ifndef CML_REAL_FUNC_H
-#define CML_REAL_FUNC_H
+#ifndef CML_H
+#error "Never use <cml/math/real.h> directly; include <cml.h> instead."
+#endif
+
+#ifndef CML_REAL_H
+#define CML_REAL_H
+
+typedef mfloat_t real_t;
+
+real_t real_nan();
+real_t real_inf();
+char* real_as_string(real_t);
 
 #include "real/basic.h"
 #include "real/classification.h"
@@ -11,6 +21,8 @@
 #include "real/hyperbolic.h"
 
 #if (defined _CML_NO_GENERIC && !defined CML_NO_ALIASES)
+        #define nan() real_nan()
+        #define inf() real_inf()
         #define equal(X, Y) real_equal(X, Y)
         #define isnull(X) real_isnull(X)
         #define isnatural(X) real_isnatural(X)
@@ -61,4 +73,5 @@
         #define acosh(X) real_acosh(X)
         #define atanh(X) real_atanh(X)
 #endif
+
 #endif

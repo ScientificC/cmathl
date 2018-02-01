@@ -1,5 +1,28 @@
-#ifndef CML_COMPLEX_FUNC_H
-#define CML_COMPLEX_FUNC_H
+#ifndef CML_H
+#error "Never use <cml/math/complex.h> directly; include <cml.h> instead."
+#endif
+
+#ifndef CML_COMPLEX_H
+#define CML_COMPLEX_H
+
+typedef struct _complex
+{
+        union
+        {
+                real_t p[2];
+                struct
+                {
+                        real_t re;
+                        real_t im;
+                };
+        };
+} complex_t;
+
+complex_t complex(real_t, real_t);
+complex_t complex_nan();
+complex_t complex_inf();
+complex_t complex_clone(complex_t);
+char* complex_as_string(complex_t);
 
 #include "complex/basic.h"
 #include "complex/error.h"
@@ -8,6 +31,8 @@
 #include "complex/trigonometric.h"
 
 #ifndef CML_NO_ALIASES
+        #define cnan() complex_nan()
+        #define cinf() complex_inf()
         #define cequal(X, Y) complex_equal(X, Y)
         #define cisnull(X) complex_isnull(X)
         #define cismult(X, Y) complex_ismult(X, Y)
@@ -52,4 +77,5 @@
                 #define cimag(X) (X).p[1]
         #endif
 #endif
+
 #endif
