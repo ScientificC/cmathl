@@ -8,7 +8,7 @@
 #include "complex/trigonometric.h"
 
 #ifndef CML_NO_ALIASES
-        #define cequals(X, Y) complex_equals(X, Y)
+        #define cequal(X, Y) complex_equal(X, Y)
         #define cisnull(X) complex_isnull(X)
         #define cismult(X, Y) complex_ismult(X, Y)
         #define cadd(X, Y) complex_add(X, Y)

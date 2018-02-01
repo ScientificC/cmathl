@@ -114,11 +114,11 @@ real_t real_floor(real_t);
 ##### Classification Functions
 
 ```c
-bool real_equals(real_t, real_t);
-bool real_isgreaterorequals(real_t, real_t);
+bool real_equal(real_t, real_t);
+bool real_isgreaterequal(real_t, real_t);
 bool real_isgreater(real_t, real_t);
 bool real_isinteger(real_t);
-bool real_islessorequals(real_t, real_t);
+bool real_islessequal(real_t, real_t);
 bool real_isless(real_t, real_t);
 bool real_ismult(real_t, real_t);
 bool real_isnatural(real_t);

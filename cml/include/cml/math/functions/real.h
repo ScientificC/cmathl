@@ -11,14 +11,14 @@
 #include "real/hyperbolic.h"
 
 #if (defined _CML_NO_GENERIC && !defined CML_NO_ALIASES)
-        #define equals(X, Y) real_equals(X, Y)
+        #define equal(X, Y) real_equal(X, Y)
         #define isnull(X) real_isnull(X)
         #define isnatural(X) real_isnatural(X)
         #define isinteger(X) real_isinteger(X)
         #define isgreater(X, Y) real_isinteger(X, Y)
         #define isless(X, Y) real_isless(X, Y)
-        #define isgreaterorequals(X, Y) real_isgreaterorequals(X, Y)
-        #define islessorequals(X, Y) real_islessorequals(X, Y)
+        #define isgreaterequal(X, Y) real_isgreaterequal(X, Y)
+        #define islessequal(X, Y) real_islessequal(X, Y)
         #define ismult(X, Y) real_ismult(X, Y)
         #define add(X, Y) real_add(X, Y)
         #define prod(X, Y) real_prod(X, Y)

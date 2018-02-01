@@ -19,16 +19,16 @@ __ismult(real_t x, real_t y)
 
 
 bool
-real_equals(real_t x, real_t y)
+real_equal(real_t x, real_t y)
 {
         return x == y;
 }
 
 
 bool
-real_isgreaterorequals(real_t x, real_t y)
+real_isgreaterequal(real_t x, real_t y)
 {
-        return real_isgreater(x, y) || real_equals(x, y);
+        return real_isgreater(x, y) || real_equal(x, y);
 }
 
 
@@ -47,9 +47,9 @@ real_isinteger(real_t x)
 
 
 bool
-real_islessorequals(real_t x, real_t y)
+real_islessequal(real_t x, real_t y)
 {
-        return real_isless(x, y) || real_equals(x, y);
+        return real_isless(x, y) || real_equal(x, y);
 }
 
 

@@ -29,18 +29,18 @@
                  real_t: _CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
-        #define equals(X, Y) _CML_BOTH_GENERIC_FUNC(equals, X, Y)
+        #define equal(X, Y) _CML_BOTH_GENERIC_FUNC(equal, X, Y)
         #define isnull(X) _CML_BOTH_GENERIC_FUNC(isnull, X)
         #define isnatural(X) _CML_REAL_GENERIC_FUNC(isnatural, X)
         #define isinteger(X) _CML_REAL_GENERIC_FUNC(isinteger, X)
         #define isgreater(X, Y) _CML_REAL_GENERIC_FUNC(isgreater, X, Y)
         #define isless(X, Y) _CML_REAL_GENERIC_FUNC(isless, X, Y)
-        #define isgreaterorequals(X, Y) _CML_REAL_GENERIC_FUNC( \
-                isgreaterorequals, \
+        #define isgreaterequal(X, Y) _CML_REAL_GENERIC_FUNC( \
+                isgreaterequal, \
                 X, Y \
                 )
-        #define islessorequals(X, Y) _CML_REAL_GENERIC_FUNC( \
-                islessorequals, \
+        #define islessequal(X, Y) _CML_REAL_GENERIC_FUNC( \
+                islessequal, \
                 X, Y \
                 )
         #define ismult(X, Y) _CML_REAL_GENERIC_FUNC(ismult, X, Y)
