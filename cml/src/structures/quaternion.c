@@ -2,7 +2,8 @@
 #include <cml.h>
 
 quaternion_t
-quaternion_create_from_spherical_coords(real_t vartheta, real_t varphi) {
+quaternion_create_from_spherical_coords(real_t vartheta, real_t varphi)
+{
         real_t ct = real_cos(vartheta/2.),
                cp = real_cos(varphi/2.),
                st = real_sin(vartheta/2.),
@@ -12,7 +13,8 @@ quaternion_create_from_spherical_coords(real_t vartheta, real_t varphi) {
 }
 
 quaternion_t
-quaternion_create_from_euler_angles(real_t alpha, real_t beta, real_t gamma) {
+quaternion_create_from_euler_angles(real_t alpha, real_t beta, real_t gamma)
+{
         real_t ca = real_cos(alpha/2.),
                cb = real_cos(beta/2.),
                cc = real_cos(gamma/2.),
@@ -79,7 +81,8 @@ quaternion_log(quaternion_t q)
 }
 
 real_t
-_quaternion_scalar_real_log(real_t s) {
+_quaternion_scalar_real_log(real_t s)
+{
         return real_log(s);
 }
 
@@ -87,19 +90,19 @@ quaternion_t
 quaternion_scalar_power(real_t s, quaternion_t q)
 {
         /* Unlike the quaternion^quaternion power, this is unambiguous.*/
-        if(is_null(s)) { /*real_log(s)=-inf */
+        if((s)) { /*real_log(s)=-inf */
                 quaternion_t r;
 
                 if(!quaternion_nonzero(q)) {
-                        r = {1.0, 0.0, 0.0, 0.0};
+                        r = { 1.0, 0.0, 0.0, 0.0 };
                 } else {
-                        r = {0.0, 0.0, 0.0, 0.0};
+                        r = { 0.0, 0.0, 0.0, 0.0 };
                 }
 
                 return r;
         } else if(s < 0.0) {               /* real_log(s)=nan */
                 // fprintf(stderr, "Input scalar (%.15g) has no unique logarithm; returning one arbitrarily.", s);
-                quaternion_t t = {real_log(-s), PI, 0, 0};
+                quaternion_t t = {real_log(-s), PI, 0.0, 0.0};
                 return quaternion_exp(quaternion_multiply(q, t));
         }
 
@@ -118,7 +121,7 @@ quaternion_exp(quaternion_t q)
 
                 r = {e*real_cos(vnorm), e*s*q.x, e*s*q.y, e*s*q.z};
         } else {
-                r = { real_exp(q.w), 0, 0, 0 };
+                r = { real_exp(q.w), 0.0, 0.0, 0.0 };
         }
 
         return r;
