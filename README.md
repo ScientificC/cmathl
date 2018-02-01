@@ -141,3 +141,38 @@ Compile and run
 ```shell
 $ gcc -lcml main.c -o main && ./main
 ```
+
+or using C++,
+
+```c++
+#include <iostream>
+#include <cml.hpp>
+
+using namespace std;
+using namespace cml;
+
+int
+main(int argc, char const *argv[])
+{
+        real_t x, y;
+        complex_t z, w;
+
+        x = 2.0;
+        y = 3.0;
+        z = complex(1.0, 2.0);
+        w = csin(z);
+
+        cout << sin(x) << endl;
+        cout <<  log(y) << endl;
+        cout <<  creal(w) << endl;
+        cout <<  cimag(w) << endl;
+
+        return 0;
+}
+```
+
+Compile and run
+
+```shell
+$ g++ -lcml main.cpp -o main && ./main
+```

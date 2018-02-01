@@ -16,3 +16,7 @@ indent_size = 8
 [*.h]
 indent_style = space
 indent_size = 8
+
+[*.hpp]
+indent_style = space
+indent_size = 8
