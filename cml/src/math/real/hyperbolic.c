@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <cml.h>
 
-_CML_EXTERN_INLINE cml_math_t
-__atanh__(cml_math_t x)
+_CML_EXTERN_INLINE real_t
+__atanh__(real_t x)
 {
-        cml_math_t ai_n, p;
+        real_t ai_n, p;
         mint_t i;
 
         ai_n = x;

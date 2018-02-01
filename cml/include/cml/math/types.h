@@ -25,12 +25,6 @@
         #define mfloat_t double
 #endif
 
-#ifdef CML_SINGLE_PRECISION
-        #define cml_math_t mfloat_t
-#else
-        #define cml_math_t double
-#endif
-
 #include "types/real.h"
 #include "types/complex.h"
 

@@ -1,26 +1,26 @@
 #include <stdlib.h>
 #include <cml.h>
 
-_CML_EXTERN_INLINE cml_math_t
-__atan__(cml_math_t x)
+_CML_EXTERN_INLINE real_t
+__atan__(real_t x)
 {
         mint_t i;
-        cml_math_t ai_n = x,
-                   p = ai_n;
+        real_t ai_n = x,
+               p = ai_n;
 
         for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
                 ai_n = -ai_n*x*x;
-                p += ai_n/((cml_math_t) i + 2.0);
+                p += ai_n/((real_t) i + 2.0);
         }
 
         return p;
 }
 
 
-_CML_EXTERN_INLINE cml_math_t
-__sin__(cml_math_t x)
+_CML_EXTERN_INLINE real_t
+__sin__(real_t x)
 {
-        cml_math_t ai, p;
+        real_t ai, p;
         mint_t i;
 
         ai = x;
@@ -68,13 +68,11 @@ real_t
 real_asin(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, b, c, h;
+        real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
-        b = (2.0);
-        c = (1.0);
-        y = real_pow(x, b);
-        z = real_sub(c, y);
+        y = real_pow(x, 2.0);
+        z = real_sub(1.0, y);
         w = real_sqrt(z);
         k = real_div(x, w);
         h = real_atan(k);
@@ -239,7 +237,7 @@ real_sin(real_t x)
 {
         /* Domain check */
         if (real_ismult(x, (PI))) {
-                return (0.0);
+                return 0.0;
         }
 
         /* Declaration of variables and structures */

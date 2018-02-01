@@ -13,7 +13,7 @@ real_exp(real_t x)
 {
         /* Declaration of variables and structures */
         mint_t i;
-        cml_math_t ai, ex;
+        real_t ai, ex;
 
         /* Mathematical algorithm */
         ai = 1.0;
