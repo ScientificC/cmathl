@@ -12,11 +12,11 @@ typedef struct _quaternion
                 real_t q[4];
                 struct
                 {
-                        real_t x, y, z, w;
+                        real_t w, x, y, z;
                 };
                 struct
                 {
-                        real_t i, j, k, a;
+                        real_t a, i, j, k;
                 };
         };
 } quaternion_t;
