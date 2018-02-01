@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/include/easings/bounce.h> directly; include <cml.h> instead."
+#error "Never use <cml/easings/bounce.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_EASINGS_BOUNCE_H

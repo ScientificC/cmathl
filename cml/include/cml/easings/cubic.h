@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/include/easings/cubic.h> directly; include <cml.h> instead."
+#error "Never use <cml/easings/cubic.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_EASINGS_CUBIC_H

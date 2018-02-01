@@ -6,5 +6,6 @@
 #define CML_STRUCTURES_H
 
 #include "structures/types.h"
+#include "structures/functions.h"
 
 #endif

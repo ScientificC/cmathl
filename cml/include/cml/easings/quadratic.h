@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/include/easings/quadratic.h> directly; include <cml.h> instead."
+#error "Never use <cml/easings/quadratic.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_EASINGS_H

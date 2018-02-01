@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/include/math/types.h> directly; include <cml.h> instead."
+#error "Never use <cml/math/types.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MATH_TYPES_H
