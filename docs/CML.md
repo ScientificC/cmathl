@@ -6,9 +6,7 @@
 
 - [**Easing Functions**](#easing-functions)
 - [**Math**](#math)
-
   - [Real](#real)
-
   - [Complex](#complex)
 
 ## Easing Functions
