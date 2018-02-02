@@ -17,7 +17,7 @@
     - [Classification Functions](#classification-functions)
   - [Complex](#complex)
     - [Basic Functions](#basic-functions-1)
-    - [Exponential Functions](#exponentiation-functions)
+    - [Exponentiation Functions](#exponentiation-functions)
     - [Trigonometric Functions](#trigonometric-functions-1)
     - [Hyperbolic Functions](#hyperbolic-functions-1)
     - [Error and Gamma Functions](#error-and-gamma-functions-1)
