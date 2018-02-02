@@ -28,7 +28,7 @@ $ git clone https://github.com/CMATHL/cml.git
 $ cd cml
 $ mkdir build
 $ cd build
-$ cmake .. <build options>
+$ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/ <build options>
 $ make && make install
 ```
 
