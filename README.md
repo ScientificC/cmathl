@@ -2,11 +2,25 @@
 
 [![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.3](https://img.shields.io/badge/Version-v1.9.3-blue.svg)
 
-## Introduction
-
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
 You can read the following [file](./docs/CML.md) to learn more about CML.
+
+## Table of Contents
+
+- [**Using the CMATHL**](#using-the-cmathl)
+- [**Configuration Macros**](#Configuration-macros)
+
+  - [Bool Type](#bool-type)
+  - [Integer Type](#integer-type)
+  - [Float Point Type](#float-point-type)
+  - [Easing Functions](#easing-functions)
+  - [Math Functions Aliases](#math-functions-aliases)
+  - [Math Precision](#math-precision)
+
+- [**Build Options**](#build-options)
+
+- [**Examples**](#a-simple-example)
 
 ## Using the CMATHL
 
@@ -49,7 +63,7 @@ If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.
 
 By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If the header `stdint.h` is not avaliable, disabled by defining `CML_NO_STDINT`, `mint_t` is a `int`. This can be changed by predefining `mint_t` as a desired type.
 
-### Float-Point Type
+### Float Point Type
 
 The float type used by CML is defined by the macro `mfloat_t`, which is by default `double`.
 
@@ -61,7 +75,7 @@ Easing functions take a value inside the range `[0.0, 1.0]` and usually will ret
 
 By defining `CML_NO_EASING_FUNCTIONS`, the easing functions will not be defined.
 
-### Math functions aliases
+### Math Functions Aliases
 
 Currently, all functions defined in cml have an alias which allows greater readability when working with the library. These aliases allow, for example, functions such as `real_sin` and`complex_cosh` to have aliases that are much more readable, such as `sin` and`ccosh` respectively. Then, this could bring certain incompatibilities with libraries like `math.h`, since these aliases will be defined as long as they are not indicated otherwise, and this may not be compatible with math definitions.
 
