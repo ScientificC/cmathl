@@ -7,7 +7,20 @@
 - [**Easing Functions**](#easing-functions)
 - [**Math**](#math)
   - [Real](#real)
+    - [Basic Functions](#basic-functions)
+    - [Exponential Functions](#exponential-functions)
+    - [Power Functions](#power-functions)
+    - [Trigonometric Functions](#trigonometric-functions)
+    - [Hyperbolic Functions](#hyperbolic-functions)
+    - [Error and Gamma Functions](#error-and-gamma-functions)
+    - [Nearest Integer Floating Point Operations](#nearest-integer-floating-point-operations)
+    - [Classification Functions](#classification-functions)
   - [Complex](#complex)
+    - [Basic Functions](#basic-functions-1)
+    - [Exponential Functions](#exponentiation-functions)
+    - [Trigonometric Functions](#trigonometric-functions-1)
+    - [Hyperbolic Functions](#hyperbolic-functions-1)
+    - [Error and Gamma Functions](#error-and-gamma-functions-1)
 
 ## Easing Functions
 
