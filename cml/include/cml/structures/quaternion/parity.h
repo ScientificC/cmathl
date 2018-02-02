@@ -1,17 +1,17 @@
 #ifndef CML_QUATERNION_PAR_FUNC_H
 #define CML_QUATERNION_PAR_FUNC_H
 
-quaternion_t quaternion_x_parity_conjugate(quaternion_t q);
-quaternion_t quaternion_x_parity_symmetric_part(quaternion_t q);
-quaternion_t quaternion_x_parity_antisymmetric_part(quaternion_t q);
-quaternion_t quaternion_y_parity_conjugate(quaternion_t q);
-quaternion_t quaternion_y_parity_symmetric_part(quaternion_t q);
-quaternion_t quaternion_y_parity_antisymmetric_part(quaternion_t q);
-quaternion_t quaternion_z_parity_conjugate(quaternion_t q);
-quaternion_t quaternion_z_parity_symmetric_part(quaternion_t q);
-quaternion_t quaternion_z_parity_antisymmetric_part(quaternion_t q);
+quaternion_t quaternion_parity_antisymmetric_part(quaternion_t q);
 quaternion_t quaternion_parity_conjugate(quaternion_t q);
 quaternion_t quaternion_parity_symmetric_part(quaternion_t q);
-quaternion_t quaternion_parity_antisymmetric_part(quaternion_t q);
+quaternion_t quaternion_x_parity_antisymmetric_part(quaternion_t q);
+quaternion_t quaternion_x_parity_conjugate(quaternion_t q);
+quaternion_t quaternion_x_parity_symmetric_part(quaternion_t q);
+quaternion_t quaternion_y_parity_antisymmetric_part(quaternion_t q);
+quaternion_t quaternion_y_parity_conjugate(quaternion_t q);
+quaternion_t quaternion_y_parity_symmetric_part(quaternion_t q);
+quaternion_t quaternion_z_parity_antisymmetric_part(quaternion_t q);
+quaternion_t quaternion_z_parity_conjugate(quaternion_t q);
+quaternion_t quaternion_z_parity_symmetric_part(quaternion_t q);
 
 #endif

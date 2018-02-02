@@ -2,10 +2,10 @@
 #include <cml.h>
 
 quaternion_t
-quaternion_scalar_power(real_t s, quaternion_t q)
+quaternion_scalar_pow(real_t s, quaternion_t q)
 {
         /* Unlike the quaternion^quaternion power, this is unambiguous.*/
-        if((s)) { /*real_log(s)=-inf */
+        if (s) { /*real_log(s)=-inf */
                 quaternion_t r;
 
                 if(!quaternion_nonzero(q)) {
@@ -16,13 +16,84 @@ quaternion_scalar_power(real_t s, quaternion_t q)
 
                 return r;
         } else if(s < 0.0) {               /* real_log(s)=nan */
-                // fprintf(stderr, "Input scalar (%.15g) has no unique logarithm; returning one arbitrarily.", s);
+                /* fprintf(stderr, "Input scalar (%.15g) has no unique logarithm; returning one arbitrarily.", s); */
                 quaternion_t t = {real_log(-s), PI, 0.0, 0.0};
                 return quaternion_exp(quaternion_multiply(q, t));
         }
 
         return quaternion_exp(quaternion_multiply_scalar(q, real_log(s)));
 }
+
+
+quaternion_t
+quaternion_pow(quaternion_t q, quaternion_t p)
+{
+        /* Note that the following is just my chosen definition of the power. */
+        /* Other definitions may disagree due to non-commutativity. */
+        if(!quaternion_nonzero(q)) { /* log(q)=-inf */
+                quaternion_t r;
+
+                if(!quaternion_nonzero(p)) {
+                        r = {1.0, 0.0, 0.0, 0.0};
+                } else {
+                        r = {0.0, 0.0, 0.0, 0.0};
+                }
+
+                return r;
+        }
+        return quaternion_exp(quaternion_multiply(quaternion_log(q), p));
+}
+
+
+void
+quaternion_inplace_pow(quaternion_t* q1, quaternion_t q2)
+{
+        /* Not overly useful as an in-place operator, but here for completeness. */
+        quaternion_t q3 = quaternion_pow(*q1,q2);
+        *q1 = q3;
+        return;
+}
+
+
+void
+quaternion_inplace_scalar_pow(real_t s, quaternion_t* q)
+{
+        /* Not overly useful as an in-place operator, but here for completeness. */
+        quaternion_t q2 = quaternion_scalar_pow(s, *q);
+        *q = q2;
+        return;
+}
+
+
+quaternion_t
+quaternion_pow_scalar(quaternion_t q, real_t s)
+{
+        /* Unlike the quaternion^quaternion_t power, this is unambiguous. */
+        if(!quaternion_nonzero(q)) { /* log(q)=-inf */
+                quaternion_t r;
+
+                if(s == 0.0) {
+                        r = {1.0, 0.0, 0.0, 0.0};
+                } else {
+                        r = {0.0, 0.0, 0.0, 0.0};
+                }
+
+                return r;
+        }
+
+        return quaternion_exp(quaternion_multiply_scalar(quaternion_log(q), s));
+}
+
+
+void
+quaternion_inplace_pow_scalar(quaternion_t* q, real_t s)
+{
+        /* Not overly useful as an in-place operator, but here for completeness. */
+        quaternion_t q2 = quaternion_pow_scalar(*q, s);
+        *q = q2;
+        return;
+}
+
 
 quaternion_t
 quaternion_exp(quaternion_t q)

@@ -233,7 +233,7 @@ quaternion_inplace_divide_scalar(quaternion_t* q, real_t s)
 quaternion_t
 quaternion_opposite(quaternion_t q)
 {
-        quaternion r = {-q.w, -q.x, -q.y, -q.z};
+        quaternion_t r = {-q.w, -q.x, -q.y, -q.z};
         return r;
 }
 
@@ -241,7 +241,7 @@ quaternion_opposite(quaternion_t q)
 quaternion_t
 quaternion_conjugate(quaternion_t q)
 {
-        quaternion r = {q.w, -q.x, -q.y, -q.z};
+        quaternion_t r = {q.w, -q.x, -q.y, -q.z};
         return r;
 }
 
@@ -250,6 +250,27 @@ quaternion_t
 quaternion_inverse(quaternion_t q)
 {
         real_t norm = quaternion_norm(q);
-        quaternion r = {q.w/norm, -q.x/norm, -q.y/norm, -q.z/norm};
+        quaternion_t r = {q.w/norm, -q.x/norm, -q.y/norm, -q.z/norm};
         return r;
+}
+
+
+real_t
+quaternion_norm(quaternion_t q)
+{
+        return q.w*q.w + q.x*q.x + q.y*q.y + q.z*q.z;
+}
+
+
+real_t
+quaternion_absolute(quaternion_t q)
+{
+        return real_sqrt(q.w*q.w + q.x*q.x + q.y*q.y + q.z*q.z);
+}
+
+
+real_t
+quaternion_angle(quaternion_t q)
+{
+        return 2*quaternion_absolute(quaternion_log( q ));
 }
