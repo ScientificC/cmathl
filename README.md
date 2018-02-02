@@ -10,16 +10,13 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 
 - [**Using the CMATHL**](#using-the-cmathl)
 - [**Configuration Macros**](#configuration-macros)
-
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
   - [Float Point Type](#float-point-type)
   - [Easing Functions](#easing-functions)
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Precision](#math-precision)
-
 - [**Build Options**](#build-options)
-
 - [**Examples**](#a-simple-example)
 
 ## Using the CMATHL
