@@ -15,6 +15,7 @@ SET(CML_CML_HEADERS
 	include/cml/config.h
 	include/cml/structures.h
 	include/cml/math.h
+	include/cml/tgmath.h
 	include/cml/easings.h
 )
 
@@ -23,7 +24,6 @@ SET(CML_MATH_HEADERS
 	include/cml/math/real.h
 	include/cml/math/complex.h
 	include/cml/math/bool.h
-	include/cml/math/generic.h
 )
 
 SET(CML_MATH_COMPLEX_HEADERS

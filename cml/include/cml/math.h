@@ -29,10 +29,6 @@
 #include "math/real.h"
 #include "math/complex.h"
 
-#if !(defined CML_NO_ALIASES || defined _CML_NO_GENERIC)
-        #include "math/generic.h"
-#endif
-
 #ifndef CML_SERIES_TOP_IT_L
         #define CML_SERIES_TOP_IT_L MAXLOG*14
 #endif

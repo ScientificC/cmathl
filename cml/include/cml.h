@@ -60,8 +60,12 @@
         __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
-#include "cml/math.h"
 
+#if defined CML_NO_ALIASES || defined _CML_NO_GENERIC
+        #include "cml/math.h"
+#else
+        #include "cml/tgmath.h"
+#endif
 
 #ifndef CML_NO_STRUCTURES
         #include "cml/structures.h"

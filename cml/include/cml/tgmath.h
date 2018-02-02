@@ -1,9 +1,11 @@
 #ifndef CML_H
-#error "Never use <cml/math/generic.h> directly; include <cml.h> instead."
+#error "Never use <cml/tgmath.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MATH_GEN_FUNC_H
 #define CML_MATH_GEN_FUNC_H
+
+#include "math.h"
 
 #ifndef _CML_MATH_FUNC
         #define _CML_MATH_FUNC(_type, _func) _type ## _ ## _func
@@ -86,6 +88,6 @@
         #define atanh(X) _CML_BOTH_GENERIC_FUNC(atanh, X)
         #define as_string(X) _CML_BOTH_GENERIC_FUNC(as_string)
 #else
-        #error "<cml/math/functions/generic.h> not implemented for this compiler"
+        #error "<cml/tgmath.h> not implemented for this compiler"
 #endif
 #endif
