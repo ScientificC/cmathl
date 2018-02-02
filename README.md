@@ -9,7 +9,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 ## Table of Contents
 
 - [**Using the CMATHL**](#using-the-cmathl)
-- [**Configuration Macros**](#Configuration-macros)
+- [**Configuration Macros**](#configuration-macros)
 
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
