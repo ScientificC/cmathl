@@ -68,7 +68,7 @@ quaternion_inplace_scalar_pow(real_t s, quaternion_t* q)
 quaternion_t
 quaternion_pow_scalar(quaternion_t q, real_t s)
 {
-        /* Unlike the quaternion^quaternion_t power, this is unambiguous. */
+        /* Unlike the quaternion^quaternion power, this is unambiguous. */
         if(!quaternion_nonzero(q)) { /* log(q)=-inf */
                 quaternion_t r;
 
@@ -147,7 +147,7 @@ quaternion_log(quaternion_t q)
 quaternion_t
 quaternion_sqrt(quaternion_t q)
 {
-        real_t absolute = quaternion_absolute(q);
+        real_t absolute = quaternion_abs(q);
         quaternion_t r;
 
         if(real_abs(1 + q.w/absolute) < _CML_QUATERNION_EPS*absolute) {

@@ -239,7 +239,7 @@ quaternion_opposite(quaternion_t q)
 
 
 quaternion_t
-quaternion_conjugate(quaternion_t q)
+quaternion_conj(quaternion_t q)
 {
         quaternion_t r = {q.w, -q.x, -q.y, -q.z};
         return r;
@@ -263,7 +263,7 @@ quaternion_norm(quaternion_t q)
 
 
 real_t
-quaternion_absolute(quaternion_t q)
+quaternion_abs(quaternion_t q)
 {
         return real_sqrt(q.w*q.w + q.x*q.x + q.y*q.y + q.z*q.z);
 }
@@ -272,5 +272,5 @@ quaternion_absolute(quaternion_t q)
 real_t
 quaternion_angle(quaternion_t q)
 {
-        return 2*quaternion_absolute(quaternion_log( q ));
+        return 2*quaternion_abs(quaternion_log( q ));
 }

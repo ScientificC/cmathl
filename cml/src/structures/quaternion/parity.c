@@ -3,7 +3,7 @@
 
 
 quaternion_t
-quaternion_x_parity_conjugate(quaternion_t q)
+quaternion_x_parity_conj(quaternion_t q)
 {
         quaternion r = {q.w, q.x, -q.y, -q.z};
         return r;
@@ -27,7 +27,7 @@ quaternion_x_parity_antisymmetric_part(quaternion_t q)
 
 
 quaternion_t
-quaternion_y_parity_conjugate(quaternion_t q)
+quaternion_y_parity_conj(quaternion_t q)
 {
         quaternion r = {q.w, -q.x, q.y, -q.z};
         return r;
@@ -51,7 +51,7 @@ quaternion_y_parity_antisymmetric_part(quaternion_t q)
 
 
 quaternion_t
-quaternion_z_parity_conjugate(quaternion_t q)
+quaternion_z_parity_conj(quaternion_t q)
 {
         quaternion r = {q.w, -q.x, -q.y, q.z};
         return r;
@@ -75,7 +75,7 @@ quaternion_z_parity_antisymmetric_part(quaternion_t q)
 
 
 quaternion_t
-quaternion_parity_conjugate(quaternion_t q)
+quaternion_parity_conj(quaternion_t q)
 {
         quaternion r = {q.w, q.x, q.y, q.z};
         return r;
