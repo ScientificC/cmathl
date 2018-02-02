@@ -59,7 +59,19 @@ SET(CML_EASINGS_HEADERS
 	include/cml/easings/quadratic.h
 )
 
-SET( CML_SRCS
+SET(CML_STRUCTURES_HEADERS
+	include/cml/structures/quaternion.h
+	include/cml/structures/matrix3.h
+	include/cml/structures/matrix4.h
+)
+
+SET(CML_QUATERNION_HEADERS
+	include/cml/structures/quaternion/basic.h
+	include/cml/structures/quaternion/exponentiation.h
+	include/cml/structures/quaternion/parity.h
+)
+
+SET(CML_SRCS
 		src/math/complex/trigonometric.c
 		src/math/complex/hyperbolic.c
 		src/math/complex/basic.c
@@ -87,7 +99,7 @@ SET( CML_SRCS
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 
-SET( CML_TESTS_SRCS
+SET(CML_TESTS_SRCS
 	test/main.c
 )
 SOURCE_GROUP(Tests FILES ${CML_TESTS_SRCS})
@@ -162,6 +174,9 @@ INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/math)
 INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/math/complex)
 INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/math/real)
 INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/easings)
+INSTALL(FILES ${CML_STRUCTURES_HEADERS} DESTINATION include/cml/structures)
+INSTALL(FILES ${CML_QUATERNION_HEADERS} DESTINATION include/cml/structures/quaternion)
+
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 #	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/cml.pdb DESTINATION bin)
