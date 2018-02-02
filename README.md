@@ -54,7 +54,7 @@ cmake .. -DCML_NO_STDBOOL=ON -Dmfloat_t=float -DCML_SINGLE_PRECISION=ON
 
 ### Bool Type
 
-If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.h` and will define a type or macro `bool` of type `int`, `int32_t` or something like to represent boolean values. This is useful for platforms where `stdbool.h` is not available.
+If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.h` and will define a type or macro `bool` of type `int`, `int32_t`, `unsigned char` or something like to represent boolean values. This is useful for platforms where `stdbool.h` is not available.
 
 ### Integer Type
 
