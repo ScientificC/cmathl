@@ -6,6 +6,7 @@
 
 - [**Easing Functions**](#easing-functions)
 - [**Math**](#math)
+
   - [Real](#real)
   - [Complex](#complex)
 
@@ -17,13 +18,9 @@ Easing functions take a value inside the range `[0.0, 1.0]` and usually will ret
 
 ## Math
 
-CML provides a large number of mathematical functions for general purposes.
+CML provides a large number of mathematical functions for general purposes offering at the moment two types, `real_t` and `complex_t`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex_t` being a structure.
 
-### Types
-
-CML offers at the moment two types, `real_t` and `complex_t`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex_t` being a structure.
-
-#### Real
+### Real
 
 CML defines a large number of operations for the set of real numbers. For this, the type `real_t` is provided. Here is an example on how to work with this type of data:
 
@@ -41,11 +38,11 @@ y = 2.0;
 z = pow(x, y);
 ```
 
-##### Functions
+--------------------------------------------------------------------------------
 
 Below are the prototypes of the functions provided for this type of data.
 
-###### Basic Functions
+#### Basic Functions
 
 ```c
 real_t real_abs(real_t);
@@ -61,7 +58,7 @@ real_t real_sgn(real_t);
 real_t real_sub(real_t, real_t);
 ```
 
-###### Exponential Functions
+#### Exponential Functions
 
 ```c
 real_t real_exp(real_t);
@@ -69,7 +66,7 @@ real_t real_log_b(real_t, real_t);
 real_t real_log(real_t);
 ```
 
-###### Power Functions
+#### Power Functions
 
 ```c
 real_t real_pow(real_t, real_t);
@@ -77,7 +74,7 @@ real_t real_root(real_t, real_t);
 real_t real_sqrt(real_t);
 ```
 
-###### Trigonometric Functions
+#### Trigonometric Functions
 
 ```c
 real_t real_sin(real_t);
@@ -92,7 +89,7 @@ real_t real_atan(real_t);
 real_t real_atan2(real_t, real_t);
 ```
 
-###### Hyperbolic Functions
+#### Hyperbolic Functions
 
 ```c
 real_t real_sinh(real_t);
@@ -106,21 +103,21 @@ real_t real_acosh(real_t);
 real_t real_atanh(real_t);
 ```
 
-###### Error and Gamma Functions
+#### Error and Gamma Functions
 
 ```c
 real_t real_gamma(real_t);
 real_t real_error(real_t);
 ```
 
-###### Nearest Integer Floating Point Operations
+#### Nearest Integer Floating Point Operations
 
 ```c
 real_t real_ceil(real_t);
 real_t real_floor(real_t);
 ```
 
-###### Classification Functions
+#### Classification Functions
 
 ```c
 bool real_equal(real_t, real_t);
@@ -134,7 +131,7 @@ bool real_isnatural(real_t);
 bool real_isnull(real_t);
 ```
 
-#### Complex
+### Complex
 
 CML defines a large number of operations for the set of complex numbers. For this, the type `complex_t` is provided. Here is an example on how to work with this type of data:
 
@@ -157,11 +154,11 @@ z = complex(1.0, 4.0);
 w = cexp(z);
 ```
 
-##### Functions
+--------------------------------------------------------------------------------
 
 Below are the prototypes of the functions provided for this type of data.
 
-###### Basic Functions
+#### Basic Functions
 
 ```c
 real_t complex_abs(complex_t);
@@ -175,7 +172,7 @@ complex_t complex_scalar_prod(complex_t, real_t);
 complex_t complex_sub(complex_t, complex_t);
 ```
 
-###### Exponentiation Functions
+#### Exponentiation Functions
 
 ```c
 complex_t complex_exp(complex_t);
@@ -186,7 +183,7 @@ complex_t complex_root(complex_t, complex_t);
 complex_t complex_sqrt(complex_t);
 ```
 
-###### Trigonometric Functions
+#### Trigonometric Functions
 
 ```c
 complex_t complex_sin(complex_t);
@@ -200,7 +197,7 @@ complex_t complex_acos(complex_t);
 complex_t complex_atan(complex_t);
 ```
 
-###### Hyperbolic Functions
+#### Hyperbolic Functions
 
 ```c
 complex_t complex_sinh(complex_t);
@@ -214,7 +211,7 @@ complex_t complex_acosh(complex_t);
 complex_t complex_atanh(complex_t);
 ```
 
-###### Error and Gamma Functions
+#### Error and Gamma Functions
 
 ```c
 complex_t complex_error(complex_t);
