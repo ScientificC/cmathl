@@ -24,13 +24,8 @@ build_script:
    -DCMAKE_INSTALL_PREFIX=../install
    -DCML_BUILD_STATIC=ON
    -DCML_BUILD_SHARED=ON
-   -Dmfloat_t=double
-   -DCML_SINGLE_PRECISION=ON
    ..
 
 test_script:
  - ctest --output-on-failure
    -C %configuration%
-
-artifacts:
- - path: 'build\*.zip'
