@@ -11,66 +11,6 @@ SET(CML_MAIN_HEADERS
 		include/cml.hpp
 )
 
-SET(CML_CML_HEADERS
-	include/cml/config.h
-	include/cml/structures.h
-	include/cml/math.h
-	include/cml/tgmath.h
-	include/cml/easings.h
-)
-
-SET(CML_MATH_HEADERS
-	include/cml/math/consts.h
-	include/cml/math/real.h
-	include/cml/math/complex.h
-	include/cml/math/bool.h
-)
-
-SET(CML_MATH_COMPLEX_HEADERS
-	include/cml/math/complex/basic.h
-	include/cml/math/complex/hyperbolic.h
-	include/cml/math/complex/error.h
-	include/cml/math/complex/exponentiation.h
-	include/cml/math/complex/trigonometric.h
-)
-
-SET(CML_MATH_REAL_HEADERS
-	include/cml/math/real/basic.h
-	include/cml/math/real/classification.h
-	include/cml/math/real/hyperbolic.h
-	include/cml/math/real/power.h
-	include/cml/math/real/exponential.h
-	include/cml/math/real/nearest-integer.h
-	include/cml/math/real/trigonometric.h
-	include/cml/math/real/error-gamma.h
-)
-
-SET(CML_EASINGS_HEADERS
-	include/cml/easings/linear.h
-	include/cml/easings/bounce.h
-	include/cml/easings/quartic.h
-	include/cml/easings/quintic.h
-	include/cml/easings/circular.h
-	include/cml/easings/back.h
-	include/cml/easings/exponential.h
-	include/cml/easings/sine.h
-	include/cml/easings/cubic.h
-	include/cml/easings/elastic.h
-	include/cml/easings/quadratic.h
-)
-
-SET(CML_STRUCTURES_HEADERS
-	include/cml/structures/quaternion.h
-	include/cml/structures/matrix3.h
-	include/cml/structures/matrix4.h
-)
-
-SET(CML_QUATERNION_HEADERS
-	include/cml/structures/quaternion/basic.h
-	include/cml/structures/quaternion/exponentiation.h
-	include/cml/structures/quaternion/parity.h
-)
-
 SET(CML_SRCS
 		src/math/complex/trigonometric.c
 		src/math/complex/hyperbolic.c
@@ -169,13 +109,10 @@ INSTALL(TARGETS ${CML_LIB_TARGET}
 		ARCHIVE DESTINATION lib${LIB_SUFFIX}
 		)
 INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
-INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml)
-INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/math)
-INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/math/complex)
-INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/math/real)
-INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/easings)
-INSTALL(FILES ${CML_STRUCTURES_HEADERS} DESTINATION include/cml/structures)
-INSTALL(FILES ${CML_QUATERNION_HEADERS} DESTINATION include/cml/structures/quaternion)
+INSTALL(DIRECTORY include/cml/ DESTINATION include/cml
+				PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
+				                    GROUP_EXECUTE GROUP_READ
+										)
 
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
