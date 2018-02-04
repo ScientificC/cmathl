@@ -18,8 +18,8 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Precision](#math-precision)
 - [**Build Options**](#build-options)
-- [**Examples**](#a-simple-example)
 - [**Documentation**](#documentation)
+  - [**Examples**](#a-simple-example)
 - [**Can I trust this math library?**](#can-i-trust-this-math-library)
 
 ## Using the CMATHL
@@ -138,7 +138,11 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=~/Projects/myproject/
 $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 ```
 
-## A simple example
+## Documentation
+
+A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](./docs/).
+
+### A simple example
 
 ```c
 #include <stdlib.h>
@@ -168,7 +172,7 @@ Compile and run
 $ gcc -lcml main.c -o main && ./main
 ```
 
-### or using C++,
+#### or using C++,
 
 ```c++
 #include <iostream>
@@ -199,10 +203,6 @@ Compile and run
 ```shell
 $ g++ -lcml main.cpp -o main && ./main
 ```
-
-## Documentation
-
-A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](./docs/).
 
 ## Can I trust this math library?
 
