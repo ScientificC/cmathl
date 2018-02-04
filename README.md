@@ -9,6 +9,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 ## Table of Contents
 
 - [**Using the CMATHL**](#using-the-cmathl)
+- [**Running Tests**](#running-tests)
 - [**Configuration Macros**](#configuration-macros)
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
@@ -17,8 +18,8 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Precision](#math-precision)
 - [**Build Options**](#build-options)
-- [**Examples**](#a-simple-example)
 - [**Documentation**](#documentation)
+  - [Examples](#a-simple-example)
 - [**Can I trust this math library?**](#can-i-trust-this-math-library)
 
 ## Using the CMATHL
@@ -32,6 +33,21 @@ $ mkdir build
 $ cd build
 $ cmake .. <build options>
 $ make && make install
+```
+
+[_Build Options_](#build-options)
+
+## Running Tests
+
+To run the test suite from a command prompt, using a Makefile-like generator, execute the following:
+
+```shell
+$ git clone https://github.com/CMATHL/cml.git
+$ cd cml
+$ mkdir build
+$ cd build
+$ cmake .. <build options>
+$ make && ctest
 ```
 
 [_Build Options_](#build-options)
@@ -122,7 +138,11 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=~/Projects/myproject/
 $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 ```
 
-## A simple example
+## Documentation
+
+A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](./docs/).
+
+### A simple example
 
 ```c
 #include <stdlib.h>
@@ -132,16 +152,13 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 int
 main(int argc, char const *argv[])
 {
-        real_t x, y;
         complex_t z, w;
 
-        x = 2.0;
-        y = 3.0;
         z = complex(1.0, 2.0);
         w = csin(z);
 
-        printf("%g\n", sin(x));
-        printf("%g\n", atan2(x, y));
+        printf("%g\n", sin(2.0));
+        printf("%g\n", atan2(2.0, 3.0));
         printf("%g\n", creal(w));
         printf("%g\n", cimag(w));
 
@@ -155,7 +172,7 @@ Compile and run
 $ gcc -lcml main.c -o main && ./main
 ```
 
-### or using C++,
+#### or using C++,
 
 ```c++
 #include <iostream>
@@ -167,16 +184,13 @@ using namespace cml;
 int
 main(int argc, char const *argv[])
 {
-        real_t x, y;
         complex_t z, w;
-
-        x = 2.0;
-        y = 3.0;
+        
         z = complex(1.0, 2.0);
         w = csin(z);
 
-        cout << sin(x) << endl;
-        cout << log(y) << endl;
+        cout << sin(2.0) << endl;
+        cout << log(3.0) << endl;
         cout << creal(w) << endl;
         cout << cimag(w) << endl;
 
@@ -189,10 +203,6 @@ Compile and run
 ```shell
 $ g++ -lcml main.cpp -o main && ./main
 ```
-
-## Documentation
-
-A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](./docs/).
 
 ## Can I trust this math library?
 
