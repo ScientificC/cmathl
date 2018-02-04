@@ -148,16 +148,13 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 int
 main(int argc, char const *argv[])
 {
-        real_t x, y;
         complex_t z, w;
 
-        x = 2.0;
-        y = 3.0;
         z = complex(1.0, 2.0);
         w = csin(z);
 
-        printf("%g\n", sin(x));
-        printf("%g\n", atan2(x, y));
+        printf("%g\n", sin(2.0));
+        printf("%g\n", atan2(2.0, 3.0));
         printf("%g\n", creal(w));
         printf("%g\n", cimag(w));
 
@@ -183,16 +180,13 @@ using namespace cml;
 int
 main(int argc, char const *argv[])
 {
-        real_t x, y;
         complex_t z, w;
-
-        x = 2.0;
-        y = 3.0;
+        
         z = complex(1.0, 2.0);
         w = csin(z);
 
-        cout << sin(x) << endl;
-        cout << log(y) << endl;
+        cout << sin(2.0) << endl;
+        cout << log(3.0) << endl;
         cout << creal(w) << endl;
         cout << cimag(w) << endl;
 
