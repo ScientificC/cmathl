@@ -9,6 +9,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 ## Table of Contents
 
 - [**Using the CMATHL**](#using-the-cmathl)
+- [**Running Tests**](#running-tests)
 - [**Configuration Macros**](#configuration-macros)
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
@@ -32,6 +33,21 @@ $ mkdir build
 $ cd build
 $ cmake .. <build options>
 $ make && make install
+```
+
+[_Build Options_](#build-options)
+
+## Running Tests
+
+To run the test suite from a command prompt, using a Makefile-like generator, execute the following:
+
+```shell
+$ git clone https://github.com/CMATHL/cml.git
+$ cd cml
+$ mkdir build
+$ cd build
+$ cmake .. <build options>
+$ make && ctest
 ```
 
 [_Build Options_](#build-options)
