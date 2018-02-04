@@ -55,11 +55,11 @@
 #define MINLOG -708.3964185322641
 #endif
 
-#ifndef FLT_EPSILON
+#ifndef CML_FLT_EPSILON
         #ifdef CML_SINGLE_PRECISION
-                #define FLT_EPSILON ((mfloat_t)1e-5)
+                #define CML_FLT_EPSILON ((mfloat_t)1e-5)
         #else
-                #define FLT_EPSILON ((mfloat_t)1e-9)
+                #define CML_FLT_EPSILON ((mfloat_t)1e-9)
         #endif
 #endif
 

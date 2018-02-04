@@ -4,8 +4,8 @@
 #include <float.h>
 #include <stdio.h>
 
-#ifndef FLT_EPSILON
-        #define FLT_EPSILON 1e-9
+#ifndef CML_FLT_EPSILON
+        #define CML_FLT_EPSILON 1e-9
 #endif
 
 int cml_count_tests = 0;
@@ -74,7 +74,7 @@ int cml_count_failures = 0;
                 CASE_START(); \
                 float actual = (_actual); \
                 float diff = actual - (_expected); \
-                if (diff < -FLT_EPSILON || FLT_EPSILON < diff) { \
+                if (diff < -CML_FLT_EPSILON || CML_FLT_EPSILON < diff) { \
                         CASE_FAIL(); \
                         printf("Expected %G, got %G", (_expected), actual); \
                 } \
