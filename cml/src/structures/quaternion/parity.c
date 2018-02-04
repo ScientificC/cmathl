@@ -20,7 +20,8 @@ quaternion_parity_symmetric_part(quaternion_t q)
 quaternion_t
 quaternion_parity_antisymmetric_part(quaternion_t q)
 {
-        quaternion_t r = {0.0, 0.0, 0.0, 0.0};
+        quaternion_t r = q;
+        r = (quaternion_t) {0.0, 0.0, 0.0, 0.0};
         return r;
 }
 

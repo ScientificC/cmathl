@@ -36,7 +36,7 @@ int run_tests()
         {
                 TEST_BEGIN(Math)
                 {
-                        EXPECT_FLOAT_EQ(NAN, NAN);
+                        EXPECT_FLOAT_EQ(NAN, log(-1.0));
                         EXPECT_FLOAT_EQ(INF, INF);
                         EXPECT_FLOAT_EQ(NINF, -INF);
                 }
