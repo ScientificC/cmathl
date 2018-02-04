@@ -278,7 +278,12 @@ quaternion_angle(quaternion_t q)
 quaternion_t
 quaternion_normalized(quaternion_t q)
 {
-        double q_abs = quaternion_abs(q);
+        real_t q_abs = quaternion_abs(q);
+
+        if (real_isnull(q_abs)) {
+                return q;
+        }
+
         quaternion_t r = {q.w/q_abs, q.x/q_abs, q.y/q_abs, q.z/q_abs};
         return r;
 }
