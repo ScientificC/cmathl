@@ -20,6 +20,7 @@ quaternion_t quaternion_divide(quaternion_t, quaternion_t);
 quaternion_t quaternion_inverse(quaternion_t);
 quaternion_t quaternion_multiply_scalar(quaternion_t, real_t);
 quaternion_t quaternion_multiply(quaternion_t, quaternion_t);
+quaternion_t quaternion_normalized(quaternion_t);
 quaternion_t quaternion_opposite(quaternion_t);
 quaternion_t quaternion_scalar_add(real_t, quaternion_t);
 quaternion_t quaternion_scalar_divide(real_t, quaternion_t);
