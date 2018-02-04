@@ -19,7 +19,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
   - [Math Precision](#math-precision)
 - [**Build Options**](#build-options)
 - [**Documentation**](#documentation)
-  - [**Examples**](#a-simple-example)
+  - [Examples](#a-simple-example)
 - [**Can I trust this math library?**](#can-i-trust-this-math-library)
 
 ## Using the CMATHL
