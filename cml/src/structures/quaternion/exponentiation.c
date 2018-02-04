@@ -72,7 +72,7 @@ quaternion_pow_scalar(quaternion_t q, real_t s)
         if(!quaternion_nonzero(q)) { /* log(q)=-inf */
                 quaternion_t r;
 
-                if(s == 0.0) {
+                if(real_isnull(s)) {
                         r = (quaternion_t) {1.0, 0.0, 0.0, 0.0};
                 } else {
                         r = (quaternion_t) {0.0, 0.0, 0.0, 0.0};

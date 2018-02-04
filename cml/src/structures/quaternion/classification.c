@@ -16,10 +16,13 @@ bool
 quaternion_nonzero(quaternion_t q)
 {
         if(quaternion_isnan(q)) {
-                return 1;
+                return true;
         }
 
-        return !(q.w == 0 && q.x == 0 && q.y == 0 && q.z == 0);
+        return !(real_isnull(q.w)
+                 && real_isnull(q.x)
+                 && real_isnull(q.y)
+                 && real_isnull(q.z));
 }
 
 

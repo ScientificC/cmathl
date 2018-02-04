@@ -77,5 +77,5 @@ real_isnatural(real_t x)
 bool
 real_isnull(real_t x)
 {
-        return x == 0.0;
+        return real_equal(x, 0.0);
 }
