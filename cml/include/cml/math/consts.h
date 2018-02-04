@@ -59,7 +59,7 @@
         #ifdef CML_SINGLE_PRECISION
                 #define CML_FLT_EPSILON ((mfloat_t)1e-5)
         #else
-                #define CML_FLT_EPSILON ((mfloat_t)1e-9)
+                #define CML_FLT_EPSILON ((mfloat_t)1e-7)
         #endif
 #endif
 

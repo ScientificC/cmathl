@@ -21,7 +21,7 @@ __ismult(real_t x, real_t y)
 bool
 real_equal(real_t x, real_t y)
 {
-        return x == y;
+        return real_abs(real_sub(x, y)) < CML_FLT_EPSILON;
 }
 
 
