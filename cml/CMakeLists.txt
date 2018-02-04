@@ -36,6 +36,11 @@ SET(CML_SRCS
 		src/easings/sine.c
 		src/easings/elastic.c
 		src/easings/circular.c
+		src/structures/quaternion/basic.c
+		src/structures/quaternion/classification.c
+		src/structures/quaternion/exponentiation.c
+		src/structures/quaternion/parity.c
+		src/structures/quaternion.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 
