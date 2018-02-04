@@ -42,6 +42,4 @@ typedef struct _matrix4
         };
 } matrix4_t;
 
-typedef matrix4_t* matrix4;
-
 #endif

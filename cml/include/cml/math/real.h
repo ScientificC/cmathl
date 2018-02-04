@@ -7,9 +7,13 @@
 
 typedef mfloat_t real_t;
 
+__CML_BEGIN_DECLS
+
 real_t real_nan();
 real_t real_inf();
 char* real_as_string(real_t);
+
+__CML_END_DECLS
 
 #include "real/basic.h"
 #include "real/classification.h"
@@ -20,7 +24,7 @@ char* real_as_string(real_t);
 #include "real/trigonometric.h"
 #include "real/hyperbolic.h"
 
-#if (defined _CML_NO_GENERIC && !defined CML_NO_ALIASES)
+#if (defined __CML_NO_GENERIC && !defined CML_NO_ALIASES)
         #define nan() real_nan()
         #define inf() real_inf()
         #define equal(X, Y) real_equal(X, Y)

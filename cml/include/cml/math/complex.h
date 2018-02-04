@@ -18,11 +18,15 @@ typedef struct _complex
         };
 } complex_t;
 
+__CML_BEGIN_DECLS
+
 complex_t complex(real_t, real_t);
 complex_t complex_nan();
 complex_t complex_inf();
 complex_t complex_clone(complex_t);
 char* complex_as_string(complex_t);
+
+__CML_END_DECLS
 
 #include "complex/basic.h"
 #include "complex/error.h"

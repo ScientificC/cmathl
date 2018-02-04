@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-_CML_EXTERN_INLINE bool
+__CML_EXTERN_INLINE bool
 __isinteger(real_t x)
 {
         mint_t x_int = (mint_t) x;
@@ -9,7 +9,7 @@ __isinteger(real_t x)
 }
 
 
-_CML_EXTERN_INLINE bool
+__CML_EXTERN_INLINE bool
 __ismult(real_t x, real_t y)
 {
         real_t z = real_div(x, y);

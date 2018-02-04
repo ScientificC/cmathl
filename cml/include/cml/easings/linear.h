@@ -5,6 +5,10 @@
 #ifndef CML_EASINGS_LINEAR_H
 #define CML_EASINGS_LINEAR_H
 
+__CML_BEGIN_DECLS
+
 real_t linear_interpolation(real_t p);
+
+__CML_END_DECLS
 
 #endif

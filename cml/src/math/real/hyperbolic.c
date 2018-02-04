@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-_CML_EXTERN_INLINE real_t
+__CML_EXTERN_INLINE real_t
 __atanh__(real_t x)
 {
         real_t ai_n, p;

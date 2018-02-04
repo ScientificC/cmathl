@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-_CML_EXTERN_INLINE real_t
+__CML_EXTERN_INLINE real_t
 __atan__(real_t x)
 {
         mint_t i;
@@ -17,7 +17,7 @@ __atan__(real_t x)
 }
 
 
-_CML_EXTERN_INLINE real_t
+__CML_EXTERN_INLINE real_t
 __sin__(real_t x)
 {
         real_t ai, p;

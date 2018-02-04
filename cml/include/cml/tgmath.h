@@ -7,86 +7,86 @@
 
 #include "math.h"
 
-#ifndef _CML_MATH_FUNC
-        #define _CML_MATH_FUNC(_type, _func) _type ## _ ## _func
+#ifndef __CML_MATH_FUNC
+        #define __CML_MATH_FUNC(_type, _func) _type ## _ ## _func
 #endif
 
-#ifndef _CML_NO_GENERIC
+#ifndef __CML_NO_GENERIC
 
-        #define _CML_REAL_GENERIC_FUNC(_func, ...) \
-        _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
-         default: _CML_MATH_FUNC(real, _func), \
-                 real_t: _CML_MATH_FUNC(real, _func) \
+        #define __CML_REAL_GENERIC_FUNC(_func, ...) \
+        _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
+         default: __CML_MATH_FUNC(real, _func), \
+                 real_t: __CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
-        #define _CML_COMPLEX_GENERIC_FUNC(_func, ...) \
-        _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
-                 complex_t: _CML_MATH_FUNC(complex, _func) \
+        #define __CML_COMPLEX_GENERIC_FUNC(_func, ...) \
+        _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
+                 complex_t: __CML_MATH_FUNC(complex, _func) \
                  )(__VA_ARGS__)
 
-        #define _CML_BOTH_GENERIC_FUNC(_func, ...) \
-        _Generic((_CML_ARGS_FIRST(__VA_ARGS__)), \
-         default: _CML_MATH_FUNC(real, _func), \
-                 complex_t: _CML_MATH_FUNC(complex, _func), \
-                 real_t: _CML_MATH_FUNC(real, _func) \
+        #define __CML_BOTH_GENERIC_FUNC(_func, ...) \
+        _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
+         default: __CML_MATH_FUNC(real, _func), \
+                 complex_t: __CML_MATH_FUNC(complex, _func), \
+                 real_t: __CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
-        #define equal(X, Y) _CML_BOTH_GENERIC_FUNC(equal, X, Y)
-        #define isnull(X) _CML_BOTH_GENERIC_FUNC(isnull, X)
-        #define isnatural(X) _CML_REAL_GENERIC_FUNC(isnatural, X)
-        #define isinteger(X) _CML_REAL_GENERIC_FUNC(isinteger, X)
-        #define isgreater(X, Y) _CML_REAL_GENERIC_FUNC(isgreater, X, Y)
-        #define isless(X, Y) _CML_REAL_GENERIC_FUNC(isless, X, Y)
-        #define isgreaterequal(X, Y) _CML_REAL_GENERIC_FUNC( \
+        #define equal(X, Y) __CML_BOTH_GENERIC_FUNC(equal, X, Y)
+        #define isnull(X) __CML_BOTH_GENERIC_FUNC(isnull, X)
+        #define isnatural(X) __CML_REAL_GENERIC_FUNC(isnatural, X)
+        #define isinteger(X) __CML_REAL_GENERIC_FUNC(isinteger, X)
+        #define isgreater(X, Y) __CML_REAL_GENERIC_FUNC(isgreater, X, Y)
+        #define isless(X, Y) __CML_REAL_GENERIC_FUNC(isless, X, Y)
+        #define isgreaterequal(X, Y) __CML_REAL_GENERIC_FUNC( \
                 isgreaterequal, \
                 X, Y \
                 )
-        #define islessequal(X, Y) _CML_REAL_GENERIC_FUNC( \
+        #define islessequal(X, Y) __CML_REAL_GENERIC_FUNC( \
                 islessequal, \
                 X, Y \
                 )
-        #define ismult(X, Y) _CML_REAL_GENERIC_FUNC(ismult, X, Y)
-        #define add(X, Y) _CML_BOTH_GENERIC_FUNC(add, X, Y)
-        #define prod(X, Y) _CML_BOTH_GENERIC_FUNC(prod, X, Y)
-        #define sub(X, Y) _CML_BOTH_GENERIC_FUNC(sub, X, Y)
-        #define div(X, Y) _CML_BOTH_GENERIC_FUNC(div, X, Y)
-        #define sgn(X, Y) _CML_REAL_GENERIC_FUNC(sgn, X, Y)
-        #define abs(X) _CML_REAL_GENERIC_FUNC(abs, X)
-        #define floor(X) _CML_REAL_GENERIC_FUNC(floor, X)
-        #define ceil(X) _CML_REAL_GENERIC_FUNC(ceil, X)
-        #define div_e(X) _CML_REAL_GENERIC_FUNC(div_e, X)
-        #define mod(X) _CML_REAL_GENERIC_FUNC(mod, X)
-        #define inverse(X) _CML_BOTH_GENERIC_FUNC(inverse, X)
-        #define opposite(X) _CML_BOTH_GENERIC_FUNC(opposite, X)
-        #define ared(X) _CML_REAL_GENERIC_FUNC(ared, X)
-        #define fact(X) _CML_REAL_GENERIC_FUNC(fact, X)
-        #define exp(X) _CML_BOTH_GENERIC_FUNC(exp, X)
-        #define ln(X) _CML_BOTH_GENERIC_FUNC(ln, X)
-        #define log(X) _CML_BOTH_GENERIC_FUNC(log, X)
-        #define log_b(X, Y) _CML_BOTH_GENERIC_FUNC(log_b, X, Y)
-        #define pow(X, Y) _CML_REAL_GENERIC_FUNC(pow, X, Y)
-        #define root(X) _CML_REAL_GENERIC_FUNC(root, X)
-        #define sqrt(X) _CML_REAL_GENERIC_FUNC(sqrt, X)
-        #define sin(X) _CML_BOTH_GENERIC_FUNC(sin, X)
-        #define cos(X) _CML_BOTH_GENERIC_FUNC(cos, X)
-        #define tan(X) _CML_BOTH_GENERIC_FUNC(tan, X)
-        #define sec(X) _CML_BOTH_GENERIC_FUNC(sec, X)
-        #define csc(X) _CML_BOTH_GENERIC_FUNC(csc, X)
-        #define cot(X) _CML_BOTH_GENERIC_FUNC(cot, X)
-        #define asin(X) _CML_BOTH_GENERIC_FUNC(asin, X)
-        #define acos(X) _CML_BOTH_GENERIC_FUNC(acos, X)
-        #define atan(X) _CML_BOTH_GENERIC_FUNC(atan, X)
-        #define atan2(X, Y) _CML_BOTH_GENERIC_FUNC(atan2, X, Y)
-        #define sinh(X) _CML_BOTH_GENERIC_FUNC(sinh, X)
-        #define cosh(X) _CML_BOTH_GENERIC_FUNC(cosh, X)
-        #define tanh(X) _CML_BOTH_GENERIC_FUNC(tanh, X)
-        #define sech(X) _CML_BOTH_GENERIC_FUNC(sech, X)
-        #define csch(X) _CML_BOTH_GENERIC_FUNC(csch, X)
-        #define coth(X) _CML_BOTH_GENERIC_FUNC(coth, X)
-        #define asinh(X) _CML_BOTH_GENERIC_FUNC(asinh, X)
-        #define acosh(X) _CML_BOTH_GENERIC_FUNC(acosh, X)
-        #define atanh(X) _CML_BOTH_GENERIC_FUNC(atanh, X)
-        #define as_string(X) _CML_BOTH_GENERIC_FUNC(as_string)
+        #define ismult(X, Y) __CML_REAL_GENERIC_FUNC(ismult, X, Y)
+        #define add(X, Y) __CML_BOTH_GENERIC_FUNC(add, X, Y)
+        #define prod(X, Y) __CML_BOTH_GENERIC_FUNC(prod, X, Y)
+        #define sub(X, Y) __CML_BOTH_GENERIC_FUNC(sub, X, Y)
+        #define div(X, Y) __CML_BOTH_GENERIC_FUNC(div, X, Y)
+        #define sgn(X, Y) __CML_REAL_GENERIC_FUNC(sgn, X, Y)
+        #define abs(X) __CML_REAL_GENERIC_FUNC(abs, X)
+        #define floor(X) __CML_REAL_GENERIC_FUNC(floor, X)
+        #define ceil(X) __CML_REAL_GENERIC_FUNC(ceil, X)
+        #define div_e(X) __CML_REAL_GENERIC_FUNC(div_e, X)
+        #define mod(X) __CML_REAL_GENERIC_FUNC(mod, X)
+        #define inverse(X) __CML_BOTH_GENERIC_FUNC(inverse, X)
+        #define opposite(X) __CML_BOTH_GENERIC_FUNC(opposite, X)
+        #define ared(X) __CML_REAL_GENERIC_FUNC(ared, X)
+        #define fact(X) __CML_REAL_GENERIC_FUNC(fact, X)
+        #define exp(X) __CML_BOTH_GENERIC_FUNC(exp, X)
+        #define ln(X) __CML_BOTH_GENERIC_FUNC(ln, X)
+        #define log(X) __CML_BOTH_GENERIC_FUNC(log, X)
+        #define log_b(X, Y) __CML_BOTH_GENERIC_FUNC(log_b, X, Y)
+        #define pow(X, Y) __CML_REAL_GENERIC_FUNC(pow, X, Y)
+        #define root(X) __CML_REAL_GENERIC_FUNC(root, X)
+        #define sqrt(X) __CML_REAL_GENERIC_FUNC(sqrt, X)
+        #define sin(X) __CML_BOTH_GENERIC_FUNC(sin, X)
+        #define cos(X) __CML_BOTH_GENERIC_FUNC(cos, X)
+        #define tan(X) __CML_BOTH_GENERIC_FUNC(tan, X)
+        #define sec(X) __CML_BOTH_GENERIC_FUNC(sec, X)
+        #define csc(X) __CML_BOTH_GENERIC_FUNC(csc, X)
+        #define cot(X) __CML_BOTH_GENERIC_FUNC(cot, X)
+        #define asin(X) __CML_BOTH_GENERIC_FUNC(asin, X)
+        #define acos(X) __CML_BOTH_GENERIC_FUNC(acos, X)
+        #define atan(X) __CML_BOTH_GENERIC_FUNC(atan, X)
+        #define atan2(X, Y) __CML_BOTH_GENERIC_FUNC(atan2, X, Y)
+        #define sinh(X) __CML_BOTH_GENERIC_FUNC(sinh, X)
+        #define cosh(X) __CML_BOTH_GENERIC_FUNC(cosh, X)
+        #define tanh(X) __CML_BOTH_GENERIC_FUNC(tanh, X)
+        #define sech(X) __CML_BOTH_GENERIC_FUNC(sech, X)
+        #define csch(X) __CML_BOTH_GENERIC_FUNC(csch, X)
+        #define coth(X) __CML_BOTH_GENERIC_FUNC(coth, X)
+        #define asinh(X) __CML_BOTH_GENERIC_FUNC(asinh, X)
+        #define acosh(X) __CML_BOTH_GENERIC_FUNC(acosh, X)
+        #define atanh(X) __CML_BOTH_GENERIC_FUNC(atanh, X)
+        #define as_string(X) __CML_BOTH_GENERIC_FUNC(as_string)
 #else
         #error "<cml/tgmath.h> not implemented for this compiler"
 #endif

@@ -40,6 +40,4 @@ typedef struct _matrix3
 
 } matrix3_t;
 
-typedef matrix3_t* matrix3;
-
 #endif

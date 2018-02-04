@@ -14,7 +14,16 @@
         #endif
 #endif
 
+#define __CML_BEGIN_DECLS
+#define __CML_END_DECLS
+
 #ifdef __cplusplus
+        #undef __CML_BEGIN_DECLS
+        #undef __CML_END_DECLS
+
+        #define __CML_BEGIN_DECLS extern "C" {
+        #define __CML_END_DECLS }
+
         #if __cplusplus >= 199901L
                 #define PREDEF_STANDARD_CPP99
                 #if __cplusplus >= 201112L
@@ -24,31 +33,31 @@
 #endif
 
 #ifdef _MSC_VER
-        #define _CML_INLINE __forceinline
+        #define __CML_INLINE __forceinline
 #else
-        #define _CML_INLINE inline __attribute__((always_inline))
+        #define __CML_INLINE inline __attribute__((always_inline))
 #endif
 
 #include "cml/config.h"
 
 /* Use `extern inline` for C99 or later */
 #ifdef PREDEF_STANDARD_C99
-        #define _CML_EXTERN_INLINE extern _CML_INLINE
+        #define __CML_EXTERN_INLINE extern __CML_INLINE
 #else
-        #undef _CML_EXTERN_INLINE
+        #undef __CML_EXTERN_INLINE
         #undef CML_SINGLE_PRECISION
         #undef mfloat_t
 
-        #define _CML_EXTERN_INLINE
+        #define __CML_EXTERN_INLINE
         #define mfloat_t double
 #endif
 
 #ifndef PREDEF_STANDARD_C11
-        #undef _CML_NO_GENERIC
-        #define _CML_NO_GENERIC
+        #undef __CML_NO_GENERIC
+        #define __CML_NO_GENERIC
 #endif
 
-#define _CML_ARGS_FIRST(A, ...) A
+#define __CML_ARGS_FIRST(A, ...) A
 
 #ifndef __type
 #define __type(__e, __t)                                                \
@@ -61,7 +70,7 @@
 #endif
 
 
-#if defined CML_NO_ALIASES || defined _CML_NO_GENERIC
+#if defined CML_NO_ALIASES || defined __CML_NO_GENERIC
         #include "cml/math.h"
 #else
         #include "cml/tgmath.h"

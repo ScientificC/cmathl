@@ -1,6 +1,8 @@
 #ifndef CML_QUATERNION_BASIC_FUNC_H
 #define CML_QUATERNION_BASIC_FUNC_H
 
+__CML_BEGIN_DECLS
+
 void quaternion_inplace_add_scalar(quaternion_t*, real_t);
 void quaternion_inplace_add(quaternion_t*, quaternion_t);
 void quaternion_inplace_divide_scalar(quaternion_t*, real_t);
@@ -32,5 +34,7 @@ quaternion_t quaternion_subtract(quaternion_t, quaternion_t);
 real_t quaternion_norm(quaternion_t);
 real_t quaternion_abs(quaternion_t);
 real_t quaternion_angle(quaternion_t);
+
+__CML_END_DECLS
 
 #endif
