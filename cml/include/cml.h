@@ -60,7 +60,7 @@
 #define __CML_ARGS_FIRST(A, ...) A
 
 #ifndef __type
-#define __type(__e, __t)                                                \
+#define __type(__e, __t) \
         __builtin_types_compatible_p(__typeof(__e), __t)
 #endif
 
