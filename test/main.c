@@ -58,13 +58,14 @@ int run_tests()
                 {
                         /* We have to be a little looser with our equality constraint
                            because of floating-point precision issues. */
-                        const float trigAbsError = 0.0001f;
+                        const float trigAbsError = 0.000001;
 
                         EXPECT_NEAR(sin(0.0), 0.0, trigAbsError);
                         EXPECT_NEAR(sin(PI / 2), 1.0, trigAbsError);
                         EXPECT_NEAR(sin(PI), 0.0, trigAbsError);
                         EXPECT_NEAR(sin(3 * PI / 2), -1.0, trigAbsError);
                         EXPECT_NEAR(sin(-PI / 2), -1.0, trigAbsError);
+                        EXPECT_NEAR(sin(1578901387.78992), -0.134176, trigAbsError);
 
                         EXPECT_NEAR(cos(0.0), 1.0, trigAbsError);
                         EXPECT_NEAR(cos(PI / 2), 0.0, trigAbsError);
