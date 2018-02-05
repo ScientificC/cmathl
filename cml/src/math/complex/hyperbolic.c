@@ -149,7 +149,7 @@ complex_acosh_real(real_t a)
                 }
                 else
                 {
-                        z = complex(acosh (-a), PI);
+                        z = complex(real_acosh(-a), PI);
                 }
         }
 
