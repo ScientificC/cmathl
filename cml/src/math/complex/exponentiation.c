@@ -79,7 +79,7 @@ complex_sqrt(complex_t a)
         complex_t z;
 
         if (real_isnull(a.re) && real_isnull(a.im)) {
-                complex(0.0, 0.0);
+                z = complex(0.0, 0.0);
         } else {
                 real_t x = real_abs(a.re);
                 real_t y = real_abs(a.im);
