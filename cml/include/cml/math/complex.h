@@ -10,10 +10,16 @@ typedef struct _complex
         union
         {
                 real_t p[2];
+                real_t parts[2];
                 struct
                 {
                         real_t re;
                         real_t im;
+                };
+                struct real_t 
+                {
+                        real_t real;
+                        real_t imaginary;
                 };
         };
 } complex_t;
