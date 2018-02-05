@@ -79,7 +79,7 @@ complex_sqrt(complex_t a)
         complex_t z;
 
         if (real_isnull(a.re) && real_isnull(a.im)) {
-                z = complex(0.0, 0.0);
+                z = complex_zero();
         } else {
                 real_t x = real_abs(a.re);
                 real_t y = real_abs(a.im);
@@ -131,7 +131,7 @@ complex_pow (complex_t a, complex_t b)
                 if (real_isnull(b.re) && real_isnull(b.im)) {
                         z = complex(1.0, 0.0);
                 } else {
-                        z = complex(0.0, 0.0);
+                        z = complex_zero();
                 }
         } else if (real_isnull(b.re) && real_isnull(b.im)) {
                 return a;
@@ -162,7 +162,7 @@ complex_pow_real (complex_t a, real_t b)
                 if (real_isnull(b)) {
                         z = complex(1.0, 0.0);
                 } else {
-                        z = complex(0.0, 0.0);
+                        z = complex_zero();
                 }
         } else {
                 real_t logr = complex_logabs(a);
