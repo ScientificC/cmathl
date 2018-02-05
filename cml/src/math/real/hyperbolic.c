@@ -138,7 +138,7 @@ real_coth(real_t x)
         y = real_cosh(x);
         z = real_sinh(x);
         w = real_inverse(z);
-        h = real_prod(y, w);
+        h = real_mul(y, w);
 
         /* Return */
         return h;
@@ -233,7 +233,7 @@ real_tanh(real_t x)
         y = real_sinh(x);
         z = real_cosh(x);
         w = real_inverse(z);
-        h = real_prod(y, w);
+        h = real_mul(y, w);
 
         /* Return */
         return h;

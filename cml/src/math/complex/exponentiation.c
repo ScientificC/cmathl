@@ -21,8 +21,8 @@ complex_exp(complex_t z)
         h = real_exp(z.p[0]);
         n = real_cos(z.p[1]);
         m = real_sin(z.p[1]);
-        x = real_prod(h, n);
-        y = real_prod(h, m);
+        x = real_mul(h, n);
+        y = real_mul(h, m);
 
         w = complex(x, y);
 

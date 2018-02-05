@@ -76,7 +76,7 @@ real_log(real_t x)
         real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
-        y = real_prod(x, x);
+        y = real_mul(x, x);
         z = y - 1.0;
         w = y + 1.0;
         k = real_div(z, w);

@@ -37,7 +37,7 @@ __CML_END_DECLS
         #define islessequal(X, Y) real_islessequal(X, Y)
         #define ismult(X, Y) real_ismult(X, Y)
         #define add(X, Y) real_add(X, Y)
-        #define prod(X, Y) real_prod(X, Y)
+        #define prod(X, Y) real_mul(X, Y)
         #define sub(X, Y) real_sub(X, Y)
         #define div(X, Y) real_div(X, Y)
         #define sgn(X, Y) real_sgn(X, Y)

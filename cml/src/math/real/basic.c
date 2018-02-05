@@ -16,7 +16,7 @@ real_abs(real_t x)
 
         /* Mathematical algorithm */
         sgn = real_sgn(x);
-        y = real_prod(x, sgn);
+        y = real_mul(x, sgn);
 
         /* Return */
         return y;
@@ -53,7 +53,7 @@ real_ared(real_t x)
 
         /* Mathematical algorithm */
         z = real_div_e(x, (TWOPI));
-        k = real_prod(z, (TWOPI));
+        k = real_mul(z, (TWOPI));
         w = real_sub(x, k);
 
         /* Return */
@@ -131,7 +131,7 @@ real_mod(real_t x, real_t y)
 
         /* Mathematical algorithm */
         z = real_div_e(x, y);
-        w = real_prod(y, z);
+        w = real_mul(y, z);
         k = real_sub(x, w);
 
         /* Return */
@@ -155,7 +155,7 @@ real_opposite(real_t x)
  */
 
 real_t
-real_prod(real_t x, real_t y)
+real_mul(real_t x, real_t y)
 {
         return x * y;
 }

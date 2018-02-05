@@ -81,7 +81,7 @@ complex_div(complex_t z, complex_t k)
 
         /* Mathematical algorithm */
         r = complex_inverse(k);
-        w = complex_prod(z, r);
+        w = complex_mul(z, r);
 
         /* Return */
         return w;
@@ -122,7 +122,7 @@ complex_inverse(complex_t z)
  */
 
 complex_t
-complex_prod(complex_t z, complex_t k)
+complex_mul(complex_t z, complex_t k)
 {
         /* Declaration of variables and structures */
         complex_t w;
@@ -142,15 +142,15 @@ complex_prod(complex_t z, complex_t k)
 
 
 complex_t
-complex_scalar_prod(complex_t z, real_t k)
+complex_scalar_mul(complex_t z, real_t k)
 {
         /* Declaration of variables and structures */
         complex_t w;
         real_t x, y;
 
         /* Mathematical algorithm */
-        x = real_prod(k, z.p[0]);
-        y = real_prod(k, z.p[1]);
+        x = real_mul(k, z.p[0]);
+        y = real_mul(k, z.p[1]);
         w = complex(x, y);
 
         /* Return */
@@ -173,4 +173,73 @@ complex_sub(complex_t z, complex_t k)
 
         /* Return */
         return h;
+}
+
+
+complex_t
+complex_add_real(complex_t a, real_t x)
+{                               /* z=a+x */
+        complex_t z;
+        z = complex(a.re + x, a.im);
+        return z;
+}
+
+
+complex_t
+complex_add_imag(complex_t a, real_t y)
+{                               /* z=a+iy */
+        complex_t z;
+        z = complex(a.re, a.im + y);
+        return z;
+}
+
+complex_t
+complex_sub_real(complex_t a, real_t x)
+{                               /* z=a-x */
+        complex_t z;
+        z = complex(a.re - x, a.im);
+        return z;
+}
+
+
+complex_t
+complex_sub_imag(complex_t a, real_t y)
+{                               /* z=a-iy */
+        complex_t z;
+        z = complex(a.re, a.im - y);
+        return z;
+}
+
+complex_t
+complex_mul_real(complex_t a, real_t x)
+{                               /* z=a*x */
+        complex_t z;
+        z = complex(x * a.re, x * a.im);
+        return z;
+}
+
+
+complex_t
+complex_mul_imag(complex_t a, real_t y)
+{                               /* z=a*iy */
+        complex_t z;
+        z = complex(-y * a.im, y * a.re);
+        return z;
+}
+
+complex_t
+complex_div_real(complex_t a, real_t x)
+{                               /* z=a/x */
+        complex_t z;
+        z = complex(a.re / x, a.im / x);
+        return z;
+}
+
+
+complex_t
+complex_div_imag(complex_t a, real_t y)
+{                               /* z=a/(iy) */
+        complex_t z;
+        z = complex(a.im / y,  -a.re / y);
+        return z;
 }

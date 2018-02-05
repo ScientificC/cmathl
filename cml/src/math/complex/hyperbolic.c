@@ -24,8 +24,8 @@ complex_cosh(complex_t z)
         a = real_cosh(z.p[0]);
         b = real_sinh(z.p[0]);
 
-        n = real_prod(k, a);
-        m = real_prod(h, b);
+        n = real_mul(k, a);
+        m = real_mul(h, b);
 
         w = complex(n, m);
 
@@ -57,8 +57,8 @@ complex_sinh(complex_t z)
         a = real_sinh(z.re);
         b = real_cosh(z.re);
 
-        n = real_prod(k, a);
-        m = real_prod(h, b);
+        n = real_mul(k, a);
+        m = real_mul(h, b);
 
         w = complex(n, m);
 

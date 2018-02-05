@@ -11,7 +11,7 @@ real_t real_div(real_t, real_t);
 real_t real_inverse(real_t);
 real_t real_mod(real_t, real_t);
 real_t real_opposite(real_t);
-real_t real_prod(real_t, real_t);
+real_t real_mul(real_t, real_t);
 real_t real_sgn(real_t);
 real_t real_sub(real_t, real_t);
 

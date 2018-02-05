@@ -28,9 +28,9 @@ real_pow(real_t x, real_t n)
         s = real_sgn(x);
         y = real_abs(x);
         z = real_log(y);
-        w = real_prod(n, z);
+        w = real_mul(n, z);
         k = real_exp(w);
-        h = real_prod(s, k);
+        h = real_mul(s, k);
 
         /* Return */
         return h;

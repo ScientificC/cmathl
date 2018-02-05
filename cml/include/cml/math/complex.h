@@ -42,7 +42,7 @@ __CML_END_DECLS
         #define cisnull(X) complex_isnull(X)
         #define cismult(X, Y) complex_ismult(X, Y)
         #define cadd(X, Y) complex_add(X, Y)
-        #define cprod(X, Y) complex_prod(X, Y)
+        #define cprod(X, Y) complex_mul(X, Y)
         #define csub(X, Y) complex_sub(X, Y)
         #define cdiv(X, Y) complex_div(X, Y)
         #define cabs(X) complex_abs(X)

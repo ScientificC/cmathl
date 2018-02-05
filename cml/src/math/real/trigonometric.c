@@ -98,7 +98,7 @@ real_atan(real_t x)
         /* Mathematical algorithm */
         a = real_abs(x);
         s = real_sgn(x);
-        w = real_prod(s, __atan__(a));
+        w = real_mul(s, __atan__(a));
 
         /* Return */
         return w;
@@ -124,7 +124,7 @@ real_atan2(real_t y, real_t x)
         s = real_sgn(y);
         k = real_div(x, y);
         j = real_atan(k);
-        z = real_prod(HALFPI, s);
+        z = real_mul(HALFPI, s);
         w = real_sub(z, j);
 
         /* Return */
@@ -248,7 +248,7 @@ real_sin(real_t x)
         y = real_abs(x);
         z = real_ared(y);
         w = ((mfloat_t) __sin__(z));
-        h = real_prod(w, s);
+        h = real_mul(w, s);
 
         /* Return */
         return h;

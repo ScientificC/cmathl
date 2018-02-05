@@ -65,7 +65,7 @@ real_t real_div(real_t, real_t);
 real_t real_inverse(real_t);
 real_t real_mod(real_t, real_t);
 real_t real_opposite(real_t);
-real_t real_prod(real_t, real_t);
+real_t real_mul(real_t, real_t);
 real_t real_sgn(real_t);
 real_t real_sub(real_t, real_t);
 ```
@@ -179,8 +179,8 @@ complex_t complex_add(complex_t, complex_t);
 complex_t complex_conjugate(complex_t);
 complex_t complex_div(complex_t, complex_t);
 complex_t complex_inverse(complex_t);
-complex_t complex_prod(complex_t, complex_t);
-complex_t complex_scalar_prod(complex_t, real_t);
+complex_t complex_mul(complex_t, complex_t);
+complex_t complex_scalar_mul(complex_t, real_t);
 complex_t complex_sub(complex_t, complex_t);
 ```
 
