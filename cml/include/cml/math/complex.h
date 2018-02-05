@@ -16,7 +16,7 @@ typedef struct _complex
                         real_t re;
                         real_t im;
                 };
-                struct real_t
+                struct
                 {
                         real_t real;
                         real_t imaginary;
