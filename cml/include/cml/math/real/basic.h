@@ -9,6 +9,7 @@ real_t real_ared(real_t);
 real_t real_div_e(real_t, real_t);
 real_t real_div(real_t, real_t);
 real_t real_inverse(real_t);
+real_t real_hypot(real_t x, real_t y);
 real_t real_mod(real_t, real_t);
 real_t real_opposite(real_t);
 real_t real_mul(real_t, real_t);

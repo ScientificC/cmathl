@@ -86,3 +86,15 @@ real_log(real_t x)
         return h;
 
 }
+
+
+real_t
+real_log1p (real_t x)
+{
+        volatile real_t y, z;
+
+        y = 1 + x;
+        z = y - 1;
+
+        return real_log(y) - (z-x)/y; /* cancels errors with IEEE arithmetic */
+}

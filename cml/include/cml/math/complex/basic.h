@@ -5,6 +5,7 @@ __CML_BEGIN_DECLS
 
 real_t complex_abs(complex_t);
 real_t complex_arg(complex_t);
+real_t complex_logabs(complex_t);
 
 complex_t complex_add(complex_t, complex_t);
 complex_t complex_conj(complex_t);

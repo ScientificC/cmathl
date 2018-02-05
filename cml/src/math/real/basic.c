@@ -100,6 +100,13 @@ real_div(real_t x, real_t y)
 
 
 real_t
+real_hypot(real_t x, real_t y)
+{
+        return real_sqrt(x*x + y*y);
+}
+
+
+real_t
 real_inverse(real_t x)
 {
         /* Declaration of variables and structures */

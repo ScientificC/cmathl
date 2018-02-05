@@ -19,6 +19,27 @@ complex_abs(complex_t z)
 }
 
 
+real_t
+complex_logabs(complex_t z)
+{                               /* return log|z| */
+        real_t xabs = real_abs(z.re);
+        real_t yabs = real_abs(z.im);
+        real_t max, u;
+
+        if (xabs >= yabs) {
+                max = xabs;
+                u = yabs / xabs;
+        } else {
+                max = yabs;
+                u = xabs / yabs;
+        }
+
+        /* Handle underflow when u is close to 0 */
+
+        return real_log(max) + 0.5 * real_log1p(u*u);
+}
+
+
 /*
  * (a + bi) + (c + di) = (a+c) + (b+d)i
  *
@@ -105,7 +126,7 @@ complex_inverse(complex_t z)
         /* Mathematical algorithm */
         w = complex_conjugate(z);
         a = complex_abs(z);
-        b = real_pow(a, 2.0);
+        b = a*a;
         n = real_div(w.p[0], b);
         m = real_div(w.p[1], b);
 

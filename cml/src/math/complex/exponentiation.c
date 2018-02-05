@@ -138,7 +138,7 @@ complex_pow (complex_t a, complex_t b)
         } else if (real_equal(b.re, -1.0) && real_isnull(b.im)) {
                 return complex_inverse(a);
         } else {
-                real_t logr = real_log(complex_abs(a));
+                real_t logr = complex_logabs(a);
                 real_t theta = complex_arg(a);
 
                 real_t br = b.re, bi = b.im;
@@ -165,7 +165,7 @@ complex_pow_real (complex_t a, real_t b)
                         z = complex(0.0, 0.0);
                 }
         } else {
-                real_t logr = real_log(complex_abs(a));
+                real_t logr = complex_logabs(a);
                 real_t theta = complex_arg(a);
                 real_t rho = real_exp(logr * b);
                 real_t beta = theta * b;
