@@ -25,9 +25,9 @@ typedef struct _quaternion
 
 __CML_BEGIN_DECLS
 
-quaternion_t quaternion_identity();
 quaternion_t quaternion(real_t, real_t, real_t, real_t);
 quaternion_t quaternion_clone(quaternion_t);
+quaternion_t quaternion_identity();
 quaternion_t quaternion_from_axis_anglef3(real_t, real_t, real_t, real_t);
 quaternion_t quaternion_from_spherical_coords(real_t, real_t);
 quaternion_t quaternion_from_euler_angles(real_t, real_t, real_t);
