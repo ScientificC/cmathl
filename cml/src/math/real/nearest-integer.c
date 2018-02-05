@@ -14,7 +14,7 @@ real_ceil(real_t x)
         mint_t w;
 
         w = (mint_t) x;
-        return (x - w == 0.0) ?
+        return real_isnull(x - w) ?
                x :
                w + 1.0;
 }
