@@ -14,22 +14,23 @@
 complex_t
 complex_cos(complex_t z)
 {
-        /* Declaration of variables and structures */
-        complex_t w;
-        real_t k, h, a, b, n, m;
+        real_t k = real_cos(z.p[0]);
 
-        /* Mathematical algorithm */
-        k = real_cos(z.p[0]);
+        if (real_isnull(z.im)) {
+                return complex(k, 0.0);
+        }
+
+        complex_t w;
+        real_t h, a, b, n, m;
+
         h = real_sin(z.p[0]);
         a = real_sinh(z.p[1]);
         b = real_cosh(z.p[1]);
-
         n = real_mul(k, a);
         m = real_mul(h, b);
 
         w = complex(n, m);
 
-        /* Return */
         return w;
 }
 
@@ -37,21 +38,17 @@ complex_cos(complex_t z)
 complex_t
 complex_cot(complex_t z)
 {
-        /* Domain check */
         complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
         if (!real_isnull(a)) {
                 return complex_nan();
         }
 
-        /* Declaration of variables and structures */
         complex_t c, w;
 
-        /* Mathematical algorithm */
         c = complex_cos(z);
         w = complex_div(c, s);
 
-        /* Return */
         return w;
 }
 
@@ -59,20 +56,16 @@ complex_cot(complex_t z)
 complex_t
 complex_csc(complex_t z)
 {
-        /* Domain check */
         complex_t s = complex_sin(z);
         real_t a = complex_abs(s);
         if (!real_isnull(a)) {
                 return complex_nan();
         }
 
-        /* Declaration of variables and structures */
         complex_t w;
 
-        /* Mathematical algorithm */
         w = complex_inverse(s);
 
-        /* Return */
         return w;
 }
 
@@ -80,20 +73,16 @@ complex_csc(complex_t z)
 complex_t
 complex_sec(complex_t z)
 {
-        /* Domain check */
         complex_t c = complex_cos(z);
         real_t a = complex_abs(c);
         if (!real_isnull(a)) {
                 return complex_nan();
         }
 
-        /* Declaration of variables and structures */
         complex_t w;
 
-        /* Mathematical algorithm */
         w = complex_inverse(c);
 
-        /* Return */
         return w;
 }
 
@@ -111,12 +100,15 @@ complex_sec(complex_t z)
 complex_t
 complex_sin(complex_t z)
 {
-        /* Declaration of variables and structures */
-        complex_t w;
-        real_t k, h, a, b, n, m;
+        real_t k = real_sin(z.re);
 
-        /* Mathematical algorithm */
-        k = real_sin(z.re);
+        if (real_isnull(z.im)) {
+                return complex(k, 0.0);
+        }
+
+        complex_t w;
+        real_t h, a, b, n, m;
+
         h = real_cos(z.re);
         a = real_cosh(z.im);
         b = real_sinh(z.im);
@@ -126,7 +118,6 @@ complex_sin(complex_t z)
 
         w = complex(n, m);
 
-        /* Return */
         return w;
 }
 
@@ -134,20 +125,16 @@ complex_sin(complex_t z)
 complex_t
 complex_tan(complex_t z)
 {
-        /* Domain check */
         complex_t c = complex_cos(z);
         real_t a = complex_abs(c);
         if (!real_isnull(a)) {
                 return complex_nan();
         }
 
-        /* Declaration of variables and structures */
         complex_t s, w;
 
-        /* Mathematical algorithm */
         s = complex_sin(z);
         w = complex_div(s, c);
 
-        /* Return */
         return w;
 }
