@@ -5,7 +5,7 @@ __CML_EXTERN_INLINE bool
 __isinteger(real_t x)
 {
         mint_t x_int = (mint_t) x;
-        return (x - x_int) == 0;
+        return real_isnull(x - x_int);
 }
 
 
@@ -14,7 +14,7 @@ __ismult(real_t x, real_t y)
 {
         real_t z = real_div(x, y);
         mint_t z_int = (mint_t) z;
-        return (z - z_int) == 0;
+        return real_isnull(z - z_int);
 }
 
 
