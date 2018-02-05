@@ -89,7 +89,7 @@ real_log(real_t x)
 
 
 real_t
-real_log1p (real_t x)
+real_log1p(real_t x)
 {
         volatile real_t y, z;
 

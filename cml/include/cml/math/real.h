@@ -28,6 +28,7 @@ __CML_END_DECLS
 #if (defined __CML_NO_GENERIC && !defined CML_NO_ALIASES)
         #define nan() real_nan()
         #define inf() real_inf()
+
         #define equal(X, Y) real_equal(X, Y)
         #define isnull(X) real_isnull(X)
         #define isnatural(X) real_isnatural(X)
@@ -37,8 +38,10 @@ __CML_END_DECLS
         #define isgreaterequal(X, Y) real_isgreaterequal(X, Y)
         #define islessequal(X, Y) real_islessequal(X, Y)
         #define ismult(X, Y) real_ismult(X, Y)
+        #define isnull(X) real_isnull(X, Y)
+
         #define add(X, Y) real_add(X, Y)
-        #define prod(X, Y) real_mul(X, Y)
+        #define mul(X, Y) real_mul(X, Y)
         #define sub(X, Y) real_sub(X, Y)
         #define div(X, Y) real_div(X, Y)
         #define sgn(X, Y) real_sgn(X, Y)
@@ -50,14 +53,24 @@ __CML_END_DECLS
         #define inverse(X) real_inverse(X)
         #define opposite(X) real_opposite(X)
         #define ared(X) real_ared(X)
+        #define hypot(X, Y) real_hypot(X, Y)
         #define fact(X) real_fact(X)
+
+        #define error(X) real_error(X)
+        #define gamma(X) real_gamma(X)
+
         #define exp(X) real_exp(X)
         #define ln(X) real_log(X)
         #define log(X) real_log(X)
         #define log_b(X, Y) real_log_b(X, Y)
+        #define log1p(X) real_log1p(X)
+
+        #define powi(X, Y) real_pow_int(X, Y)
+        #define powui(X, Y) real_pow_uint(X, Y)
         #define pow(X, Y) real_pow(X, Y)
         #define root(X) real_root(X)
         #define sqrt(X) real_sqrt(X)
+
         #define sin(X) real_sin(X)
         #define cos(X) real_cos(X)
         #define tan(X) real_tan(X)
@@ -68,6 +81,7 @@ __CML_END_DECLS
         #define acos(X) real_acos(X)
         #define atan(X) real_atan(X)
         #define atan2(X, Y) real_atan2(X, Y)
+
         #define sinh(X) real_sinh(X)
         #define cosh(X) real_cosh(X)
         #define tanh(X) real_tanh(X)
@@ -78,5 +92,4 @@ __CML_END_DECLS
         #define acosh(X) real_acosh(X)
         #define atanh(X) real_atanh(X)
 #endif
-
 #endif
