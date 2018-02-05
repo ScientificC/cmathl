@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
@@ -11,15 +11,20 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 - [**Using the CMATHL**](#using-the-cmathl)
 - [**Running Tests**](#running-tests)
 - [**Configuration Macros**](#configuration-macros)
+
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
   - [Float Point Type](#float-point-type)
   - [Easing Functions](#easing-functions)
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Precision](#math-precision)
+
 - [**Build Options**](#build-options)
+
 - [**Documentation**](#documentation)
+
   - [Examples](#a-simple-example)
+
 - [**Can I trust this math library?**](#can-i-trust-this-math-library)
 
 ## Using the CMATHL
@@ -185,7 +190,7 @@ int
 main(int argc, char const *argv[])
 {
         complex_t z, w;
-        
+
         z = complex(1.0, 2.0);
         w = csin(z);
 

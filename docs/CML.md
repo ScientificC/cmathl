@@ -1,12 +1,14 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
 
 ## Table of Contents
 
 - [**Easing Functions**](#easing-functions)
 - [**Math**](#math)
+
   - [Real](#real)
+
     - [Basic Functions](#basic-functions)
     - [Exponential Functions](#exponential-functions)
     - [Power Functions](#power-functions)
@@ -15,7 +17,9 @@
     - [Error and Gamma Functions](#error-and-gamma-functions)
     - [Nearest Integer Floating Point Operations](#nearest-integer-floating-point-operations)
     - [Classification Functions](#classification-functions)
+
   - [Complex](#complex)
+
     - [Basic Functions](#basic-functions-1)
     - [Exponentiation Functions](#exponentiation-functions)
     - [Trigonometric Functions](#trigonometric-functions-1)
