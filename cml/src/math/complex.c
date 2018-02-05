@@ -45,6 +45,23 @@ complex_inf()
 
 
 complex_t
+complex_ninf()
+{
+        return complex(
+                real_ninf(),
+                real_ninf()
+                );
+}
+
+
+complex_t
+complex_zero()
+{
+        return complex(0.0, 0.0);
+}
+
+
+complex_t
 complex_clone(complex_t w)
 {
         return complex(w.re, w.im);

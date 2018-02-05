@@ -22,8 +22,10 @@ __CML_BEGIN_DECLS
 
 complex_t complex(real_t, real_t);
 complex_t complex_polar(real_t, real_t);
+complex_t complex_zero();
 complex_t complex_nan();
 complex_t complex_inf();
+complex_t complex_ninf();
 complex_t complex_clone(complex_t);
 char* complex_as_string(complex_t);
 

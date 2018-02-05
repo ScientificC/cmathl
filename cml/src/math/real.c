@@ -17,6 +17,13 @@ real_inf()
 }
 
 
+real_t
+real_ninf()
+{
+        return (real_t) NINF;
+}
+
+
 char *
 real_as_string(real_t x)
 {

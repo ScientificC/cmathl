@@ -11,6 +11,7 @@ __CML_BEGIN_DECLS
 
 real_t real_nan();
 real_t real_inf();
+real_t real_ninf();
 char* real_as_string(real_t);
 
 __CML_END_DECLS
