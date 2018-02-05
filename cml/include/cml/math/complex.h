@@ -21,6 +21,7 @@ typedef struct _complex
 __CML_BEGIN_DECLS
 
 complex_t complex(real_t, real_t);
+complex_t complex_polar(real_t, real_t);
 complex_t complex_nan();
 complex_t complex_inf();
 complex_t complex_clone(complex_t);
