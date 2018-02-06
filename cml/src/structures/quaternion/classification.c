@@ -5,10 +5,19 @@
 
 #include <cml.h>
 
+#ifndef PREDEF_STANDARD_C99
+/* FIXME: classification functions are not ANSI C complaint, should be compatible
+   with c89 and c99. */
+
+        #define isnan(X) __isnan(X)
+        #define isinf(X) __isinf(X)
+        #define isfinite(X) __finite(X)
+#endif
+
 bool
 quaternion_isnan(quaternion_t q)
 {
-        return __isnan(q.w) || __isnan(q.x) || __isnan(q.y) || __isnan(q.z);
+        return isnan(q.w) || isnan(q.x) || isnan(q.y) || isnan(q.z);
 }
 
 
@@ -29,14 +38,14 @@ quaternion_nonzero(quaternion_t q)
 bool
 quaternion_isinf(quaternion_t q)
 {
-        return __isinf(q.w) || __isinf(q.x) || __isinf(q.y) || __isinf(q.z);
+        return isinf(q.w) || isinf(q.x) || isinf(q.y) || isinf(q.z);
 }
 
 
 bool
 quaternion_isfinite(quaternion_t q)
 {
-        return __finite(q.w) && __finite(q.x) && __finite(q.y) && __finite(q.z);
+        return isfinite(q.w) && isfinite(q.x) && isfinite(q.y) && isfinite(q.z);
 }
 
 
