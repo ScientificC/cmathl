@@ -189,23 +189,6 @@ int run_tests()
                         EXPECT_TRUE(quaternion_equal(qA, quaternion_conj(qB)));
                 }
                 TEST_END()
-
-                TEST_BEGIN(Inverse)
-                {
-                        quaternion_t qA = quaternion_from_axis_anglef3(M_TAU / 4.0, 1.0, 1.0, 1.0),
-                                     qInverse, qIdentity, qB, qN;
-
-                        qInverse = quaternion_inverse(qA);
-                        qB = quaternion_multiply(qA, qInverse);
-                        qN = quaternion_normalized(qB);
-                        qIdentity = quaternion_identity();
-                        printf("%g\n", qA.w);
-                        printf("%g\n", qA.x);
-                        printf("%g\n", qA.y);
-                        printf("%g\n", qA.z);
-                        EXPECT_TRUE(quaternion_equal(qN, qIdentity));
-                }
-                TEST_END()
         }
         CATEGORY_END()
         #endif
