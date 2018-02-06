@@ -71,54 +71,77 @@
  *
  */
 
-/* pi */
-#ifndef PI
-#define PI 3.141592653589793238462643
+#ifndef M_E
+#define M_E        2.71828182845904523536028747135      /* e */
 #endif
 
-/* two pi */
-#ifndef TWOPI
-#define TWOPI 6.28318530717958647692
+#ifndef M_LOG2E
+#define M_LOG2E    1.44269504088896340735992468100      /* log_2 (e) */
 #endif
 
-/* half pi */
-#ifndef HALFPI
-#define HALFPI 1.57079632679489661923
+#ifndef M_LOG10E
+#define M_LOG10E   0.43429448190325182765112891892      /* log_10 (e) */
 #endif
 
-/* quart pi */
-#ifndef QUARTPI
-#define QUARTPI 0.78539816339744830962
+#ifndef M_SQRT2
+#define M_SQRT2    1.41421356237309504880168872421      /* sqrt(2) */
 #endif
 
-/* sqrt 2 */
-#ifndef SQRT2
-#define SQRT2 1.41421356237309504880
+#ifndef M_SQRT1_2
+#define M_SQRT1_2  0.70710678118654752440084436210      /* sqrt(1/2) */
 #endif
 
-/* sqrt (2 * pi) */
-#ifndef SQRT2PI
-#define SQRT2PI 2.5066282746310005024157652848110452530069867406099383166299
+
+#ifndef M_SQRT3
+#define M_SQRT3    1.73205080756887729352744634151      /* sqrt(3) */
 #endif
 
-/* Euler constant (e 2.71828182...) */
-#ifndef E
-#define E 2.7182818284590452354
+#ifndef M_PI
+#define M_PI       3.14159265358979323846264338328      /* pi */
 #endif
 
-/* log_2 e */
-#ifndef LOG2E
-#define LOG2E        1.4426950408889634074
+#ifndef M_PI_2
+#define M_PI_2     1.57079632679489661923132169164      /* pi/2 */
 #endif
 
-/* log_10 e */
-#ifndef LOG10E
-#define LOG10E       0.43429448190325182765
+#ifndef M_PI_4
+#define M_PI_4     0.78539816339744830961566084582     /* pi/4 */
 #endif
 
-/* log(sqrt((2*pi)) */
-#ifndef LNSQRT2PI
-#define LNSQRT2PI 0.9189385332046727417803297364056176398613974736377834128171
+#ifndef M_SQRTPI
+#define M_SQRTPI   1.77245385090551602729816748334      /* sqrt(pi) */
+#endif
+
+#ifndef M_2_SQRTPI
+#define M_2_SQRTPI 1.12837916709551257389615890312      /* 2/sqrt(pi) */
+#endif
+
+#ifndef M_1_PI
+#define M_1_PI     0.31830988618379067153776752675      /* 1/pi */
+#endif
+
+#ifndef M_2_PI
+#define M_2_PI     0.63661977236758134307553505349      /* 2/pi */
+#endif
+
+#ifndef M_LN10
+#define M_LN10     2.30258509299404568401799145468      /* ln(10) */
+#endif
+
+#ifndef M_LN2
+#define M_LN2      0.69314718055994530941723212146      /* ln(2) */
+#endif
+
+#ifndef M_LNPI
+#define M_LNPI     1.14472988584940017414342735135      /* ln(pi) */
+#endif
+
+#ifndef M_EULER
+#define M_EULER    0.57721566490153286060651209008      /* Euler constant */
+#endif
+
+#ifndef M_TAU
+#define M_TAU      (2.0*M_PI)
 #endif
 
 /*
@@ -128,64 +151,57 @@
  *
  */
 #ifdef __USE_GNU
-/* e */
-#ifndef El
-#define El           2.718281828459045235360287471352662498L
+
+#ifndef M_El
+#define M_El           2.718281828459045235360287471352662498L /* e */
 #endif
 
-/* log_2 e */
-#ifndef LOG2El
-#define LOG2El       1.442695040888963407359924681001892137L
+#ifndef M_LOG2El
+#define M_LOG2El       1.442695040888963407359924681001892137L /* log_2 e */
 #endif
 
-/* log_10 e */
-#ifndef LOG10El
-#define LOG10El      0.434294481903251827651128918916605082L
+#ifndef M_LOG10El
+#define M_LOG10El      0.434294481903251827651128918916605082L /* log_10 e */
 #endif
 
-/* log_e 2 */
-#ifndef LN2l
-#define LN2l         0.693147180559945309417232121458176568L
+#ifndef M_LN2l
+#define M_LN2l         0.693147180559945309417232121458176568L /* log_e 2 */
 #endif
 
-/* log_e 10 */
-#ifndef LN10l
-#define LN10l        2.302585092994045684017991454684364208L
+#ifndef M_LN10l
+#define M_LN10l        2.302585092994045684017991454684364208L /* log_e 10 */
 #endif
 
-/* pi */
-#ifndef PIl
-#define PIl          3.141592653589793238462643383279502884L
+#ifndef M_PIl
+#define M_PIl          3.141592653589793238462643383279502884L /* pi */
 #endif
 
-/* pi/2 */
-#ifndef HALFPIl
-#define HALFPIl        1.570796326794896619231321691639751442L
+#ifndef M_PI_2l
+#define M_PI_2l        1.570796326794896619231321691639751442L /* pi/2 */
 #endif
 
-/* pi/4 */
-#ifndef QUARTPIl
-#define QUARTPIl        0.785398163397448309615660845819875721L
+#ifndef M_PI_4l
+#define M_PI_4l        0.785398163397448309615660845819875721L /* pi/4 */
 #endif
 
-/* 2/pi */
-#ifndef HALFPIl
-#define HALFPIl        0.636619772367581343075535053490057448L
+#ifndef M_1_PIl
+#define M_1_PIl        0.318309886183790671537767526745028724L /* 1/pi */
 #endif
 
-/* 2/sqrt(pi) */
-#ifndef HALFSQRTPIl
-#define HALFSQRTPIl    1.128379167095512573896158903121545172L
+#ifndef M_2_PIl
+#define M_2_PIl        0.636619772367581343075535053490057448L /* 2/pi */
 #endif
 
-/* sqrt(2) */
-#ifndef SQRT2l
-#define SQRT2l       1.414213562373095048801688724209698079L
+#ifndef M_2_SQRTPIl
+#define M_2_SQRTPIl    1.128379167095512573896158903121545172L /* 2/sqrt(pi) */
 #endif
 
-/* 1/sqrt(2) */
-#ifndef SQRT1_2l
-#define SQRT1_2l     0.707106781186547524400844362104849039L
+#ifndef M_SQRT2l
+#define M_SQRT2l       1.414213562373095048801688724209698079L /* sqrt(2) */
+#endif
+
+#ifndef M_SQRT1_2l
+#define M_SQRT1_2l     0.707106781186547524400844362104849039L /* 1/sqrt(2) */
 #endif
 
 #endif

@@ -6,18 +6,18 @@
 real_t
 sine_ease_in(real_t p)
 {
-        return real_sin((p - 1.0) * HALFPI) + 1.0;
+        return real_sin((p - 1.0) * M_PI_2) + 1.0;
 }
 
 real_t
 sine_ease_out(real_t p)
 {
-        return real_sin(p * HALFPI);
+        return real_sin(p * M_PI_2);
 }
 
 real_t
 sine_ease_in_out(real_t p)
 {
-        return 0.5 * (1.0 - real_cos(p * PI));
+        return 0.5 * (1.0 - real_cos(p * M_PI));
 }
 #endif

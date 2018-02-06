@@ -61,23 +61,23 @@ int run_tests()
                         const float trigAbsError = 0.000001;
 
                         EXPECT_NEAR(sin(0.0), 0.0, trigAbsError);
-                        EXPECT_NEAR(sin(PI / 2), 1.0, trigAbsError);
-                        EXPECT_NEAR(sin(PI), 0.0, trigAbsError);
-                        EXPECT_NEAR(sin(3 * PI / 2), -1.0, trigAbsError);
-                        EXPECT_NEAR(sin(-PI / 2), -1.0, trigAbsError);
+                        EXPECT_NEAR(sin(M_PI / 2), 1.0, trigAbsError);
+                        EXPECT_NEAR(sin(M_PI), 0.0, trigAbsError);
+                        EXPECT_NEAR(sin(3 * M_PI / 2), -1.0, trigAbsError);
+                        EXPECT_NEAR(sin(-M_PI / 2), -1.0, trigAbsError);
                         EXPECT_NEAR(sin(1578901387.78992), -0.134176, trigAbsError);
 
                         EXPECT_NEAR(cos(0.0), 1.0, trigAbsError);
-                        EXPECT_NEAR(cos(PI / 2), 0.0, trigAbsError);
-                        EXPECT_NEAR(cos(PI), -1.0, trigAbsError);
-                        EXPECT_NEAR(cos(3 * PI / 2), 0.0, trigAbsError);
-                        EXPECT_NEAR(cos(-PI), -1.0, trigAbsError);
+                        EXPECT_NEAR(cos(M_PI / 2), 0.0, trigAbsError);
+                        EXPECT_NEAR(cos(M_PI), -1.0, trigAbsError);
+                        EXPECT_NEAR(cos(3 * M_PI / 2), 0.0, trigAbsError);
+                        EXPECT_NEAR(cos(-M_PI), -1.0, trigAbsError);
 
                         EXPECT_NEAR(tan(0.0), 0.0, trigAbsError);
-                        EXPECT_NEAR(tan(PI / 4), 1.0, trigAbsError);
-                        EXPECT_NEAR(tan(3 * PI / 4), -1.0, trigAbsError);
-                        EXPECT_NEAR(tan(PI), 0.0, trigAbsError);
-                        EXPECT_NEAR(tan(-PI / 4), -1.0, trigAbsError);
+                        EXPECT_NEAR(tan(M_PI / 4), 1.0, trigAbsError);
+                        EXPECT_NEAR(tan(3 * M_PI / 4), -1.0, trigAbsError);
+                        EXPECT_NEAR(tan(M_PI), 0.0, trigAbsError);
+                        EXPECT_NEAR(tan(-M_PI / 4), -1.0, trigAbsError);
 
                         /* This isn't the most rigorous because we're really just sanity-
                            checking that things work by default. */
@@ -171,6 +171,7 @@ int run_tests()
                 TEST_BEGIN(Identity)
                 {
                         quaternion_t q = quaternion_identity();
+
                         EXPECT_FLOAT_EQ(q.w, 1.0);
                         EXPECT_FLOAT_EQ(q.x, 0.0);
                         EXPECT_FLOAT_EQ(q.y, 0.0);
@@ -182,10 +183,27 @@ int run_tests()
 
                 TEST_BEGIN(Conjugate)
                 {
-                        quaternion_t qA = quaternion_from_axis_anglef3(TWOPI / 4.0, 1.0, 1.0, 1.0),
-                                     qB = quaternion_from_axis_anglef3(TWOPI / 4.0, -1.0, -1.0, -1.0);
+                        quaternion_t qA = quaternion_from_axis_anglef3(M_TAU / 4.0, 1.0, 1.0, 1.0),
+                                     qB = quaternion_from_axis_anglef3(M_TAU / 4.0, -1.0, -1.0, -1.0);
 
                         EXPECT_TRUE(quaternion_equal(qA, quaternion_conj(qB)));
+                }
+                TEST_END()
+
+                TEST_BEGIN(Inverse)
+                {
+                        quaternion_t qA = quaternion_from_axis_anglef3(M_TAU / 4.0, 1.0, 1.0, 1.0),
+                                     qInverse, qIdentity, qB, qN;
+
+                        qInverse = quaternion_inverse(qA);
+                        qB = quaternion_multiply(qA, qInverse);
+                        qN = quaternion_normalized(qB);
+                        qIdentity = quaternion_identity();
+                        printf("%g\n", qA.w);
+                        printf("%g\n", qA.x);
+                        printf("%g\n", qA.y);
+                        printf("%g\n", qA.z);
+                        EXPECT_TRUE(quaternion_equal(qN, qIdentity));
                 }
                 TEST_END()
         }

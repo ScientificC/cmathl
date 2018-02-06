@@ -52,8 +52,8 @@ real_ared(real_t x)
         real_t z, k, w;
 
         /* Mathematical algorithm */
-        z = real_div_e(x, (TWOPI));
-        k = real_mul(z, (TWOPI));
+        z = real_div_e(x, (M_TAU));
+        k = real_mul(z, (M_TAU));
         w = real_sub(x, k);
 
         /* Return */

@@ -17,7 +17,7 @@ quaternion_scalar_pow(real_t s, quaternion_t q)
                 return r;
         } else if(s < 0.0) {               /* real_log(s)=nan */
                 /* fprintf(stderr, "Input scalar (%.15g) has no unique logarithm; returning one arbitrarily.", s); */
-                quaternion_t t = (quaternion_t) {real_log(-s), PI, 0.0, 0.0};
+                quaternion_t t = (quaternion_t) {real_log(-s), M_PI, 0.0, 0.0};
                 return quaternion_exp(quaternion_multiply(q, t));
         }
 
@@ -126,9 +126,9 @@ quaternion_log(quaternion_t q)
                            has no unique logarithm; returning one arbitrarily.",
                            q.w, q.x, q.y, q.z);*/
                         if(real_abs(q.w + 1)>__CML_QUATERNION_EPS) {
-                                r = (quaternion_t) { real_log(-q.w), PI, 0., 0. };
+                                r = (quaternion_t) { real_log(-q.w), M_PI, 0., 0. };
                         } else {
-                                r = (quaternion_t) {0., PI, 0., 0.};
+                                r = (quaternion_t) {0., M_PI, 0., 0.};
                         }
                 } else {
                         r = (quaternion_t) {real_log(q.w), 0., 0., 0.};

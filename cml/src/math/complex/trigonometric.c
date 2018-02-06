@@ -203,9 +203,9 @@ complex_asin_real(real_t a)
                 z = complex(real_asin(a), 0.0);
         } else {
                 if (a < 0.0) {
-                        z = complex(-HALFPI, real_acosh(-a));
+                        z = complex(-M_PI_2, real_acosh(-a));
                 } else {
-                        z = complex(HALFPI, -real_acosh(a));
+                        z = complex(M_PI_2, -real_acosh(a));
                 }
         }
 
@@ -258,7 +258,7 @@ complex_acos(complex_t a)
                         imag = real_log(A + real_sqrt(A * A - 1));
                 }
 
-                z = complex((R >= 0) ? real : PI - real, (I >= 0) ? -imag : imag);
+                z = complex((R >= 0) ? real : M_PI - real, (I >= 0) ? -imag : imag);
         }
 
         return z;
@@ -273,7 +273,7 @@ complex_acos_real(real_t a)
                 z = complex(real_acos(a), 0);
         } else {
                 if (a < 0.0) {
-                        z = complex(PI, -real_acosh(-a));
+                        z = complex(M_PI, -real_acosh(-a));
                 } else {
                         z = complex(0, real_acosh(a));
                 }
@@ -314,9 +314,9 @@ complex_atan(complex_t a)
 
                 if (real_isnull(R)) {
                         if (I > 1) {
-                                z = complex(HALFPI, imag);
+                                z = complex(M_PI_2, imag);
                         } else if (I < -1) {
-                                z = complex(-HALFPI, imag);
+                                z = complex(-M_PI_2, imag);
                         } else {
                                 z = complex(0, imag);
                         }
@@ -346,7 +346,7 @@ complex_asec_real(real_t a)
                 if (a >= 0.0) {
                         z = complex(0, real_acosh(1 / a));
                 } else {
-                        z = complex(PI, -real_acosh(-1 / a));
+                        z = complex(M_PI, -real_acosh(-1 / a));
                 }
         }
 
@@ -369,9 +369,9 @@ complex_acsc_real(real_t a)
                 z = complex(real_asin(1 / a), 0.0);
         } else {
                 if (a >= 0.0) {
-                        z = complex(HALFPI, -real_acosh(1 / a));
+                        z = complex(M_PI_2, -real_acosh(1 / a));
                 } else {
-                        z = complex(-HALFPI, real_acosh(-1 / a));
+                        z = complex(-M_PI_2, real_acosh(-1 / a));
                 }
         }
 
@@ -384,7 +384,7 @@ complex_acot(complex_t a)
         complex_t z;
 
         if (real_isnull(a.re) && real_isnull(a.im)) {
-                z = complex(HALFPI, 0);
+                z = complex(M_PI_2, 0);
         } else {
                 z = complex_inverse(a);
                 z = complex_atan(z);

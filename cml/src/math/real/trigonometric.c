@@ -49,7 +49,7 @@ real_acos(real_t x)
 
         /* Mathematical algorithm */
         y = real_asin(x);
-        h = real_sub(HALFPI, y);
+        h = real_sub(M_PI_2, y);
 
         /* Return */
         return h;
@@ -107,7 +107,7 @@ real_atan(real_t x)
 
 /*
  * Computes real arc tangent, using signs to determinate cuadrants
- * --| atan2(y, x) = HALFPI*sgn(y) - atan(x/y)
+ * --| atan2(y, x) = M_PI_2*sgn(y) - atan(x/y)
  *
  * @param real_t y
  * @param real_t x
@@ -124,7 +124,7 @@ real_atan2(real_t y, real_t x)
         s = real_sgn(y);
         k = real_div(x, y);
         j = real_atan(k);
-        z = real_mul(HALFPI, s);
+        z = real_mul(M_PI_2, s);
         w = real_sub(z, j);
 
         /* Return */
@@ -134,7 +134,7 @@ real_atan2(real_t y, real_t x)
 
 /*
  * Computes real cosine
- * --| cos(x) = sin(x + HALFPI)
+ * --| cos(x) = sin(x + M_PI_2)
  * --| cos(x) = cos(-x) = cos(|x|)
  *
  * @param real_t x
@@ -149,7 +149,7 @@ real_cos(real_t x)
 
         /* Mathematical algorithm */
         y = real_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        z = real_add(y, HALFPI);
+        z = real_add(y, M_PI_2);
         h = real_sin(z);
 
         /* Return */
@@ -236,7 +236,7 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_ismult(x, (PI))) {
+        if (real_ismult(x, (M_PI))) {
                 return 0.0;
         }
 

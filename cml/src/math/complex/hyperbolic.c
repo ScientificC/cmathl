@@ -149,7 +149,7 @@ complex_acosh_real(real_t a)
                 }
                 else
                 {
-                        z = complex(real_acosh(-a), PI);
+                        z = complex(real_acosh(-a), M_PI);
                 }
         }
 
@@ -185,7 +185,7 @@ complex_atanh_real(real_t a)
         }
         else
         {
-                z = complex(real_atanh(1 / a), (a < 0) ? HALFPI : -HALFPI);
+                z = complex(real_atanh(1 / a), (a < 0) ? M_PI_2 : -M_PI_2);
         }
 
         return z;
