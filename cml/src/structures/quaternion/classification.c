@@ -9,9 +9,17 @@
 /* FIXME: classification functions are not ANSI C complaint, should be compatible
    with c89 and c99. */
 
-        #define isnan(X) __isnan(X)
-        #define isinf(X) __isinf(X)
-        #define isfinite(X) __finite(X)
+        #ifndef isnan
+                #define isnan(X) __isnan(X)
+        #endif
+
+        #ifndef isinf
+                #define isinf(X) __isinf(X)
+        #endif
+
+        #ifndef isfinite
+                #define isfinite(X) __finite(X)
+        #endif
 #endif
 
 bool
