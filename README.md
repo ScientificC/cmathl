@@ -8,7 +8,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 
 ## Table of Contents
 
-- [**Using the CMATHL**](#using-the-cmathl)
+- [**Using the CML**](#using-the-cmathl)
 - [**Running Tests**](#running-tests)
 - [**Configuration Macros**](#configuration-macros)
 
@@ -23,16 +23,14 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 
 - [**Documentation**](#documentation)
 
-  - [Examples](#a-simple-example)
-
 - [**Can I trust this math library?**](#can-i-trust-this-math-library)
 
-## Using the CMATHL
+## Using the CML
 
 NOTE: This will install in /usr. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
 
 ```shell
-$ git clone https://github.com/CMATHL/cml.git
+$ git clone https://github.com/CML/cml.git
 $ cd cml
 $ mkdir build
 $ cd build
@@ -41,6 +39,8 @@ $ make && make install
 ```
 
 [_Build Options_](#build-options)
+
+You can read more about in the following [file](./docs/USING_THE_CML.md).
 
 ## Running Tests
 
@@ -146,68 +146,6 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 ## Documentation
 
 A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](./docs/).
-
-### A simple example
-
-```c
-#include <stdlib.h>
-#include <stdio.h>
-#include <cml.h>
-
-int
-main(int argc, char const *argv[])
-{
-        complex_t z, w;
-
-        z = complex(1.0, 2.0);
-        w = csin(z);
-
-        printf("%g\n", sin(2.0));
-        printf("%g\n", atan2(2.0, 3.0));
-        printf("%g\n", creal(w));
-        printf("%g\n", cimag(w));
-
-        return 0;
-}
-```
-
-Compile and run
-
-```shell
-$ gcc -lcml main.c -o main && ./main
-```
-
-#### or using C++,
-
-```c++
-#include <iostream>
-#include <cml.hpp>
-
-using namespace std;
-using namespace cml;
-
-int
-main(int argc, char const *argv[])
-{
-        complex_t z, w;
-
-        z = complex(1.0, 2.0);
-        w = csin(z);
-
-        cout << sin(2.0) << endl;
-        cout << log(3.0) << endl;
-        cout << creal(w) << endl;
-        cout << cimag(w) << endl;
-
-        return 0;
-}
-```
-
-Compile and run
-
-```shell
-$ g++ -lcml main.cpp -o main && ./main
-```
 
 ## Can I trust this math library?
 
