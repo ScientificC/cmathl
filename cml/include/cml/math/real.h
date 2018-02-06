@@ -38,7 +38,6 @@ __CML_END_DECLS
         #define isgreaterequal(X, Y) real_isgreaterequal(X, Y)
         #define islessequal(X, Y) real_islessequal(X, Y)
         #define ismult(X, Y) real_ismult(X, Y)
-        #define isnull(X) real_isnull(X, Y)
 
         #define add(X, Y) real_add(X, Y)
         #define mul(X, Y) real_mul(X, Y)

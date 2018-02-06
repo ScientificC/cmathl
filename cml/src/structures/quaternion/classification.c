@@ -8,7 +8,7 @@
 bool
 quaternion_isnan(quaternion_t q)
 {
-        return isnan(q.w) || isnan(q.x) || isnan(q.y) || isnan(q.z);
+        return __isnan(q.w) || __isnan(q.x) || __isnan(q.y) || __isnan(q.z);
 }
 
 
@@ -29,14 +29,14 @@ quaternion_nonzero(quaternion_t q)
 bool
 quaternion_isinf(quaternion_t q)
 {
-        return isinf(q.w) || isinf(q.x) || isinf(q.y) || isinf(q.z);
+        return __isinf(q.w) || __isinf(q.x) || __isinf(q.y) || __isinf(q.z);
 }
 
 
 bool
 quaternion_isfinite(quaternion_t q)
 {
-        return isfinite(q.w) && isfinite(q.x) && isfinite(q.y) && isfinite(q.z);
+        return __finite(q.w) && __finite(q.x) && __finite(q.y) && __finite(q.z);
 }
 
 
@@ -87,9 +87,9 @@ quaternion_islessequal(quaternion_t q1, quaternion_t q2)
                  q1.x != q2.x ? q1.x < q2.x :
                  q1.y != q2.y ? q1.y < q2.y :
                  q1.z != q2.z ? q1.z < q2.z : true);
-        // Note that the final possibility is 1, whereas in
-        // `quaternion_isless` it was 0.  This distinction correctly
-        // accounts for equality.
+        /* Note that the final possibility __is 1, whereas in
+           `quaternion_isless` it was 0.  This distinction correctly
+           accounts for equality. */
 }
 
 
@@ -103,7 +103,7 @@ quaternion_isgreaterequal(quaternion_t q1, quaternion_t q2)
                  q1.x != q2.x ? q1.x > q2.x :
                  q1.y != q2.y ? q1.y > q2.y :
                  q1.z != q2.z ? q1.z > q2.z : true);
-        // Note that the final possibility is 1, whereas in
-        // `quaternion_isgreater` it was 0.  This distinction correctly
-        // accounts for equality.
+        /* Note that the final possibility __is 1, whereas in
+           `quaternion_isgreater` it was 0.  This distinction correctly
+           accounts for equality. */
 }
