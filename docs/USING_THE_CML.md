@@ -4,19 +4,20 @@
 
 ## Table of Contents
 
-- [A simple example](#a-simple-example)
-- [Compiling and Linking](#compiling-and-linking)
+- [**A simple example**](#a-simple-example)
+- [**Compiling and Linking**](#compiling-and-linking)
 
   - [Linking programs with the library](#linking-programs-with-the-library)
 
-- [Shared Libraries](#shared-libraries)
-- [ANSI C Compliance](#ansi-c-complaince)
-- [Inline functions](#inline-functions)
-- [Compatibility with C++](#-compatibility-with-c)
+- [**Shared Libraries**](#shared-libraries)
+
+- [**ANSI C Compliance**](#ansi-c-complaince)
+- [**Inline functions**](#inline-functions)
+- [**Compatibility with C++**](#-compatibility-with-c)
 
   - [An example](#an-example)
 
-- [Thread-safety](#thread-safety)
+- [**Thread-safety**](#thread-safety)
 
 ## A simple example
 
