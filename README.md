@@ -27,7 +27,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 
 ## Using the CML
 
-NOTE: This will install in /usr. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
+NOTE: This will install in /usr/local. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
 
 ```shell
 $ git clone https://github.com/CMATHL/cml.git
@@ -135,7 +135,7 @@ $ cmake .. -DCMAKE_BUILD_TYPE=Release
 $ cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
-- CMAKE_INSTALL_PREFIX: (Default /usr) Allows you to specify where `make install` sends the output.
+- CMAKE_INSTALL_PREFIX: (Default /usr/local) Allows you to specify where `make install` sends the output.
 
 ```shell
 $ cmake .. -DCMAKE_INSTALL_PREFIX=~/cml/
