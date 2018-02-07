@@ -30,7 +30,7 @@ You can read the following [file](./docs/CML.md) to learn more about CML.
 NOTE: This will install in /usr. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
 
 ```shell
-$ git clone https://github.com/CML/cml.git
+$ git clone https://github.com/CMATHL/cml.git
 $ cd cml
 $ mkdir build
 $ cd build
