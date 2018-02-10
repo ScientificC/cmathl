@@ -56,7 +56,7 @@ quaternion_pow(quaternion_t q, quaternion_t p)
 
 
 void
-quaternion_inplace_pow(quaternion_t* q1, quaternion_t q2)
+quaternion_inplace_pow(quaternion_t *q1, quaternion_t q2)
 {
         /* Not overly useful as an in-place operator, but here for completeness. */
         quaternion_t q3 = quaternion_pow(*q1,q2);
@@ -66,7 +66,7 @@ quaternion_inplace_pow(quaternion_t* q1, quaternion_t q2)
 
 
 void
-quaternion_inplace_scalar_pow(real_t s, quaternion_t* q)
+quaternion_inplace_scalar_pow(real_t s, quaternion_t *q)
 {
         /* Not overly useful as an in-place operator, but here for completeness. */
         quaternion_t q2 = quaternion_scalar_pow(s, *q);
@@ -100,7 +100,7 @@ quaternion_pow_scalar(quaternion_t q, real_t s)
 
 
 void
-quaternion_inplace_pow_scalar(quaternion_t* q, real_t s)
+quaternion_inplace_pow_scalar(quaternion_t *q, real_t s)
 {
         /* Not overly useful as an in-place operator, but here for completeness. */
         quaternion_t q2 = quaternion_pow_scalar(*q, s);

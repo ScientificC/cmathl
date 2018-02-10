@@ -15,7 +15,7 @@ quaternion_add(quaternion_t q1, quaternion_t q2)
 
 
 void
-quaternion_inplace_add(quaternion_t* q1, quaternion_t q2)
+quaternion_inplace_add(quaternion_t *q1, quaternion_t q2)
 {
         q1->w += q2.w;
         q1->x += q2.x;
@@ -34,7 +34,7 @@ quaternion_scalar_add(real_t s, quaternion_t q)
 
 
 void
-quaternion_inplace_scalar_add(real_t s, quaternion_t* q)
+quaternion_inplace_scalar_add(real_t s, quaternion_t *q)
 {
         q->w += s;
         return;
@@ -50,7 +50,7 @@ quaternion_add_scalar(quaternion_t q, real_t s)
 
 
 void
-quaternion_inplace_add_scalar(quaternion_t* q, real_t s)
+quaternion_inplace_add_scalar(quaternion_t *q, real_t s)
 {
         q->w += s;
         return;
@@ -71,7 +71,7 @@ quaternion_subtract(quaternion_t q1, quaternion_t q2)
 
 
 void
-quaternion_inplace_subtract(quaternion_t* q1, quaternion_t q2)
+quaternion_inplace_subtract(quaternion_t *q1, quaternion_t q2)
 {
         q1->w -= q2.w;
         q1->x -= q2.x;
@@ -98,7 +98,7 @@ quaternion_subtract_scalar(quaternion_t q, real_t s)
 
 
 void
-quaternion_inplace_subtract_scalar(quaternion_t* q, real_t s)
+quaternion_inplace_subtract_scalar(quaternion_t *q, real_t s)
 {
         q->w -= s;
         return;
@@ -119,7 +119,7 @@ quaternion_multiply(quaternion_t q1, quaternion_t q2)
 
 
 void
-quaternion_inplace_multiply(quaternion_t* q1a, quaternion_t q2)
+quaternion_inplace_multiply(quaternion_t *q1a, quaternion_t q2)
 {
         quaternion_t q1 = {q1a->w, q1a->x, q1a->y, q1a->z};
         q1a->w = q1.w*q2.w - q1.x*q2.x - q1.y*q2.y - q1.z*q2.z;
@@ -139,7 +139,7 @@ quaternion_scalar_multiply(real_t s, quaternion_t q)
 
 
 void
-quaternion_inplace_scalar_multiply(real_t s, quaternion_t* q)
+quaternion_inplace_scalar_multiply(real_t s, quaternion_t *q)
 {
         q->w *= s;
         q->x *= s;
@@ -158,7 +158,7 @@ quaternion_multiply_scalar(quaternion_t q, real_t s)
 
 
 void
-quaternion_inplace_multiply_scalar(quaternion_t* q, real_t s)
+quaternion_inplace_multiply_scalar(quaternion_t *q, real_t s)
 {
         q->w *= s;
         q->x *= s;
@@ -183,7 +183,7 @@ quaternion_divide(quaternion_t q1, quaternion_t q2)
 
 
 void
-quaternion_inplace_divide(quaternion_t* q1a, quaternion_t q2)
+quaternion_inplace_divide(quaternion_t *q1a, quaternion_t q2)
 {
         real_t q2norm;
         quaternion_t q1 = *q1a;
@@ -211,7 +211,7 @@ quaternion_scalar_divide(real_t s, quaternion_t q)
 
 
 /* The following function is impossible, but listed for completeness: */
-/* void quaternion_inplace_scalar_divide(real_t* sa, quaternion_t q2) { } */
+/* void quaternion_inplace_scalar_divide(real_t *sa, quaternion_t q2) { } */
 quaternion_t
 quaternion_divide_scalar(quaternion_t q, real_t s)
 {
@@ -221,7 +221,7 @@ quaternion_divide_scalar(quaternion_t q, real_t s)
 
 
 void
-quaternion_inplace_divide_scalar(quaternion_t* q, real_t s)
+quaternion_inplace_divide_scalar(quaternion_t *q, real_t s)
 {
         q->w /= s;
         q->x /= s;
