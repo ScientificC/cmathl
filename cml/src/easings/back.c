@@ -21,10 +21,13 @@ back_ease_in_out(real_t p)
 {
         real_t f = 0.0;
 
-        if (p < 0.5) {
+        if (p < 0.5)
+        {
                 f = 2.0 * p;
                 f = 0.5 * (f * f * f - f * real_sin(f * M_PI));
-        } else {
+        }
+        else
+        {
                 f = (1.0 - (2.0 * p - 1.0));
                 f = 0.5 * (1.0 - (f * f * f - f * real_sin(f * M_PI))) + 0.5;
         }

@@ -26,16 +26,18 @@ complex_logabs(complex_t z)
         real_t yabs = real_abs(z.im);
         real_t max, u;
 
-        if (xabs >= yabs) {
+        if (xabs >= yabs)
+        {
                 max = xabs;
                 u = yabs / xabs;
-        } else {
+        }
+        else
+        {
                 max = yabs;
                 u = xabs / yabs;
         }
 
         /* Handle underflow when u is close to 0 */
-
         return real_log(max) + 0.5 * real_log1p(u*u);
 }
 

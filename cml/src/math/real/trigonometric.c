@@ -8,7 +8,8 @@ __atan__(real_t x)
         real_t ai_n = x,
                p = ai_n;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2)
+        {
                 ai_n = -ai_n*x*x;
                 p += ai_n/((real_t) i + 2.0);
         }
@@ -26,7 +27,8 @@ __sin__(real_t x)
         ai = x;
         p = ai;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i)
+        {
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 p = p + ai;
         }
@@ -236,7 +238,8 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_ismult(x, (M_PI))) {
+        if (real_ismult(x, (M_PI)))
+        {
                 return 0.0;
         }
 

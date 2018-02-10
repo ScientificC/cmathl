@@ -21,9 +21,12 @@ quartic_ease_in_out(real_t p)
 {
         real_t f = 0.0;
 
-        if (p < 0.5) {
+        if (p < 0.5)
+        {
                 f = 8.0 * p * p * p * p;
-        } else {
+        }
+        else
+        {
                 f = (p - 1.0);
                 f = -8.0 * f * f * f * f + 1.0;
         }

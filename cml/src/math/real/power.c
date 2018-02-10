@@ -6,10 +6,13 @@ real_pow_int(real_t x, int n)
 {
         unsigned int un;
 
-        if(n < 0) {
+        if(n < 0)
+        {
                 x = 1.0/x;
                 un = -n;
-        } else {
+        }
+        else
+        {
                 un = n;
         }
 
@@ -48,13 +51,15 @@ real_t
 real_pow(real_t x, real_t n)
 {
         /* Domain check */
-        if (real_isnull(x)) {
+        if (real_isnull(x))
+        {
                 return real_isnull(n) ?
                        real_nan() :
                        x;
         }
 
-        if (real_isinteger(n)) {
+        if (real_isinteger(n))
+        {
                 return real_pow_int(x, (int) n);
         }
 
