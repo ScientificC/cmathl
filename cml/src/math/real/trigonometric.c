@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#undef CML_NO_ALIASES
 #define CML_NO_ALIASES
 #include <cml.h>
 

@@ -55,8 +55,8 @@ complex_add(complex_t z, complex_t k)
         real_t n, m;
 
         /* Mathematical algorithm */
-        n = real_add(z.re, creal(k));
-        m = real_add(z.im, cimag(k));
+        n = real_add(z.re, k.re);
+        m = real_add(z.im, k.im);
         w = complex(n, m);
 
         /* Return */
