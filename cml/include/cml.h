@@ -3,6 +3,7 @@
 
 #include "cml/config.h"
 #include "cml/default.h"
+#include "cml/ieee.h"
 #include "cml/inline.h"
 
 #ifndef PREDEF_STANDARD_C11
