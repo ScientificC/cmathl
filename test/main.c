@@ -171,6 +171,24 @@ int run_tests()
                         EXPECT_FLOAT_EQ(ease_cubic_out(1.0), 1.0);
                         EXPECT_FLOAT_EQ(ease_cubic_in_out(0.0), 0.0);
                         EXPECT_FLOAT_EQ(ease_cubic_in_out(1.0), 1.0);
+
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.0), 0.000);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.1), 0.001);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.2), 0.008);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.3), 0.027);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.4), 0.064);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.5), 0.125);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.6), 0.216);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.7), 0.343);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.8), 0.512);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.9), 0.729);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(1.0), 1.000);
+                }
+                TEST_END()
+
+                TEST_BEGIN(Elastic)
+                {
+
                 }
                 TEST_END()
 
@@ -187,6 +205,23 @@ int run_tests()
                         EXPECT_FLOAT_EQ(linear_interpolation(0.8), 0.8);
                         EXPECT_FLOAT_EQ(linear_interpolation(0.9), 0.9);
                         EXPECT_FLOAT_EQ(linear_interpolation(1.0), 1.0);
+                }
+                TEST_END()
+
+                TEST_BEGIN(Quadratic)
+                {
+
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.0), 0.00);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.1), 0.01);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.2), 0.04);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.3), 0.09);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.4), 0.16);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.5), 0.25);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.6), 0.36);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.7), 0.49);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.8), 0.64);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(0.9), 0.81);
+                        EXPECT_FLOAT_EQ(ease_quadratic_in(1.0), 1.00);
                 }
                 TEST_END()
         }
