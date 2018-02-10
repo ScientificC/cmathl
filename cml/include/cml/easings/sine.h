@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-real_t sine_ease_in(real_t p);
-real_t sine_ease_out(real_t p);
-real_t sine_ease_in_out(real_t p);
+real_t ease_sine_in(real_t p);
+real_t ease_sine_out(real_t p);
+real_t ease_sine_in_out(real_t p);
 
 __CML_END_DECLS
 

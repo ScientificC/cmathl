@@ -4,13 +4,13 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Bounce */
 real_t
-bounce_ease_in(real_t p)
+ease_bounce_in(real_t p)
 {
-        return 1.0 - bounce_ease_out(1.0 - p);
+        return 1.0 - ease_bounce_out(1.0 - p);
 }
 
 real_t
-bounce_ease_out(real_t p)
+ease_bounce_out(real_t p)
 {
         real_t f = (0.0);
 
@@ -35,17 +35,17 @@ bounce_ease_out(real_t p)
 }
 
 real_t
-bounce_ease_in_out(real_t p)
+ease_bounce_in_out(real_t p)
 {
         real_t f = 0.0;
 
         if (p < 0.5)
         {
-                f = 0.5 * bounce_ease_in(p * 2.0);
+                f = 0.5 * ease_bounce_in(p * 2.0);
         }
         else
         {
-                f = 0.5 * bounce_ease_out(p * 2.0 - 1.0) + 0.5;
+                f = 0.5 * ease_bounce_out(p * 2.0 - 1.0) + 0.5;
         }
 
         return f;

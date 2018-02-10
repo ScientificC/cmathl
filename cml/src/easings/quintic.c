@@ -4,20 +4,20 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Quintic */
 real_t
-quintic_ease_in(real_t p)
+ease_quintic_in(real_t p)
 {
         return p * p * p * p * p;
 }
 
 real_t
-quintic_ease_out(real_t p)
+ease_quintic_out(real_t p)
 {
         real_t f = p - 1.0;
         return f * f * f * f * f + 1.0;
 }
 
 real_t
-quintic_ease_in_out(real_t p)
+ease_quintic_in_out(real_t p)
 {
         real_t f = 0.0;
 

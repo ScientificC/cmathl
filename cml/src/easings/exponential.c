@@ -4,7 +4,7 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Exponential */
 real_t
-exponential_ease_in(real_t p)
+ease_exponential_in(real_t p)
 {
         real_t f = p;
 
@@ -17,7 +17,7 @@ exponential_ease_in(real_t p)
 }
 
 real_t
-exponential_ease_out(real_t p)
+ease_exponential_out(real_t p)
 {
         real_t f = p;
 
@@ -30,7 +30,7 @@ exponential_ease_out(real_t p)
 }
 
 real_t
-exponential_ease_in_out(real_t p)
+ease_exponential_in_out(real_t p)
 {
         real_t f = p;
 

@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-real_t back_ease_in(real_t p);
-real_t back_ease_out(real_t p);
-real_t back_ease_in_out(real_t p);
+real_t ease_back_in(real_t p);
+real_t ease_back_out(real_t p);
+real_t ease_back_in_out(real_t p);
 
 __CML_END_DECLS
 

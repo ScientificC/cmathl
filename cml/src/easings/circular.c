@@ -4,19 +4,19 @@
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Circular */
 real_t
-circular_ease_in(real_t p)
+ease_circular_in(real_t p)
 {
         return 1.0 - real_sqrt(1.0 - (p * p));
 }
 
 real_t
-circular_ease_out(real_t p)
+ease_circular_out(real_t p)
 {
         return real_sqrt((2.0 - p) * p);
 }
 
 real_t
-circular_ease_in_out(real_t p)
+ease_circular_in_out(real_t p)
 {
         real_t f = 0.0;
 

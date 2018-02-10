@@ -120,45 +120,45 @@ int run_tests()
         {
                 TEST_BEGIN(Back)
                 {
-                        EXPECT_FLOAT_EQ(back_ease_in(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(back_ease_in(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(back_ease_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(back_ease_out(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(back_ease_in_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(back_ease_in_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_back_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_back_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_back_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_back_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_back_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_back_in_out(1.0), 1.0);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Bounce)
                 {
-                        EXPECT_FLOAT_EQ(bounce_ease_in(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(bounce_ease_in(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(bounce_ease_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(bounce_ease_out(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(bounce_ease_in_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(bounce_ease_in_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_bounce_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_bounce_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_bounce_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_bounce_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_bounce_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_bounce_in_out(1.0), 1.0);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Circular)
                 {
-                        EXPECT_FLOAT_EQ(circular_ease_in(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(circular_ease_in(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(circular_ease_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(circular_ease_out(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(circular_ease_in_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(circular_ease_in_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_circular_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_circular_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_circular_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_circular_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_circular_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_circular_in_out(1.0), 1.0);
                 }
                 TEST_END()
 
                 TEST_BEGIN(Cubic)
                 {
-                        EXPECT_FLOAT_EQ(cubic_ease_in(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(cubic_ease_in(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(cubic_ease_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(cubic_ease_out(1.0), 1.0);
-                        EXPECT_FLOAT_EQ(cubic_ease_in_out(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(cubic_ease_in_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_cubic_in(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_cubic_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_cubic_out(1.0), 1.0);
+                        EXPECT_FLOAT_EQ(ease_cubic_in_out(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(ease_cubic_in_out(1.0), 1.0);
                 }
                 TEST_END()
         }
