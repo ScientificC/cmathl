@@ -34,6 +34,13 @@ ELSE()
 	MESSAGE(STATUS "Using stdint.h")
 ENDIF()
 
+OPTION(CML_NO_MATH "Use math.h" BOOL:FALSE)
+IF(CML_NO_MATH)
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCML_NO_MATH=\"${CML_NO_ALIASES}\"")
+ELSE()
+	MESSAGE(STATUS "Using math.h")
+ENDIF()
+
 IF(mint_t)
 	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Dmint_t=\"${mint_t}\"")
 ENDIF()

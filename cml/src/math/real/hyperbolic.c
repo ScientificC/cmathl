@@ -1,6 +1,8 @@
 #include <stdlib.h>
+#define CML_NO_ALIASES
 #include <cml.h>
 
+#ifdef CML_NO_MATH
 __CML_EXTERN_INLINE real_t
 __atanh__(real_t x)
 {
@@ -17,7 +19,10 @@ __atanh__(real_t x)
 
         return p;
 }
-
+#else
+        #include <math.h>
+        #define __atanh__(x) atanh(x)
+#endif
 
 /*
  * Computes real hyperbolic arc cosine

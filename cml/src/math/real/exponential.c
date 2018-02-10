@@ -1,5 +1,29 @@
 #include <stdlib.h>
+#define CML_NO_ALIASES
 #include <cml.h>
+
+
+#ifdef CML_NO_MATH
+real_t
+__exp__(real_t x)
+{
+        mint_t i;
+        real_t ai, ex;
+
+        ai = 1.0;
+        ex = ai;
+
+        for (i = 1; i < CML_SERIES_TOP_IT_L; ++i) {
+                ai = ai*(x)/i;
+                ex = ex + ai;
+        }
+
+        return (real_t) ex;
+}
+#else
+        #include <math.h>
+        #define __exp__(x) exp(x)
+#endif
 
 /*
  * Returns e raised to the given power
@@ -11,21 +35,7 @@
 real_t
 real_exp(real_t x)
 {
-        /* Declaration of variables and structures */
-        mint_t i;
-        real_t ai, ex;
-
-        /* Mathematical algorithm */
-        ai = 1.0;
-        ex = ai;
-
-        for (i = 1; i < CML_SERIES_TOP_IT_L; ++i) {
-                ai = ai*(x)/i;
-                ex = ex + ai;
-        }
-
-        /* Return */
-        return (real_t) ex;
+        return __exp__(x);
 }
 
 

@@ -1,6 +1,8 @@
 #include <stdlib.h>
+#define CML_NO_ALIASES
 #include <cml.h>
 
+#ifdef CML_NO_MATH
 __CML_EXTERN_INLINE real_t
 __atan__(real_t x)
 {
@@ -35,6 +37,11 @@ __sin__(real_t x)
 
         return p;
 }
+#else
+        #include <math.h>
+        #define __atan__(x) atan(x)
+        #define __sin__(x) sin(x)
+#endif
 
 /*
  * Computes real arc cosine
