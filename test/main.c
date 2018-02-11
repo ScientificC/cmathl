@@ -224,6 +224,22 @@ int run_tests()
                         EXPECT_FLOAT_EQ(ease_quadratic_in(1.0), 1.00);
                 }
                 TEST_END()
+
+                TEST_BEGIN(Sine)
+                {
+                        EXPECT_NEAR(ease_sine_in(0.0), 0.000000, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.1), 0.012312, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.2), 0.048943, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.3), 0.108993, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.4), 0.190983, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.5), 0.292893, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.6), 0.412215, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.7), 0.546010, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.8), 0.690983, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.9), 0.843566, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(1.0), 1.000000, 1e-5);
+                }
+                TEST_END()
         }
         CATEGORY_END()
         #endif
