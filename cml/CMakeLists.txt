@@ -41,6 +41,10 @@ SET(CML_SRCS
 		src/structures/quaternion/exponentiation.c
 		src/structures/quaternion/parity.c
 		src/structures/quaternion.c
+		src/ieee/endian.c
+		src/ieee/make_rep.c
+		src/ieee/print.c
+		src/ieee/standardize.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 
