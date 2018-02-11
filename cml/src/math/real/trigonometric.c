@@ -4,39 +4,53 @@
 #include <cml.h>
 
 #ifdef CML_NO_MATH
-__CML_EXTERN_INLINE real_t
-__atan__(real_t x)
+real_t
+__atan__(real_t value)
 {
-        mint_t i;
-        real_t ai_n = x,
-               p = ai_n;
+        real_t sign = 1.;
+        real_t x = value;
+        real_t y = 0.;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2)
+        if (real_isnull(value))
         {
-                ai_n = -ai_n*x*x;
-                p += ai_n/((real_t) i + 2.0);
+                return 0;
+        }
+        else if (x < 0)
+        {
+                sign = (-1.);
+                x *= (-1.);
         }
 
-        return p;
+        x = (x-1.)/(x+1.);
+        y = x*x;
+        x = ((((((((.0028662257*y - .0161657367)*y + .0429096138)*y -
+                  .0752896400)*y + .1065626393)*y - .1420889944)*y +
+               .1999355085)*y - .3333314528)*y + 1)*x;
+        x = .785398163397 + sign*x;
+
+        return x;
 }
 
 
 __CML_EXTERN_INLINE real_t
 __sin__(real_t x)
 {
-        real_t ai, p;
+        real_t ai, newsum, oldsum;
         mint_t i;
 
         ai = x;
-        p = ai;
+        newsum = ai;
+        i = 1;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i)
+        do
         {
+                oldsum = newsum;
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
-                p = p + ai;
-        }
+                newsum = newsum + ai;
+                ++i;
+        } while (!real_equal(newsum, oldsum));
 
-        return p;
+        return newsum;
 }
 #else
         #include <math.h>

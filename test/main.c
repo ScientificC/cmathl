@@ -58,14 +58,14 @@ int run_tests()
                 {
                         /* We have to be a little looser with our equality constraint
                            because of floating-point precision issues. */
-                        const float trigAbsError = 0.000001;
+                        const float trigAbsError = 0.0000001f;
 
                         EXPECT_NEAR(sin(0.0), 0.0, trigAbsError);
                         EXPECT_NEAR(sin(M_PI / 2), 1.0, trigAbsError);
                         EXPECT_NEAR(sin(M_PI), 0.0, trigAbsError);
                         EXPECT_NEAR(sin(3 * M_PI / 2), -1.0, trigAbsError);
                         EXPECT_NEAR(sin(-M_PI / 2), -1.0, trigAbsError);
-                        EXPECT_NEAR(sin(1578901387.78992), -0.134176, trigAbsError);
+                        EXPECT_NEAR(sin(1578901387.78992), -0.13417554701, trigAbsError);
 
                         EXPECT_NEAR(cos(0.0), 1.0, trigAbsError);
                         EXPECT_NEAR(cos(M_PI / 2), 0.0, trigAbsError);
@@ -78,6 +78,10 @@ int run_tests()
                         EXPECT_NEAR(tan(3 * M_PI / 4), -1.0, trigAbsError);
                         EXPECT_NEAR(tan(M_PI), 0.0, trigAbsError);
                         EXPECT_NEAR(tan(-M_PI / 4), -1.0, trigAbsError);
+
+                        EXPECT_NEAR(atan(0.0), 0.0, trigAbsError);
+                        EXPECT_NEAR(atan(1.0), M_PI / 4, trigAbsError);
+                        EXPECT_NEAR(atan(-1.0), -M_PI / 4, trigAbsError);
 
                         /* This isn't the most rigorous because we're really just sanity-
                            checking that things work by default. */
@@ -96,8 +100,8 @@ int run_tests()
                         EXPECT_FLOAT_EQ(pow(2.0, 0), 1.0);
                         EXPECT_FLOAT_EQ(pow(2.0, 4), 16.0);
                         EXPECT_FLOAT_EQ(pow(2.0, -2), 0.25);
-                        EXPECT_NEAR(pow(2.0, 4.1), 17.148376, 0.0001f);
-                        EXPECT_NEAR(pow(2.0, -2.5), 0.176777, 0.0001f);
+                        EXPECT_FLOAT_EQ(pow(2.0, -2.5), 0.17677669529);
+                        EXPECT_NEAR(pow(2.0, 4.1), 17.1483754006, 1e-6);
                 }
                 TEST_END()
         }
