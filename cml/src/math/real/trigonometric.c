@@ -260,7 +260,7 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_ismult(x, (M_PI)))
+        if (real_ismult(x, M_PI))
         {
                 return 0.0;
         }
