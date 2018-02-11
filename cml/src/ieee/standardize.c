@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-static void
+__CML_EXTERN_INLINE void
 make_float_bigendian(float *x)
 {
         union {
@@ -20,7 +20,7 @@ make_float_bigendian(float *x)
 }
 
 
-static void
+__CML_EXTERN_INLINE void
 make_double_bigendian(double *x)
 {
         union {

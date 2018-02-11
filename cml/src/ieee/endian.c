@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-static int
+__CML_EXTERN_INLINE int
 little_endian_p()
 {
         /* Are we little or big endian?  From Harbison & Steele.  */
