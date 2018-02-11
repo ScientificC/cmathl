@@ -22,14 +22,6 @@
 #define TINY 2.2250738585072014e-308
 #endif
 
-/*
- * The largest 'Int' /x/ such that 2**(/x/-1) is approximately
- * representable as a 'Double'.
- */
-#ifndef MAXEXP
-#define MAXEXP 1024
-#endif
-
 /* Positive infinity. */
 #ifndef INF
 #define INF 1.0/0.0

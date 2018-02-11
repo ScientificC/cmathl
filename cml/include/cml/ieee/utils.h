@@ -66,10 +66,13 @@ enum {
         CML_IEEE_TRAP_INEXACT = 32
 };
 
+/* I dream of implementing these functions someday
+
 void ieee_env_setup(void);
 int ieee_read_mode_string(char *description, int *precision,
                           int *rounding, int *exception_mask);
 int ieee_set_mode(int precision, int rounding, int exception_mask);
+*/
 
 __CML_END_DECLS
 
