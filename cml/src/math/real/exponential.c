@@ -17,7 +17,8 @@ __exp__(real_t x)
         term = 1.0;
 
         /* terminates when the new sum is no different from the old sum */
-        while (!real_equal(newsum, oldsum)) {
+        while (!real_equal(newsum, oldsum))
+        {
                 oldsum = newsum;
                 n++;
                 term = term*x/n; /* term has the value (x~n)/(n!) */
