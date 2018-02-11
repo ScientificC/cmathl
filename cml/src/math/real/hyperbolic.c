@@ -1,10 +1,13 @@
 #include <stdlib.h>
+#undef CML_NO_ALIASES
+#define CML_NO_ALIASES
 #include <cml.h>
 
-_CML_EXTERN_INLINE cml_math_t
-__atanh__(cml_math_t x)
+#ifdef CML_NO_MATH
+__CML_EXTERN_INLINE real_t
+__atanh__(real_t x)
 {
-        cml_math_t ai_n, p;
+        real_t ai_n, p;
         mint_t i;
 
         ai_n = x;
@@ -17,7 +20,10 @@ __atanh__(cml_math_t x)
 
         return p;
 }
-
+#else
+        #include <math.h>
+        #define __atanh__(x) atanh(x)
+#endif
 
 /*
  * Computes real hyperbolic arc cosine
@@ -31,13 +37,11 @@ real_t
 real_acosh(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, b, c, h;
+        real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
-        b = (2.0);
-        c = (1.0);
-        y = real_pow(x, b);
-        z = real_sub(y, c);
+        y = real_pow(x, 2.0);
+        z = real_sub(y, 1.0);
         w = real_sqrt(z);
         k = real_add(x, w);
         h = real_log(k);
@@ -84,14 +88,13 @@ real_t
 real_atanh(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, c, h;
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_abs(x);
-        c = (1.0);
-        h = real_is_greater(c, y) ?
-            ((real_t) __atanh__(x)) :
-            (real_nan());
+        h = real_isgreater(1.0, y) ?
+            (real_t) __atanh__(x) :
+            real_nan();
 
         /* Return */
         return h;
@@ -141,7 +144,7 @@ real_coth(real_t x)
         y = real_cosh(x);
         z = real_sinh(x);
         w = real_inverse(z);
-        h = real_prod(y, w);
+        h = real_mul(y, w);
 
         /* Return */
         return h;
@@ -236,7 +239,7 @@ real_tanh(real_t x)
         y = real_sinh(x);
         z = real_cosh(x);
         w = real_inverse(z);
-        h = real_prod(y, w);
+        h = real_mul(y, w);
 
         /* Return */
         return h;

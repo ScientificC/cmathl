@@ -8,67 +8,10 @@ configure_file(
 
 SET(CML_MAIN_HEADERS
 		include/cml.h
+		include/cml.hpp
 )
 
-SET(CML_CML_HEADERS
-	include/cml/config.h
-	include/cml/structures.h
-	include/cml/math.h
-	include/cml/easings.h
-)
-
-SET(CML_MATH_HEADERS
-	include/cml/math/consts.h
-	include/cml/math/functions.h
-	include/cml/math/types.h
-)
-
-SET(CML_MATH_TYPES_HEADERS
-	include/cml/math/types/real.h
-	include/cml/math/types/complex.h
-	include/cml/math/types/bool.h
-)
-
-SET(CML_MATH_FUNC_HEADERS
-	include/cml/math/functions/real.h
-	include/cml/math/functions/complex.h
-	include/cml/math/functions/generic.h
-)
-
-SET(CML_MATH_COMPLEX_HEADERS
-	include/cml/math/functions/complex/basic.h
-	include/cml/math/functions/complex/hyperbolic.h
-	include/cml/math/functions/complex/error.h
-	include/cml/math/functions/complex/exponentiation.h
-	include/cml/math/functions/complex/trigonometric.h
-)
-
-SET(CML_MATH_REAL_HEADERS
-	include/cml/math/functions/real/basic.h
-	include/cml/math/functions/real/classification.h
-	include/cml/math/functions/real/hyperbolic.h
-	include/cml/math/functions/real/power.h
-	include/cml/math/functions/real/exponential.h
-	include/cml/math/functions/real/nearest-integer.h
-	include/cml/math/functions/real/trigonometric.h
-	include/cml/math/functions/real/error-gamma.h
-)
-
-SET(CML_EASINGS_HEADERS
-	include/cml/easings/linear.h
-	include/cml/easings/bounce.h
-	include/cml/easings/quartic.h
-	include/cml/easings/quintic.h
-	include/cml/easings/circular.h
-	include/cml/easings/back.h
-	include/cml/easings/exponential.h
-	include/cml/easings/sine.h
-	include/cml/easings/cubic.h
-	include/cml/easings/elastic.h
-	include/cml/easings/quadratic.h
-)
-
-SET( CML_SRCS
+SET(CML_SRCS
 		src/math/complex/trigonometric.c
 		src/math/complex/hyperbolic.c
 		src/math/complex/basic.c
@@ -93,10 +36,15 @@ SET( CML_SRCS
 		src/easings/sine.c
 		src/easings/elastic.c
 		src/easings/circular.c
+		src/structures/quaternion/basic.c
+		src/structures/quaternion/classification.c
+		src/structures/quaternion/exponentiation.c
+		src/structures/quaternion/parity.c
+		src/structures/quaternion.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 
-SET( CML_TESTS_SRCS
+SET(CML_TESTS_SRCS
 	test/main.c
 )
 SOURCE_GROUP(Tests FILES ${CML_TESTS_SRCS})
@@ -162,17 +110,12 @@ ENDIF()
 
 INSTALL(TARGETS ${CML_LIB_TARGET}
 		RUNTIME DESTINATION bin
-		LIBRARY DESTINATION lib${LIB_SUFFIX}
-		ARCHIVE DESTINATION lib${LIB_SUFFIX}
+		LIBRARY DESTINATION lib
+		ARCHIVE DESTINATION lib
 		)
 INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
-INSTALL(FILES ${CML_CML_HEADERS} DESTINATION include/cml)
-INSTALL(FILES ${CML_MATH_HEADERS} DESTINATION include/cml/math)
-INSTALL(FILES ${CML_MATH_TYPES_HEADERS} DESTINATION include/cml/math/types)
-INSTALL(FILES ${CML_MATH_FUNC_HEADERS} DESTINATION include/cml/math/functions)
-INSTALL(FILES ${CML_MATH_COMPLEX_HEADERS} DESTINATION include/cml/math/functions/complex)
-INSTALL(FILES ${CML_MATH_REAL_HEADERS} DESTINATION include/cml/math/functions/real)
-INSTALL(FILES ${CML_EASINGS_HEADERS} DESTINATION include/cml/easings)
+INSTALL(DIRECTORY include/cml/ DESTINATION include/cml)
+
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 #	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/cml.pdb DESTINATION bin)

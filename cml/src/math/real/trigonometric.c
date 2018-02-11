@@ -1,38 +1,48 @@
 #include <stdlib.h>
+#undef CML_NO_ALIASES
+#define CML_NO_ALIASES
 #include <cml.h>
 
-_CML_EXTERN_INLINE cml_math_t
-__atan__(cml_math_t x)
+#ifdef CML_NO_MATH
+__CML_EXTERN_INLINE real_t
+__atan__(real_t x)
 {
         mint_t i;
-        cml_math_t ai_n = x,
-                   p = ai_n;
+        real_t ai_n = x,
+               p = ai_n;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2)
+        {
                 ai_n = -ai_n*x*x;
-                p += ai_n/((cml_math_t) i + 2.0);
+                p += ai_n/((real_t) i + 2.0);
         }
 
         return p;
 }
 
 
-_CML_EXTERN_INLINE cml_math_t
-__sin__(cml_math_t x)
+__CML_EXTERN_INLINE real_t
+__sin__(real_t x)
 {
-        cml_math_t ai, p;
+        real_t ai, p;
         mint_t i;
 
         ai = x;
         p = ai;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i) {
+        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i)
+        {
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 p = p + ai;
         }
 
         return p;
 }
+#else
+        #include <math.h>
+        #define __atan__(x) atan(x)
+        #define __sin__(x) sin(x)
+#endif
 
 /*
  * Computes real arc cosine
@@ -49,7 +59,7 @@ real_acos(real_t x)
 
         /* Mathematical algorithm */
         y = real_asin(x);
-        h = real_sub((HALFPI), y);
+        h = real_sub(M_PI_2, y);
 
         /* Return */
         return h;
@@ -68,13 +78,11 @@ real_t
 real_asin(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, b, c, h;
+        real_t y, z, w, k, h;
 
         /* Mathematical algorithm */
-        b = (2.0);
-        c = (1.0);
-        y = real_pow(x, b);
-        z = real_sub(c, y);
+        y = real_pow(x, 2.0);
+        z = real_sub(1.0, y);
         w = real_sqrt(z);
         k = real_div(x, w);
         h = real_atan(k);
@@ -100,7 +108,7 @@ real_atan(real_t x)
         /* Mathematical algorithm */
         a = real_abs(x);
         s = real_sgn(x);
-        w = real_prod(s, __atan__(a));
+        w = real_mul(s, __atan__(a));
 
         /* Return */
         return w;
@@ -109,7 +117,7 @@ real_atan(real_t x)
 
 /*
  * Computes real arc tangent, using signs to determinate cuadrants
- * --| atan2(y, x) = HALFPI*sgn(y) - atan(x/y)
+ * --| atan2(y, x) = M_PI_2*sgn(y) - atan(x/y)
  *
  * @param real_t y
  * @param real_t x
@@ -126,7 +134,7 @@ real_atan2(real_t y, real_t x)
         s = real_sgn(y);
         k = real_div(x, y);
         j = real_atan(k);
-        z = real_prod(HALFPI, s);
+        z = real_mul(M_PI_2, s);
         w = real_sub(z, j);
 
         /* Return */
@@ -136,7 +144,7 @@ real_atan2(real_t y, real_t x)
 
 /*
  * Computes real cosine
- * --| cos(x) = sin(x + HALFPI)
+ * --| cos(x) = sin(x + M_PI_2)
  * --| cos(x) = cos(-x) = cos(|x|)
  *
  * @param real_t x
@@ -151,7 +159,7 @@ real_cos(real_t x)
 
         /* Mathematical algorithm */
         y = real_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        z = real_add(y, HALFPI);
+        z = real_add(y, M_PI_2);
         h = real_sin(z);
 
         /* Return */
@@ -174,7 +182,7 @@ real_cot(real_t x)
 
         /* Mathematical algorithm */
         y = real_sin(x);
-        h = real_is_null(y) ?
+        h = real_isnull(y) ?
             real_nan() :
             real_div(real_cos(x), y);
 
@@ -238,8 +246,9 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_is_mult(x, (PI))) {
-                return (0.0);
+        if (real_ismult(x, (M_PI)))
+        {
+                return 0.0;
         }
 
         /* Declaration of variables and structures */
@@ -250,7 +259,7 @@ real_sin(real_t x)
         y = real_abs(x);
         z = real_ared(y);
         w = ((mfloat_t) __sin__(z));
-        h = real_prod(w, s);
+        h = real_mul(w, s);
 
         /* Return */
         return h;
@@ -274,7 +283,7 @@ real_tan(real_t x)
         /* Mathematical algorithm */
         y = real_cos(x);
 
-        return real_is_null(y) ?
+        return real_isnull(y) ?
                real_nan() :
                real_div(real_sin(x), y);;
 }

@@ -5,6 +5,8 @@
 #ifndef CML_STRUCTURES_H
 #define CML_STRUCTURES_H
 
-#include "structures/types.h"
+#include "structures/quaternion.h"
+#include "structures/matrix3.h"
+#include "structures/matrix4.h"
 
 #endif

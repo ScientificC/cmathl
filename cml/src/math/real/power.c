@@ -1,6 +1,42 @@
 #include <stdlib.h>
 #include <cml.h>
 
+real_t
+real_pow_int(real_t x, int n)
+{
+        unsigned int un;
+
+        if(n < 0)
+        {
+                x = 1.0/x;
+                un = -n;
+        }
+        else
+        {
+                un = n;
+        }
+
+        return real_pow_uint(x, un);
+}
+
+
+real_t
+real_pow_uint(real_t x, unsigned int n)
+{
+        real_t value = 1.0;
+
+        /* repeated squaring method
+         * returns 0.0^0 = 1.0, so continuous in x
+         */
+        do {
+                if (n & 1) value *= x; /* for n odd */
+                n >>= 1;
+                x *= x;
+        } while (n);
+
+        return value;
+}
+
 
 /*
  * Computes real power function developed by using the exponentiation process
@@ -15,10 +51,16 @@ real_t
 real_pow(real_t x, real_t n)
 {
         /* Domain check */
-        if (real_is_null(x)) {
-                return real_is_null(n) ?
+        if (real_isnull(x))
+        {
+                return real_isnull(n) ?
                        real_nan() :
                        x;
+        }
+
+        if (real_isinteger(n))
+        {
+                return real_pow_int(x, (int) n);
         }
 
         /* Declaration of variables and structures */
@@ -28,9 +70,9 @@ real_pow(real_t x, real_t n)
         s = real_sgn(x);
         y = real_abs(x);
         z = real_log(y);
-        w = real_prod(n, z);
+        w = real_mul(n, z);
         k = real_exp(w);
-        h = real_prod(s, k);
+        h = real_mul(s, k);
 
         /* Return */
         return h;

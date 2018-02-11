@@ -16,7 +16,7 @@ real_abs(real_t x)
 
         /* Mathematical algorithm */
         sgn = real_sgn(x);
-        y = real_prod(x, sgn);
+        y = real_mul(x, sgn);
 
         /* Return */
         return y;
@@ -52,8 +52,8 @@ real_ared(real_t x)
         real_t z, k, w;
 
         /* Mathematical algorithm */
-        z = real_div_e(x, (TWOPI));
-        k = real_prod(z, (TWOPI));
+        z = real_div_e(x, (M_TAU));
+        k = real_mul(z, (M_TAU));
         w = real_sub(x, k);
 
         /* Return */
@@ -100,16 +100,22 @@ real_div(real_t x, real_t y)
 
 
 real_t
+real_hypot(real_t x, real_t y)
+{
+        return real_sqrt(x*x + y*y);
+}
+
+
+real_t
 real_inverse(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, h;
+        real_t h;
 
         /* Mathematical algorithm */
-        y = (1.0);
-        h = real_is_null(x) ?
+        h = real_isnull(x) ?
             real_nan() :
-            real_div(y, x);
+            real_div(1.0, x);
 
         /* Return */
         return h;
@@ -132,7 +138,7 @@ real_mod(real_t x, real_t y)
 
         /* Mathematical algorithm */
         z = real_div_e(x, y);
-        w = real_prod(y, z);
+        w = real_mul(y, z);
         k = real_sub(x, w);
 
         /* Return */
@@ -156,7 +162,7 @@ real_opposite(real_t x)
  */
 
 real_t
-real_prod(real_t x, real_t y)
+real_mul(real_t x, real_t y)
 {
         return x * y;
 }

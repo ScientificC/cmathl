@@ -16,6 +16,15 @@ complex(real_t real_part, real_t imaginary_part)
 
 
 complex_t
+complex_polar(real_t r, real_t theta)
+{                               /* return z = r exp(i theta) */
+        complex_t z;
+        z = complex(r * real_cos(theta), r * real_sin(theta));
+        return z;
+}
+
+
+complex_t
 complex_nan()
 {
         return complex(
@@ -32,6 +41,23 @@ complex_inf()
                 real_inf(),
                 real_inf()
                 );
+}
+
+
+complex_t
+complex_ninf()
+{
+        return complex(
+                real_ninf(),
+                real_ninf()
+                );
+}
+
+
+complex_t
+complex_zero()
+{
+        return complex(0.0, 0.0);
 }
 
 

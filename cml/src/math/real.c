@@ -17,6 +17,13 @@ real_inf()
 }
 
 
+real_t
+real_ninf()
+{
+        return (real_t) NINF;
+}
+
+
 char *
 real_as_string(real_t x)
 {
@@ -24,7 +31,7 @@ real_as_string(real_t x)
 
         #ifndef PREDEF_STANDARD_C99
         char * string = (char*) malloc(80);
-        sprintf(string, "%g", value);
+        sprintf(string, "%G", value);
         #else
         int size = snprintf(NULL, 0, "%G", value) + 1;
         char * string = (char*) malloc(size);
