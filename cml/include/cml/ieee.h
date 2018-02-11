@@ -5,8 +5,8 @@
 #ifndef CML_IEEE_H
 #define CML_IEEE_H
 
-/* #include "ieee/endian.h"
-#include "ieee/standardize.h" */
+#include "ieee/endian.h"
+#include "ieee/standardize.h"
 #include "ieee/utils.h"
 
 #endif

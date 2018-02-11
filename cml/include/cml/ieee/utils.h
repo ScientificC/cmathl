@@ -34,14 +34,14 @@ typedef struct
 } ieee_double_rep_t;
 
 
-void ieee_printf_float(float *x);
-void ieee_printf_double(double *x);
+void ieee_printf_float(const float *x);
+void ieee_printf_double(const double *x);
 
-void ieee_fprintf_float(FILE *stream, float *x);
-void ieee_fprintf_double(FILE *stream, double *x);
+void ieee_fprintf_float(FILE *stream, const float *x);
+void ieee_fprintf_double(FILE *stream, const double *x);
 
-void ieee_float_to_rep(float *x, ieee_float_rep_t *r);
-void ieee_double_to_rep(double *x, ieee_double_rep_t *r);
+void ieee_float_to_rep(const float *x, ieee_float_rep_t *r);
+void ieee_double_to_rep(const double *x, ieee_double_rep_t *r);
 
 enum {
         CML_IEEE_SINGLE_PRECISION = 1,
