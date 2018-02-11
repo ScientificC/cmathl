@@ -32,6 +32,29 @@ The easing functions are an implementation of the functions presented in [easing
 
 Easing functions take a value inside the range `[0.0, 1.0]` and usually will return a value inside that same range. However, in some of the easing functions, the returned value extrapolate that range (Check the [easings.net](http://easings.net/) to see those functions).
 
+The following types of easing functions are supported:
+
+- Linear
+- Quadratic
+- Cubic
+- Quartic
+- Quintic
+- Sine
+- Circular
+- Exponential
+- Elastic
+- Bounce
+- Back
+
+The core easing functions are implemented as C functions that take a time parameter and return a progress parameter, which can subsequently be used to interpolate any quantity.
+
+### Goals
+
+The design goals of easings are:
+
+- To be as fast as conceivably possible while maintaining human readability
+- To elucidate the mathematical underpinnings of common easing functions
+
 ## Math
 
 CML provides a large number of mathematical functions for general purposes offering at the moment two types, `real_t` and `complex_t`. `real_t` corresponds to the type defined in the `mfloat_t` macro. On the other hand, `complex_t` being a structure.
