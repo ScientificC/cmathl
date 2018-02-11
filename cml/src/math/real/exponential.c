@@ -8,18 +8,23 @@
 real_t
 __exp__(real_t x)
 {
-        mint_t i;
-        real_t ai, ex;
+        int n;
+        real_t term, oldsum, newsum;
 
-        ai = 1.0;
-        ex = ai;
+        n = 0;
+        oldsum = 0.0;
+        newsum = 1.0;
+        term = 1.0;
 
-        for (i = 1; i < CML_SERIES_TOP_IT_L; ++i) {
-                ai = ai*(x)/i;
-                ex = ex + ai;
+        /* terminates when the new sum is no different from the old sum */
+        while (!real_equal(newsum, oldsum)) {
+                oldsum = newsum;
+                n++;
+                term = term*x/n; /* term has the value (x~n)/(n!) */
+                newsum = newsum + term; /* approximates exp(x) */
         }
 
-        return (real_t) ex;
+        return (real_t) newsum;
 }
 #else
         #include <math.h>
