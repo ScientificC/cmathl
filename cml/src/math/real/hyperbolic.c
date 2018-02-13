@@ -7,18 +7,20 @@
 __CML_EXTERN_INLINE real_t
 __atanh__(real_t x)
 {
-        real_t ai_n, p;
+        real_t ai_n, sum;
         mint_t i;
 
         ai_n = x;
-        p = ai_n;
+        sum = ai_n;
+        i = 1;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
+        while (real_abs(ai_n) >= CML_FLT_EPSILON)
+        {
                 ai_n = ai_n*x*x;
-                p = p + ai_n/(i+2);
+                sum = sum + ai_n/(i+=2);
         }
 
-        return p;
+        return sum;
 }
 #else
         #include <math.h>
