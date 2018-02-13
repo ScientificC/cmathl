@@ -88,6 +88,13 @@ int run_tests()
                 }
                 TEST_END()
 
+                TEST_BEGIN(Hyperbolic)
+                {
+                        EXPECT_FLOAT_EQ(real_atanh(0.5), 0.5493061443340548);
+                        EXPECT_FLOAT_EQ(real_atanh(0.75), 0.9729550745276566);
+                }
+                TEST_END()
+
                 TEST_BEGIN(SquareRoot)
                 {
                         EXPECT_FLOAT_EQ(real_sqrt(16.0), 4.0);
