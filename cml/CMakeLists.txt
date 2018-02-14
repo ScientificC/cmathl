@@ -45,6 +45,7 @@ SET(CML_SRCS
 		src/ieee/make_rep.c
 		src/ieee/print.c
 		src/ieee/standardize.c
+		src/diff/diff.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 

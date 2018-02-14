@@ -2,10 +2,11 @@
 #define CML_H
 
 #include "cml/config.h"
-#include "cml/machine.h"
 #include "cml/default.h"
+#include "cml/errno.h"
 #include "cml/ieee.h"
 #include "cml/inline.h"
+#include "cml/machine.h"
 
 #ifndef PREDEF_STANDARD_C11
         #undef __CML_NO_GENERIC
