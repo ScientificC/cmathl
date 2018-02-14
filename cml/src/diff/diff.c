@@ -1,3 +1,7 @@
+/* This code to solve the differential equations is based on the definition
+   provided by GNU Scientific Library (GSL), adapting it to the definitions
+   provided by CML as well as the practices provided by it. */
+
 #include <stdlib.h>
 #include <cml.h>
 
@@ -54,6 +58,7 @@ diff_backward(const function_t *f,
         return CML_SUCCESS;
 }
 
+
 int
 diff_forward(const function_t *f,
              real_t x, real_t *result, real_t *abserr)
@@ -105,6 +110,7 @@ diff_forward(const function_t *f,
 
         return CML_SUCCESS;
 }
+
 
 int
 diff_central(const function_t *f,
