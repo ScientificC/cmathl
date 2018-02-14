@@ -160,17 +160,17 @@ int run_tests()
                         EXPECT_FLOAT_EQ(ease_circular_in_out(0.0), 0.0);
                         EXPECT_FLOAT_EQ(ease_circular_in_out(1.0), 1.0);
 
-                        EXPECT_NEAR(ease_circular_in(0.0), 0.000000, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.1), 0.005013, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.2), 0.020204, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.3), 0.046061, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.4), 0.083485, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.5), 0.133975, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.6), 0.200000, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.7), 0.285857, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.8), 0.400000, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(0.9), 0.564110, 1e-5);
-                        EXPECT_NEAR(ease_circular_in(1.0), 1.000000, 1e-5);
+                        EXPECT_NEAR(ease_circular_in(0.0), 0.000000, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.1), 0.005013, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.2), 0.020204, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.3), 0.046061, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.4), 0.083485, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.5), 0.133975, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.6), 0.200000, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.7), 0.285857, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.8), 0.400000, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(0.9), 0.564110, 1e-6);
+                        EXPECT_NEAR(ease_circular_in(1.0), 1.000000, 1e-6);
                 }
                 TEST_END()
 
@@ -238,17 +238,17 @@ int run_tests()
 
                 TEST_BEGIN(Sine)
                 {
-                        EXPECT_NEAR(ease_sine_in(0.0), 0.000000, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.1), 0.012312, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.2), 0.048943, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.3), 0.108993, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.4), 0.190983, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.5), 0.292893, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.6), 0.412215, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.7), 0.546010, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.8), 0.690983, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(0.9), 0.843566, 1e-5);
-                        EXPECT_NEAR(ease_sine_in(1.0), 1.000000, 1e-5);
+                        EXPECT_NEAR(ease_sine_in(0.0), 0.000000, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.1), 0.012312, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.2), 0.048943, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.3), 0.108993, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.4), 0.190983, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.5), 0.292893, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.6), 0.412215, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.7), 0.546010, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.8), 0.690983, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(0.9), 0.843566, 1e-6);
+                        EXPECT_NEAR(ease_sine_in(1.0), 1.000000, 1e-6);
                 }
                 TEST_END()
         }
