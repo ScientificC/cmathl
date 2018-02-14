@@ -29,8 +29,4 @@
 #include "math/real.h"
 #include "math/complex.h"
 
-#ifndef CML_SERIES_TOP_IT_L
-        #define CML_SERIES_TOP_IT_L MAXLOG*14
-#endif
-
 #endif
