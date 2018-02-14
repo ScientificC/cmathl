@@ -2,6 +2,7 @@
 #define CML_H
 
 #include "cml/config.h"
+#include "cml/machine.h"
 #include "cml/default.h"
 #include "cml/ieee.h"
 #include "cml/inline.h"

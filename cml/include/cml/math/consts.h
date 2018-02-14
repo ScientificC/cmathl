@@ -47,14 +47,6 @@
 #define MINLOG -708.3964185322641
 #endif
 
-#ifndef CML_FLT_EPSILON
-        #ifdef CML_SINGLE_PRECISION
-                #define CML_FLT_EPSILON ((mfloat_t)1e-5)
-        #else
-                #define CML_FLT_EPSILON ((mfloat_t)1e-7)
-        #endif
-#endif
-
 
 /*
  * IEEE754 constants
