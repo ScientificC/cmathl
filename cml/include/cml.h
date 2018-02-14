@@ -30,6 +30,8 @@
         #include "cml/tgmath.h"
 #endif
 
+#include "cml/diff.h"
+
 #ifndef CML_NO_STRUCTURES
         #include "cml/structures.h"
 #endif
