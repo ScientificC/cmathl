@@ -36,7 +36,7 @@ int run_tests()
         {
                 TEST_BEGIN(Math)
                 {
-                        EXPECT_FLOAT_EQ(NAN, real_log(-1.0));
+                        EXPECT_FLOAT_EQ(NAN, 0.0/0.0);
                         EXPECT_FLOAT_EQ(INF, INF);
                         EXPECT_FLOAT_EQ(NINF, -INF);
                 }
@@ -58,30 +58,28 @@ int run_tests()
                 {
                         /* We have to be a little looser with our equality constraint
                            because of floating-point precision issues. */
-                        const float trigAbsError = 0.0000001f;
+                        EXPECT_FLOAT_EQ(real_sin(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(real_sin(M_PI / 2), 1.0);
+                        EXPECT_FLOAT_EQ(real_sin(M_PI), 0.0);
+                        EXPECT_FLOAT_EQ(real_sin(3 * M_PI / 2), -1.0);
+                        EXPECT_FLOAT_EQ(real_sin(-M_PI / 2), -1.0);
+                        EXPECT_FLOAT_EQ(real_sin(1578901387.78992), -0.13417554701);
 
-                        EXPECT_NEAR(real_sin(0.0), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_sin(M_PI / 2), 1.0, trigAbsError);
-                        EXPECT_NEAR(real_sin(M_PI), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_sin(3 * M_PI / 2), -1.0, trigAbsError);
-                        EXPECT_NEAR(real_sin(-M_PI / 2), -1.0, trigAbsError);
-                        EXPECT_NEAR(real_sin(1578901387.78992), -0.13417554701, trigAbsError);
+                        EXPECT_FLOAT_EQ(real_cos(0.0), 1.0);
+                        EXPECT_FLOAT_EQ(real_cos(M_PI / 2), 0.0);
+                        EXPECT_FLOAT_EQ(real_cos(M_PI), -1.0);
+                        EXPECT_FLOAT_EQ(real_cos(3 * M_PI / 2), 0.0);
+                        EXPECT_FLOAT_EQ(real_cos(-M_PI), -1.0);
 
-                        EXPECT_NEAR(real_cos(0.0), 1.0, trigAbsError);
-                        EXPECT_NEAR(real_cos(M_PI / 2), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_cos(M_PI), -1.0, trigAbsError);
-                        EXPECT_NEAR(real_cos(3 * M_PI / 2), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_cos(-M_PI), -1.0, trigAbsError);
+                        EXPECT_FLOAT_EQ(real_tan(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(real_tan(M_PI / 4), 1.0);
+                        EXPECT_FLOAT_EQ(real_tan(3 * M_PI / 4), -1.0);
+                        EXPECT_FLOAT_EQ(real_tan(M_PI), 0.0);
+                        EXPECT_FLOAT_EQ(real_tan(-M_PI / 4), -1.0);
 
-                        EXPECT_NEAR(real_tan(0.0), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_tan(M_PI / 4), 1.0, trigAbsError);
-                        EXPECT_NEAR(real_tan(3 * M_PI / 4), -1.0, trigAbsError);
-                        EXPECT_NEAR(real_tan(M_PI), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_tan(-M_PI / 4), -1.0, trigAbsError);
-
-                        EXPECT_NEAR(real_atan(0.0), 0.0, trigAbsError);
-                        EXPECT_NEAR(real_atan(1.0), M_PI / 4, trigAbsError);
-                        EXPECT_NEAR(real_atan(-1.0), -M_PI / 4, trigAbsError);
+                        EXPECT_FLOAT_EQ(real_atan(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(real_atan(1.0), M_PI / 4);
+                        EXPECT_FLOAT_EQ(real_atan(-1.0), -M_PI / 4);
 
                         /* This isn't the most rigorous because we're really just sanity-
                            checking that things work by default. */
@@ -108,7 +106,7 @@ int run_tests()
                         EXPECT_FLOAT_EQ(real_pow(2.0, 4), 16.0);
                         EXPECT_FLOAT_EQ(real_pow(2.0, -2), 0.25);
                         EXPECT_FLOAT_EQ(real_pow(2.0, -2.5), 0.17677669529);
-                        EXPECT_NEAR(real_pow(2.0, 4.1), 17.1483754006, 1e-6);
+                        EXPECT_FLOAT_EQ(real_pow(2.0, 4.1), 17.1483754006);
                 }
                 TEST_END()
         }
