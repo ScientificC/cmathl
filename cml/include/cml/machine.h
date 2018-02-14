@@ -77,10 +77,6 @@
  *
  * This information is determined at configure time
  * and is platform dependent. Edit at your own risk.
- *
- * PLATFORM: WHIZ-O-MATIC
- * CONFIG-DATE: Thu Nov 19 19:27:18 MST 1998
- * CONFIG-HOST: nnn.lanl.gov
  */
 
 /* machine precision constants */
