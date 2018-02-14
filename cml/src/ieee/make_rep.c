@@ -3,7 +3,7 @@
 
 static void sprint_nybble(int i, char *s);
 static void sprint_byte(int i, char *s);
-static int determine_ieee_type(int non_zero, int exponent, int max_exponent);
+static int determine_ieee754_type(int non_zero, int exponent, int max_exponent);
 
 
 /* For the IEEE float format the bits are found from the following
@@ -21,7 +21,7 @@ static int determine_ieee_type(int non_zero, int exponent, int max_exponent);
  */
 
 void
-ieee_float_to_rep(const float *x, ieee_float_rep_t *r)
+ieee754_float_to_rep(const float *x, ieee754_float_rep_t *r)
 {
         int e, non_zero;
 
@@ -61,11 +61,11 @@ ieee_float_to_rep(const float *x, ieee_float_rep_t *r)
 
         non_zero = u.ieee.byte[0] || u.ieee.byte[1] || (u.ieee.byte[2] & 0x7f);
 
-        r->type = determine_ieee_type(non_zero, e, 255);
+        r->type = determine_ieee754_type(non_zero, e, 255);
 }
 
 void
-ieee_double_to_rep(const double *x, ieee_double_rep_t *r)
+ieee754_double_to_rep(const double *x, ieee754_double_rep_t *r)
 {
 
         int e, non_zero;
@@ -114,7 +114,7 @@ ieee_double_to_rep(const double *x, ieee_double_rep_t *r)
                     || u.ieee.byte[3] || u.ieee.byte[4] || u.ieee.byte[5]
                     || (u.ieee.byte[6] & 0x0f));
 
-        r->type = determine_ieee_type(non_zero, e, 2047);
+        r->type = determine_ieee754_type(non_zero, e, 2047);
 }
 
 /* A table of character representations of nybbles */
@@ -157,32 +157,32 @@ sprint_byte(int i, char *s)
 }
 
 static int
-determine_ieee_type(int non_zero, int exponent, int max_exponent)
+determine_ieee754_type(int non_zero, int exponent, int max_exponent)
 {
         if (exponent == max_exponent)
         {
                 if (non_zero)
                 {
-                        return CML_IEEE_TYPE_NAN;
+                        return CML_IEEE754_TYPE_NAN;
                 }
                 else
                 {
-                        return CML_IEEE_TYPE_INF;
+                        return CML_IEEE754_TYPE_INF;
                 }
         }
         else if (exponent == 0)
         {
                 if (non_zero)
                 {
-                        return CML_IEEE_TYPE_DENORMAL;
+                        return CML_IEEE754_TYPE_DENORMAL;
                 }
                 else
                 {
-                        return CML_IEEE_TYPE_ZERO;
+                        return CML_IEEE754_TYPE_ZERO;
                 }
         }
         else
         {
-                return CML_IEEE_TYPE_NORMAL;
+                return CML_IEEE754_TYPE_NORMAL;
         }
 }
