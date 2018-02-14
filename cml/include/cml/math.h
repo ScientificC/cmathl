@@ -35,7 +35,7 @@ __CML_BEGIN_DECLS
 
 struct function_struct
 {
-        double (* function) (double x, void * params);
+        real_t (* function) (real_t x, void * params);
         void * params;
 };
 
@@ -48,9 +48,9 @@ typedef struct function_struct function_t;
 
 struct function_fdf_struct
 {
-        double (* f) (double x, void * params);
-        double (* df) (double x, void * params);
-        void (* fdf) (double x, void * params, double * f, double * df);
+        real_t (* f) (real_t x, void * params);
+        real_t (* df) (real_t x, void * params);
+        void (* fdf) (real_t x, void * params, real_t * f, real_t * df);
         void * params;
 };
 
@@ -65,7 +65,7 @@ typedef struct function_fdf_struct function_fdf_t;
 
 struct function_vec_struct
 {
-        int (* function) (double x, double y[], void * params);
+        int (* function) (real_t x, real_t y[], void * params);
         void * params;
 };
 
