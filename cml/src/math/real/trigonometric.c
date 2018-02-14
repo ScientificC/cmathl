@@ -299,5 +299,5 @@ real_tan(real_t x)
 
         return real_isnull(y) ?
                real_nan() :
-               real_div(real_sin(x), y);;
+               real_div(real_sin(x), y);
 }
