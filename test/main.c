@@ -19,6 +19,7 @@ int
 run_tests()
 {
         run_complex_tests();
+        run_diff_tests();
         run_real_tests();
 
         #ifndef CML_NO_EASING_FUNCTIONS
