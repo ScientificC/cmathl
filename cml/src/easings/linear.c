@@ -3,7 +3,7 @@
 
 #ifndef CML_NO_EASING_FUNCTIONS
 /* Easing functions - Linear Interpolation */
-real_t
+__CML_EXTERN_INLINE real_t
 linear_interpolation(real_t p)
 {
         return p;

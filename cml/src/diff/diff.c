@@ -6,7 +6,7 @@
 #include <cml.h>
 
 
-int
+__CML_EXTERN_INLINE int
 diff_backward(const function_t *f,
               real_t x, real_t *result, real_t *abserr)
 {
@@ -59,7 +59,7 @@ diff_backward(const function_t *f,
 }
 
 
-int
+__CML_EXTERN_INLINE int
 diff_forward(const function_t *f,
              real_t x, real_t *result, real_t *abserr)
 {
@@ -112,7 +112,7 @@ diff_forward(const function_t *f,
 }
 
 
-int
+__CML_EXTERN_INLINE int
 diff_central(const function_t *f,
              real_t x, real_t *result, real_t *abserr)
 {
