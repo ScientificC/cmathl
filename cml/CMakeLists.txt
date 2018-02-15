@@ -12,6 +12,10 @@ SET(CML_MAIN_HEADERS
 )
 
 SET(CML_SRCS
+		src/errno/error.c
+		src/errno/message.c
+		src/errno/stream.c
+		src/errno/strerrno.c
 		src/math/complex/trigonometric.c
 		src/math/complex/hyperbolic.c
 		src/math/complex/basic.c
