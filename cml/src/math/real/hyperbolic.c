@@ -5,7 +5,7 @@
 
 #ifdef CML_NO_MATH
 __CML_EXTERN_INLINE real_t
-__atanh__(real_t x)
+__atanh(real_t x)
 {
         real_t ai_n, sum;
         mint_t i;
@@ -24,7 +24,7 @@ __atanh__(real_t x)
 }
 #else
         #include <math.h>
-        #define __atanh__(x) atanh(x)
+        #define __atanh(x) atanh(x)
 #endif
 
 /*
@@ -95,7 +95,7 @@ real_atanh(real_t x)
         /* Mathematical algorithm */
         y = real_abs(x);
         h = real_isgreater(1.0, y) ?
-            (real_t) __atanh__(x) :
+            (real_t) __atanh(x) :
             real_nan();
 
         /* Return */

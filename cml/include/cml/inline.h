@@ -8,7 +8,7 @@
 #ifdef _MSC_VER
         #define __CML_INLINE __forceinline
 #else
-        #define __CML_INLINE inline __attribute__((always_inline))
+        #define __CML_INLINE inline __attribute((always_inline))
 #endif
 
 /* Use `extern inline` for C99 or later */

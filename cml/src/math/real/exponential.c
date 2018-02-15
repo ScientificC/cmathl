@@ -6,7 +6,7 @@
 
 #ifdef CML_NO_MATH
 real_t
-__exp__(real_t x)
+__exp(real_t x)
 {
         int n;
         real_t term, oldsum, newsum;
@@ -29,7 +29,7 @@ __exp__(real_t x)
 }
 #else
         #include <math.h>
-        #define __exp__(x) exp(x)
+        #define __exp(x) exp(x)
 #endif
 
 /*
@@ -42,7 +42,7 @@ __exp__(real_t x)
 real_t
 real_exp(real_t x)
 {
-        return __exp__(x);
+        return __exp(x);
 }
 
 
