@@ -9,9 +9,9 @@
         #define CML_FLT_EPSILON ((real_t)1e-5)
 #endif
 
-int cml_count_tests = 0;
-int cml_count_failedtests = 0;
-int cml_count_failures = 0;
+extern int cml_count_tests;
+extern int cml_count_failedtests;
+extern int cml_count_failures;
 
 #define RESET "\033[0m"
 #define RED   "\033[31m"
