@@ -5,32 +5,55 @@
 #include <cml.h>
 #include "include/test.h"
 
-int run_tests();
 
-int main()
+int run_complex_tests();
+int run_diff_tests();
+int run_easings_tests();
+int run_real_tests();
+int run_struct_tests();
+
+int
+run_tests()
+{
+        run_complex_tests();
+        run_real_tests();
+
+        #ifndef CML_NO_EASING_FUNCTIONS
+        run_easings_tests();
+        #endif
+
+        #ifndef CML_NO_STRUCTURES
+        run_struct_tests();
+        #endif
+
+        return 0;
+}
+
+int
+main()
 {
         clock_t cl = clock();
 
         run_tests();
 
-        if (cml_count_failedtests > 0) {
-                printf(RED);
-        } else {
-                printf(GREEN);
-        }
+        (cml_count_failedtests > 0) ?
+        printf(RED) :
+        printf(GREEN);
 
-        printf("\n%d/%d tests passed overall, %d failures\n" RESET,
+        printf("\n%d/%d tests passed overall, %d failures\n" RESET "%Lg%s\n",
                cml_count_tests - cml_count_failedtests,
                cml_count_tests,
-               cml_count_failures
+               cml_count_failures,
+               (long double) (clock()-cl)/CLOCKS_PER_SEC,
+               "s"
                );
-
-        printf("%Lg%s\n\n", (long double) (clock()-cl)/CLOCKS_PER_SEC, "s");
 
         return (cml_count_failedtests > 0);
 }
 
-int run_tests()
+
+int
+run_real_tests()
 {
         CATEGORY_BEGIN(Macros)
         {
@@ -111,6 +134,13 @@ int run_tests()
         }
         CATEGORY_END()
 
+        return 0;
+}
+
+
+int
+run_complex_tests()
+{
         CATEGORY_BEGIN(Complex)
         {
                 TEST_BEGIN(Initialization)
@@ -123,7 +153,12 @@ int run_tests()
         }
         CATEGORY_END()
 
-        #ifndef CML_NO_EASING_FUNCTIONS
+        return 0;
+}
+
+int
+run_easings_tests()
+{
         CATEGORY_BEGIN(Easings)
         {
                 TEST_BEGIN(Back)
@@ -250,9 +285,13 @@ int run_tests()
                 TEST_END()
         }
         CATEGORY_END()
-        #endif
 
-        #ifndef CML_NO_STRUCTURES
+        return 0;
+}
+
+int
+run_struct_tests()
+{
         CATEGORY_BEGIN(Quaternion)
         {
                 TEST_BEGIN(Identity)
@@ -278,7 +317,6 @@ int run_tests()
                 TEST_END()
         }
         CATEGORY_END()
-        #endif
 
         return 0;
 }
