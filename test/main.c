@@ -63,7 +63,6 @@ int run_tests()
                         EXPECT_FLOAT_EQ(real_sin(M_PI), 0.0);
                         EXPECT_FLOAT_EQ(real_sin(3 * M_PI / 2), -1.0);
                         EXPECT_FLOAT_EQ(real_sin(-M_PI / 2), -1.0);
-                        EXPECT_FLOAT_EQ(real_sin(1578901387.78992), -0.13417554701);
 
                         EXPECT_FLOAT_EQ(real_cos(0.0), 1.0);
                         EXPECT_FLOAT_EQ(real_cos(M_PI / 2), 0.0);
