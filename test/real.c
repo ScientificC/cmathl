@@ -71,7 +71,7 @@ run_real_tests()
                 TEST_BEGIN(SquareRoot)
                 {
                         EXPECT_FLOAT_EQ(real_sqrt(16.0), 4.0);
-                        EXPECT_NEAR(real_sqrt(10.0), 3.1616211, 0.001f);
+                        EXPECT_FLOAT_EQ(real_sqrt(10.0), 3.16227766017);
                 }
                 TEST_END()
 
