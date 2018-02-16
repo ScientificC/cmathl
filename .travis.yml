@@ -1,6 +1,6 @@
-language: c
+language:     c
 
-sudo: false
+sudo:         false
 
 os:
   - linux
@@ -11,8 +11,8 @@ compiler:
   - clang
 
 env:
-  - FLAGS=""
-  - FLAGS="-DCML_NO_MATH=ON -DCML_NO_STDBOOL=ON -DCML_NO_STDINT=ON"
+  - FLAGS="-DCML_NO_LONG_DOUBLE_MATH=ON"
+  - FLAGS="-DCML_NO_LONG_DOUBLE_MATH=ON -DCML_NO_MATH=ON -DCML_NO_STDBOOL=ON -DCML_NO_STDINT=ON"
 
 script:
   - mkdir build
