@@ -7,6 +7,7 @@
 #include "cml/ieee.h"
 #include "cml/inline.h"
 #include "cml/machine.h"
+#include "cml/minmax.h"
 
 #ifndef PREDEF_STANDARD_C11
         #undef __CML_NO_GENERIC
@@ -32,6 +33,7 @@
         #include "cml/tgmath.h"
 #endif
 
+#include "cml/deriv.h"
 #include "cml/diff.h"
 #include "cml/easings.h"
 #include "cml/structures.h"
