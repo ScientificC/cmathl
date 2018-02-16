@@ -123,7 +123,7 @@ typedef int (diff_fn)(const function_t *f, real_t x, real_t *res, real_t *abserr
                 real_t result, abserr; \
                 real_t expected = FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
-                EXPECT_NEAR(result, expected, 1e16); \
+                EXPECT_NEAR(result, expected, 1e-1); \
 } while (0);
 
 int
