@@ -21,6 +21,8 @@
         #endif
 #endif
 
+#include <float.h>
+
 #ifndef mfloat_t
         #define mfloat_t double
 #endif
