@@ -46,14 +46,29 @@ real_add(real_t x, real_t y)
  */
 
 real_t
+real_ared_a(real_t x, real_t a)
+{
+        /* Declaration of variables and structures */
+        real_t z, k, w;
+
+        /* Mathematical algorithm */
+        z = real_div_e(x, a);
+        k = real_mul(z, a);
+        w = real_sub(x, k);
+
+        /* Return */
+        return w;
+}
+
+real_t
 real_ared(real_t x)
 {
         /* Declaration of variables and structures */
         real_t z, k, w;
 
         /* Mathematical algorithm */
-        z = real_div_e(x, (M_TAU));
-        k = real_mul(z, (M_TAU));
+        z = real_div_e(x, M_TAU);
+        k = real_mul(z, M_TAU);
         w = real_sub(x, k);
 
         /* Return */

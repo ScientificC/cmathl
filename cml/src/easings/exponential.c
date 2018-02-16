@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <cml.h>
 
-#ifndef CML_NO_EASING_FUNCTIONS
+
 /* Easing functions - Exponential */
-real_t
+__CML_EXTERN_INLINE real_t
 ease_exponential_in(real_t p)
 {
         real_t f = p;
@@ -16,7 +16,8 @@ ease_exponential_in(real_t p)
         return f;
 }
 
-real_t
+
+__CML_EXTERN_INLINE real_t
 ease_exponential_out(real_t p)
 {
         real_t f = p;
@@ -29,7 +30,8 @@ ease_exponential_out(real_t p)
         return f;
 }
 
-real_t
+
+__CML_EXTERN_INLINE real_t
 ease_exponential_in_out(real_t p)
 {
         real_t f = p;
@@ -45,4 +47,3 @@ ease_exponential_in_out(real_t p)
 
         return f;
 }
-#endif

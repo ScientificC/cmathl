@@ -5,25 +5,31 @@
 
 
 #ifdef CML_NO_MATH
-real_t
-__exp__(real_t x)
+long double
+__exp(long double x)
 {
-        mint_t i;
-        real_t ai, ex;
+        int n;
+        long double term, oldsum, newsum;
 
-        ai = 1.0;
-        ex = ai;
+        n = 0;
+        oldsum = 0.0L;
+        newsum = 1.0L;
+        term = 1.0L;
 
-        for (i = 1; i < CML_SERIES_TOP_IT_L; ++i) {
-                ai = ai*(x)/i;
-                ex = ex + ai;
+        /* terminates when the new sum is no different from the old sum */
+        while (!real_equal(newsum, oldsum))
+        {
+                oldsum = newsum;
+                n++;
+                term = term*x/n; /* term has the value (x~n)/(n!) */
+                newsum = newsum + term; /* approximates exp(x) */
         }
 
-        return (real_t) ex;
+        return newsum;
 }
 #else
         #include <math.h>
-        #define __exp__(x) exp(x)
+        #define __exp(x) __CML_MATH_NAME(exp)(x)
 #endif
 
 /*
@@ -36,7 +42,7 @@ __exp__(real_t x)
 real_t
 real_exp(real_t x)
 {
-        return __exp__(x);
+        return (real_t) __exp((long double) x);
 }
 
 

@@ -27,15 +27,15 @@ real_ninf()
 char *
 real_as_string(real_t x)
 {
-        mfloat_t value = x;
+        long double value = (long double) x;
 
         #ifndef PREDEF_STANDARD_C99
         char * string = (char*) malloc(80);
-        sprintf(string, "%G", value);
+        sprintf(string, "%Lg", value);
         #else
-        int size = snprintf(NULL, 0, "%G", value) + 1;
+        int size = snprintf(NULL, 0, "%Lg", value) + 1;
         char * string = (char*) malloc(size);
-        snprintf(string, size, "%G", value);
+        snprintf(string, size, "%Lg", value);
         #endif
 
         return string;

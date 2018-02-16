@@ -12,6 +12,10 @@ SET(CML_MAIN_HEADERS
 )
 
 SET(CML_SRCS
+		src/errno/error.c
+		src/errno/message.c
+		src/errno/stream.c
+		src/errno/strerrno.c
 		src/math/complex/trigonometric.c
 		src/math/complex/hyperbolic.c
 		src/math/complex/basic.c
@@ -41,6 +45,11 @@ SET(CML_SRCS
 		src/structures/quaternion/exponentiation.c
 		src/structures/quaternion/parity.c
 		src/structures/quaternion.c
+		src/ieee/endian.c
+		src/ieee/make_rep.c
+		src/ieee/print.c
+		src/ieee/standardize.c
+		src/diff/diff.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 

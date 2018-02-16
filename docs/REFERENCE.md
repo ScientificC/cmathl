@@ -1,6 +1,6 @@
-# cml
+# CML REFERENCE
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.7](https://img.shields.io/badge/Version-v1.9.7-blue.svg)
 
 ## Table of Contents
 

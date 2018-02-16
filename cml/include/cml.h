@@ -3,8 +3,10 @@
 
 #include "cml/config.h"
 #include "cml/default.h"
+#include "cml/errno.h"
 #include "cml/ieee.h"
 #include "cml/inline.h"
+#include "cml/machine.h"
 
 #ifndef PREDEF_STANDARD_C11
         #undef __CML_NO_GENERIC
@@ -15,7 +17,7 @@
 
 #ifndef __CML_TYPE
         #define __CML_TYPE(__e, __t) \
-                __builtin_types_compatible_p(__typeof(__e), __t)
+        __builtin_types_compatible_p(__typeof(__e), __t)
 #endif
 
 #ifndef __CML_SAME_TYPE
@@ -30,12 +32,8 @@
         #include "cml/tgmath.h"
 #endif
 
-#ifndef CML_NO_STRUCTURES
-        #include "cml/structures.h"
-#endif
-
-#ifndef CML_NO_EASING_FUNCTIONS
-        #include "cml/easings.h"
-#endif
+#include "cml/diff.h"
+#include "cml/easings.h"
+#include "cml/structures.h"
 
 #endif

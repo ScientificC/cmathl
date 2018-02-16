@@ -1,6 +1,6 @@
-language: c
+language:     c
 
-sudo: false
+sudo:         false
 
 os:
   - linux
@@ -12,7 +12,10 @@ compiler:
 
 env:
   - FLAGS=""
+  - FLAGS="-DCML_NO_LONG_DOUBLE_MATH=ON"
   - FLAGS="-DCML_NO_MATH=ON -DCML_NO_STDBOOL=ON -DCML_NO_STDINT=ON"
+  - FLAGS="-DCML_NO_LONG_DOUBLE_MATH=ON -DCML_NO_MATH=ON -DCML_NO_STDBOOL=ON -DCML_NO_STDINT=ON"
+
 
 script:
   - mkdir build
@@ -20,6 +23,7 @@ script:
   - cmake --version
   - cmake -trace --warn-uninitialized --warn-unused_vars -Wdev -G "Unix Makefiles" .. -DCML_BUILD_TESTS=ON $FLAGS
   - make && ctest
+  - ./test/test_cml
 
 addons:
   apt:

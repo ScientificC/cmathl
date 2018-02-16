@@ -4,25 +4,27 @@
 #include <cml.h>
 
 #ifdef CML_NO_MATH
-__CML_EXTERN_INLINE real_t
-__atanh__(real_t x)
+__CML_EXTERN_INLINE long double
+__atanh(long double x)
 {
-        real_t ai_n, p;
+        long double ai_n, sum;
         mint_t i;
 
         ai_n = x;
-        p = ai_n;
+        sum = ai_n;
+        i = 1;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2) {
+        while (real_abs(ai_n) >= CML_FLT_EPSILON)
+        {
                 ai_n = ai_n*x*x;
-                p = p + ai_n/(i+2);
+                sum = sum + ai_n/(i+=2);
         }
 
-        return p;
+        return sum;
 }
 #else
         #include <math.h>
-        #define __atanh__(x) atanh(x)
+        #define __atanh(x) __CML_MATH_NAME(atanh)(x)
 #endif
 
 /*
@@ -93,7 +95,7 @@ real_atanh(real_t x)
         /* Mathematical algorithm */
         y = real_abs(x);
         h = real_isgreater(1.0, y) ?
-            (real_t) __atanh__(x) :
+            (real_t) __atanh((long double) x) :
             real_nan();
 
         /* Return */

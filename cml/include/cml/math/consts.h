@@ -22,14 +22,6 @@
 #define TINY 2.2250738585072014e-308
 #endif
 
-/*
- * The largest 'Int' /x/ such that 2**(/x/-1) is approximately
- * representable as a 'Double'.
- */
-#ifndef MAXEXP
-#define MAXEXP 1024
-#endif
-
 /* Positive infinity. */
 #ifndef INF
 #define INF 1.0/0.0
@@ -53,14 +45,6 @@
 /* Logarithm of smallest normalized double ('TINY') */
 #ifndef MINLOG
 #define MINLOG -708.3964185322641
-#endif
-
-#ifndef CML_FLT_EPSILON
-        #ifdef CML_SINGLE_PRECISION
-                #define CML_FLT_EPSILON ((mfloat_t)1e-5)
-        #else
-                #define CML_FLT_EPSILON ((mfloat_t)1e-7)
-        #endif
 #endif
 
 

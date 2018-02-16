@@ -4,44 +4,81 @@
 #include <cml.h>
 
 #ifdef CML_NO_MATH
-__CML_EXTERN_INLINE real_t
-__atan__(real_t x)
+long double
+__atan(long double value)
 {
-        mint_t i;
-        real_t ai_n = x,
-               p = ai_n;
+        long double sign = 1.0L;
+        long double x = value;
+        long double y = 0.0L;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; i += 2)
+        if (real_isnull(value))
         {
-                ai_n = -ai_n*x*x;
-                p += ai_n/((real_t) i + 2.0);
+                return 0;
+        }
+        else if (x < 0)
+        {
+                sign = (-1.0L);
+                x *= (-1.0L);
         }
 
-        return p;
+        x = (x-1.0L)/(x+1.0L);
+        y = x*x;
+        x = ((((((((.0028662257L*y - .0161657367L)*y + .0429096138L)*y -
+                  .0752896400L)*y + .1065626393L)*y - .1420889944L)*y +
+               .1999355085L)*y - .3333314528L)*y + 1)*x;
+        x = .785398163397L + sign*x;
+
+        return x;
 }
 
 
-__CML_EXTERN_INLINE real_t
-__sin__(real_t x)
+__CML_EXTERN_INLINE long double
+__cos(long double x)
 {
-        real_t ai, p;
+        long double ai, newsum, oldsum;
+        mint_t i;
+
+        ai = 1.0;
+        newsum = 1.0;
+        i = 1;
+
+        do
+        {
+                oldsum = newsum;
+                ai = -ai*(x)*(x)/(i*(i + 1.0));
+                newsum = newsum + ai;
+                i += 2;
+        } while (!real_equal(newsum, oldsum));
+
+        return newsum;
+}
+
+
+__CML_EXTERN_INLINE long double
+__sin(long double x)
+{
+        long double ai, newsum, oldsum;
         mint_t i;
 
         ai = x;
-        p = ai;
+        newsum = ai;
+        i = 1;
 
-        for (i = 1; i <= CML_SERIES_TOP_IT_L; ++i)
+        do
         {
+                oldsum = newsum;
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
-                p = p + ai;
-        }
+                newsum = newsum + ai;
+                ++i;
+        } while (!real_equal(newsum, oldsum));
 
-        return p;
+        return newsum;
 }
 #else
         #include <math.h>
-        #define __atan__(x) atan(x)
-        #define __sin__(x) sin(x)
+        #define __atan(x) __CML_MATH_NAME(atan)(x)
+        #define __cos(x) __CML_MATH_NAME(cos)(x)
+        #define __sin(x) __CML_MATH_NAME(sin)(x)
 #endif
 
 /*
@@ -108,7 +145,7 @@ real_atan(real_t x)
         /* Mathematical algorithm */
         a = real_abs(x);
         s = real_sgn(x);
-        w = real_mul(s, __atan__(a));
+        w = real_mul(s, (real_t) __atan((long double) a));
 
         /* Return */
         return w;
@@ -155,12 +192,11 @@ real_t
 real_cos(real_t x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, h;
+        real_t y, h;
 
         /* Mathematical algorithm */
         y = real_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        z = real_add(y, M_PI_2);
-        h = real_sin(z);
+        h = (real_t) __cos((long double) real_ared(y));
 
         /* Return */
         return h;
@@ -246,7 +282,7 @@ real_t
 real_sin(real_t x)
 {
         /* Domain check */
-        if (real_ismult(x, (M_PI)))
+        if (real_ismult(x, M_PI))
         {
                 return 0.0;
         }
@@ -258,7 +294,7 @@ real_sin(real_t x)
         s = real_sgn(x); /* sin(-x) = -sin(x) */
         y = real_abs(x);
         z = real_ared(y);
-        w = ((mfloat_t) __sin__(z));
+        w = (real_t) __sin((long double) z);
         h = real_mul(w, s);
 
         /* Return */
@@ -285,5 +321,5 @@ real_tan(real_t x)
 
         return real_isnull(y) ?
                real_nan() :
-               real_div(real_sin(x), y);;
+               real_div(real_sin(x), y);
 }
