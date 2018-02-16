@@ -4,7 +4,7 @@
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
-You can read the following [file](./docs/CML.md) to learn more about CML.
+You can read the following [file](./docs/REFERENCE.md) to learn more about CML.
 
 ## Table of Contents
 
@@ -41,7 +41,7 @@ $ make && make install
 
 [_Build Options_](#build-options)
 
-You can read more about in the following [file](./docs/USING_THE_CML.md).
+You can read more about in the following [file](./docs/USING_THE_REFERENCE.md).
 
 ## Running Tests
 
