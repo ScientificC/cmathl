@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-#ifndef CML_NO_EASING_FUNCTIONS
+
 /* Easing functions - Cubic */
 __CML_EXTERN_INLINE real_t
 ease_cubic_in(real_t p)
@@ -9,12 +9,14 @@ ease_cubic_in(real_t p)
         return p * p * p;
 }
 
+
 __CML_EXTERN_INLINE real_t
 ease_cubic_out(real_t p)
 {
         real_t f = (p - 1.0);
         return f * f * f + 1.0;
 }
+
 
 __CML_EXTERN_INLINE real_t
 ease_cubic_in_out(real_t p)
@@ -31,4 +33,3 @@ ease_cubic_in_out(real_t p)
         }
         return f;
 }
-#endif

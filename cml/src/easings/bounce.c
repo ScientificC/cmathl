@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <cml.h>
 
-#ifndef CML_NO_EASING_FUNCTIONS
+
 /* Easing functions - Bounce */
 __CML_EXTERN_INLINE real_t
 ease_bounce_in(real_t p)
 {
         return 1.0 - ease_bounce_out(1.0 - p);
 }
+
 
 __CML_EXTERN_INLINE real_t
 ease_bounce_out(real_t p)
@@ -34,6 +35,7 @@ ease_bounce_out(real_t p)
         return f;
 }
 
+
 __CML_EXTERN_INLINE real_t
 ease_bounce_in_out(real_t p)
 {
@@ -50,4 +52,3 @@ ease_bounce_in_out(real_t p)
 
         return f;
 }
-#endif

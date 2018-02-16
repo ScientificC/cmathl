@@ -15,7 +15,7 @@ You can read the following [file](./docs/REFERENCE.md) to learn more about CML.
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
   - [Float Point Type](#float-point-type)
-  - [Easing Functions](#easing-functions)
+  - [Long Double Type](#long-double-type)
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Library](#math-library)
   - [Math Precision](#math-precision)
@@ -63,7 +63,7 @@ $ make && ctest
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
 - `CML_NO_ALIASES`
-- `CML_NO_EASING_FUNCTIONS`
+- `DCML_NO_LONG_DOUBLE_MATH`
 - `CML_NO_MATH`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
@@ -74,7 +74,7 @@ CML can be configured with the following preprocessors (described in the followi
 You can define these macros during compilation time with flags:
 
 ```
-cmake .. -DCML_NO_STDBOOL=ON -Dmfloat_t=float -DCML_SINGLE_PRECISION=ON
+cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON -DCML_NO_LONG_DOUBLE_MATH=ON
 ```
 
 ### Bool Type
@@ -87,15 +87,11 @@ By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If th
 
 ### Float Point Type
 
-The float type used by CML is defined by the macro `mfloat_t`, which is by default `double`.
+The float type used by CML is defined by the macro `mfloat_t`, which is by default `long double`.
 
-### Easing Functions
+### Long Double Type
 
-The easing functions are an implementation of the functions presented in [easings.net](http://easings.net/), useful particularly for animations. Easing is a method of distorting time to control apparent motion in animation. It is most commonly used for slow-in, slow-out. By easing time, animated transitions are smoother and exhibit more plausible motion.
-
-Easing functions take a value inside the range `[0.0, 1.0]` and usually will return a value inside that same range. However, in some of the easing functions, the returned value extrapolate that range (Check the [easings.net](http://easings.net/) to see those functions).
-
-By defining `CML_NO_EASING_FUNCTIONS`, the easing functions will not be defined.
+If `CML_SINGLE_PRECISION` (described [bellow](#math-precision)) is not defined, the library will have double precision for the internal definition of its functions. Then, this precision extends by default to the extended double precision and, at the same time, `mfloat_t` will be defined _(if possible)_ as `long double`. This precision can be simply doubled by defining the macro `CML_NO_LONG_DOUBLE_MATH`.
 
 ### Math Functions Aliases
 

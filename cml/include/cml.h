@@ -33,13 +33,7 @@
 #endif
 
 #include "cml/diff.h"
-
-#ifndef CML_NO_STRUCTURES
-        #include "cml/structures.h"
-#endif
-
-#ifndef CML_NO_EASING_FUNCTIONS
-        #include "cml/easings.h"
-#endif
+#include "cml/easings.h"
+#include "cml/structures.h"
 
 #endif

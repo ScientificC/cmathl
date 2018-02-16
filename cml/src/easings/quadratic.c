@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-#ifndef CML_NO_EASING_FUNCTIONS
+
 /* Easing functions - Quadratic  */
 __CML_EXTERN_INLINE real_t
 ease_quadratic_in(real_t p)
@@ -9,11 +9,13 @@ ease_quadratic_in(real_t p)
         return p * p;
 }
 
+
 __CML_EXTERN_INLINE real_t
 ease_quadratic_out(real_t p)
 {
         return -(p * (p - 2.0));
 }
+
 
 __CML_EXTERN_INLINE real_t
 ease_quadratic_in_out(real_t p)
@@ -31,4 +33,3 @@ ease_quadratic_in_out(real_t p)
 
         return f;
 }
-#endif

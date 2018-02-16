@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <cml.h>
 
-#ifndef CML_NO_EASING_FUNCTIONS
+
 /* Easing functions - Back */
 __CML_EXTERN_INLINE real_t
 ease_back_in(real_t p)
@@ -9,12 +9,14 @@ ease_back_in(real_t p)
         return p * p * p - p * real_sin(p * M_PI);
 }
 
+
 __CML_EXTERN_INLINE real_t
 ease_back_out(real_t p)
 {
         real_t f = 1.0 - p;
         return 1.0 - (f * f * f - f * real_sin(f * M_PI));
 }
+
 
 __CML_EXTERN_INLINE real_t
 ease_back_in_out(real_t p)
@@ -34,5 +36,3 @@ ease_back_in_out(real_t p)
 
         return f;
 }
-
-#endif
