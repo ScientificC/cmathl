@@ -155,4 +155,4 @@ A great way to learn how to use the library is to review the [unit tests](./test
 
 ## Can I trust this math library?
 
-A goal of the unit tests is to test each function against `CML_FLT_EPSILON` which is defined in cml.h, currently as 1E-5 or 1E-7, depending on the mathematical precision. A number of functions do not yet have unit tests proving epsilon, but more are coming.
+A goal of the unit tests is to test each function against `CML_FLT_EPSILON` which is defined in cml.h, currently in the interval `[1e6, 1e16]`, depending on the mathematical precision. A number of functions do not yet have unit tests proving epsilon, but more are coming.
