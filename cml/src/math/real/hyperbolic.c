@@ -4,10 +4,10 @@
 #include <cml.h>
 
 #ifdef CML_NO_MATH
-__CML_EXTERN_INLINE real_t
-__atanh(real_t x)
+__CML_EXTERN_INLINE long double
+__atanh(long double x)
 {
-        real_t ai_n, sum;
+        long double ai_n, sum;
         mint_t i;
 
         ai_n = x;
@@ -95,7 +95,7 @@ real_atanh(real_t x)
         /* Mathematical algorithm */
         y = real_abs(x);
         h = real_isgreater(1.0, y) ?
-            (real_t) __atanh(x) :
+            (real_t) __atanh((long double) x) :
             real_nan();
 
         /* Return */

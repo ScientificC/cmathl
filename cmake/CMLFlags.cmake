@@ -8,7 +8,7 @@ ENDIF()
 
 OPTION(CML_NO_LONG_DOUBLE_MATH "Use non long double precision floating point values" BOOL:FALSE)
 IF(CML_NO_LONG_DOUBLE_MATH)
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCML_SINGLE_PRECISION=\"${CML_SINGLE_PRECISION}\"")
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCML_NO_LONG_DOUBLE_MATH=\"${CML_NO_LONG_DOUBLE_MATH}\"")
 	MESSAGE(STATUS "Not using long double precision floating point values")
 ELSE()
 	MESSAGE(STATUS "Using long double precision floating point values")

@@ -5,16 +5,16 @@
 
 
 #ifdef CML_NO_MATH
-real_t
-__exp(real_t x)
+long double
+__exp(long double x)
 {
         int n;
-        real_t term, oldsum, newsum;
+        long double term, oldsum, newsum;
 
         n = 0;
-        oldsum = 0.0;
-        newsum = 1.0;
-        term = 1.0;
+        oldsum = 0.0L;
+        newsum = 1.0L;
+        term = 1.0L;
 
         /* terminates when the new sum is no different from the old sum */
         while (!real_equal(newsum, oldsum))
@@ -25,7 +25,7 @@ __exp(real_t x)
                 newsum = newsum + term; /* approximates exp(x) */
         }
 
-        return (real_t) newsum;
+        return newsum;
 }
 #else
         #include <math.h>
@@ -42,7 +42,7 @@ __exp(real_t x)
 real_t
 real_exp(real_t x)
 {
-        return __exp(x);
+        return (real_t) __exp((long double) x);
 }
 
 

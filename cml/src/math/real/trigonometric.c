@@ -4,12 +4,12 @@
 #include <cml.h>
 
 #ifdef CML_NO_MATH
-real_t
-__atan(real_t value)
+long double
+__atan(long double value)
 {
-        real_t sign = 1.;
-        real_t x = value;
-        real_t y = 0.;
+        long double sign = 1.0L;
+        long double x = value;
+        long double y = 0.0L;
 
         if (real_isnull(value))
         {
@@ -17,25 +17,25 @@ __atan(real_t value)
         }
         else if (x < 0)
         {
-                sign = (-1.);
-                x *= (-1.);
+                sign = (-1.0L);
+                x *= (-1.0L);
         }
 
-        x = (x-1.)/(x+1.);
+        x = (x-1.0L)/(x+1.0L);
         y = x*x;
-        x = ((((((((.0028662257*y - .0161657367)*y + .0429096138)*y -
-                  .0752896400)*y + .1065626393)*y - .1420889944)*y +
-               .1999355085)*y - .3333314528)*y + 1)*x;
-        x = .785398163397 + sign*x;
+        x = ((((((((.0028662257L*y - .0161657367L)*y + .0429096138L)*y -
+                  .0752896400L)*y + .1065626393L)*y - .1420889944L)*y +
+               .1999355085L)*y - .3333314528L)*y + 1)*x;
+        x = .785398163397L + sign*x;
 
         return x;
 }
 
 
-__CML_EXTERN_INLINE real_t
-__cos(real_t x)
+__CML_EXTERN_INLINE long double
+__cos(long double x)
 {
-        real_t ai, newsum, oldsum;
+        long double ai, newsum, oldsum;
         mint_t i;
 
         ai = 1.0;
@@ -54,10 +54,10 @@ __cos(real_t x)
 }
 
 
-__CML_EXTERN_INLINE real_t
-__sin(real_t x)
+__CML_EXTERN_INLINE long double
+__sin(long double x)
 {
-        real_t ai, newsum, oldsum;
+        long double ai, newsum, oldsum;
         mint_t i;
 
         ai = x;
@@ -145,7 +145,7 @@ real_atan(real_t x)
         /* Mathematical algorithm */
         a = real_abs(x);
         s = real_sgn(x);
-        w = real_mul(s, __atan(a));
+        w = real_mul(s, (real_t) __atan((long double) a));
 
         /* Return */
         return w;
@@ -196,7 +196,7 @@ real_cos(real_t x)
 
         /* Mathematical algorithm */
         y = real_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        h = (real_t) __cos(real_ared(y));
+        h = (real_t) __cos((long double) real_ared(y));
 
         /* Return */
         return h;
@@ -294,7 +294,7 @@ real_sin(real_t x)
         s = real_sgn(x); /* sin(-x) = -sin(x) */
         y = real_abs(x);
         z = real_ared(y);
-        w = ((mfloat_t) __sin(z));
+        w = (real_t) __sin((long double) z);
         h = real_mul(w, s);
 
         /* Return */
