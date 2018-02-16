@@ -77,7 +77,7 @@ extern int cml_count_failures;
                 real_t diff = actual - (_expected); \
                 if (diff < -CML_FLT_EPSILON || CML_FLT_EPSILON < diff) { \
                         CASE_FAIL(); \
-                        printf("Expected %G, got %G", (_expected), actual); \
+                        printf("Expected %LG, got %LG", (real_t)(_expected), (real_t)actual); \
                 } \
 } while (0)
 
@@ -87,7 +87,7 @@ extern int cml_count_failures;
                 real_t diff = actual - (_expected); \
                 if (diff < -(_epsilon) || (_epsilon) < diff) { \
                         CASE_FAIL(); \
-                        printf("Expected %G, got %G", (_expected), actual); \
+                        printf("Expected %LG, got %LG", (real_t)(_expected), (real_t)actual); \
                 } \
 } while (0)
 
@@ -95,7 +95,7 @@ extern int cml_count_failures;
                 CASE_START(); \
                 if ((_actual) >= (_expected)) { \
                         CASE_FAIL(); \
-                        printf("Expected %G to be less than %G", (_actual), (_expected)); \
+                        printf("Expected %LG to be less than %LG", (real_t)(_actual), (real_t)(_expected)); \
                 } \
 } while (0)
 
@@ -103,7 +103,7 @@ extern int cml_count_failures;
                 CASE_START(); \
                 if ((_actual) <= (_expected)) { \
                         CASE_FAIL(); \
-                        printf("Expected %G to be greater than %G", (_actual), (_expected)); \
+                        printf("Expected %LG to be greater than %LG", (real_t)(_actual), (real_t)(_expected)); \
                 } \
 } while (0)
 

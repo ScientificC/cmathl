@@ -24,7 +24,15 @@
 #include <float.h>
 
 #ifndef mfloat_t
-        #define mfloat_t double
+        #ifndef CML_SINGLE_PRECISION
+                #ifndef CML_NO_LONG_DOUBLE_MATH
+                        #define mfloat_t long double
+                #else
+                        #define mfloat_t double
+                #endif
+        #else
+                #define mfloat_t float
+        #endif
 #endif
 
 #include "math/consts.h"

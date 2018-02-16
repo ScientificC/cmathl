@@ -17,7 +17,7 @@
 
 #ifndef __CML_TYPE
         #define __CML_TYPE(__e, __t) \
-                __builtin_types_compatible_p(__typeof(__e), __t)
+        __builtin_types_compatible_p(__typeof(__e), __t)
 #endif
 
 #ifndef __CML_SAME_TYPE
