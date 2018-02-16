@@ -123,7 +123,14 @@ typedef int (diff_fn)(const function_t *f, real_t x, real_t *res, real_t *abserr
                 real_t result, abserr; \
                 real_t expected = FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
-                EXPECT_NEAR(result, expected, 0.1f); \
+                EXPECT_NEAR(result, expected, 1e-6); \
+} while (0);
+
+#define DIFF_NEAR_TEST(diff, f, df, x, err) do { \
+                real_t result, abserr; \
+                real_t expected = FN_EVAL(df, x); \
+                (*diff)(f, x, &result, &abserr); \
+                EXPECT_NEAR(result, expected, err); \
 } while (0);
 
 int
@@ -154,18 +161,18 @@ run_diff_tests()
                         DF6.function = &df6;
 
                         DIFF_TEST(&diff_central, &F1, &DF1, 1.0);
-                        DIFF_TEST(&diff_forward, &F1, &DF1, 1.0);
+                        DIFF_NEAR_TEST(&diff_forward, &F1, &DF1, 1.0, 0.1);
                         DIFF_TEST(&diff_backward, &F1, &DF1, 1.0);
 
-                        DIFF_TEST(&diff_central, &F2, &DF2, 0.1);
-                        DIFF_TEST(&diff_forward, &F2, &DF2, 0.1);
+                        DIFF_NEAR_TEST(&diff_central, &F2, &DF2, 0.1, 1e-3);
+                        DIFF_NEAR_TEST(&diff_forward, &F2, &DF2, 0.1, 0.1);
                         DIFF_TEST(&diff_backward, &F2, &DF2, 0.1);
 
-                        DIFF_TEST(&diff_central, &F3, &DF3, 0.45);
+                        DIFF_NEAR_TEST(&diff_central, &F3, &DF3, 0.45, 0.1);
                         DIFF_TEST(&diff_forward, &F3, &DF3, 0.45);
                         DIFF_TEST(&diff_backward, &F3, &DF3, 0.45);
 
-                        DIFF_TEST(&diff_central, &F4, &DF4, 0.5);
+                        DIFF_NEAR_TEST(&diff_central, &F4, &DF4, 0.5, 0.1);
                         DIFF_TEST(&diff_forward, &F4, &DF4, 0.5);
                         DIFF_TEST(&diff_backward, &F4, &DF4, 0.5);
 
@@ -173,7 +180,7 @@ run_diff_tests()
                         DIFF_TEST(&diff_forward, &F5, &DF5, 0.0);
                         DIFF_TEST(&diff_backward, &F5, &DF5, 0.0);
 
-                        DIFF_TEST(&diff_central, &F6, &DF6, 10.0);
+                        DIFF_NEAR_TEST(&diff_central, &F6, &DF6, 10.0, 1e-3);
                         DIFF_TEST(&diff_forward, &F6, &DF6, 10.0);
                         DIFF_TEST(&diff_backward, &F6, &DF6, 10.0);
                 }
