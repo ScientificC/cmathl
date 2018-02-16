@@ -24,14 +24,10 @@
 #include <float.h>
 
 #ifndef mfloat_t
-        #ifndef CML_SINGLE_PRECISION
-                #ifndef CML_NO_LONG_DOUBLE_MATH
-                        #define mfloat_t long double
-                #else
-                        #define mfloat_t double
-                #endif
+        #ifndef CML_NO_LONG_DOUBLE_MATH
+                #define mfloat_t long double
         #else
-                #define mfloat_t float
+                #define mfloat_t double
         #endif
 #endif
 
