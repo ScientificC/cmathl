@@ -76,9 +76,9 @@ __sin(real_t x)
 }
 #else
         #include <math.h>
-        #define __atan(x) atan(x)
-        #define __cos(x) cos(x)
-        #define __sin(x) sin(x)
+        #define __atan(x) __CML_MATH_NAME(atan)(x)
+        #define __cos(x) __CML_MATH_NAME(cos)(x)
+        #define __sin(x) __CML_MATH_NAME(sin)(x)
 #endif
 
 /*

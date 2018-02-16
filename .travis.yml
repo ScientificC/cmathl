@@ -11,6 +11,7 @@ compiler:
   - clang
 
 env:
+  - FLAGS=""
   - FLAGS="-DCML_NO_MATH=ON -DCML_NO_STDBOOL=ON -DCML_NO_STDINT=ON"
 
 script:

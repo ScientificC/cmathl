@@ -24,7 +24,7 @@ __atanh(real_t x)
 }
 #else
         #include <math.h>
-        #define __atanh(x) atanh(x)
+        #define __atanh(x) __CML_MATH_NAME(atanh)(x)
 #endif
 
 /*

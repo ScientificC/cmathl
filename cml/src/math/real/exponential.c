@@ -29,7 +29,7 @@ __exp(real_t x)
 }
 #else
         #include <math.h>
-        #define __exp(x) exp(x)
+        #define __exp(x) __CML_MATH_NAME(exp)(x)
 #endif
 
 /*
