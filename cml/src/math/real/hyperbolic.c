@@ -14,7 +14,7 @@ __atanh(long double x)
         sum = ai_n;
         i = 1;
 
-        while (real_abs(ai_n) >= CML_FLT_EPSILON  && i < 10000)
+        while (real_abs(ai_n) >= CML_FLT_EPSILON  && i < 1e4)
         {
                 ai_n = ai_n*x*x;
                 sum = sum + ai_n/(i+=2);

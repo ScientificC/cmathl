@@ -48,7 +48,7 @@ __cos(long double x)
                 ai = -ai*(x)*(x)/(i*(i + 1.0));
                 newsum = newsum + ai;
                 i += 2;
-        } while (!real_equal(newsum, oldsum) && i < 10000);
+        } while (!real_equal(newsum, oldsum));
 
         return newsum;
 }
@@ -70,7 +70,7 @@ __sin(long double x)
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 newsum = newsum + ai;
                 ++i;
-        } while (!real_equal(newsum, oldsum)  && i < 10000);
+        } while (!real_equal(newsum, oldsum));
 
         return newsum;
 }
