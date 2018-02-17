@@ -17,7 +17,7 @@ __exp(long double x)
         term = 1.0L;
 
         /* terminates when the new sum is no different from the old sum */
-        while (!real_equal(newsum, oldsum))
+        while (!real_equal(newsum, oldsum)  && n < 10000)
         {
                 oldsum = newsum;
                 n++;

@@ -20,6 +20,7 @@ int
 run_tests()
 {
         run_complex_tests();
+        run_deriv_tests();
         run_diff_tests();
         run_real_tests();
 
