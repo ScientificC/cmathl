@@ -36,4 +36,10 @@
         #endif
 #endif
 
+#if (!defined PREDEF_STANDARD_C99 && !defined __cplusplus)
+        #undef mfloat_t
+        #define mfloat_t double
+        #define CML_NO_LONG_DOUBLE_MATH
+#endif
+
 #endif

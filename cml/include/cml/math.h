@@ -23,13 +23,16 @@
 
 #include <float.h>
 
+#define __CML_MATH_NAME(_f) _f
+
 #ifndef mfloat_t
         #ifndef CML_NO_LONG_DOUBLE_MATH
+                #undef __CML_MATH_NAME
+
                 #define mfloat_t long double
                 #define __CML_MATH_NAME(_f) _f ## l
         #else
                 #define mfloat_t double
-                #define __CML_MATH_NAME(_f) _f
         #endif
 #endif
 
