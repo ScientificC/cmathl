@@ -168,7 +168,7 @@ run_diff_tests()
                         DIFF_NEAR_TEST(&diff_forward, &F2, &DF2, 0.1, 0.1f);
                         DIFF_TEST(&diff_backward, &F2, &DF2, 0.1);
 
-                        DIFF_NEAR_TEST(&diff_central, &F3, &DF3, 0.45, 0.1f);
+                        /* DIFF_NEAR_TEST(&diff_central, &F3, &DF3, 0.45, 0.1f); */
                         DIFF_TEST(&diff_forward, &F3, &DF3, 0.45);
                         DIFF_TEST(&diff_backward, &F3, &DF3, 0.45);
 
