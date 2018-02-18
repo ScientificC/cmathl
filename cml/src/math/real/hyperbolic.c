@@ -3,7 +3,7 @@
 #define CML_NO_ALIASES
 #include <cml.h>
 
-#if defined CML_NO_MATH || !(defined PREDEF_STANDARD_C99 || defined PREDEF_STANDARD_CPP99)
+#if defined CML_NO_MATH
 __CML_EXTERN_INLINE long double
 __atanh(long double x)
 {
@@ -24,7 +24,48 @@ __atanh(long double x)
 }
 #else
         #include <math.h>
+        #if !(defined PREDEF_STANDARD_C99 || defined PREDEF_STANDARD_CPP99)
+double
+__log1p(double x)
+{
+        volatile double y, z;
+
+        y = 1 + x;
+        z = y - 1;
+
+        return log(y) - (z-x)/y;     /* cancels errors with IEEE arithmetic */
+}
+
+double
+__atanh(const double x)
+{
+        double a = fabs(x);
+        double s = (x < 0) ? -1 : 1;
+
+        if (a > 1)
+        {
+                return NAN;
+        }
+        else if (a == 1)
+        {
+                return (x < 0) ? NINF : INF;
+        }
+        else if (a >= 0.5)
+        {
+                return s * 0.5 * __log1p(2 * a / (1 - a));
+        }
+        else if (a > CML_DBL_EPSILON)
+        {
+                return s * 0.5 * __log1p(2 * a + 2 * a * a / (1 - a));
+        }
+        else
+        {
+                return x;
+        }
+}
+        #else
         #define __atanh(x) __CML_MATH_NAME(atanh)(x)
+        #endif
 #endif
 
 /*
