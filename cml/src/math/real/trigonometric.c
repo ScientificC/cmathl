@@ -145,7 +145,7 @@ real_atan(real_t x)
         /* Mathematical algorithm */
         a = real_abs(x);
         s = real_sgn(x);
-        w = real_mul(s, (real_t) __atan((long double) a));
+        w = real_mul(s, (real_t) __atan(a));
 
         /* Return */
         return w;
@@ -196,7 +196,7 @@ real_cos(real_t x)
 
         /* Mathematical algorithm */
         y = real_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        h = (real_t) __cos((long double) real_ared(y));
+        h = (real_t) __cos(real_ared(y));
 
         /* Return */
         return h;
@@ -294,7 +294,7 @@ real_sin(real_t x)
         s = real_sgn(x); /* sin(-x) = -sin(x) */
         y = real_abs(x);
         z = real_ared(y);
-        w = (real_t) __sin((long double) z);
+        w = (real_t) __sin(z);
         h = real_mul(w, s);
 
         /* Return */

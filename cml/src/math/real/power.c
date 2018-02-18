@@ -23,18 +23,19 @@ real_pow_int(real_t x, int n)
 real_t
 real_pow_uint(real_t x, unsigned int n)
 {
-        real_t value = 1.0;
+        long double value = 1.0L;
+        long double y = (long double) x;
 
         /* repeated squaring method
          * returns 0.0^0 = 1.0, so continuous in x
          */
         do {
-                if (n & 1) value *= x; /* for n odd */
+                if (n & 1) value *= y; /* for n odd */
                 n >>= 1;
-                x *= x;
+                y *= y;
         } while (n);
 
-        return value;
+        return (real_t) value;
 }
 
 

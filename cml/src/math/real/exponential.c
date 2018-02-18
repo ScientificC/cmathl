@@ -42,7 +42,7 @@ __exp(long double x)
 real_t
 real_exp(real_t x)
 {
-        return (real_t) __exp((long double) x);
+        return (real_t) __exp(x);
 }
 
 

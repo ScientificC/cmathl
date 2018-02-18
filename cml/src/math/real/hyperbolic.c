@@ -95,7 +95,7 @@ real_atanh(real_t x)
         /* Mathematical algorithm */
         y = real_abs(x);
         h = real_isgreater(1.0, y) ?
-            (real_t) __atanh((long double) x) :
+            (real_t) __atanh(x) :
             real_nan();
 
         /* Return */
