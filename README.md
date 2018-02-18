@@ -63,7 +63,7 @@ $ make && ctest
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
 - `CML_NO_ALIASES`
-- `DCML_NO_LONG_DOUBLE_MATH`
+- `CML_NO_LONG_DOUBLE_MATH`
 - `CML_NO_MATH`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
