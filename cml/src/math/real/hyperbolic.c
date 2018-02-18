@@ -3,7 +3,7 @@
 #define CML_NO_ALIASES
 #include <cml.h>
 
-#ifdef CML_NO_MATH
+#if defined CML_NO_MATH || !(defined PREDEF_STANDARD_C99 || defined PREDEF_STANDARD_CPP99)
 __CML_EXTERN_INLINE long double
 __atanh(long double x)
 {
