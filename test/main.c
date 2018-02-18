@@ -54,5 +54,7 @@ main()
                "s"
                );
 
+        printf("%Ld\n", __STDC_VERSION__);
+
         return (cml_count_failedtests > 0);
 }
