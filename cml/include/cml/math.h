@@ -26,13 +26,13 @@
 #define __CML_MATH_NAME(_f) _f
 
 #ifndef mfloat_t
-        #ifndef CML_NO_LONG_DOUBLE_MATH
+        #ifndef CML_LONG_DOUBLE_MATH
+                #define mfloat_t double
+        #else
                 #undef __CML_MATH_NAME
 
                 #define mfloat_t long double
                 #define __CML_MATH_NAME(_f) _f ## l
-        #else
-                #define mfloat_t double
         #endif
 #endif
 
