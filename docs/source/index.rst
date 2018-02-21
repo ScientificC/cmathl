@@ -8,8 +8,16 @@ Welcome to cml's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   intro.rst
+   usage.rst
+   math.rst
+   complex.rst
+
+   debug.rst
+   contrib.rst
+   autoconf.rst
+   cml.rst
 
 
 Indices and tables
