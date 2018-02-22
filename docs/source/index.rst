@@ -14,15 +14,8 @@ Welcome to cml's documentation!
    math.rst
    complex.rst
 
-   debug.rst
-   contrib.rst
-   autoconf.rst
-   cml.rst
-
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
