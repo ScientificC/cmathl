@@ -23,13 +23,13 @@
 #endif
 
 /* Positive infinity. */
-#ifndef INF
-#define INF 1.0/0.0
+#ifndef POSINF
+#define POSINF 1.0/0.0
 #endif
 
 /* Negative infinity. */
-#ifndef NINF
-#define NINF -1.0/0.0
+#ifndef NEGINF
+#define NEGINF -1.0/0.0
 #endif
 
 /* Not a number. */

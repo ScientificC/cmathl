@@ -167,7 +167,7 @@ determine_ieee754_type(int non_zero, int exponent, int max_exponent)
                 }
                 else
                 {
-                        return CML_IEEE754_TYPE_INF;
+                        return CML_IEEE754_TYPE_POSINF;
                 }
         }
         else if (exponent == 0)

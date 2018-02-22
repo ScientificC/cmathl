@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to cml's documentation!
+Welcome to CML's documentation!
 ===============================
 
 .. toctree::
@@ -12,6 +12,7 @@ Welcome to cml's documentation!
    intro.rst
    usage.rst
    math.rst
+   complex.rst
 
 Indices and tables
 ==================

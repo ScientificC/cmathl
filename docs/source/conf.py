@@ -52,9 +52,9 @@ title = u'CML'
 # built documents.
 #
 # The short X.Y version.
-version = u'0.1'
+version = u'1.9'
 # The full version, including alpha/beta/rc tags.
-release = u'0.1'
+release = u'1.9.5'
 
 primary_domain = 'c'
 numfig = True
