@@ -11,8 +11,13 @@ Welcome to CML's documentation!
 
    intro.rst
    usage.rst
+   err.rst
    math.rst
    complex.rst
+   diff.rst
+   easings.rst
+   const.rst
+   ieee754.rst
 
 Indices and tables
 ==================

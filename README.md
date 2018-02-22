@@ -1,10 +1,10 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.8](https://img.shields.io/badge/Version-v1.9.8-blue.svg)
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
-You can read the following [file](./docs~/REFERENCE.md) to learn more about CML.
+You can read the following [docs](http://cml.readthedocs.io/) to learn more about CML.
 
 ## Table of Contents
 

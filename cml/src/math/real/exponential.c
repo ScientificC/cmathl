@@ -46,6 +46,124 @@ real_exp(real_t x)
 }
 
 
+real_t
+real_expm1(real_t x)
+{
+        /* FIXME: this should be improved */
+
+        if (real_abs(x) < M_LN2)
+        {
+                /* Compute the taylor series S = x + (1/2!) x^2 + (1/3!) x^3 + ... */
+
+                long double i = 1.0;
+                long double sum = x;
+                long double term = x / 1.0;
+
+                do
+                {
+                        i++;
+                        term *= x/i;
+                        sum += term;
+                }
+                while (real_abs(term) > real_abs(sum) * CML_DBL_EPSILON);
+
+                return (real_t) sum;
+        }
+        else
+        {
+                return real_exp(x) - 1.0;
+        }
+}
+
+
+real_t
+real_ldexp(real_t x, int e)
+{
+        int ex;
+
+        if (real_isnull(x))
+        {
+                return x;
+        }
+        else
+        {
+                long double y = real_frexp(x, &ex);
+                long double e2 = e + ex, p2;
+
+                if (e2 >= DBL_MAX_EXP)
+                {
+                        y *= real_pow(2.0, e2 - DBL_MAX_EXP + 1);
+                        e2 = DBL_MAX_EXP - 1;
+                }
+                else if (e2 <= DBL_MIN_EXP)
+                {
+                        y *= real_pow(2.0, e2 - DBL_MIN_EXP - 1);
+                        e2 = DBL_MIN_EXP + 1;
+                }
+
+                p2 = real_pow(2.0, e2);
+                return y * p2;
+        }
+}
+
+real_t
+real_frexp(real_t x, int *e)
+{
+        if (real_isnull(x))
+        {
+                *e = 0;
+                return 0.0;
+        }
+        else if (!real_isfinite(x))
+        {
+                *e = 0;
+                return x;
+        }
+        else if (real_abs(x) >= 0.5 && real_abs(x) < 1) /* Handle the common case */
+        {
+                *e = 0;
+                return x;
+        }
+        else
+        {
+                long double ex = real_ceil(real_log(real_abs(x)) / M_LN2);
+                int ei = (int) ex;
+                long double f;
+
+                /* Prevent underflow and overflow of 2**(-ei) */
+                if (ei < DBL_MIN_EXP)
+                        ei = DBL_MIN_EXP;
+
+                if (ei > -DBL_MIN_EXP)
+                        ei = -DBL_MIN_EXP;
+
+                f = x * real_pow(2.0, -ei);
+
+                if (!real_isfinite(f))
+                {
+                        /* This should not happen */
+                        *e = 0;
+                        return f;
+                }
+
+                while (real_abs(f) >= 1.0)
+                {
+                        ei++;
+                        f /= 2.0;
+                }
+
+                while (real_abs(f) > 0 && real_abs(f) < 0.5)
+                {
+                        ei--;
+                        f *= 2.0;
+                }
+
+                *e = ei;
+                return f;
+        }
+}
+
+
 /*
  * The logarithm logb(x) can be computed from the logarithms of x and b with
  * respect to an arbitrary base k using the following formula,

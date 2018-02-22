@@ -55,3 +55,4 @@ cml/include/cml/config.h
 build/*
 tmp/*
 install/*
+docs/build/*

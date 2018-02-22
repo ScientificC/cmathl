@@ -13,8 +13,8 @@ run_real_tests()
                 TEST_BEGIN(Math)
                 {
                         EXPECT_FLOAT_EQ(NAN, 0.0/0.0);
-                        EXPECT_FLOAT_EQ(INF, INF);
-                        EXPECT_FLOAT_EQ(NINF, -INF);
+                        EXPECT_FLOAT_EQ(POSINF, POSINF);
+                        EXPECT_FLOAT_EQ(NEGINF, -POSINF);
                 }
                 TEST_END()
         }
