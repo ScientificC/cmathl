@@ -286,13 +286,13 @@ Complex Trigonometric Functions
 Inverse Complex Trigonometric Functions
 =======================================
 
-.. function:: complex_t complex_arcsin (complex_t z)
+.. function:: complex_t complex_asin (complex_t z)
 
    This function returns the complex arcsine of the complex number :data:`z`,
    :math:`\arcsin(z)`. The branch cuts are on the real axis, less than :math:`-1`
    and greater than :math:`1`.
 
-.. function:: complex_t complex_arcsin_real (real_t z)
+.. function:: complex_t complex_asin_real (real_t z)
 
    This function returns the complex arcsine of the real number :data:`z`,
    :math:`\arcsin(z)`. For :math:`z` between :math:`-1` and :math:`1`, the
@@ -301,13 +301,13 @@ Inverse Complex Trigonometric Functions
    and a positive imaginary part.  For :math:`z` greater than :math:`1` the
    result has a real part of :math:`\pi/2` and a negative imaginary part.
 
-.. function:: complex_t complex_arccos (complex_t z)
+.. function:: complex_t complex_acos (complex_t z)
 
    This function returns the complex arccosine of the complex number :data:`z`,
    :math:`\arccos(z)`. The branch cuts are on the real axis, less than :math:`-1`
    and greater than :math:`1`.
 
-.. function:: complex_t complex_arccos_real (real_t z)
+.. function:: complex_t complex_acos_real (real_t z)
 
    This function returns the complex arccosine of the real number :data:`z`,
    :math:`\arccos(z)`. For :math:`z` between :math:`-1` and :math:`1`, the
@@ -316,33 +316,33 @@ Inverse Complex Trigonometric Functions
    negative imaginary part.  For :math:`z` greater than :math:`1` the result
    is purely imaginary and positive.
 
-.. function:: complex_t complex_arctan (complex_t z)
+.. function:: complex_t complex_atan (complex_t z)
 
    This function returns the complex arctangent of the complex number
    :data:`z`, :math:`\arctan(z)`. The branch cuts are on the imaginary axis,
    below :math:`-i` and above :math:`i`.
 
-.. function:: complex_t complex_arcsec (complex_t z)
+.. function:: complex_t complex_asec (complex_t z)
 
    This function returns the complex arcsecant of the complex number :data:`z`,
    :math:`\arcsec(z) = \arccos(1/z)`.
 
-.. function:: complex_t complex_arcsec_real (real_t z)
+.. function:: complex_t complex_asec_real (real_t z)
 
    This function returns the complex arcsecant of the real number :data:`z`,
    :math:`\arcsec(z) = \arccos(1/z)`.
 
-.. function:: complex_t complex_arccsc (complex_t z)
+.. function:: complex_t complex_acsc (complex_t z)
 
    This function returns the complex arccosecant of the complex number :data:`z`,
    :math:`\arccsc(z) = \arcsin(1/z)`.
 
-.. function:: complex_t complex_arccsc_real (real_t z)
+.. function:: complex_t complex_acsc_real (real_t z)
 
    This function returns the complex arccosecant of the real number :data:`z`,
    :math:`\arccsc(z) = \arcsin(1/z)`.
 
-.. function:: complex_t complex_arccot (complex_t z)
+.. function:: complex_t complex_acot (complex_t z)
 
    This function returns the complex arccotangent of the complex number :data:`z`,
    :math:`\arccot(z) = \arctan(1/z)`.
@@ -389,13 +389,13 @@ Complex Hyperbolic Functions
 Inverse Complex Hyperbolic Functions
 ====================================
 
-.. function:: complex_t complex_arcsinh (complex_t z)
+.. function:: complex_t complex_asinh (complex_t z)
 
    This function returns the complex hyperbolic arcsine of the
    complex number :data:`z`, :math:`\arcsinh(z)`.  The branch cuts are on the
    imaginary axis, below :math:`-i` and above :math:`i`.
 
-.. function:: complex_t complex_arccosh (complex_t z)
+.. function:: complex_t complex_acosh (complex_t z)
 
    This function returns the complex hyperbolic arccosine of the complex
    number :data:`z`, :math:`\arccosh(z)`.  The branch cut is on the real
@@ -403,33 +403,33 @@ Inverse Complex Hyperbolic Functions
    square root in formula 4.6.21 of Abramowitz & Stegun giving
    :math:`\arccosh(z)=\log(z-\sqrt{z^2-1})`.
 
-.. function:: complex_t complex_arccosh_real (real_t z)
+.. function:: complex_t complex_acosh_real (real_t z)
 
    This function returns the complex hyperbolic arccosine of
    the real number :data:`z`, :math:`\arccosh(z)`.
 
-.. function:: complex_t complex_arctanh (complex_t z)
+.. function:: complex_t complex_atanh (complex_t z)
 
    This function returns the complex hyperbolic arctangent of the complex
    number :data:`z`, :math:`\arctanh(z)`.  The branch cuts are on the real
    axis, less than :math:`-1` and greater than :math:`1`.
 
-.. function:: complex_t complex_arctanh_real (real_t z)
+.. function:: complex_t complex_atanh_real (real_t z)
 
    This function returns the complex hyperbolic arctangent of the real
    number :data:`z`, :math:`\arctanh(z)`.
 
-.. function:: complex_t complex_arcsech (complex_t z)
+.. function:: complex_t complex_asech (complex_t z)
 
    This function returns the complex hyperbolic arcsecant of the complex
    number :data:`z`, :math:`\arcsech(z) = \arccosh(1/z)`.
 
-.. function:: complex_t complex_arccsch (complex_t z)
+.. function:: complex_t complex_acsch (complex_t z)
 
    This function returns the complex hyperbolic arccosecant of the complex
    number :data:`z`, :math:`\arccsch(z) = \arcsinh(1/z)`.
 
-.. function:: complex_t complex_arccoth (complex_t z)
+.. function:: complex_t complex_acoth (complex_t z)
 
    This function returns the complex hyperbolic arccotangent of the complex
    number :data:`z`, :math:`\arccoth(z) = \arctanh(1/z)`.
@@ -465,7 +465,3 @@ following books,
 
 * Dave Gillespie, Calc Manual, Free Software Foundation, ISBN
   1-882114-18-3
-
-.. rubric:: Footnotes
-
-.. [#f1] Note that the first edition uses different definitions.

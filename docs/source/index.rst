@@ -13,6 +13,8 @@ Welcome to CML's documentation!
    usage.rst
    math.rst
    complex.rst
+   easings.rst
+   const.rst
 
 Indices and tables
 ==================
