@@ -60,7 +60,7 @@ Error Codes
 ===========
 
 The error code numbers returned by library functions are defined in
-the file :file:`cml_errno.h`.  They all have the prefix :code:`CML_` and
+the file :file:`cml/errno.h`.  They all have the prefix :code:`CML_` and
 expand to non-zero constant integer values. Error codes above 1024 are
 reserved for applications, and are not used by the library.  Many of
 the error codes use the same base name as the corresponding error code
