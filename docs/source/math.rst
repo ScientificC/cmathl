@@ -55,12 +55,12 @@ are defined. For reference, here is a list of the constants:
 Infinities and Not-a-number
 ===========================
 
-.. macro:: INF
+.. macro:: POSINF
 
    This macro contains the IEEE representation of positive infinity,
    :math:`+\infty`. It is computed from the expression :code:`+1.0/0.0`.
 
-.. macro:: INF
+.. macro:: NEGINF
 
    This macro contains the IEEE representation of negative infinity,
    :math:`-\infty`. It is computed from the expression :code:`-1.0/0.0`.

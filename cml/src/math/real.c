@@ -13,14 +13,14 @@ real_nan()
 real_t
 real_inf()
 {
-        return (real_t) INF;
+        return (real_t) POSINF;
 }
 
 
 real_t
 real_ninf()
 {
-        return (real_t) NINF;
+        return (real_t) NEGINF;
 }
 
 

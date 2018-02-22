@@ -48,7 +48,7 @@ __atanh(const double x)
         }
         else if (a == 1)
         {
-                return (x < 0) ? NINF : INF;
+                return (x < 0) ? NEGINF : POSINF;
         }
         else if (a >= 0.5)
         {
