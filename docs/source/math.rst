@@ -75,17 +75,17 @@ Infinities and Not-a-number
    This macro contains the IEEE representation of the Not-a-Number symbol,
    :code:`NaN`. It is computed from the ratio :code:`0.0/0.0`.
 
-.. function:: bool real_isnan(real_t x)
+.. function:: bool real_isnan (real_t x)
 
    This function returns 1 if :data:`x` is not-a-number.
 
-.. function:: bool real_isinf(real_t x)
+.. function:: bool real_isinf (real_t x)
 
    This function returns :math:`+1` if :data:`x` is positive infinity,
    :math:`-1` if :data:`x` is negative infinity and 0
    otherwise. [#f1]_
 
-.. function:: bool real_isfinite(real_t x)
+.. function:: bool real_isfinite (real_t x)
 
    This function returns 1 if :data:`x` is a real number, and 0 if it is
    infinite or not-a-number.
@@ -103,7 +103,7 @@ application (see :ref:`portability-functions`).
    single: log1p
    single: logarithm, computed accurately near 1
 
-.. function:: real_t real_log1p(real_t x)
+.. function:: real_t real_log1p (real_t x)
 
    This function computes the value of :math:`\log(1+x)` in a way that is
    accurate for small :data:`x`. It provides an alternative to the BSD math
@@ -113,7 +113,7 @@ application (see :ref:`portability-functions`).
    single: expm1
    single: exponential, difference from 1 computed accurately
 
-.. function:: real_t real_expm1(real_t x)
+.. function:: real_t real_expm1 (real_t x)
 
    This function computes the value of :math:`\exp(x)-1` in a way that is
    accurate for small :data:`x`. It provides an alternative to the BSD math
@@ -124,7 +124,7 @@ application (see :ref:`portability-functions`).
    single: euclidean distance function, hypot
    single: length, computed accurately using hypot
 
-.. function:: real_t real_hypot(real_t x, real_t y)
+.. function:: real_t real_hypot (real_t x, real_t y)
 
    This function computes the value of
    :math:`\sqrt{x^2 + y^2}` in a way that avoids overflow. It provides an
@@ -134,7 +134,7 @@ application (see :ref:`portability-functions`).
    single: euclidean distance function, hypot3
    single: length, computed accurately using hypot3
 
-.. function:: real_t real_hypot3(real_t x, real_t y, real_t real_z)
+.. function:: real_t real_hypot3 (real_t x, real_t y, real_t real_z)
 
    This function computes the value of
    :math:`\sqrt{x^2 + y^2 + z^2}` in a way that avoids overflow.
@@ -144,7 +144,7 @@ application (see :ref:`portability-functions`).
    single: hyperbolic cosine, inverse
    single: inverse hyperbolic cosine
 
-.. function:: real_t real_acosh(real_t x)
+.. function:: real_t real_acosh (real_t x)
 
    This function computes the value of :math:`\arccosh{(x)}`. It provides an
    alternative to the standard math function :code:`acosh(x)`.
@@ -154,7 +154,7 @@ application (see :ref:`portability-functions`).
    single: hyperbolic sine, inverse
    single: inverse hyperbolic sine
 
-.. function:: real_t real_asinh(real_t x)
+.. function:: real_t real_asinh (real_t x)
 
    This function computes the value of :math:`\arcsinh{(x)}`. It provides an
    alternative to the standard math function :code:`asinh(x)`.
@@ -164,21 +164,21 @@ application (see :ref:`portability-functions`).
    single: hyperbolic tangent, inverse
    single: inverse hyperbolic tangent
 
-.. function:: real_t real_atanh(real_t x)
+.. function:: real_t real_atanh (real_t x)
 
    This function computes the value of :math:`\arctanh{(x)}`. It provides an
    alternative to the standard math function :code:`atanh(x)`.
 
 .. index:: ldexp
 
-.. function:: real_t real_ldexp(real_t x, int e)
+.. function:: real_t real_ldexp (real_t x, int e)
 
    This function computes the value of :math:`x * 2^e`. It provides an
    alternative to the standard math function :code:`ldexp(x,e)`.
 
 .. index:: frexp
 
-.. function:: real_t real_frexp(real_t x, int *e)
+.. function:: real_t real_frexp (real_t x, int *e)
 
    This function splits the number :data:`x` into its normalized fraction
    :math:`f` and exponent :math:`e`, such that :math:`x = f * 2^e` and
@@ -196,22 +196,22 @@ functions to fill this gap.  For reasons of efficiency, these functions
 do not check for overflow or underflow conditions.
 
 .. function::
-   real_t real_pow_int(real_t x, int n)
-   real_t real_pow_uint(real_t x, unsigned int n)
+   real_t real_pow_int (real_t x, int n)
+   real_t real_pow_uint (real_t x, unsigned int n)
 
    These routines computes the power :math:`x^n` for integer :data:`n`.  The
    power is computed efficiently---for example, :math:`x^8` is computed as
    :math:`((x^2)^2)^2`, requiring only 3 multiplications.
 
 .. function::
-   real_t real_pow_2(real_t x)
-   real_t real_pow_3(real_t x)
-   real_t real_pow_4(real_t x)
-   real_t real_pow_5(real_t x)
-   real_t real_pow_6(real_t x)
-   real_t real_pow_7(real_t x)
-   real_t real_pow_8(real_t x)
-   real_t real_pow_9(real_t x)
+   real_t real_pow_2 (real_t x)
+   real_t real_pow_3 (real_t x)
+   real_t real_pow_4 (real_t x)
+   real_t real_pow_5 (real_t x)
+   real_t real_pow_6 (real_t x)
+   real_t real_pow_7 (real_t x)
+   real_t real_pow_8 (real_t x)
+   real_t real_pow_9 (real_t x)
 
    These functions can be used to compute small integer powers :math:`x^2`,
    :math:`x^3`, etc. efficiently. The functions will be inlined when
@@ -226,7 +226,7 @@ do not check for overflow or underflow conditions.
 Testing the Sign of Numbers
 ===========================
 
-.. function:: real_t real_sgn(real_t x)
+.. function:: real_t real_sgn (real_t x)
 
    This macro returns the sign of :data:`x`. It is defined as :code:`((x) >= 0
    ? 1 : -1)`. Note that with this definition the sign of zero is positive
@@ -267,7 +267,7 @@ Algorithms" (3rd edition).
    single: safe comparison of floating point numbers
    single: floating point numbers, approximate comparison
 
-.. function:: bool real_cmp(real_t x, real_t y, real_t epsilon)
+.. function:: bool real_cmp (real_t x, real_t y, real_t epsilon)
 
    This function determines whether :data:`x` and :data:`y` are approximately
    equal to a relative accuracy :data:`epsilon`.
