@@ -12,8 +12,6 @@ Welcome to cml's documentation!
    intro.rst
    usage.rst
    math.rst
-   complex.rst
-
 
 Indices and tables
 ==================
