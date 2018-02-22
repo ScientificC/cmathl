@@ -54,7 +54,7 @@ title = u'CML'
 # The short X.Y version.
 version = u'1.9'
 # The full version, including alpha/beta/rc tags.
-release = u'1.9.5'
+release = u'1.9.8'
 
 primary_domain = 'c'
 numfig = True
