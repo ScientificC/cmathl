@@ -144,10 +144,10 @@ Inline functions
 ================
 
 The :code:`inline` keyword is not part of the original ANSI C standard (C89)
- so the library does not export any inline function definitions by default.
- Inline functions were introduced officially in the newer C99 standard but
- most C89 compilers have also included :code:`inline` as an extension for a
- long time.
+so the library does not export any inline function definitions by default.
+Inline functions were introduced officially in the newer C99 standard but
+most C89 compilers have also included :code:`inline` as an extension for a
+long time.
 
 To allow the use of inline functions, the library provides optional inline
 versions of performance-critical routines by conditional compilation in the
