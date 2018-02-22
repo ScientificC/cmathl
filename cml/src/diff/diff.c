@@ -15,15 +15,15 @@ diff_backward(const function_t *f,
            the step size which will minimize the error in calculating f'. */
 
         int i, k;
-        real_t h = CML_SQRT_DBL_EPSILON;
-        real_t a[3], d[3], a2;
+        long double h = CML_SQRT_DBL_EPSILON;
+        long double a[3], d[3], a2;
 
         /* Algorithm based on description on pg. 204 of Conte and de Boor
            (CdB) - coefficients of Newton form of polynomial of degree 2. */
 
         for (i = 0; i < 3; i++)
         {
-                a[i] = x + (i - 2.0) * h;
+                a[i] = x + (i - 2.0L) * h;
                 d[i] = FN_EVAL(f, a[i]);
         }
 
@@ -40,20 +40,20 @@ diff_backward(const function_t *f,
 
         a2 = real_abs(d[0] + d[1] + d[2]);
 
-        if (a2 < 100.0 * CML_SQRT_DBL_EPSILON)
+        if (a2 < 100.0L * CML_SQRT_DBL_EPSILON)
         {
-                a2 = 100.0 * CML_SQRT_DBL_EPSILON;
+                a2 = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        h = real_sqrt(CML_SQRT_DBL_EPSILON/(2.0 * a2));
+        h = real_sqrt(CML_SQRT_DBL_EPSILON/(2.0L * a2));
 
-        if (h > 100.0 * CML_SQRT_DBL_EPSILON)
+        if (h > 100.0L * CML_SQRT_DBL_EPSILON)
         {
-                h = 100.0 * CML_SQRT_DBL_EPSILON;
+                h = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
         *result = (FN_EVAL(f, x) - FN_EVAL(f, x - h))/h;
-        *abserr = real_abs(10.0 * a2 * h);
+        *abserr = real_abs(10.0L * a2 * h);
 
         return CML_SUCCESS;
 }
@@ -68,8 +68,8 @@ diff_forward(const function_t *f,
            the step size which will minimize the error in calculating f'. */
 
         int i, k;
-        real_t h = CML_SQRT_DBL_EPSILON;
-        real_t a[3], d[3], a2;
+        long double h = CML_SQRT_DBL_EPSILON;
+        long double a[3], d[3], a2;
 
         /* Algorithm based on description on pg. 204 of Conte and de Boor
            (CdB) - coefficients of Newton form of polynomial of degree 2. */
@@ -93,20 +93,20 @@ diff_forward(const function_t *f,
 
         a2 = real_abs(d[0] + d[1] + d[2]);
 
-        if (a2 < 100.0 * CML_SQRT_DBL_EPSILON)
+        if (a2 < 100.0L * CML_SQRT_DBL_EPSILON)
         {
-                a2 = 100.0 * CML_SQRT_DBL_EPSILON;
+                a2 = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        h = real_sqrt(CML_SQRT_DBL_EPSILON/(2.0 * a2));
+        h = real_sqrt(CML_SQRT_DBL_EPSILON/(2.0L * a2));
 
-        if (h > 100.0 * CML_SQRT_DBL_EPSILON)
+        if (h > 100.0L * CML_SQRT_DBL_EPSILON)
         {
-                h = 100.0 * CML_SQRT_DBL_EPSILON;
+                h = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
         *result = (FN_EVAL(f, x + h) - FN_EVAL(f, x))/h;
-        *abserr = real_abs(10.0 * a2 * h);
+        *abserr = real_abs(10.0L * a2 * h);
 
         return CML_SUCCESS;
 }
@@ -121,15 +121,15 @@ diff_central(const function_t *f,
            the step size which will minimize the error in calculating f'. */
 
         int i, k;
-        real_t h = CML_SQRT_DBL_EPSILON;
-        real_t a[4], d[4], a3;
+        long double h = CML_SQRT_DBL_EPSILON;
+        long double a[4], d[4], a3;
 
         /* Algorithm based on description on pg. 204 of Conte and de Boor
            (CdB) - coefficients of Newton form of polynomial of degree 3. */
 
         for (i = 0; i < 4; i++)
         {
-                a[i] = x + (i - 2.0) * h;
+                a[i] = x + (i - 2.0L) * h;
                 d[i] = FN_EVAL(f, a[i]);
         }
 
@@ -146,20 +146,20 @@ diff_central(const function_t *f,
 
         a3 = real_abs(d[0] + d[1] + d[2] + d[3]);
 
-        if (a3 < 100.0 * CML_SQRT_DBL_EPSILON)
+        if (a3 < 100.0L * CML_SQRT_DBL_EPSILON)
         {
-                a3 = 100.0 * CML_SQRT_DBL_EPSILON;
+                a3 = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        h = real_pow(CML_SQRT_DBL_EPSILON/(2.0 * a3), 1.0/3.0);
+        h = real_pow(CML_SQRT_DBL_EPSILON/(2.0L * a3), 1.0/3.0);
 
-        if (h > 100.0 * CML_SQRT_DBL_EPSILON)
+        if (h > 100.0L * CML_SQRT_DBL_EPSILON)
         {
-                h = 100.0 * CML_SQRT_DBL_EPSILON;
+                h = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        *result = (FN_EVAL(f, x + h) - FN_EVAL(f, x - h))/(2.0 * h);
-        *abserr = real_abs(100.0 * a3 * h * h);
+        *result = (FN_EVAL(f, x + h) - FN_EVAL(f, x - h))/(2.0L * h);
+        *abserr = real_abs(100.0L * a3 * h * h);
 
         return CML_SUCCESS;
 }

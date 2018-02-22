@@ -1,10 +1,10 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=master)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.5](https://img.shields.io/badge/Version-v1.9.5-blue.svg)
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
-You can read the following [file](./docs/REFERENCE.md) to learn more about CML.
+You can read the following [file](./docs~/REFERENCE.md) to learn more about CML.
 
 ## Table of Contents
 
@@ -62,19 +62,18 @@ $ make && ctest
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
+- `CML_LONG_DOUBLE_MATH`
 - `CML_NO_ALIASES`
-- `DCML_NO_LONG_DOUBLE_MATH`
 - `CML_NO_MATH`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
-- `CML_SINGLE_PRECISION`
 - `mfloat_t`
 - `mint_t`
 
 You can define these macros during compilation time with flags:
 
 ```
-cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON -DCML_NO_LONG_DOUBLE_MATH=ON
+cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON -DCML_LONG_DOUBLE_MATH=ON
 ```
 
 ### Bool Type
@@ -87,11 +86,7 @@ By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If th
 
 ### Float Point Type
 
-The float type used by CML is defined by the macro `mfloat_t`, which is by default `long double`.
-
-### Long Double Type
-
-If `CML_SINGLE_PRECISION` (described [bellow](#math-precision)) is not defined, the library will have double precision for the internal definition of its functions. Then, this precision extends by default to the extended double precision and, at the same time, `mfloat_t` will be defined _(if possible)_ as `long double`. This precision can be simply doubled by defining the macro `CML_NO_LONG_DOUBLE_MATH`.
+The float type used by CML is defined by the macro `mfloat_t`, which is by default `double`.
 
 ### Math Functions Aliases
 
@@ -105,7 +100,7 @@ By default, cml will use some math functions from the header `math.h` if it is a
 
 ### Math Precision
 
-By default, CML will use double-precision internally. This can be changed by predefining `CML_SINGLE_PRECISION`. If the macro `CML_SINGLE_PRECISION` is defined, the math constants macros will be defined with single precision and the library will use internally the math functions for float types. Otherwise, the math constants macros will be defined with double precision and the library will internally use the math functions for double types.
+By default, the library will have double precision for the internal definition of its functions. Then, this precision could be changed to the extended double precision and, at the same time, `mfloat_t` will be defined _(if possible)_ as `long double`. This precision can be simply extended by defining the macro `CML_LONG_DOUBLE_MATH`.
 
 ## Build Options
 
@@ -151,4 +146,4 @@ A great way to learn how to use the library is to review the [unit tests](./test
 
 ## Can I trust this math library?
 
-A goal of the unit tests is to test each function against `CML_FLT_EPSILON` which is defined in cml.h, currently in the interval `[1e6, 1e16]`, depending on the mathematical precision. A number of functions do not yet have unit tests proving epsilon, but more are coming.
+A goal of the unit tests is to test each function against `CML_FLT_EPSILON` which is defined in cml.h, currently in the interval `[1e-5, 1e-7]`, depending on the mathematical precision. A number of functions do not yet have unit tests proving epsilon, but more are coming.

@@ -1,32 +1,11 @@
 #include <stdlib.h>
-#include <math.h>
-
-#undef CML_NO_ALIASES
-#define CML_NO_ALIASES
-
 #include <cml.h>
 
-#ifndef PREDEF_STANDARD_C99
-/* FIXME: classification functions are not ANSI C complaint, should be compatible
-   with c89 and c99. */
-
-        #ifndef isnan
-                #define isnan(X) __isnan(X)
-        #endif
-
-        #ifndef isinf
-                #define isinf(X) __isinf(X)
-        #endif
-
-        #ifndef isfinite
-                #define isfinite(X) __finite(X)
-        #endif
-#endif
 
 bool
 quaternion_isnan(quaternion_t q)
 {
-        return isnan(q.w) || isnan(q.x) || isnan(q.y) || isnan(q.z);
+        return real_isnan(q.w) || real_isnan(q.x) || real_isnan(q.y) || real_isnan(q.z);
 }
 
 
@@ -47,14 +26,14 @@ quaternion_nonzero(quaternion_t q)
 bool
 quaternion_isinf(quaternion_t q)
 {
-        return isinf(q.w) || isinf(q.x) || isinf(q.y) || isinf(q.z);
+        return real_isinf(q.w) || real_isinf(q.x) || real_isinf(q.y) || real_isinf(q.z);
 }
 
 
 bool
 quaternion_isfinite(quaternion_t q)
 {
-        return isfinite(q.w) && isfinite(q.x) && isfinite(q.y) && isfinite(q.z);
+        return real_isfinite(q.w) && real_isfinite(q.x) && real_isfinite(q.y) && real_isfinite(q.z);
 }
 
 

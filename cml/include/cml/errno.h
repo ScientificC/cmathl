@@ -43,7 +43,7 @@ enum {
         CML_ETOLF    = 29, /* cannot reach the specified tolerance in F */
         CML_ETOLX    = 30, /* cannot reach the specified tolerance in X */
         CML_ETOLG    = 31, /* cannot reach the specified tolerance in gradient */
-        CML_EOF      = 32/* end of file */
+        CML_EOF      = 32 /* end of file */
 };
 
 void cml_error(const char *reason, const char *file, int line,

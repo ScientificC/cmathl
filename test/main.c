@@ -10,6 +10,7 @@ int cml_count_failedtests = 0;
 int cml_count_failures = 0;
 
 int run_complex_tests();
+int run_deriv_tests();
 int run_diff_tests();
 int run_easings_tests();
 int run_real_tests();
@@ -19,6 +20,7 @@ int
 run_tests()
 {
         run_complex_tests();
+        run_deriv_tests();
         run_diff_tests();
         run_real_tests();
 
