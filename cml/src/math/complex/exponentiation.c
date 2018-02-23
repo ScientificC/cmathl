@@ -15,7 +15,7 @@ complex_exp(complex_t z)
 {
         /* Declaration of variables and structures */
         complex_t w;
-        real_t n, m, h, x, y;
+        double n, m, h, x, y;
 
         /* Mathematical algorithm */
         h = real_exp(z.p[0]);
@@ -60,7 +60,7 @@ complex_log(complex_t z)
 {
         /* Declaration of variables and structures */
         complex_t w;
-        real_t a, x, y;
+        double a, x, y;
 
         /* Mathematical algorithm */
         a = complex_abs(z);
@@ -84,30 +84,30 @@ complex_sqrt(complex_t a)
         }
         else
         {
-                real_t x = real_abs(a.re);
-                real_t y = real_abs(a.im);
-                real_t w;
+                double x = real_abs(a.re);
+                double y = real_abs(a.im);
+                double w;
 
                 if (x >= y)
                 {
-                        real_t t = y / x;
+                        double t = y / x;
                         w = real_sqrt(x) * real_sqrt(0.5 * (1.0 + real_sqrt(1.0 + t * t)));
                 }
                 else
                 {
-                        real_t t = x / y;
+                        double t = x / y;
                         w = real_sqrt(y) * real_sqrt(0.5 * (t + real_sqrt(1.0 + t * t)));
                 }
 
                 if (a.re >= 0.0)
                 {
-                        real_t ai = a.im;
+                        double ai = a.im;
                         z = complex(w, ai / (2.0 * w));
                 }
                 else
                 {
-                        real_t ai = a.im;
-                        real_t vi = (ai >= 0) ? w : -w;
+                        double ai = a.im;
+                        double vi = (ai >= 0) ? w : -w;
                         z = complex(ai / (2.0 * vi), vi);
                 }
         }
@@ -117,7 +117,7 @@ complex_sqrt(complex_t a)
 
 
 complex_t
-complex_sqrt_real(real_t x)
+complex_sqrt_real(double x)
 {                               /* z=sqrt(x) */
         complex_t z;
 
@@ -160,13 +160,13 @@ complex_pow (complex_t a, complex_t b)
         }
         else
         {
-                real_t logr = complex_logabs(a);
-                real_t theta = complex_arg(a);
+                double logr = complex_logabs(a);
+                double theta = complex_arg(a);
 
-                real_t br = b.re, bi = b.im;
+                double br = b.re, bi = b.im;
 
-                real_t rho = real_exp(logr * br - bi * theta);
-                real_t beta = theta * br + bi * logr;
+                double rho = real_exp(logr * br - bi * theta);
+                double beta = theta * br + bi * logr;
 
                 z = complex(rho * real_cos(beta), rho * real_sin(beta));
         }
@@ -176,7 +176,7 @@ complex_pow (complex_t a, complex_t b)
 
 
 complex_t
-complex_pow_real (complex_t a, real_t b)
+complex_pow_real (complex_t a, double b)
 {                               /* z=a^b */
         complex_t z;
 
@@ -193,10 +193,10 @@ complex_pow_real (complex_t a, real_t b)
         }
         else
         {
-                real_t logr = complex_logabs(a);
-                real_t theta = complex_arg(a);
-                real_t rho = real_exp(logr * b);
-                real_t beta = theta * b;
+                double logr = complex_logabs(a);
+                double theta = complex_arg(a);
+                double rho = real_exp(logr * b);
+                double beta = theta * b;
                 z = complex(rho * real_cos(beta), rho * real_sin(beta));
         }
 

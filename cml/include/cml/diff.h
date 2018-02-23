@@ -8,16 +8,16 @@
 __CML_BEGIN_DECLS
 
 int diff_central(const function_t *f,
-                 real_t x,
-                 real_t *result, real_t *abserr);
+                 double x,
+                 double *result, double *abserr);
 
 int diff_backward(const function_t *f,
-                  real_t x,
-                  real_t *result, real_t *abserr);
+                  double x,
+                  double *result, double *abserr);
 
 int diff_forward(const function_t *f,
-                 real_t x,
-                 real_t *result, real_t *abserr);
+                 double x,
+                 double *result, double *abserr);
 
 __CML_END_DECLS
 

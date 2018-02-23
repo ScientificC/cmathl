@@ -16,7 +16,7 @@
         #define __CML_REAL_GENERIC_FUNC(_func, ...) \
         _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
          default: __CML_MATH_FUNC(real, _func), \
-                 real_t: __CML_MATH_FUNC(real, _func) \
+                 double: __CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
         #define __CML_COMPLEX_GENERIC_FUNC(_func, ...) \
@@ -28,7 +28,7 @@
         _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
          default: __CML_MATH_FUNC(real, _func), \
                  complex_t: __CML_MATH_FUNC(complex, _func), \
-                 real_t: __CML_MATH_FUNC(real, _func) \
+                 double: __CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 
         #define equal(X, Y) __CML_BOTH_GENERIC_FUNC(equal, X, Y)

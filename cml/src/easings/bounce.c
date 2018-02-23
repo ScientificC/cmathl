@@ -3,17 +3,17 @@
 
 
 /* Easing functions - Bounce */
-__CML_EXTERN_INLINE real_t
-ease_bounce_in(real_t p)
+__CML_EXTERN_INLINE double
+ease_bounce_in(double p)
 {
         return 1.0 - ease_bounce_out(1.0 - p);
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_bounce_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_bounce_out(double p)
 {
-        real_t f = (0.0);
+        double f = (0.0);
 
         if (p < 4.0/11.0)
         {
@@ -36,10 +36,10 @@ ease_bounce_out(real_t p)
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_bounce_in_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_bounce_in_out(double p)
 {
-        real_t f = 0.0;
+        double f = 0.0;
 
         if (p < 0.5)
         {

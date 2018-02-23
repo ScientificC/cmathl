@@ -5,14 +5,12 @@
 #ifndef CML_REAL_H
 #define CML_REAL_H
 
-typedef mfloat_t real_t;
-
 __CML_BEGIN_DECLS
 
-real_t real_nan();
-real_t real_inf();
-real_t real_ninf();
-char* real_as_string(real_t);
+double real_nan();
+double real_inf();
+double real_ninf();
+char* real_as_string(double);
 
 __CML_END_DECLS
 
@@ -72,7 +70,7 @@ __CML_END_DECLS
 
         #define sin(X) real_sin(X)
         #define cos(X) real_cos(X)
-        #define tan(X) real_tan(X)
+        #define tan(X) doublean(X)
         #define sec(X) real_sec(X)
         #define csc(X) real_csc(X)
         #define cot(X) real_cot(X)
@@ -83,7 +81,7 @@ __CML_END_DECLS
 
         #define sinh(X) real_sinh(X)
         #define cosh(X) real_cosh(X)
-        #define tanh(X) real_tanh(X)
+        #define tanh(X) doubleanh(X)
         #define sech(X) real_sech(X)
         #define csch(X) real_csch(X)
         #define coth(X) real_coth(X)

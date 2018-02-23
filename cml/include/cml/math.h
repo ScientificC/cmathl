@@ -21,20 +21,14 @@
         #endif
 #endif
 
-#include <float.h>
-
 #define __CML_MATH_NAME(_f) _f
 
-#ifndef mfloat_t
-        #ifndef CML_LONG_DOUBLE_MATH
-                #define mfloat_t double
-        #else
-                #undef __CML_MATH_NAME
-
-                #define mfloat_t long double
-                #define __CML_MATH_NAME(_f) _f ## l
-        #endif
-#endif
+/*
+ #ifdef CML_LONG_DOUBLE_MATH
+ #undef __CML_MATH_NAME
+ #define __CML_MATH_NAME(_f) _f ## l
+ #endif
+ */
 
 #include "math/consts.h"
 #include "math/real.h"
@@ -46,7 +40,7 @@ __CML_BEGIN_DECLS
 
 struct function_struct
 {
-        real_t (* function) (real_t x, void * params);
+        double (* function) (double x, void * params);
         void * params;
 };
 
@@ -59,9 +53,9 @@ typedef struct function_struct function_t;
 
 struct function_fdf_struct
 {
-        real_t (* f) (real_t x, void * params);
-        real_t (* df) (real_t x, void * params);
-        void (* fdf) (real_t x, void * params, real_t * f, real_t * df);
+        double (* f) (double x, void * params);
+        double (* df) (double x, void * params);
+        void (* fdf) (double x, void * params, double * f, double * df);
         void * params;
 };
 
@@ -76,7 +70,7 @@ typedef struct function_fdf_struct function_fdf_t;
 
 struct function_vec_struct
 {
-        int (* function) (real_t x, real_t y[], void * params);
+        int (* function) (double x, double y[], void * params);
         void * params;
 };
 

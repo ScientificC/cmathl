@@ -16,7 +16,7 @@ choice of finite difference and to estimate the error in the derivative.
 Functions
 =========
 
-.. function:: int deriv_central (const function_t *f, real_t x, real_t h, real_t *result, real_t *abserr)
+.. function:: int deriv_central (const function_t *f, double x, double h, double *result, double *abserr)
 
    This function computes the numerical derivative of the function :data:`f`
    at the point :data:`x` using an adaptive central difference algorithm with
@@ -33,7 +33,7 @@ Functions
    does not contribute to the derivative calculation, so only 4-points are
    actually used.
 
-.. function:: int deriv_forward (const function_t *f, real_t x, real_t h, real_t *result, real_t *abserr)
+.. function:: int deriv_forward (const function_t *f, double x, double h, double *result, double *abserr)
 
    This function computes the numerical derivative of the function :data:`f`
    at the point :data:`x` using an adaptive forward difference algorithm with
@@ -51,7 +51,7 @@ Functions
    from the difference between the 4-point rule and the corresponding
    2-point rule :math:`x+h/2`, :math:`x+h`.
 
-.. function:: int deriv_backward (const function_t *f, real_t x, real_t h, real_t *result, real_t *abserr)
+.. function:: int deriv_backward (const function_t *f, double x, double h, double *result, double *abserr)
 
    This function computes the numerical derivative of the function :data:`f`
    at the point :data:`x` using an adaptive backward difference algorithm

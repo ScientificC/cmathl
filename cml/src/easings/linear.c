@@ -3,8 +3,8 @@
 
 
 /* Easing functions - Linear Interpolation */
-__CML_EXTERN_INLINE real_t
-linear_interpolation(real_t p)
+__CML_EXTERN_INLINE double
+linear_interpolation(double p)
 {
         return p;
 }

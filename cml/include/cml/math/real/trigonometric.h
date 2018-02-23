@@ -3,16 +3,16 @@
 
 __CML_BEGIN_DECLS
 
-real_t real_acos(real_t);
-real_t real_asin(real_t);
-real_t real_atan(real_t);
-real_t real_atan2(real_t, real_t);
-real_t real_cos(real_t);
-real_t real_cot(real_t);
-real_t real_csc(real_t);
-real_t real_sec(real_t);
-real_t real_sin(real_t);
-real_t real_tan(real_t);
+double real_acos(double);
+double real_asin(double);
+double real_atan(double);
+double real_atan2(double, double);
+double real_cos(double);
+double real_cot(double);
+double real_csc(double);
+double real_sec(double);
+double real_sin(double);
+double doublean(double);
 
 __CML_END_DECLS
 

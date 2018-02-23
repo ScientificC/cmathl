@@ -4,12 +4,12 @@
 /*
  * Returns the nearest integer not less than the given value
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_ceil(real_t x)
+double
+real_ceil(double x)
 {
         mint_t w;
 
@@ -23,12 +23,12 @@ real_ceil(real_t x)
 /*
  * Return the largest integer value less than or equal to x.
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_floor(real_t x)
+double
+real_floor(double x)
 {
-        return (real_t) ((mint_t) x);
+        return (double) ((mint_t) x);
 }

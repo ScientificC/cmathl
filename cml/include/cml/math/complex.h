@@ -9,25 +9,25 @@ typedef struct _complex
 {
         union
         {
-                real_t p[2];
-                real_t parts[2];
+                double p[2];
+                double parts[2];
                 struct
                 {
-                        real_t re;
-                        real_t im;
+                        double re;
+                        double im;
                 };
                 struct
                 {
-                        real_t real;
-                        real_t imaginary;
+                        double real;
+                        double imaginary;
                 };
         };
 } complex_t;
 
 __CML_BEGIN_DECLS
 
-complex_t complex(real_t, real_t);
-complex_t complex_polar(real_t, real_t);
+complex_t complex(double, double);
+complex_t complex_polar(double, double);
 complex_t complex_zero();
 complex_t complex_nan();
 complex_t complex_inf();

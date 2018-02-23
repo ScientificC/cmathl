@@ -3,29 +3,29 @@
 #include <string.h>
 #include <cml.h>
 
-real_t
+double
 real_nan()
 {
-        return (real_t) NAN;
+        return (double) NAN;
 }
 
 
-real_t
+double
 real_inf()
 {
-        return (real_t) POSINF;
+        return (double) POSINF;
 }
 
 
-real_t
+double
 real_ninf()
 {
-        return (real_t) NEGINF;
+        return (double) NEGINF;
 }
 
 
 char *
-real_as_string(real_t x)
+real_as_string(double x)
 {
         long double value = (long double) x;
 

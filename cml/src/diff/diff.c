@@ -8,7 +8,7 @@
 
 __CML_EXTERN_INLINE int
 diff_backward(const function_t *f,
-              real_t x, real_t *result, real_t *abserr)
+              double x, double *result, double *abserr)
 {
         /* Construct a divided difference table with a fairly large step
            size to get a very rough estimate of f''.  Use this to estimate
@@ -61,7 +61,7 @@ diff_backward(const function_t *f,
 
 __CML_EXTERN_INLINE int
 diff_forward(const function_t *f,
-             real_t x, real_t *result, real_t *abserr)
+             double x, double *result, double *abserr)
 {
         /* Construct a divided difference table with a fairly large step
            size to get a very rough estimate of f''.  Use this to estimate
@@ -114,7 +114,7 @@ diff_forward(const function_t *f,
 
 __CML_EXTERN_INLINE int
 diff_central(const function_t *f,
-             real_t x, real_t *result, real_t *abserr)
+             double x, double *result, double *abserr)
 {
         /* Construct a divided difference table with a fairly large step
            size to get a very rough estimate of f'''.  Use this to estimate

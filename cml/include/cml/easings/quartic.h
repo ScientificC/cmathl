@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-real_t ease_quartic_in(real_t p);
-real_t ease_quartic_out(real_t p);
-real_t ease_quartic_in_out(real_t p);
+double ease_quartic_in(double p);
+double ease_quartic_out(double p);
+double ease_quartic_in_out(double p);
 
 __CML_END_DECLS
 

@@ -4,15 +4,15 @@
 /*
  * Computes absolute value of a floating point value
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_abs(real_t x)
+double
+real_abs(double x)
 {
         /* Declaration of variables and structures */
-        real_t sgn, y;
+        double sgn, y;
 
         /* Mathematical algorithm */
         sgn = real_sgn(x);
@@ -26,12 +26,12 @@ real_abs(real_t x)
 /*
  * Computes real add
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_add(real_t x, real_t y)
+double
+real_add(double x, double y)
 {
         return x + y;
 }
@@ -41,15 +41,15 @@ real_add(real_t x, real_t y)
  * An angle x is reduced to the interval [0, 2pi] by subtracting a number k of
  * 2pi radians, where k is the integer division between x and 2pi
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_ared_a(real_t x, real_t a)
+double
+real_ared_a(double x, double a)
 {
         /* Declaration of variables and structures */
-        real_t z, k, w;
+        double z, k, w;
 
         /* Mathematical algorithm */
         z = real_div_e(x, a);
@@ -60,11 +60,11 @@ real_ared_a(real_t x, real_t a)
         return w;
 }
 
-real_t
-real_ared(real_t x)
+double
+real_ared(double x)
 {
         /* Declaration of variables and structures */
-        real_t z, k, w;
+        double z, k, w;
 
         /* Mathematical algorithm */
         z = real_div_e(x, M_TAU);
@@ -79,16 +79,16 @@ real_ared(real_t x)
 /*
  * Computes the quotient and remainder of integer division
  *
- * @param real_t x
- * @param real_t y
- * @return real_t
+ * @param double x
+ * @param double y
+ * @return double
  */
 
-real_t
-real_div_e(real_t x, real_t y)
+double
+real_div_e(double x, double y)
 {
         /* Declaration of variables and structures */
-        real_t z, w;
+        double z, w;
 
         /* Mathematical algorithm */
         z = real_div(x, y);
@@ -102,30 +102,30 @@ real_div_e(real_t x, real_t y)
 /*
  * Computes real division
  *
- * @param real_t x
- * @param real_t y
- * @return real_t
+ * @param double x
+ * @param double y
+ * @return double
  */
 
-real_t
-real_div(real_t x, real_t y)
+double
+real_div(double x, double y)
 {
         return x / y;
 }
 
 
-real_t
-real_hypot(real_t x, real_t y)
+double
+real_hypot(double x, double y)
 {
         return real_sqrt(x*x + y*y);
 }
 
 
-real_t
-real_inverse(real_t x)
+double
+real_inverse(double x)
 {
         /* Declaration of variables and structures */
-        real_t h;
+        double h;
 
         /* Mathematical algorithm */
         h = real_isnull(x) ?
@@ -140,16 +140,16 @@ real_inverse(real_t x)
 /*
  * remainder of the floating point division operation
  *
- * @param real_t x
- * @param real_t y
- * @return real_t
+ * @param double x
+ * @param double y
+ * @return double
  */
 
-real_t
-real_mod(real_t x, real_t y)
+double
+real_mod(double x, double y)
 {
         /* Declaration of variables and structures */
-        real_t z, w, k;
+        double z, w, k;
 
         /* Mathematical algorithm */
         z = real_div_e(x, y);
@@ -161,45 +161,45 @@ real_mod(real_t x, real_t y)
 }
 
 
-real_t
-real_opposite(real_t x)
+double
+real_opposite(double x)
 {
-        return (real_t) -x;
+        return (double) -x;
 }
 
 
 /*
  * Computes real product
  *
- * @param real_t x
- * @param real_t y
- * @return real_t
+ * @param double x
+ * @param double y
+ * @return double
  */
 
-real_t
-real_mul(real_t x, real_t y)
+double
+real_mul(double x, double y)
 {
         return x * y;
 }
 
 
-real_t
-real_sgn(real_t x)
+double
+real_sgn(double x)
 {
-        return (real_t) (x >= 0.0 ? 1.0 : -1.0);
+        return (double) (x >= 0.0 ? 1.0 : -1.0);
 }
 
 
 /*
  * Computes real substraction
  *
- * @param real_t x
- * @param real_t y
- * @return real_t
+ * @param double x
+ * @param double y
+ * @return double
  */
 
-real_t
-real_sub(real_t x, real_t y)
+double
+real_sub(double x, double y)
 {
         return x - y;
 }

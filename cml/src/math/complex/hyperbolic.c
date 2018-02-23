@@ -16,7 +16,7 @@ complex_cosh(complex_t z)
 {
         /* Declaration of variables and structures */
         complex_t w;
-        real_t k, h, a, b, n, m;
+        double k, h, a, b, n, m;
 
         /* Mathematical algorithm */
         k = real_cos(z.p[1]);
@@ -49,7 +49,7 @@ complex_sinh(complex_t z)
 {
         /* Declaration of variables and structures */
         complex_t w;
-        real_t k, h, a, b, n, m;
+        double k, h, a, b, n, m;
 
         /* Mathematical algorithm */
         k = real_cos(z.im);
@@ -72,7 +72,7 @@ complex_tanh(complex_t z)
 {
         /* Domain check */
         complex_t c = complex_cosh(z);
-        real_t a = complex_abs(c);
+        double a = complex_abs(c);
         if (!real_isnull(a)) {
                 return complex_nan();
         }
@@ -133,7 +133,7 @@ complex_acosh(complex_t a)
 
 
 complex_t
-complex_acosh_real(real_t a)
+complex_acosh_real(double a)
 {                               /* z = acosh(a) */
         complex_t z;
 
@@ -175,7 +175,7 @@ complex_atanh(complex_t a)
 
 
 complex_t
-complex_atanh_real(real_t a)
+complex_atanh_real(double a)
 {                               /* z = atanh(a) */
         complex_t z;
 

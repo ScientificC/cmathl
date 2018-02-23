@@ -3,15 +3,15 @@
 
 __CML_BEGIN_DECLS
 
-real_t real_acosh(real_t);
-real_t real_asinh(real_t);
-real_t real_atanh(real_t);
-real_t real_cosh(real_t);
-real_t real_coth(real_t);
-real_t real_csch(real_t);
-real_t real_sech(real_t);
-real_t real_sinh(real_t);
-real_t real_tanh(real_t);
+double real_acosh(double);
+double real_asinh(double);
+double real_atanh(double);
+double real_cosh(double);
+double real_coth(double);
+double real_csch(double);
+double real_sech(double);
+double real_sinh(double);
+double doubleanh(double);
 
 __CML_END_DECLS
 

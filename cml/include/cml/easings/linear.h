@@ -7,7 +7,7 @@
 
 __CML_BEGIN_DECLS
 
-real_t linear_interpolation(real_t p);
+double linear_interpolation(double p);
 
 __CML_END_DECLS
 

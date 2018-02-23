@@ -3,18 +3,18 @@
 
 __CML_BEGIN_DECLS
 
-real_t real_abs(real_t);
-real_t real_add(real_t, real_t);
-real_t real_ared(real_t);
-real_t real_div_e(real_t, real_t);
-real_t real_div(real_t, real_t);
-real_t real_inverse(real_t);
-real_t real_hypot(real_t x, real_t y);
-real_t real_mod(real_t, real_t);
-real_t real_opposite(real_t);
-real_t real_mul(real_t, real_t);
-real_t real_sgn(real_t);
-real_t real_sub(real_t, real_t);
+double real_abs(double);
+double real_add(double, double);
+double real_ared(double);
+double real_div_e(double, double);
+double real_div(double, double);
+double real_inverse(double);
+double real_hypot(double x, double y);
+double real_mod(double, double);
+double real_opposite(double);
+double real_mul(double, double);
+double real_sgn(double);
+double real_sub(double, double);
 
 __CML_END_DECLS
 

@@ -35,19 +35,19 @@ __exp(long double x)
 /*
  * Returns e raised to the given power
  *
- * @param real_t x: Exponent of the function
- * @return real_t
+ * @param double x: Exponent of the function
+ * @return double
  */
 
-real_t
-real_exp(real_t x)
+double
+real_exp(double x)
 {
-        return (real_t) __exp(x);
+        return (double) __exp(x);
 }
 
 
-real_t
-real_expm1(real_t x)
+double
+real_expm1(double x)
 {
         /* FIXME: this should be improved */
 
@@ -67,7 +67,7 @@ real_expm1(real_t x)
                 }
                 while (real_abs(term) > real_abs(sum) * CML_DBL_EPSILON);
 
-                return (real_t) sum;
+                return (double) sum;
         }
         else
         {
@@ -76,8 +76,8 @@ real_expm1(real_t x)
 }
 
 
-real_t
-real_ldexp(real_t x, int e)
+double
+real_ldexp(double x, int e)
 {
         int ex;
 
@@ -106,8 +106,8 @@ real_ldexp(real_t x, int e)
         }
 }
 
-real_t
-real_frexp(real_t x, int *e)
+double
+real_frexp(double x, int *e)
 {
         if (real_isnull(x))
         {
@@ -169,16 +169,16 @@ real_frexp(real_t x, int *e)
  * respect to an arbitrary base k using the following formula,
  * --| log_b(x) = log_k(x) / log_k(b)
  *
- * @param real_t x
- * @param real_t b
- * @return real_t
+ * @param double x
+ * @param double b
+ * @return double
  */
 
-real_t
-real_log_b(real_t x, real_t b)
+double
+real_log_b(double x, double b)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w;
+        double y, z, w;
 
         /* Mathematical algorithm */
         y = real_log(x);
@@ -195,12 +195,12 @@ real_log_b(real_t x, real_t b)
  * Computes real natural logarithm function by using hyperbolic definition
  * --| log(x) = arctanh((x^2 - 1)/(x^2 + 1))
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_log(real_t x)
+double
+real_log(double x)
 {
         /* Domain check */
         if (x <= 0) {
@@ -208,7 +208,7 @@ real_log(real_t x)
         }
 
         /* Declaration of variables and structures */
-        real_t y, z, w, k, h;
+        double y, z, w, k, h;
 
         /* Mathematical algorithm */
         y = real_mul(x, x);
@@ -223,10 +223,10 @@ real_log(real_t x)
 }
 
 
-real_t
-real_log1p(real_t x)
+double
+real_log1p(double x)
 {
-        volatile real_t y, z;
+        volatile double y, z;
 
         y = 1 + x;
         z = y - 1;

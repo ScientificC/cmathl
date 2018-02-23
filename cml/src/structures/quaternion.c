@@ -25,7 +25,7 @@ quaternion_identity()
  * @brief initializes the quaternion with the passed in w, x, y, z
  */
 quaternion_t
-quaternion(real_t w, real_t x, real_t y, real_t z)
+quaternion(double w, double x, double y, double z)
 {
         return (quaternion_t) {w, x, y, z};
 }
@@ -59,10 +59,10 @@ quaternion_clone(quaternion_t q)
  *
  */
 quaternion_t
-quaternion_from_axis_anglef3(real_t angle, real_t x, real_t y, real_t z)
+quaternion_from_axis_anglef3(double angle, double x, double y, double z)
 {
-        real_t s = real_sin(angle / 2.0f);
-        real_t c = real_cos(angle / 2.0f);
+        double s = real_sin(angle / 2.0f);
+        double c = real_cos(angle / 2.0f);
 
         quaternion_t q;
 
@@ -77,9 +77,9 @@ quaternion_from_axis_anglef3(real_t angle, real_t x, real_t y, real_t z)
 
 
 quaternion_t
-quaternion_from_spherical_coords(real_t vartheta, real_t varphi)
+quaternion_from_spherical_coords(double vartheta, double varphi)
 {
-        real_t ct = real_cos(vartheta/2.),
+        double ct = real_cos(vartheta/2.),
                cp = real_cos(varphi/2.),
                st = real_sin(vartheta/2.),
                sp = real_sin(varphi/2.);
@@ -88,9 +88,9 @@ quaternion_from_spherical_coords(real_t vartheta, real_t varphi)
 }
 
 quaternion_t
-quaternion_from_euler_angles(real_t alpha, real_t beta, real_t gamma)
+quaternion_from_euler_angles(double alpha, double beta, double gamma)
 {
-        real_t ca = real_cos(alpha/2.),
+        double ca = real_cos(alpha/2.),
                cb = real_cos(beta/2.),
                cc = real_cos(gamma/2.),
                sa = real_sin(alpha/2.),

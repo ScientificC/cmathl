@@ -3,25 +3,25 @@
 
 
 /* Easing functions - Quintic */
-__CML_EXTERN_INLINE real_t
-ease_quintic_in(real_t p)
+__CML_EXTERN_INLINE double
+ease_quintic_in(double p)
 {
         return p * p * p * p * p;
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_quintic_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_quintic_out(double p)
 {
-        real_t f = p - 1.0;
+        double f = p - 1.0;
         return f * f * f * f * f + 1.0;
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_quintic_in_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_quintic_in_out(double p)
 {
-        real_t f = 0.0;
+        double f = 0.0;
 
         if (p < 0.5)
         {

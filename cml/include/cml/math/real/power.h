@@ -3,11 +3,11 @@
 
 __CML_BEGIN_DECLS
 
-real_t real_pow_int(real_t, int);
-real_t real_pow_uint(real_t, unsigned int);
-real_t real_pow(real_t, real_t);
-real_t real_root(real_t, real_t);
-real_t real_sqrt(real_t);
+double real_pow_int(double, int);
+double real_pow_uint(double, unsigned int);
+double real_pow(double, double);
+double real_root(double, double);
+double real_sqrt(double);
 
 __CML_END_DECLS
 

@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <cml.h>
 
-real_t
-real_pow_int(real_t x, int n)
+double
+real_pow_int(double x, int n)
 {
         unsigned int un;
 
@@ -20,8 +20,8 @@ real_pow_int(real_t x, int n)
 }
 
 
-real_t
-real_pow_uint(real_t x, unsigned int n)
+double
+real_pow_uint(double x, unsigned int n)
 {
         long double value = 1.0L;
         long double y = (long double) x;
@@ -35,7 +35,7 @@ real_pow_uint(real_t x, unsigned int n)
                 y *= y;
         } while (n);
 
-        return (real_t) value;
+        return (double) value;
 }
 
 
@@ -43,13 +43,13 @@ real_pow_uint(real_t x, unsigned int n)
  * Computes real power function developed by using the exponentiation process
  * --| pow(x, n) = sgn(x)e^(nlog(|x|))
  *
- * @param real_t x
- * @param real_t n
- * @return real_t pow(x, n)
+ * @param double x
+ * @param double n
+ * @return double pow(x, n)
  */
 
-real_t
-real_pow(real_t x, real_t n)
+double
+real_pow(double x, double n)
 {
         /* Domain check */
         if (real_isnull(x))
@@ -65,7 +65,7 @@ real_pow(real_t x, real_t n)
         }
 
         /* Declaration of variables and structures */
-        real_t s, y, z, w, k, h;
+        double s, y, z, w, k, h;
 
         /* Mathematical algorithm */
         s = real_sgn(x);
@@ -83,16 +83,16 @@ real_pow(real_t x, real_t n)
 /**
  * Computes real root function by using the exponentiation process
  *
- * @param real_t x
- * @param real_t n: exponent
- * @return real_t
+ * @param double x
+ * @param double n: exponent
+ * @return double
  */
 
-real_t
-real_root(real_t x, real_t n)
+double
+real_root(double x, double n)
 {
         /* Declaration of variables and structures */
-        real_t y, z;
+        double y, z;
 
         /* Mathematical algorithm */
         y = real_div(1.0, n);
@@ -106,12 +106,12 @@ real_root(real_t x, real_t n)
 /**
  * Computes real square root function developed by using the exponentiation process
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_sqrt(real_t x)
+double
+real_sqrt(double x)
 {
         return real_root(x, 2.0);
 }
