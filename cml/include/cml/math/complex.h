@@ -5,6 +5,25 @@
 #ifndef CML_COMPLEX_H
 #define CML_COMPLEX_H
 
+typedef struct _complex_long_double
+{
+        union
+        {
+                long double p[2];
+                long double parts[2];
+                struct
+                {
+                        long double re;
+                        long double im;
+                };
+                struct
+                {
+                        long double real;
+                        long double imaginary;
+                };
+        };
+} complex_long_double_t;
+
 typedef struct _complex
 {
         union
@@ -23,6 +42,25 @@ typedef struct _complex
                 };
         };
 } complex_t;
+
+typedef struct _complex_float
+{
+        union
+        {
+                float p[2];
+                float parts[2];
+                struct
+                {
+                        float re;
+                        float im;
+                };
+                struct
+                {
+                        float real;
+                        float imaginary;
+                };
+        };
+} complex_float_t;
 
 __CML_BEGIN_DECLS
 
