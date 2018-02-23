@@ -15,10 +15,8 @@ You can read the following [docs](http://cml.readthedocs.io/) to learn more abou
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
   - [Float Point Type](#float-point-type)
-  - [Long Double Type](#long-double-type)
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Library](#math-library)
-  - [Math Precision](#math-precision)
 
 - [**Build Options**](#build-options)
 
