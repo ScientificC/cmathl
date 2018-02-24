@@ -4,11 +4,11 @@
 #include <stdio.h>
 
 #define CML_H
-#include "default.h"
-#include "inline.h"
-#include "machine.h"
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
-#include "errno/message.h"
+#include <cml/errno/message.h>
 
 __CML_BEGIN_DECLS
 

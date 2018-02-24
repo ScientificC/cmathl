@@ -2,10 +2,10 @@
 #define CML_DIFF_H
 
 #define CML_H
-#include "default.h"
-#include "inline.h"
-#include "machine.h"
-#include "math.h"
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
+#include <cml/math.h>
 
 
 __CML_BEGIN_DECLS

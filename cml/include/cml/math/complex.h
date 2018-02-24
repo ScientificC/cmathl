@@ -75,11 +75,11 @@ char* complex_as_string(complex_t);
 
 __CML_END_DECLS
 
-#include "complex/basic.h"
-#include "complex/error.h"
-#include "complex/exponentiation.h"
-#include "complex/hyperbolic.h"
-#include "complex/trigonometric.h"
+#include <cml/math/complex/basic.h>
+#include <cml/math/complex/error.h>
+#include <cml/math/complex/exponentiation.h>
+#include <cml/math/complex/hyperbolic.h>
+#include <cml/math/complex/trigonometric.h>
 
 #ifndef CML_NO_ALIASES
         #define creal(X) (X).re

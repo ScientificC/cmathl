@@ -2,15 +2,15 @@
 #define CML_MATH_H
 
 #define CML_H
-#include "default.h"
-#include "inline.h"
-#include "machine.h"
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
-#include "minmax.h"
+#include <cml/minmax.h>
 
 /* Quick boolean definition */
 #ifdef CML_NO_STDBOOL
-        #include "math/bool.h"
+        #include <cml/math/bool.h>
 #else
         #include <stdbool.h>
 #endif
@@ -33,9 +33,9 @@
  #endif
  */
 
-#include "math/consts.h"
-#include "math/real.h"
-#include "math/complex.h"
+#include <cml/math/consts.h>
+#include <cml/math/real.h>
+#include <cml/math/complex.h>
 
 __CML_BEGIN_DECLS
 

@@ -2,12 +2,12 @@
 #define CML_STRUCTURES_H
 
 #define CML_H
-#include "default.h"
-#include "inline.h"
-#include "machine.h"
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
-#include "structures/quaternion.h"
-#include "structures/matrix3.h"
-#include "structures/matrix4.h"
+#include <cml/structures/quaternion.h>
+#include <cml/structures/matrix3.h>
+#include <cml/structures/matrix4.h>
 
 #endif

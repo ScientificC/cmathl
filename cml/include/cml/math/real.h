@@ -14,14 +14,14 @@ char* real_as_string(double);
 
 __CML_END_DECLS
 
-#include "real/basic.h"
-#include "real/classification.h"
-#include "real/error-gamma.h"
-#include "real/exponential.h"
-#include "real/nearest-integer.h"
-#include "real/power.h"
-#include "real/trigonometric.h"
-#include "real/hyperbolic.h"
+#include <cml/math/real/basic.h>
+#include <cml/math/real/classification.h>
+#include <cml/math/real/error-gamma.h>
+#include <cml/math/real/exponential.h>
+#include <cml/math/real/nearest-integer.h>
+#include <cml/math/real/power.h>
+#include <cml/math/real/trigonometric.h>
+#include <cml/math/real/hyperbolic.h>
 
 #if (defined __CML_NO_GENERIC && !defined CML_NO_ALIASES)
         #define nan() real_nan()

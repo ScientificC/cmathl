@@ -34,9 +34,9 @@ quaternion_t quaternion_from_euler_angles(double, double, double);
 
 __CML_END_DECLS
 
-#include "quaternion/basic.h"
-#include "quaternion/classification.h"
-#include "quaternion/exponentiation.h"
-#include "quaternion/parity.h"
+#include <cml/structures/quaternion/basic.h>
+#include <cml/structures/quaternion/classification.h>
+#include <cml/structures/quaternion/exponentiation.h>
+#include <cml/structures/quaternion/parity.h>
 
 #endif

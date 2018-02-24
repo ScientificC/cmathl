@@ -2,9 +2,9 @@
 #define CML_MINMAX_H
 
 #define CML_H
-#include "default.h"
-#include "inline.h"
-#include "machine.h"
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
 __CML_BEGIN_DECLS
 

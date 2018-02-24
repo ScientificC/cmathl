@@ -2,11 +2,11 @@
 #define CML_MATH_GEN_FUNC_H
 
 #define CML_H
-#include "default.h"
-#include "inline.h"
-#include "machine.h"
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
-#include "math.h"
+#include <cml/math.h>
 
 #ifndef __CML_MATH_FUNC
         #define __CML_MATH_FUNC(_type, _func) _type ## _ ## _func
