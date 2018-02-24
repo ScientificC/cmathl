@@ -5,7 +5,7 @@
 #ifndef CML_STRUCTURES_TYPES_MATRIX4_H
 #define CML_STRUCTURES_TYPES_MATRIX4_H
 
-typedef struct _matrix4
+typedef struct
 {
         union
         {

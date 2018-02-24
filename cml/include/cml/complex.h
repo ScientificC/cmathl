@@ -6,7 +6,7 @@
 #include <cml/inline.h>
 #include <cml/machine.h>
 
-typedef struct _cml_complex_long_double
+typedef struct
 {
         union
         {
@@ -25,7 +25,7 @@ typedef struct _cml_complex_long_double
         };
 } cml_complex_long_double_t;
 
-typedef struct _complex
+typedef struct
 {
         union
         {
@@ -44,7 +44,7 @@ typedef struct _complex
         };
 } cml_complex_t;
 
-typedef struct _cml_complex_float
+typedef struct
 {
         union
         {

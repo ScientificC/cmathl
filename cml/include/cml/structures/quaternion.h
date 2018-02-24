@@ -5,7 +5,7 @@
 #ifndef CML_STRUCTURES_TYPES_QUATERNION_H
 #define CML_STRUCTURES_TYPES_QUATERNION_H
 
-typedef struct _quaternion
+typedef struct
 {
         union
         {

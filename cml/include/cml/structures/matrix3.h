@@ -5,7 +5,7 @@
 #ifndef CML_MATH_TYPES_MATRIX3_H
 #define CML_MATH_TYPES_MATRIX3_H
 
-typedef struct _matrix3
+typedef struct
 {
         union
         {
