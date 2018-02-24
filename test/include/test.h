@@ -73,8 +73,8 @@ extern int cml_count_failures;
 
 #define EXPECT_FLOAT_EQ(_actual, _expected) do { \
                 CASE_START(); \
-                real_t actual = (_actual); \
-                real_t diff = actual - (_expected); \
+                double actual = (_actual); \
+                double diff = actual - (_expected); \
                 if (diff < -CML_FLT_EPSILON || CML_FLT_EPSILON < diff) { \
                         CASE_FAIL(); \
                         printf("Expected %LG, got %LG", (long double)(_expected), (long double)actual); \
@@ -83,8 +83,8 @@ extern int cml_count_failures;
 
 #define EXPECT_NEAR(_actual, _expected, _epsilon) do { \
                 CASE_START(); \
-                real_t actual = (_actual); \
-                real_t diff = actual - (_expected); \
+                double actual = (_actual); \
+                double diff = actual - (_expected); \
                 if (diff < -(_epsilon) || (_epsilon) < diff) { \
                         CASE_FAIL(); \
                         printf("Expected %LG, got %LG", (long double)(_expected), (long double)actual); \

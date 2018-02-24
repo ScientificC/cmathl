@@ -1,12 +1,13 @@
-#ifndef CML_H
-#error "Never use <cml/ieee.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_IEEE754_H
 #define CML_IEEE754_H
 
-#include "ieee/endian.h"
-#include "ieee/standardize.h"
-#include "ieee/utils.h"
+#define CML_H
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
+
+#include <cml/ieee/endian.h>
+#include <cml/ieee/standardize.h>
+#include <cml/ieee/utils.h>
 
 #endif

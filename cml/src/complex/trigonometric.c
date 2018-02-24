@@ -1,5 +1,7 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/complex.h>
+
 
 /*
  * cos(Z) = (cos(a) * ((e^b - e^-b) / 2) + (sin(a) * (e^b + e^-b) / 2))i
@@ -14,7 +16,7 @@
 complex_t
 complex_cos(complex_t z)
 {
-        real_t k = real_cos(z.p[0]);
+        double k = real_cos(z.p[0]);
 
         if (real_isnull(z.im))
         {
@@ -22,7 +24,7 @@ complex_cos(complex_t z)
         }
 
         complex_t w;
-        real_t h, a, b, n, m;
+        double h, a, b, n, m;
 
         h = real_sin(z.p[0]);
         a = real_sinh(z.p[1]);
@@ -40,7 +42,7 @@ complex_t
 complex_cot(complex_t z)
 {
         complex_t s = complex_sin(z);
-        real_t a = complex_abs(s);
+        double a = complex_abs(s);
         if (!real_isnull(a))
         {
                 return complex_nan();
@@ -59,7 +61,7 @@ complex_t
 complex_csc(complex_t z)
 {
         complex_t s = complex_sin(z);
-        real_t a = complex_abs(s);
+        double a = complex_abs(s);
         if (!real_isnull(a))
         {
                 return complex_nan();
@@ -77,7 +79,7 @@ complex_t
 complex_sec(complex_t z)
 {
         complex_t c = complex_cos(z);
-        real_t a = complex_abs(c);
+        double a = complex_abs(c);
         if (!real_isnull(a))
         {
                 return complex_nan();
@@ -104,7 +106,7 @@ complex_sec(complex_t z)
 complex_t
 complex_sin(complex_t z)
 {
-        real_t k = real_sin(z.re);
+        double k = real_sin(z.re);
 
         if (real_isnull(z.im))
         {
@@ -112,7 +114,7 @@ complex_sin(complex_t z)
         }
 
         complex_t w;
-        real_t h, a, b, n, m;
+        double h, a, b, n, m;
 
         h = real_cos(z.re);
         a = real_cosh(z.im);
@@ -132,8 +134,8 @@ complex_tan(complex_t a)
 {                               /* z = tan(a) */
         complex_t z;
 
-        real_t R = a.re, I = a.im;
-        real_t D = real_pow(real_cos(R), 2.0) + real_pow(real_sinh(I), 2.0);
+        double R = a.re, I = a.im;
+        double D = real_pow(real_cos(R), 2.0) + real_pow(real_sinh(I), 2.0);
 
         if (real_abs(I) < 1)
         {
@@ -141,9 +143,9 @@ complex_tan(complex_t a)
         }
         else
         {
-                real_t F = 1 + real_pow(real_cos(R)/real_sinh(I), 2.0);
+                double F = 1 + real_pow(real_cos(R)/real_sinh(I), 2.0);
 
-                z = complex(0.5 * real_sin(2 * R) / D, 1 / (real_tanh(I) * F));
+                z = complex(0.5 * real_sin(2 * R) / D, 1 / (doubleanh(I) * F));
         }
 
         return z;
@@ -153,7 +155,7 @@ complex_tan(complex_t a)
 complex_t
 complex_asin(complex_t a)
 {                               /* z = asin(a) */
-        real_t R = a.re, I = a.im;
+        double R = a.re, I = a.im;
         complex_t z;
 
         if (real_isnull(I))
@@ -162,15 +164,15 @@ complex_asin(complex_t a)
         }
         else
         {
-                real_t x = real_abs(R), y = real_abs(I);
-                real_t r = real_hypot(x + 1, y), s = real_hypot(x - 1, y);
-                real_t A = 0.5 * (r + s);
-                real_t B = x / A;
-                real_t y2 = y * y;
+                double x = real_abs(R), y = real_abs(I);
+                double r = real_hypot(x + 1, y), s = real_hypot(x - 1, y);
+                double A = 0.5 * (r + s);
+                double B = x / A;
+                double y2 = y * y;
 
-                real_t real, imag;
+                double real, imag;
 
-                const real_t A_crossover = 1.5, B_crossover = 0.6417;
+                const double A_crossover = 1.5, B_crossover = 0.6417;
 
                 if (B <= B_crossover)
                 {
@@ -180,20 +182,20 @@ complex_asin(complex_t a)
                 {
                         if (x <= 1)
                         {
-                                real_t D = 0.5 * (A + x) * (y2 / (r + x + 1) + (s + (1 - x)));
+                                double D = 0.5 * (A + x) * (y2 / (r + x + 1) + (s + (1 - x)));
                                 real = real_atan(x / real_sqrt(D));
                         }
                         else
                         {
-                                real_t Apx = A + x;
-                                real_t D = 0.5 * (Apx / (r + x + 1) + Apx / (s + (x - 1)));
+                                double Apx = A + x;
+                                double D = 0.5 * (Apx / (r + x + 1) + Apx / (s + (x - 1)));
                                 real = real_atan(x / (y * real_sqrt(D)));
                         }
                 }
 
                 if (A <= A_crossover)
                 {
-                        real_t Am1;
+                        double Am1;
 
                         if (x < 1)
                         {
@@ -218,7 +220,7 @@ complex_asin(complex_t a)
 }
 
 complex_t
-complex_asin_real(real_t a)
+complex_asin_real(double a)
 {                               /* z = asin(a) */
         complex_t z;
 
@@ -244,7 +246,7 @@ complex_asin_real(real_t a)
 complex_t
 complex_acos(complex_t a)
 {                               /* z = acos(a) */
-        real_t R = a.re, I = a.im;
+        double R = a.re, I = a.im;
         complex_t z;
 
         if (I == 0)
@@ -253,15 +255,15 @@ complex_acos(complex_t a)
         }
         else
         {
-                real_t x = real_abs(R), y = real_abs(I);
-                real_t r = real_hypot(x + 1, y), s = real_hypot(x - 1, y);
-                real_t A = 0.5 * (r + s);
-                real_t B = x / A;
-                real_t y2 = y * y;
+                double x = real_abs(R), y = real_abs(I);
+                double r = real_hypot(x + 1, y), s = real_hypot(x - 1, y);
+                double A = 0.5 * (r + s);
+                double B = x / A;
+                double y2 = y * y;
 
-                real_t real, imag;
+                double real, imag;
 
-                const real_t A_crossover = 1.5, B_crossover = 0.6417;
+                const double A_crossover = 1.5, B_crossover = 0.6417;
 
                 if (B <= B_crossover)
                 {
@@ -271,20 +273,20 @@ complex_acos(complex_t a)
                 {
                         if (x <= 1)
                         {
-                                real_t D = 0.5 * (A + x) * (y2 / (r + x + 1) + (s + (1 - x)));
+                                double D = 0.5 * (A + x) * (y2 / (r + x + 1) + (s + (1 - x)));
                                 real = real_atan(real_sqrt(D) / x);
                         }
                         else
                         {
-                                real_t Apx = A + x;
-                                real_t D = 0.5 * (Apx / (r + x + 1) + Apx / (s + (x - 1)));
+                                double Apx = A + x;
+                                double D = 0.5 * (Apx / (r + x + 1) + Apx / (s + (x - 1)));
                                 real = real_atan((y * real_sqrt(D)) / x);
                         }
                 }
 
                 if (A <= A_crossover)
                 {
-                        real_t Am1;
+                        double Am1;
 
                         if (x < 1)
                         {
@@ -309,7 +311,7 @@ complex_acos(complex_t a)
 }
 
 complex_t
-complex_acos_real(real_t a)
+complex_acos_real(double a)
 {                               /* z = acos(a) */
         complex_t z;
 
@@ -335,7 +337,7 @@ complex_acos_real(real_t a)
 complex_t
 complex_atan(complex_t a)
 {                               /* z = atan(a) */
-        real_t R = a.re, I = a.im;
+        double R = a.re, I = a.im;
         complex_t z;
 
         if (real_isnull(I))
@@ -348,11 +350,11 @@ complex_atan(complex_t a)
                    take into account cancellation errors, overflow, underflow
                    etc.  It would benefit from the Hull et al treatment. */
 
-                real_t r = real_hypot(R, I);
+                double r = real_hypot(R, I);
 
-                real_t imag;
+                double imag;
 
-                real_t u = 2 * I / (1 + r * r);
+                double u = 2 * I / (1 + r * r);
 
                 /* FIXME: the following cross-over should be optimized but 0.1
                    seems to work ok */
@@ -363,8 +365,8 @@ complex_atan(complex_t a)
                 }
                 else
                 {
-                        real_t A = real_hypot(R, I + 1);
-                        real_t B = real_hypot(R, I - 1);
+                        double A = real_hypot(R, I + 1);
+                        double B = real_hypot(R, I - 1);
                         imag = 0.5 * real_log(A / B);
                 }
 
@@ -399,7 +401,7 @@ complex_asec(complex_t a)
 }
 
 complex_t
-complex_asec_real(real_t a)
+complex_asec_real(double a)
 {                               /* z = asec(a) */
         complex_t z;
 
@@ -430,7 +432,7 @@ complex_acsc(complex_t a)
 }
 
 complex_t
-complex_acsc_real(real_t a)
+complex_acsc_real(double a)
 {                               /* z = acsc(a) */
         complex_t z;
 

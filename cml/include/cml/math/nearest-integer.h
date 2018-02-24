@@ -3,8 +3,8 @@
 
 __CML_BEGIN_DECLS
 
-real_t real_ceil(real_t);
-real_t real_floor(real_t);
+double real_ceil(double);
+double real_floor(double);
 
 __CML_END_DECLS
 

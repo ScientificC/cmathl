@@ -12,6 +12,9 @@ as much of the complex plane as possible.
 .. FIXME: this still needs to be
 .. done for the csc, sec, cot, csch, sech, coth functions
 
+The complex types, functions and arithmetic operations are defined in
+the header file :file:`cml/complex.h`.
+
 .. index::
    single: representations of complex numbers
    single: polar form of complex numbers
@@ -32,17 +35,17 @@ given by the following struct::
     {
             union
             {
-                    real_t p[2];
-                    real_t parts[2];
+                    double p[2];
+                    double parts[2];
                     struct
                     {
-                            real_t re;
-                            real_t im;
+                            double re;
+                            double im;
                     };
                     struct
                     {
-                            real_t real;
-                            real_t imaginary;
+                            double real;
+                            double imaginary;
                     };
             };
     } complex_t;
@@ -52,14 +55,14 @@ element array. This eliminates any padding between the real and
 imaginary parts, :code:`parts[0]` and :code:`parts[1]`, allowing the struct to
 be mapped correctly onto packed complex arrays.
 
-.. function:: complex_t complex (real_t x, real_t y)
+.. function:: complex_t complex (double x, double y)
 
    This function uses the rectangular Cartesian components
    :math:`(x,y)` to return the complex number :math:`z = x + y i`.
    An inline version of this function is used when :macro:`HAVE_INLINE`
    is defined.
 
-.. function:: complex_t complex_polar (real_t r, real_t theta)
+.. function:: complex_t complex_polar (double r, double theta)
 
    This function returns the complex number :math:`z = r \exp(i \theta) = r
    (\cos(\theta) + i \sin(\theta))` from the polar representation
@@ -77,23 +80,23 @@ Properties of complex numbers
 
 .. index:: argument of complex number
 
-.. function:: real_t complex_arg (complex_t z)
+.. function:: double complex_arg (complex_t z)
 
    This function returns the argument of the complex number :data:`z`,
    :math:`\arg(z)`, where :math:`-\pi < \arg(z) <= \pi`.
 
 .. index:: magnitude of complex number
 
-.. function:: real_t complex_abs (complex_t z)
+.. function:: double complex_abs (complex_t z)
 
    This function returns the magnitude of the complex number :data:`z`, :math:`|z|`.
 
-.. function:: real_t complex_abs2 (complex_t z)
+.. function:: double complex_abs2 (complex_t z)
 
    This function returns the squared magnitude of the complex number
    :data:`z`, :math:`|z|^2`.
 
-.. function:: real_t complex_logabs (complex_t z)
+.. function:: double complex_logabs (complex_t z)
 
    This function returns the natural logarithm of the magnitude of the
    complex number :data:`z`, :math:`\log|z|`.  It allows an accurate
@@ -126,42 +129,42 @@ Complex arithmetic operators
    This function returns the quotient of the complex numbers :data:`a` and
    :data:`b`, :math:`z=a/b`.
 
-.. function:: complex_t complex_add_real (complex_t a, real_t x)
+.. function:: complex_t complex_add_real (complex_t a, double x)
 
    This function returns the sum of the complex number :data:`a` and the
    real number :data:`x`, :math:`z=a+x`.
 
-.. function:: complex_t complex_sub_real (complex_t a, real_t x)
+.. function:: complex_t complex_sub_real (complex_t a, double x)
 
    This function returns the difference of the complex number :data:`a` and the
    real number :data:`x`, :math:`z=a-x`.
 
-.. function:: complex_t complex_mul_real (complex_t a, real_t x)
+.. function:: complex_t complex_mul_real (complex_t a, double x)
 
    This function returns the product of the complex number :data:`a` and the
    real number :data:`x`, :math:`z=ax`.
 
-.. function:: complex_t complex_div_real (complex_t a, real_t x)
+.. function:: complex_t complex_div_real (complex_t a, double x)
 
    This function returns the quotient of the complex number :data:`a` and the
    real number :data:`x`, :math:`z=a/x`.
 
-.. function:: complex_t complex_add_imag (complex_t a, real_t y)
+.. function:: complex_t complex_add_imag (complex_t a, double y)
 
    This function returns the sum of the complex number :data:`a` and the
    imaginary number :math:`iy`, :math:`z=a+iy`.
 
-.. function:: complex_t complex_sub_imag (complex_t a, real_t y)
+.. function:: complex_t complex_sub_imag (complex_t a, double y)
 
    This function returns the difference of the complex number :data:`a` and the
    imaginary number :math:`iy`, :math:`z=a-iy`.
 
-.. function:: complex_t complex_mul_imag (complex_t a, real_t y)
+.. function:: complex_t complex_mul_imag (complex_t a, double y)
 
    This function returns the product of the complex number :data:`a` and the
    imaginary number :math:`iy`, :math:`z=a*(iy)`.
 
-.. function:: complex_t complex_div_imag (complex_t a, real_t y)
+.. function:: complex_t complex_div_imag (complex_t a, double y)
 
    This function returns the quotient of the complex number :data:`a` and the
    imaginary number :math:`iy`, :math:`z=a/(iy)`.
@@ -195,7 +198,7 @@ Elementary Complex Functions
    :math:`\sqrt z`. The branch cut is the negative real axis. The result
    always lies in the right half of the complex plane.
 
-.. function:: complex_t complex_sqrt_real (real_t x)
+.. function:: complex_t complex_sqrt_real (double x)
 
    This function returns the complex square root of the real number
    :data:`x`, where :data:`x` may be negative.
@@ -210,7 +213,7 @@ Elementary Complex Functions
    power :data:`a`, :math:`z^a`. This is computed as :math:`\exp(\log(z)*a)`
    using complex logarithms and complex exponentials.
 
-.. function:: complex_t complex_pow_real (complex_t z, real_t x)
+.. function:: complex_t complex_pow_real (complex_t z, double x)
 
    This function returns the complex number :data:`z` raised to the real
    power :data:`x`, :math:`z^x`.
@@ -292,7 +295,7 @@ Inverse Complex Trigonometric Functions
    :math:`\arcsin(z)`. The branch cuts are on the real axis, less than :math:`-1`
    and greater than :math:`1`.
 
-.. function:: complex_t complex_asin_real (real_t z)
+.. function:: complex_t complex_asin_real (double z)
 
    This function returns the complex arcsine of the real number :data:`z`,
    :math:`\arcsin(z)`. For :math:`z` between :math:`-1` and :math:`1`, the
@@ -307,7 +310,7 @@ Inverse Complex Trigonometric Functions
    :math:`\arccos(z)`. The branch cuts are on the real axis, less than :math:`-1`
    and greater than :math:`1`.
 
-.. function:: complex_t complex_acos_real (real_t z)
+.. function:: complex_t complex_acos_real (double z)
 
    This function returns the complex arccosine of the real number :data:`z`,
    :math:`\arccos(z)`. For :math:`z` between :math:`-1` and :math:`1`, the
@@ -327,7 +330,7 @@ Inverse Complex Trigonometric Functions
    This function returns the complex arcsecant of the complex number :data:`z`,
    :math:`\arcsec(z) = \arccos(1/z)`.
 
-.. function:: complex_t complex_asec_real (real_t z)
+.. function:: complex_t complex_asec_real (double z)
 
    This function returns the complex arcsecant of the real number :data:`z`,
    :math:`\arcsec(z) = \arccos(1/z)`.
@@ -337,7 +340,7 @@ Inverse Complex Trigonometric Functions
    This function returns the complex arccosecant of the complex number :data:`z`,
    :math:`\arccsc(z) = \arcsin(1/z)`.
 
-.. function:: complex_t complex_acsc_real (real_t z)
+.. function:: complex_t complex_acsc_real (double z)
 
    This function returns the complex arccosecant of the real number :data:`z`,
    :math:`\arccsc(z) = \arcsin(1/z)`.
@@ -403,7 +406,7 @@ Inverse Complex Hyperbolic Functions
    square root in formula 4.6.21 of Abramowitz & Stegun giving
    :math:`\arccosh(z)=\log(z-\sqrt{z^2-1})`.
 
-.. function:: complex_t complex_acosh_real (real_t z)
+.. function:: complex_t complex_acosh_real (double z)
 
    This function returns the complex hyperbolic arccosine of
    the real number :data:`z`, :math:`\arccosh(z)`.
@@ -414,7 +417,7 @@ Inverse Complex Hyperbolic Functions
    number :data:`z`, :math:`\arctanh(z)`.  The branch cuts are on the real
    axis, less than :math:`-1` and greater than :math:`1`.
 
-.. function:: complex_t complex_atanh_real (real_t z)
+.. function:: complex_t complex_atanh_real (double z)
 
    This function returns the complex hyperbolic arctangent of the real
    number :data:`z`, :math:`\arctanh(z)`.

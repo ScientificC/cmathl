@@ -2,25 +2,26 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <cml.h>
+#include <cml/deriv.h>
+#include <cml/math.h>
 #include "include/test.h"
 
-real_t
-_f1 (real_t x, void *params)
+double
+_f1 (double x, void *params)
 {
         (void)params;
         return real_exp(x);
 }
 
-real_t
-d_f1 (real_t x, void *params)
+double
+d_f1 (double x, void *params)
 {
         (void)params;
         return real_exp(x);
 }
 
-real_t
-_f2 (real_t x, void *params)
+double
+_f2 (double x, void *params)
 {
         (void)params;
         if (x >= 0.0)
@@ -33,8 +34,8 @@ _f2 (real_t x, void *params)
         }
 }
 
-real_t
-d_f2 (real_t x, void *params)
+double
+d_f2 (double x, void *params)
 {
         (void)params;
         if (x >= 0.0)
@@ -47,8 +48,8 @@ d_f2 (real_t x, void *params)
         }
 }
 
-real_t
-_f3 (real_t x, void *params)
+double
+_f3 (double x, void *params)
 {
         (void)params;
         if (!real_equal(x, 0.0))
@@ -61,8 +62,8 @@ _f3 (real_t x, void *params)
         }
 }
 
-real_t
-d_f3 (real_t x, void *params)
+double
+d_f3 (double x, void *params)
 {
         (void)params;
         if (!real_equal(x, 0.0))
@@ -75,53 +76,53 @@ d_f3 (real_t x, void *params)
         }
 }
 
-real_t
-_f4 (real_t x, void *params)
+double
+_f4 (double x, void *params)
 {
         (void)params;
         return real_exp(-x * x);
 }
 
-real_t
-d_f4 (real_t x, void *params)
+double
+d_f4 (double x, void *params)
 {
         (void)params;
         return -2.0 * x * real_exp(-x * x);
 }
 
-real_t
-_f5 (real_t x, void *params)
+double
+_f5 (double x, void *params)
 {
         (void)params;
         return x * x;
 }
 
-real_t
-d_f5 (real_t x, void *params)
+double
+d_f5 (double x, void *params)
 {
         (void)params;
         return 2.0 * x;
 }
 
-real_t
-_f6 (real_t x, void *params)
+double
+_f6 (double x, void *params)
 {
         (void)params;
         return 1.0/x;
 }
 
-real_t
-d_f6 (real_t x, void *params)
+double
+d_f6 (double x, void *params)
 {
         (void)params;
         return -1.0/(x * x);
 }
 
-typedef int (deriv_fn)(const function_t *f, real_t x, real_t h, real_t *res, real_t *abserr);
+typedef int (deriv_fn)(const function_t *f, double x, double h, double *res, double *abserr);
 
 #define DERIV_TEST(deriv, f, df, x) do { \
-                real_t result, abserr; \
-                real_t expected = FN_EVAL(df, x); \
+                double result, abserr; \
+                double expected = FN_EVAL(df, x); \
                 (*deriv)(f, x, 1e-5, &result, &abserr); \
                 EXPECT_NEAR(result, expected, 1e-5); \
 } while (0);

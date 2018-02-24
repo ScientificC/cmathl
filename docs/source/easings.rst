@@ -4,6 +4,9 @@
 Easings Functions
 *****************
 
+The functions described in this chapter are declared in the header
+file :file:`cml/easings.h`.
+
 The easing functions are an implementation of the functions presented in
 http://easings.net/, useful particularly for animations.
 Easing is a method of distorting time to control apparent motion in animation.

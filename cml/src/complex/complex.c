@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/complex.h>
+
 
 complex_t
-complex(real_t real_part, real_t imaginary_part)
+complex(double real_part, double imaginary_part)
 {
         complex_t z;
 
@@ -16,7 +18,7 @@ complex(real_t real_part, real_t imaginary_part)
 
 
 complex_t
-complex_polar(real_t r, real_t theta)
+complex_polar(double r, double theta)
 {                               /* return z = r exp(i theta) */
         complex_t z;
         z = complex(r * real_cos(theta), r * real_sin(theta));
@@ -72,7 +74,7 @@ char *
 complex_as_string(complex_t z)
 {
         char *x, *y, op[5], im[5];
-        real_t im_value;
+        double im_value;
 
         im_value = z.im;
 

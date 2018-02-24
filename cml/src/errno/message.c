@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <cml.h>
+#include <cml/errno.h>
 
 unsigned int cml_message_mask = CML_MESSAGE_MASK;
 

@@ -1,27 +1,28 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/easings.h>
+#include <cml/math.h>
 
 
 /* Easing functions - Quartic */
-__CML_EXTERN_INLINE real_t
-ease_quartic_in(real_t p)
+__CML_EXTERN_INLINE double
+ease_quartic_in(double p)
 {
         return p * p * p * p;
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_quartic_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_quartic_out(double p)
 {
-        real_t f = (p - 1.0);
+        double f = (p - 1.0);
         return f * f * f * (1.0 - p) + 1.0;
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_quartic_in_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_quartic_in_out(double p)
 {
-        real_t f = 0.0;
+        double f = 0.0;
 
         if (p < 0.5)
         {

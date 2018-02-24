@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <cml.h>
+#include <cml/math.h>
 #include "include/test.h"
 
 int
-run_real_tests()
+run_doubleests()
 {
         CATEGORY_BEGIN(Macros)
         {
@@ -24,9 +24,9 @@ run_real_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        real_t x = 1.0;
+                        double x = 1.0;
                         EXPECT_FLOAT_EQ(x, 1.0);
-                        printf(" Size of real_t: %ld  ", sizeof(real_t));
+                        printf(" Size of double: %ld  ", sizeof(double));
                 }
                 TEST_END()
 
@@ -46,11 +46,11 @@ run_real_tests()
                         EXPECT_FLOAT_EQ(real_cos(3 * M_PI / 2), 0.0);
                         EXPECT_FLOAT_EQ(real_cos(-M_PI), -1.0);
 
-                        EXPECT_FLOAT_EQ(real_tan(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(real_tan(M_PI / 4), 1.0);
-                        EXPECT_FLOAT_EQ(real_tan(3 * M_PI / 4), -1.0);
-                        EXPECT_FLOAT_EQ(real_tan(M_PI), 0.0);
-                        EXPECT_FLOAT_EQ(real_tan(-M_PI / 4), -1.0);
+                        EXPECT_FLOAT_EQ(doublean(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(doublean(M_PI / 4), 1.0);
+                        EXPECT_FLOAT_EQ(doublean(3 * M_PI / 4), -1.0);
+                        EXPECT_FLOAT_EQ(doublean(M_PI), 0.0);
+                        EXPECT_FLOAT_EQ(doublean(-M_PI / 4), -1.0);
 
                         EXPECT_FLOAT_EQ(real_atan(0.0), 0.0);
                         EXPECT_FLOAT_EQ(real_atan(1.0), M_PI / 4);

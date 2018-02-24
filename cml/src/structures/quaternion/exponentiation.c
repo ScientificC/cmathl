@@ -1,8 +1,9 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/structures.h>
 
 quaternion_t
-quaternion_scalar_pow(real_t s, quaternion_t q)
+quaternion_scalar_pow(double s, quaternion_t q)
 {
         /* Unlike the quaternion^quaternion power, this is unambiguous.*/
         if (s)
@@ -66,7 +67,7 @@ quaternion_inplace_pow(quaternion_t *q1, quaternion_t q2)
 
 
 void
-quaternion_inplace_scalar_pow(real_t s, quaternion_t *q)
+quaternion_inplace_scalar_pow(double s, quaternion_t *q)
 {
         /* Not overly useful as an in-place operator, but here for completeness. */
         quaternion_t q2 = quaternion_scalar_pow(s, *q);
@@ -76,7 +77,7 @@ quaternion_inplace_scalar_pow(real_t s, quaternion_t *q)
 
 
 quaternion_t
-quaternion_pow_scalar(quaternion_t q, real_t s)
+quaternion_pow_scalar(quaternion_t q, double s)
 {
         /* Unlike the quaternion^quaternion power, this is unambiguous. */
         if(!quaternion_nonzero(q))
@@ -100,7 +101,7 @@ quaternion_pow_scalar(quaternion_t q, real_t s)
 
 
 void
-quaternion_inplace_pow_scalar(quaternion_t *q, real_t s)
+quaternion_inplace_pow_scalar(quaternion_t *q, double s)
 {
         /* Not overly useful as an in-place operator, but here for completeness. */
         quaternion_t q2 = quaternion_pow_scalar(*q, s);
@@ -113,11 +114,11 @@ quaternion_t
 quaternion_exp(quaternion_t q)
 {
         quaternion_t r;
-        real_t vnorm = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
+        double vnorm = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
         if (vnorm > __CML_QUATERNION_EPS)
         {
-                real_t s = real_sin(vnorm) / vnorm,
+                double s = real_sin(vnorm) / vnorm,
                        e = real_exp(q.w);
 
                 r = (quaternion_t)
@@ -136,7 +137,7 @@ quaternion_t
 quaternion_log(quaternion_t q)
 {
         quaternion_t r;
-        real_t b = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
+        double b = real_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
         if(real_abs(b) <= __CML_QUATERNION_EPS*real_abs(q.w))
         {
@@ -163,7 +164,7 @@ quaternion_log(quaternion_t q)
         }
         else
         {
-                real_t v = real_atan2(b, q.w),
+                double v = real_atan2(b, q.w),
                        f = v/b;
 
                 r = (quaternion_t) { real_log(q.w*q.w + b*b)/2.0, f*q.x, f*q.y, f*q.z };
@@ -176,7 +177,7 @@ quaternion_log(quaternion_t q)
 quaternion_t
 quaternion_sqrt(quaternion_t q)
 {
-        real_t absolute = quaternion_abs(q);
+        double absolute = quaternion_abs(q);
         quaternion_t r;
 
         if(real_abs(1 + q.w/absolute) < __CML_QUATERNION_EPS*absolute)
@@ -186,7 +187,7 @@ quaternion_sqrt(quaternion_t q)
         }
         else
         {
-                real_t c = real_sqrt(absolute/(2 + 2*q.w/absolute));
+                double c = real_sqrt(absolute/(2 + 2*q.w/absolute));
                 r = (quaternion_t)
                 {
                         (1.0 + q.w/absolute)*c,

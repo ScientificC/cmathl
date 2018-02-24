@@ -1,9 +1,9 @@
 #ifndef CML_H
-#error "Never use <cml/math/bool.h> directly; include <cml.h> instead."
+#error "Never use <cml/bool.h> directly; include <cml.h> instead."
 #endif
 
-#ifndef CML_MATH_TYPES_BOOL_H
-#define CML_MATH_TYPES_BOOL_H
+#ifndef CML_BOOL_H
+#define CML_BOOL_H
 
 #ifndef __cplusplus
 

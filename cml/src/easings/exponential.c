@@ -1,12 +1,13 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/easings.h>
+#include <cml/math.h>
 
 
 /* Easing functions - Exponential */
-__CML_EXTERN_INLINE real_t
-ease_exponential_in(real_t p)
+__CML_EXTERN_INLINE double
+ease_exponential_in(double p)
 {
-        real_t f = p;
+        double f = p;
 
         if (p != 0.0)
         {
@@ -17,10 +18,10 @@ ease_exponential_in(real_t p)
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_exponential_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_exponential_out(double p)
 {
-        real_t f = p;
+        double f = p;
 
         if (p != 1.0)
         {
@@ -31,10 +32,10 @@ ease_exponential_out(real_t p)
 }
 
 
-__CML_EXTERN_INLINE real_t
-ease_exponential_in_out(real_t p)
+__CML_EXTERN_INLINE double
+ease_exponential_in_out(double p)
 {
-        real_t f = p;
+        double f = p;
 
         if (p < 0.5)
         {

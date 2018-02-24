@@ -2,25 +2,26 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <cml.h>
+#include <cml/diff.h>
+#include <cml/math.h>
 #include "include/test.h"
 
-real_t
-f1 (real_t x, void *params)
+double
+f1 (double x, void *params)
 {
         (void)params;
         return real_exp(x);
 }
 
-real_t
-df1 (real_t x, void *params)
+double
+df1 (double x, void *params)
 {
         (void)params;
         return real_exp(x);
 }
 
-real_t
-f2 (real_t x, void *params)
+double
+f2 (double x, void *params)
 {
         (void)params;
         if (x >= 0.0)
@@ -33,8 +34,8 @@ f2 (real_t x, void *params)
         }
 }
 
-real_t
-df2 (real_t x, void *params)
+double
+df2 (double x, void *params)
 {
         (void)params;
         if (x >= 0.0)
@@ -47,8 +48,8 @@ df2 (real_t x, void *params)
         }
 }
 
-real_t
-f3 (real_t x, void *params)
+double
+f3 (double x, void *params)
 {
         (void)params;
         if (!real_equal(x, 0.0))
@@ -61,8 +62,8 @@ f3 (real_t x, void *params)
         }
 }
 
-real_t
-df3 (real_t x, void *params)
+double
+df3 (double x, void *params)
 {
         (void)params;
         if (!real_equal(x, 0.0))
@@ -75,60 +76,60 @@ df3 (real_t x, void *params)
         }
 }
 
-real_t
-f4 (real_t x, void *params)
+double
+f4 (double x, void *params)
 {
         (void)params;
         return real_exp(-x * x);
 }
 
-real_t
-df4 (real_t x, void *params)
+double
+df4 (double x, void *params)
 {
         (void)params;
         return -2.0 * x * real_exp(-x * x);
 }
 
-real_t
-f5 (real_t x, void *params)
+double
+f5 (double x, void *params)
 {
         (void)params;
         return x * x;
 }
 
-real_t
-df5 (real_t x, void *params)
+double
+df5 (double x, void *params)
 {
         (void)params;
         return 2.0 * x;
 }
 
-real_t
-f6 (real_t x, void *params)
+double
+f6 (double x, void *params)
 {
         (void)params;
         return 1.0/x;
 }
 
-real_t
-df6 (real_t x, void *params)
+double
+df6 (double x, void *params)
 {
         (void)params;
         return -1.0/(x * x);
 }
 
-typedef int (diff_fn)(const function_t *f, real_t x, real_t *res, real_t *abserr);
+typedef int (diff_fn)(const function_t *f, double x, double *res, double *abserr);
 
 #define DIFF_TEST(diff, f, df, x) do { \
-                real_t result, abserr; \
-                real_t expected = FN_EVAL(df, x); \
+                double result, abserr; \
+                double expected = FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
                 EXPECT_NEAR(result, expected, 1e-6); \
 } while (0);
 
 #define DIFF_NEAR_TEST(diff, f, df, x, err) do { \
-                real_t result, abserr; \
-                real_t expected = FN_EVAL(df, x); \
+                double result, abserr; \
+                double expected = FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
                 EXPECT_NEAR(result, expected, err); \
 } while (0);

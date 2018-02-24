@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <cml.h>
 
-real_t
-f(real_t x, void *params)
+double
+f(double x, void *params)
 {
         (void)(params); /* avoid unused parameter warning */
         return pow(x, 1.5);
@@ -12,7 +12,7 @@ int
 main(void)
 {
         function_t F;
-        real_t result, abserr;
+        double result, abserr;
 
         F.function = &f;
         F.params = 0;

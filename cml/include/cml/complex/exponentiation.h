@@ -7,9 +7,9 @@ complex_t complex_exp(complex_t);
 complex_t complex_log_b(complex_t, complex_t);
 complex_t complex_log(complex_t);
 complex_t complex_sqrt(complex_t);
-complex_t complex_sqrt_real(real_t);
+complex_t complex_sqrt_real(double);
 complex_t complex_pow(complex_t, complex_t);
-complex_t complex_pow_real(complex_t, real_t);
+complex_t complex_pow_real(complex_t, double);
 
 __CML_END_DECLS
 

@@ -8,7 +8,8 @@ IEEE floating-point arithmetic
 
 This chapter describes functions for examining the representation of
 floating point numbers and controlling the floating point environment of
-your program.
+your program.  The functions described in this chapter are declared in
+the header file :file:`cml/ieee.h`.
 
 .. index::
    single: IEEE format for floating point numbers

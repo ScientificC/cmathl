@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/ieee.h>
 
 static void sprint_nybble(int i, char *s);
 static void sprint_byte(int i, char *s);

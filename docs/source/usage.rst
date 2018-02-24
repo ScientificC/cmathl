@@ -30,16 +30,22 @@ in the following sections.
 Compiling and Linking
 =====================
 
-You should include the main header file as follow::
+The library header files are installed in their own :file:`cml`
+directory.  You should write any preprocessor include statements with a
+:file:`cml/` directory prefix thus::
+
+    #include <cml/math.h>
+
+or simply requiring all the modules in the following way::
 
     #include <cml.h>
 
 If the directory is not installed on the standard search path of your
 compiler you will also need to provide its location to the preprocessor
 as a command line flag.  The default location of the main header file
-:file:`cml` is :file:`/usr/local/include`.  A typical compilation
-command for a source file :file:`example.c` with the GNU C compiler
-:code:`gcc` is::
+:file:`cml.h` and the :file:`cml` directory is :file:`/usr/local/include`.
+A typical compilation command for a source file :file:`example.c` with
+the GNU C compiler :code:`gcc` is::
 
     $ gcc -Wall -I/usr/local/include -c example.c
 

@@ -1,12 +1,16 @@
-#ifndef CML_H
-#error "Never use <cml/errno.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_ERRNO_H
 #define CML_ERRNO_H
 
 #include <stdio.h>
-#include "errno/message.h"
+
+#define CML_H
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
+
+#include <cml/errno/message.h>
+
+__CML_BEGIN_DECLS
 
 enum {
         CML_SUCCESS  = 0,
@@ -121,5 +125,7 @@ FILE *cml_set_stream(FILE *new_stream);
 #define CML_ERROR_SELECT_5(a,b,c,d,e) ((a) != CML_SUCCESS ? (a) : CML_ERROR_SELECT_4(b,c,d,e))
 
 #define CML_STATUS_UPDATE(sp, s) do { if((s) != CML_SUCCESS) *(sp) =(s); } while (0)
+
+__CML_END_DECLS
 
 #endif

@@ -1,9 +1,10 @@
-#ifndef CML_H
-#error "Never use <cml/minmax.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_MINMAX_H
 #define CML_MINMAX_H
+
+#define CML_H
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
 __CML_BEGIN_DECLS
 

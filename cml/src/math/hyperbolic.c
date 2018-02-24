@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #undef CML_NO_ALIASES
 #define CML_NO_ALIASES
-#include <cml.h>
+#include <cml/math.h>
 
 #if defined CML_NO_MATH
 __CML_EXTERN_INLINE long double
@@ -72,15 +72,15 @@ __atanh(const double x)
  * Computes real hyperbolic arc cosine
  * --| acosh(x) = log(x + sqrt(x² - 1))
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_acosh(real_t x)
+double
+real_acosh(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, h;
+        double y, z, w, k, h;
 
         /* Mathematical algorithm */
         y = real_pow(x, 2.0);
@@ -98,15 +98,15 @@ real_acosh(real_t x)
  * Computes real hyperbolic arc sine
  * --| asinh(x) = log(x + sqrt(x² + 1))
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_asinh(real_t x)
+double
+real_asinh(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, h;
+        double y, z, w, k, h;
 
         /* Mathematical algorithm */
         y = real_pow(x, 2.0);
@@ -123,20 +123,20 @@ real_asinh(real_t x)
 /*
  * Computes real hyperbolic arc tangent
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_atanh(real_t x)
+double
+real_atanh(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, h;
+        double y, h;
 
         /* Mathematical algorithm */
         y = real_abs(x);
         h = real_isgreater(1.0, y) ?
-            (real_t) __atanh(x) :
+            (double) __atanh(x) :
             real_nan();
 
         /* Return */
@@ -148,15 +148,15 @@ real_atanh(real_t x)
  * Computes real hyperbolic cosine
  * --| cosh(x) = 1/2 * (exp(x) + exp(−x))
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_cosh(real_t x)
+double
+real_cosh(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, h;
+        double y, z, w, k, h;
 
         /* Mathematical algorithm */
         y = real_opposite(x);
@@ -173,15 +173,15 @@ real_cosh(real_t x)
 /*
  * Computes real hyperbolic cotangent
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_coth(real_t x)
+double
+real_coth(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, h;
+        double y, z, w, h;
 
         /* Mathematical algorithm */
         y = real_cosh(x);
@@ -197,15 +197,15 @@ real_coth(real_t x)
 /*
  * Computes real hyperbolic cosecant
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_csch(real_t x)
+double
+real_csch(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, h;
+        double y, h;
 
         /* Mathematical algorithm */
         y = real_sinh(x);
@@ -219,15 +219,15 @@ real_csch(real_t x)
 /*
  * Computes real hyperbolic secant function by using Euler relationships
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_sech(real_t x)
+double
+real_sech(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, h;
+        double y, h;
 
         /* Mathematical algorithm */
         y = real_cosh(x);
@@ -242,15 +242,15 @@ real_sech(real_t x)
  * Computes real hyperbolic sine
  * --| sinh(x) = 1/2 * (exp(x) − exp(−x))
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_sinh(real_t x)
+double
+real_sinh(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, k, h;
+        double y, z, w, k, h;
 
         /* Mathematical algorithm */
         y = real_opposite(x);
@@ -268,15 +268,15 @@ real_sinh(real_t x)
  * Computes real hyperbolic tangent
  * --| tanh(x) = sinh(x) / cosh(x)
  *
- * @param real_t x
- * @return real_t
+ * @param double x
+ * @return double
  */
 
-real_t
-real_tanh(real_t x)
+double
+doubleanh(double x)
 {
         /* Declaration of variables and structures */
-        real_t y, z, w, h;
+        double y, z, w, h;
 
         /* Mathematical algorithm */
         y = real_sinh(x);

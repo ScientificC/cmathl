@@ -2,16 +2,17 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/complex.h>
 #include "include/test.h"
 
 struct complex_tests
 {
         complex_t (*f) (complex_t);
-        real_t arg_re;
-        real_t arg_im;
-        real_t res_re;
-        real_t res_im;
+        double arg_re;
+        double arg_im;
+        double res_re;
+        double res_im;
 };
 
 struct complex_tests list_tst[] =
@@ -37,7 +38,7 @@ run_complex_tests()
                 TEST_BEGIN(Functions)
                 {
                         /* size_t i;
-                           real_t tol  = 1e6 * CML_DBL_EPSILON;
+                           double tol  = 1e6 * CML_DBL_EPSILON;
 
                            for (i = 0; list_tst[i].f != NULL; i++ )
                            {

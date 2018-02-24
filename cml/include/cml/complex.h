@@ -1,33 +1,72 @@
-#ifndef CML_H
-#error "Never use <cml/math/complex.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_COMPLEX_H
 #define CML_COMPLEX_H
+
+#define CML_H
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
+
+typedef struct _complex_long_double
+{
+        union
+        {
+                long double p[2];
+                long double parts[2];
+                struct
+                {
+                        long double re;
+                        long double im;
+                };
+                struct
+                {
+                        long double real;
+                        long double imaginary;
+                };
+        };
+} complex_long_double_t;
 
 typedef struct _complex
 {
         union
         {
-                real_t p[2];
-                real_t parts[2];
+                double p[2];
+                double parts[2];
                 struct
                 {
-                        real_t re;
-                        real_t im;
+                        double re;
+                        double im;
                 };
                 struct
                 {
-                        real_t real;
-                        real_t imaginary;
+                        double real;
+                        double imaginary;
                 };
         };
 } complex_t;
 
+typedef struct _complex_float
+{
+        union
+        {
+                float p[2];
+                float parts[2];
+                struct
+                {
+                        float re;
+                        float im;
+                };
+                struct
+                {
+                        float real;
+                        float imaginary;
+                };
+        };
+} complex_float_t;
+
 __CML_BEGIN_DECLS
 
-complex_t complex(real_t, real_t);
-complex_t complex_polar(real_t, real_t);
+complex_t complex(double, double);
+complex_t complex_polar(double, double);
 complex_t complex_zero();
 complex_t complex_nan();
 complex_t complex_inf();
@@ -37,11 +76,11 @@ char* complex_as_string(complex_t);
 
 __CML_END_DECLS
 
-#include "complex/basic.h"
-#include "complex/error.h"
-#include "complex/exponentiation.h"
-#include "complex/hyperbolic.h"
-#include "complex/trigonometric.h"
+#include <cml/complex/basic.h>
+#include <cml/complex/error.h>
+#include <cml/complex/exponentiation.h>
+#include <cml/complex/hyperbolic.h>
+#include <cml/complex/trigonometric.h>
 
 #ifndef CML_NO_ALIASES
         #define creal(X) (X).re

@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-real_t ease_elastic_in(real_t p);
-real_t ease_elastic_out(real_t p);
-real_t ease_elastic_in_out(real_t p);
+double ease_elastic_in(double p);
+double ease_elastic_out(double p);
+double ease_elastic_in_out(double p);
 
 __CML_END_DECLS
 

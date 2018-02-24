@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <cml.h>
 #include "include/test.h"
 
 int cml_count_tests = 0;
@@ -13,7 +12,7 @@ int run_complex_tests();
 int run_deriv_tests();
 int run_diff_tests();
 int run_easings_tests();
-int run_real_tests();
+int run_doubleests();
 int run_struct_tests();
 
 int
@@ -22,7 +21,7 @@ run_tests()
         run_complex_tests();
         run_deriv_tests();
         run_diff_tests();
-        run_real_tests();
+        run_doubleests();
 
         #ifndef CML_NO_EASING_FUNCTIONS
         run_easings_tests();

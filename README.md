@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.8](https://img.shields.io/badge/Version-v1.9.8-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.9.10](https://img.shields.io/badge/Version-v1.9.10-blue.svg)
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
@@ -15,10 +15,8 @@ You can read the following [docs](http://cml.readthedocs.io/) to learn more abou
   - [Bool Type](#bool-type)
   - [Integer Type](#integer-type)
   - [Float Point Type](#float-point-type)
-  - [Long Double Type](#long-double-type)
   - [Math Functions Aliases](#math-functions-aliases)
   - [Math Library](#math-library)
-  - [Math Precision](#math-precision)
 
 - [**Build Options**](#build-options)
 
@@ -62,13 +60,10 @@ $ make && ctest
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
-- `CML_LONG_DOUBLE_MATH`
 - `CML_NO_ALIASES`
 - `CML_NO_MATH`
 - `CML_NO_STDBOOL`
 - `CML_NO_STDINT`
-- `mfloat_t`
-- `mint_t`
 
 You can define these macros during compilation time with flags:
 
@@ -86,7 +81,7 @@ By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If th
 
 ### Float Point Type
 
-The float type used by CML is defined by the macro `mfloat_t`, which is by default `double`.
+The float type used by CML is by default `double`.
 
 ### Math Functions Aliases
 
@@ -97,10 +92,6 @@ By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only th
 ### Math Library
 
 By default, cml will use some math functions from the header `math.h` if it is available. If the header `math.h` is not avaliable, disabled by defining `CML_NO_MATH`, cml will use its own definition of them.
-
-### Math Precision
-
-By default, the library will have double precision for the internal definition of its functions. Then, this precision could be changed to the extended double precision and, at the same time, `mfloat_t` will be defined _(if possible)_ as `long double`. This precision can be simply extended by defining the macro `CML_LONG_DOUBLE_MATH`.
 
 ## Build Options
 
