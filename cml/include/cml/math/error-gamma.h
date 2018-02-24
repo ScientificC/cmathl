@@ -3,9 +3,10 @@
 
 __CML_BEGIN_DECLS
 
-double real_gamma(double);
-double real_error(double);
+/* double cml_gamma(double);
+   double cml_error(double);
+ */
 
-__CML_END_DECLS
+        __CML_END_DECLS
 
 #endif

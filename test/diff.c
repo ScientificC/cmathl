@@ -10,14 +10,14 @@ double
 f1 (double x, void *params)
 {
         (void)params;
-        return real_exp(x);
+        return cml_exp(x);
 }
 
 double
 df1 (double x, void *params)
 {
         (void)params;
-        return real_exp(x);
+        return cml_exp(x);
 }
 
 double
@@ -26,7 +26,7 @@ f2 (double x, void *params)
         (void)params;
         if (x >= 0.0)
         {
-                return x * real_sqrt(x);
+                return x * cml_sqrt(x);
         }
         else
         {
@@ -40,7 +40,7 @@ df2 (double x, void *params)
         (void)params;
         if (x >= 0.0)
         {
-                return 1.5 * real_sqrt(x);
+                return 1.5 * cml_sqrt(x);
         }
         else
         {
@@ -52,9 +52,9 @@ double
 f3 (double x, void *params)
 {
         (void)params;
-        if (!real_equal(x, 0.0))
+        if (!cml_equal(x, 0.0))
         {
-                return real_sin(1/x);
+                return cml_sin(1/x);
         }
         else
         {
@@ -66,9 +66,9 @@ double
 df3 (double x, void *params)
 {
         (void)params;
-        if (!real_equal(x, 0.0))
+        if (!cml_equal(x, 0.0))
         {
-                return -real_cos(1/x)/(x * x);
+                return -cml_cos(1/x)/(x * x);
         }
         else
         {
@@ -80,14 +80,14 @@ double
 f4 (double x, void *params)
 {
         (void)params;
-        return real_exp(-x * x);
+        return cml_exp(-x * x);
 }
 
 double
 df4 (double x, void *params)
 {
         (void)params;
-        return -2.0 * x * real_exp(-x * x);
+        return -2.0 * x * cml_exp(-x * x);
 }
 
 double
@@ -118,7 +118,7 @@ df6 (double x, void *params)
         return -1.0/(x * x);
 }
 
-typedef int (diff_fn)(const function_t *f, double x, double *res, double *abserr);
+typedef int (cml_diff_fn)(const cml_function_t *f, double x, double *res, double *abserr);
 
 #define DIFF_TEST(diff, f, df, x) do { \
                 double result, abserr; \
@@ -135,13 +135,13 @@ typedef int (diff_fn)(const function_t *f, double x, double *res, double *abserr
 } while (0);
 
 int
-run_diff_tests()
+run_cml_diff_tests()
 {
         CATEGORY_BEGIN(Diff)
         {
                 TEST_BEGIN(Diff)
                 {
-                        function_t F1, DF1, F2, DF2, F3, DF3, F4, DF4, F5, DF5, F6, DF6;
+                        cml_function_t F1, DF1, F2, DF2, F3, DF3, F4, DF4, F5, DF5, F6, DF6;
 
                         F1.function = &f1;
                         DF1.function = &df1;
@@ -161,29 +161,29 @@ run_diff_tests()
                         F6.function = &f6;
                         DF6.function = &df6;
 
-                        DIFF_TEST(&diff_central, &F1, &DF1, 1.0);
-                        DIFF_NEAR_TEST(&diff_forward, &F1, &DF1, 1.0, 0.1f);
-                        DIFF_TEST(&diff_backward, &F1, &DF1, 1.0);
+                        DIFF_TEST(&cml_diff_central, &F1, &DF1, 1.0);
+                        DIFF_NEAR_TEST(&cml_diff_forward, &F1, &DF1, 1.0, 0.1f);
+                        DIFF_TEST(&cml_diff_backward, &F1, &DF1, 1.0);
 
-                        DIFF_NEAR_TEST(&diff_central, &F2, &DF2, 0.1, 1e-3f);
-                        DIFF_NEAR_TEST(&diff_forward, &F2, &DF2, 0.1, 0.1f);
-                        DIFF_TEST(&diff_backward, &F2, &DF2, 0.1);
+                        DIFF_NEAR_TEST(&cml_diff_central, &F2, &DF2, 0.1, 1e-3f);
+                        DIFF_NEAR_TEST(&cml_diff_forward, &F2, &DF2, 0.1, 0.1f);
+                        DIFF_TEST(&cml_diff_backward, &F2, &DF2, 0.1);
 
-                        /* DIFF_NEAR_TEST(&diff_central, &F3, &DF3, 0.45, 0.1f); */
-                        DIFF_TEST(&diff_forward, &F3, &DF3, 0.45);
-                        DIFF_TEST(&diff_backward, &F3, &DF3, 0.45);
+                        /* DIFF_NEAR_TEST(&cml_diff_central, &F3, &DF3, 0.45, 0.1f); */
+                        DIFF_TEST(&cml_diff_forward, &F3, &DF3, 0.45);
+                        DIFF_TEST(&cml_diff_backward, &F3, &DF3, 0.45);
 
-                        DIFF_NEAR_TEST(&diff_central, &F4, &DF4, 0.5, 0.1f);
-                        DIFF_TEST(&diff_forward, &F4, &DF4, 0.5);
-                        DIFF_TEST(&diff_backward, &F4, &DF4, 0.5);
+                        DIFF_NEAR_TEST(&cml_diff_central, &F4, &DF4, 0.5, 0.1f);
+                        DIFF_TEST(&cml_diff_forward, &F4, &DF4, 0.5);
+                        DIFF_TEST(&cml_diff_backward, &F4, &DF4, 0.5);
 
-                        DIFF_TEST(&diff_central, &F5, &DF5, 0.0);
-                        DIFF_TEST(&diff_forward, &F5, &DF5, 0.0);
-                        DIFF_TEST(&diff_backward, &F5, &DF5, 0.0);
+                        DIFF_TEST(&cml_diff_central, &F5, &DF5, 0.0);
+                        DIFF_TEST(&cml_diff_forward, &F5, &DF5, 0.0);
+                        DIFF_TEST(&cml_diff_backward, &F5, &DF5, 0.0);
 
-                        DIFF_NEAR_TEST(&diff_central, &F6, &DF6, 10.0, 1e-3f);
-                        DIFF_TEST(&diff_forward, &F6, &DF6, 10.0);
-                        DIFF_TEST(&diff_backward, &F6, &DF6, 10.0);
+                        DIFF_NEAR_TEST(&cml_diff_central, &F6, &DF6, 10.0, 1e-3f);
+                        DIFF_TEST(&cml_diff_forward, &F6, &DF6, 10.0);
+                        DIFF_TEST(&cml_diff_backward, &F6, &DF6, 10.0);
                 }
                 TEST_END()
         }

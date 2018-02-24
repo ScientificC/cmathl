@@ -11,7 +11,7 @@ __atan(long double value)
         long double x = value;
         long double y = 0.0L;
 
-        if (real_isnull(value))
+        if (cml_isnull(value))
         {
                 return 0;
         }
@@ -48,7 +48,7 @@ __cos(long double x)
                 ai = -ai*(x)*(x)/(i*(i + 1.0));
                 newsum = newsum + ai;
                 i += 2;
-        } while (!real_equal(newsum, oldsum));
+        } while (!cml_equal(newsum, oldsum));
 
         return newsum;
 }
@@ -70,7 +70,7 @@ __sin(long double x)
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 newsum = newsum + ai;
                 ++i;
-        } while (!real_equal(newsum, oldsum));
+        } while (!cml_equal(newsum, oldsum));
 
         return newsum;
 }
@@ -89,14 +89,14 @@ __sin(long double x)
  */
 
 double
-real_acos(double x)
+cml_acos(double x)
 {
         /* Declaration of variables and structures */
         double h, y;
 
         /* Mathematical algorithm */
-        y = real_asin(x);
-        h = real_sub(M_PI_2, y);
+        y = cml_asin(x);
+        h = cml_sub(M_PI_2, y);
 
         /* Return */
         return h;
@@ -112,17 +112,17 @@ real_acos(double x)
  */
 
 double
-real_asin(double x)
+cml_asin(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, k, h;
 
         /* Mathematical algorithm */
-        y = real_pow(x, 2.0);
-        z = real_sub(1.0, y);
-        w = real_sqrt(z);
-        k = real_div(x, w);
-        h = real_atan(k);
+        y = cml_pow(x, 2.0);
+        z = cml_sub(1.0, y);
+        w = cml_sqrt(z);
+        k = cml_div(x, w);
+        h = cml_atan(k);
 
         /* Return */
         return h;
@@ -137,15 +137,15 @@ real_asin(double x)
  */
 
 double
-real_atan(double x)
+cml_atan(double x)
 {
         /* Declaration of variables and structures */
         double s, w, a;
 
         /* Mathematical algorithm */
-        a = real_abs(x);
-        s = real_sgn(x);
-        w = real_mul(s, (double) __atan(a));
+        a = cml_abs(x);
+        s = cml_sgn(x);
+        w = cml_mul(s, (double) __atan(a));
 
         /* Return */
         return w;
@@ -162,17 +162,17 @@ real_atan(double x)
  */
 
 double
-real_atan2(double y, double x)
+cml_atan2(double y, double x)
 {
         /* Declaration of variables and structures */
         double s, k, j, z, w;
 
         /* Mathematical algorithm */
-        s = real_sgn(y);
-        k = real_div(x, y);
-        j = real_atan(k);
-        z = real_mul(M_PI_2, s);
-        w = real_sub(z, j);
+        s = cml_sgn(y);
+        k = cml_div(x, y);
+        j = cml_atan(k);
+        z = cml_mul(M_PI_2, s);
+        w = cml_sub(z, j);
 
         /* Return */
         return w;
@@ -189,14 +189,14 @@ real_atan2(double y, double x)
  */
 
 double
-real_cos(double x)
+cml_cos(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        h = (double) __cos(real_ared(y));
+        y = cml_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
+        h = (double) __cos(cml_ared(y));
 
         /* Return */
         return h;
@@ -211,16 +211,16 @@ real_cos(double x)
  */
 
 double
-real_cot(double x)
+cml_cot(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_sin(x);
-        h = real_isnull(y) ?
-            real_nan() :
-            real_div(real_cos(x), y);
+        y = cml_sin(x);
+        h = cml_isnull(y) ?
+            cml_nan() :
+            cml_div(cml_cos(x), y);
 
         /* Return */
         return h;
@@ -235,14 +235,14 @@ real_cot(double x)
  */
 
 double
-real_csc(double x)
+cml_csc(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_sin(x);
-        h = real_inverse(y);
+        y = cml_sin(x);
+        h = cml_inverse(y);
 
         /* Return */
         return h;
@@ -257,14 +257,14 @@ real_csc(double x)
  */
 
 double
-real_sec(double x)
+cml_sec(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_cos(x);
-        h = real_inverse(y);
+        y = cml_cos(x);
+        h = cml_inverse(y);
 
         /* Return */
         return h;
@@ -279,10 +279,10 @@ real_sec(double x)
  */
 
 double
-real_sin(double x)
+cml_sin(double x)
 {
         /* Domain check */
-        if (real_ismult(x, M_PI))
+        if (cml_ismult(x, M_PI))
         {
                 return 0.0;
         }
@@ -291,11 +291,11 @@ real_sin(double x)
         double s, y, z, w, h;
 
         /* Mathematical algorithm */
-        s = real_sgn(x); /* sin(-x) = -sin(x) */
-        y = real_abs(x);
-        z = real_ared(y);
+        s = cml_sgn(x); /* sin(-x) = -sin(x) */
+        y = cml_abs(x);
+        z = cml_ared(y);
         w = (double) __sin(z);
-        h = real_mul(w, s);
+        h = cml_mul(w, s);
 
         /* Return */
         return h;
@@ -317,9 +317,9 @@ doublean(double x)
         double y;
 
         /* Mathematical algorithm */
-        y = real_cos(x);
+        y = cml_cos(x);
 
-        return real_isnull(y) ?
-               real_nan() :
-               real_div(real_sin(x), y);
+        return cml_isnull(y) ?
+               cml_nan() :
+               cml_div(cml_sin(x), y);
 }

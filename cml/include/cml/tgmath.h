@@ -6,10 +6,11 @@
 #include <cml/inline.h>
 #include <cml/machine.h>
 
+#include <cml/complex.h>
 #include <cml/math.h>
 
 #ifndef __CML_MATH_FUNC
-        #define __CML_MATH_FUNC(_type, _func) _type ## _ ## _func
+        #define __CML_MATH_FUNC(_type, _func) cml_ ## _type ## _ ## _func
 #endif
 
 #ifndef __CML_NO_GENERIC
@@ -22,13 +23,13 @@
 
         #define __CML_COMPLEX_GENERIC_FUNC(_func, ...) \
         _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
-                 complex_t: __CML_MATH_FUNC(complex, _func) \
+                 cml_complex_t: __CML_MATH_FUNC(complex, _func) \
                  )(__VA_ARGS__)
 
         #define __CML_BOTH_GENERIC_FUNC(_func, ...) \
         _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
          default: __CML_MATH_FUNC(real, _func), \
-                 complex_t: __CML_MATH_FUNC(complex, _func), \
+                 cml_complex_t: __CML_MATH_FUNC(complex, _func), \
                  double : __CML_MATH_FUNC(real, _func) \
                  )(__VA_ARGS__)
 

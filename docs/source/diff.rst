@@ -19,7 +19,7 @@ file :file:`cml/deriv.h`.
 Functions
 =========
 
-.. function:: int deriv_central (const function_t *f, double x, double h, double *result, double *abserr)
+.. function:: int cml_deriv_central (const cml_function_t *f, double x, double h, double *result, double *abserr)
 
    This function computes the numerical derivative of the function :data:`f`
    at the point :data:`x` using an adaptive central difference algorithm with
@@ -36,7 +36,7 @@ Functions
    does not contribute to the derivative calculation, so only 4-points are
    actually used.
 
-.. function:: int deriv_forward (const function_t *f, double x, double h, double *result, double *abserr)
+.. function:: int cml_deriv_forward (const cml_function_t *f, double x, double h, double *result, double *abserr)
 
    This function computes the numerical derivative of the function :data:`f`
    at the point :data:`x` using an adaptive forward difference algorithm with
@@ -54,7 +54,7 @@ Functions
    from the difference between the 4-point rule and the corresponding
    2-point rule :math:`x+h/2`, :math:`x+h`.
 
-.. function:: int deriv_backward (const function_t *f, double x, double h, double *result, double *abserr)
+.. function:: int cml_deriv_backward (const cml_function_t *f, double x, double h, double *result, double *abserr)
 
    This function computes the numerical derivative of the function :data:`f`
    at the point :data:`x` using an adaptive backward difference algorithm
@@ -65,7 +65,7 @@ Functions
    has a discontinuity at :data:`x`, or is undefined for values greater than
    :data:`x`.
 
-   This function is equivalent to calling :func:`deriv_forward` with a
+   This function is equivalent to calling :func:`cml_deriv_forward` with a
    negative step-size.
 
 Examples
@@ -75,7 +75,7 @@ The following code estimates the derivative of the function
 :math:`f(x) = x^{3/2}`
 at :math:`x = 2` and at :math:`x = 0`.  The function :math:`f(x)` is
 undefined for :math:`x < 0` so the derivative at :math:`x=0` is computed
-using :func:`deriv_forward`.
+using :func:`cml_deriv_forward`.
 
 .. include:: examples/diff.c
    :code:

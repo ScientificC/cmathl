@@ -19,18 +19,18 @@ typedef struct _quaternion
                         double a, i, j, k;
                 };
         };
-} quaternion_t;
+} cml_quaternion_t;
 
 #define __CML_QUATERNION_EPS 1e-14
 
 __CML_BEGIN_DECLS
 
-quaternion_t quaternion(double, double, double, double);
-quaternion_t quaternion_clone(quaternion_t);
-quaternion_t quaternion_identity();
-quaternion_t quaternion_from_axis_anglef3(double, double, double, double);
-quaternion_t quaternion_from_spherical_coords(double, double);
-quaternion_t quaternion_from_euler_angles(double, double, double);
+cml_quaternion_t quaternion(double, double, double, double);
+cml_quaternion_t cml_quaternion_clone(cml_quaternion_t);
+cml_quaternion_t cml_quaternion_identity();
+cml_quaternion_t cml_quaternion_from_axis_anglef3(double, double, double, double);
+cml_quaternion_t cml_quaternion_from_spherical_coords(double, double);
+cml_quaternion_t cml_quaternion_from_euler_angles(double, double, double);
 
 __CML_END_DECLS
 

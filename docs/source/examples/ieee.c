@@ -10,15 +10,15 @@ main(void)
         double fd = f; /* promote from float to double */
 
         printf(" f = ");
-        ieee_printf_float(&f);
+        cml_ieee_printf_float(&f);
         printf("\n");
 
         printf("fd = ");
-        ieee_printf_double(&fd);
+        cml_ieee_printf_double(&fd);
         printf("\n");
 
         printf(" d = ");
-        ieee_printf_double(&d);
+        cml_ieee_printf_double(&d);
         printf("\n");
 
         return 0;

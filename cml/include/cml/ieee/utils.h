@@ -23,7 +23,7 @@ typedef struct
         char mantissa[24]; /* Actual bits are 0..22, element 23 is \0 */
         int exponent;
         int type;
-} ieee754_float_rep_t;
+} cml_ieee754_float_rep_t;
 
 typedef struct
 {
@@ -31,17 +31,17 @@ typedef struct
         char mantissa[53]; /* Actual bits are 0..51, element 52 is \0 */
         int exponent;
         int type;
-} ieee754_double_rep_t;
+} cml_ieee754_double_rep_t;
 
 
-void ieee754_printf_float(const float *x);
-void ieee754_printf_double(const double *x);
+void cml_ieee754_printf_float(const float *x);
+void cml_ieee754_printf_double(const double *x);
 
-void ieee754_fprintf_float(FILE *stream, const float *x);
-void ieee754_fprintf_double(FILE *stream, const double *x);
+void cml_ieee754_fprintf_float(FILE *stream, const float *x);
+void cml_ieee754_fprintf_double(FILE *stream, const double *x);
 
-void ieee754_float_to_rep(const float *x, ieee754_float_rep_t *r);
-void ieee754_double_to_rep(const double *x, ieee754_double_rep_t *r);
+void cml_ieee754_float_to_rep(const float *x, cml_ieee754_float_rep_t *r);
+void cml_ieee754_double_to_rep(const double *x, cml_ieee754_double_rep_t *r);
 
 enum {
         CML_IEEE754_SINGLE_PRECISION = 1,
@@ -68,10 +68,10 @@ enum {
 
 /* I dream of implementing these functions someday
 
-void ieee754_env_setup(void);
-int ieee754_read_mode_string(char *description, int *precision,
+void cml_ieee754_env_setup(void);
+int cml_ieee754_read_mode_string(char *description, int *precision,
                           int *rounding, int *exception_mask);
-int ieee754_set_mode(int precision, int rounding, int exception_mask);
+int cml_ieee754_set_mode(int precision, int rounding, int exception_mask);
 */
 
 __CML_END_DECLS

@@ -256,7 +256,7 @@ function where an error might be reported::
 
       cml_set_error_handler_off();
 
-      status = cml_fft_complex_radix2_forward (data, stride, n);
+      status = cml_fft_cml_complex_radix2_forward (data, stride, n);
 
       if (status) {
         if (status == CML_EINVAL) {
@@ -268,7 +268,7 @@ function where an error might be reported::
       }
     ...
 
-The function :func:`cml_fft_complex_radix2_forward` only accepts integer lengths
+The function :func:`cml_fft_cml_complex_radix2_forward` only accepts integer lengths
 which are a power of two.  If the variable :code:`n` is not a power of
 two then the call to the library function will return :code:`CML_EINVAL`,
 indicating that the length argument is invalid.  The function call to

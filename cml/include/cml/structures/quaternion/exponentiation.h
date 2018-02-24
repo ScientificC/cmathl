@@ -3,16 +3,16 @@
 
 __CML_BEGIN_DECLS
 
-void quaternion_inplace_pow_scalar(quaternion_t*, double);
-void quaternion_inplace_pow(quaternion_t*, quaternion_t);
-void quaternion_inplace_scalar_pow(double, quaternion_t*);
+void cml_quaternion_inplace_pow_scalar(cml_quaternion_t*, double);
+void cml_quaternion_inplace_pow(cml_quaternion_t*, cml_quaternion_t);
+void cml_quaternion_inplace_scalar_pow(double, cml_quaternion_t*);
 
-quaternion_t quaternion_exp(quaternion_t);
-quaternion_t quaternion_log(quaternion_t);
-quaternion_t quaternion_pow_scalar(quaternion_t, double);
-quaternion_t quaternion_pow(quaternion_t, quaternion_t);
-quaternion_t quaternion_scalar_pow(double, quaternion_t);
-quaternion_t quaternion_sqrt(quaternion_t);
+cml_quaternion_t cml_quaternion_exp(cml_quaternion_t);
+cml_quaternion_t cml_quaternion_log(cml_quaternion_t);
+cml_quaternion_t cml_quaternion_pow_scalar(cml_quaternion_t, double);
+cml_quaternion_t cml_quaternion_pow(cml_quaternion_t, cml_quaternion_t);
+cml_quaternion_t cml_quaternion_scalar_pow(double, cml_quaternion_t);
+cml_quaternion_t cml_quaternion_sqrt(cml_quaternion_t);
 
 __CML_END_DECLS
 

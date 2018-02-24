@@ -2,7 +2,7 @@
 #include <cml/ieee.h>
 
 __CML_EXTERN_INLINE int
-little_endian_p()
+cml_little_endian_p()
 {
         /* Are we little or big endian?  From Harbison & Steele.  */
         union

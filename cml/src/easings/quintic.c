@@ -5,14 +5,14 @@
 
 /* Easing functions - Quintic */
 __CML_EXTERN_INLINE double
-ease_quintic_in(double p)
+cml_ease_quintic_in(double p)
 {
         return p * p * p * p * p;
 }
 
 
 __CML_EXTERN_INLINE double
-ease_quintic_out(double p)
+cml_ease_quintic_out(double p)
 {
         double f = p - 1.0;
         return f * f * f * f * f + 1.0;
@@ -20,7 +20,7 @@ ease_quintic_out(double p)
 
 
 __CML_EXTERN_INLINE double
-ease_quintic_in_out(double p)
+cml_ease_quintic_in_out(double p)
 {
         double f = 0.0;
 

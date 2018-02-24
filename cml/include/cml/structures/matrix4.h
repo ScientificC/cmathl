@@ -40,6 +40,6 @@ typedef struct _matrix4
                         double r30, r31, r32, r33;
                 };
         };
-} matrix4_t;
+} cml_matrix4_t;
 
 #endif

@@ -6,16 +6,16 @@
 #include <cml/complex.h>
 #include "include/test.h"
 
-struct complex_tests
+struct cml_complex_tests
 {
-        complex_t (*f) (complex_t);
+        cml_complex_t (*f) (cml_complex_t);
         double arg_re;
         double arg_im;
         double res_re;
         double res_im;
 };
 
-struct complex_tests list_tst[] =
+struct cml_complex_tests list_tst[] =
 {
 #include "complex.dat"
         { NULL, 0, 0, 0, 0}
@@ -23,13 +23,13 @@ struct complex_tests list_tst[] =
 
 
 int
-run_complex_tests()
+run_cml_complex_tests()
 {
         CATEGORY_BEGIN(Complex)
         {
                 TEST_BEGIN(Initialization)
                 {
-                        complex_t z = complex(1.0, 4.0);
+                        cml_complex_t z = complex(1.0, 4.0);
                         EXPECT_FLOAT_EQ(z.re, 1.0);
                         EXPECT_FLOAT_EQ(z.im, 4.0);
                 }
@@ -42,9 +42,9 @@ run_complex_tests()
 
                            for (i = 0; list_tst[i].f != NULL; i++ )
                            {
-                                struct complex_tests t = list_tst[i];
-                                complex_t arg = complex(t.arg_re, t.arg_im);
-                                complex_t res = (t.f)(arg);
+                                struct cml_complex_tests t = list_tst[i];
+                                cml_complex_t arg = complex(t.arg_re, t.arg_im);
+                                cml_complex_t res = (t.f)(arg);
 
                                 EXPECT_FLOAT_EQ(res.re, t.res_re);
                                 EXPECT_FLOAT_EQ(res.im, t.res_im);

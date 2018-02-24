@@ -3,27 +3,27 @@
 
 __CML_BEGIN_DECLS
 
-double complex_abs(complex_t);
-double complex_arg(complex_t);
-double complex_logabs(complex_t);
+double cml_complex_abs(cml_complex_t);
+double cml_complex_arg(cml_complex_t);
+double cml_complex_logabs(cml_complex_t);
 
-complex_t complex_add(complex_t, complex_t);
-complex_t complex_conj(complex_t);
-complex_t complex_div(complex_t, complex_t);
-complex_t complex_inverse(complex_t);
-complex_t complex_mul(complex_t, complex_t);
-complex_t complex_scalar_mul(complex_t, double);
-complex_t complex_sub(complex_t, complex_t);
+cml_complex_t cml_complex_add(cml_complex_t, cml_complex_t);
+cml_complex_t cml_complex_conj(cml_complex_t);
+cml_complex_t cml_complex_div(cml_complex_t, cml_complex_t);
+cml_complex_t cml_complex_inverse(cml_complex_t);
+cml_complex_t cml_complex_mul(cml_complex_t, cml_complex_t);
+cml_complex_t cml_complex_scalar_mul(cml_complex_t, double);
+cml_complex_t cml_complex_sub(cml_complex_t, cml_complex_t);
 
-complex_t complex_add_real(complex_t, double);  /* r=a+x */
-complex_t complex_sub_real(complex_t, double);  /* r=a-x */
-complex_t complex_mul_real(complex_t, double);  /* r=a*x */
-complex_t complex_div_real(complex_t, double);  /* r=a/x */
+cml_complex_t cml_complex_add_real(cml_complex_t, double);  /* r=a+x */
+cml_complex_t cml_complex_sub_real(cml_complex_t, double);  /* r=a-x */
+cml_complex_t cml_complex_mul_real(cml_complex_t, double);  /* r=a*x */
+cml_complex_t cml_complex_div_real(cml_complex_t, double);  /* r=a/x */
 
-complex_t complex_add_imag(complex_t, double);  /* r=a+iy */
-complex_t complex_sub_imag(complex_t, double);  /* r=a-iy */
-complex_t complex_mul_imag(complex_t, double);  /* r=a*iy */
-complex_t complex_div_imag(complex_t, double);  /* r=a/iy */
+cml_complex_t cml_complex_add_imag(cml_complex_t, double);  /* r=a+iy */
+cml_complex_t cml_complex_sub_imag(cml_complex_t, double);  /* r=a-iy */
+cml_complex_t cml_complex_mul_imag(cml_complex_t, double);  /* r=a*iy */
+cml_complex_t cml_complex_div_imag(cml_complex_t, double);  /* r=a/iy */
 
 __CML_END_DECLS
 

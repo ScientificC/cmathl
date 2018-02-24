@@ -4,28 +4,28 @@
 #include <cml/math.h>
 
 double
-real_nan()
+cml_nan()
 {
         return (double) NAN;
 }
 
 
 double
-real_inf()
+cml_inf()
 {
         return (double) POSINF;
 }
 
 
 double
-real_ninf()
+cml_ninf()
 {
         return (double) NEGINF;
 }
 
 
 char *
-real_as_string(double x)
+cml_as_string(double x)
 {
         long double value = (long double) x;
 

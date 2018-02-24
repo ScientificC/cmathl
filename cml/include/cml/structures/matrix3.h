@@ -38,6 +38,6 @@ typedef struct _matrix3
                 };
         };
 
-} matrix3_t;
+} cml_matrix3_t;
 
 #endif

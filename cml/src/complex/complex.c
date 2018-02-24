@@ -5,81 +5,81 @@
 #include <cml/complex.h>
 
 
-complex_t
-complex(double real_part, double imaginary_part)
+cml_complex_t
+complex(double cml_part, double imaginary_part)
 {
-        complex_t z;
+        cml_complex_t z;
 
-        z.re = real_part;
+        z.re = cml_part;
         z.im = imaginary_part;
 
         return z;
 }
 
 
-complex_t
-complex_polar(double r, double theta)
+cml_complex_t
+cml_complex_polar(double r, double theta)
 {                               /* return z = r exp(i theta) */
-        complex_t z;
-        z = complex(r * real_cos(theta), r * real_sin(theta));
+        cml_complex_t z;
+        z = complex(r * cml_cos(theta), r * cml_sin(theta));
         return z;
 }
 
 
-complex_t
-complex_nan()
+cml_complex_t
+cml_complex_nan()
 {
         return complex(
-                real_nan(),
-                real_nan()
+                cml_nan(),
+                cml_nan()
                 );
 }
 
 
-complex_t
-complex_inf()
+cml_complex_t
+cml_complex_inf()
 {
         return complex(
-                real_inf(),
-                real_inf()
+                cml_inf(),
+                cml_inf()
                 );
 }
 
 
-complex_t
-complex_ninf()
+cml_complex_t
+cml_complex_ninf()
 {
         return complex(
-                real_ninf(),
-                real_ninf()
+                cml_ninf(),
+                cml_ninf()
                 );
 }
 
 
-complex_t
-complex_zero()
+cml_complex_t
+cml_complex_zero()
 {
         return complex(0.0, 0.0);
 }
 
 
-complex_t
-complex_clone(complex_t w)
+cml_complex_t
+cml_complex_clone(cml_complex_t w)
 {
         return complex(w.re, w.im);
 }
 
 
 char *
-complex_as_string(complex_t z)
+cml_complex_as_string(cml_complex_t z)
 {
         char *x, *y, op[5], im[5];
         double im_value;
 
         im_value = z.im;
 
-        x = (char*) real_as_string(z.re);
-        y = (char*) real_as_string(z.im);
+        x = (char*) cml_as_string(z.re);
+        y = (char*) cml_as_string(z.im);
 
         strcpy(op, (im_value >= 0.0 ? " + " : " "));
         strcpy(im, "i");

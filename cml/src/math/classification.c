@@ -28,98 +28,98 @@ __CML_EXTERN_INLINE bool
 __isinteger(double x)
 {
         mint_t x_int = (mint_t) x;
-        return real_isnull(x - x_int);
+        return cml_isnull(x - x_int);
 }
 
 
 __CML_EXTERN_INLINE bool
 __ismult(double x, double y)
 {
-        double z = real_div(x, y);
+        double z = cml_div(x, y);
         mint_t z_int = (mint_t) z;
-        return real_isnull(z - z_int);
+        return cml_isnull(z - z_int);
 }
 
 
 bool
-real_equal(double x, double y)
+cml_equal(double x, double y)
 {
-        return real_abs(real_sub(x, y)) < CML_FLT_EPSILON;
+        return cml_abs(cml_sub(x, y)) < CML_FLT_EPSILON;
 }
 
 
 bool
-real_isfinite(double x)
+cml_isfinite(double x)
 {
         return isfinite(x);
 }
 
 
 bool
-real_isgreaterequal(double x, double y)
+cml_isgreaterequal(double x, double y)
 {
-        return real_isgreater(x, y) || real_equal(x, y);
+        return cml_isgreater(x, y) || cml_equal(x, y);
 }
 
 
 bool
-real_isgreater(double x, double y)
+cml_isgreater(double x, double y)
 {
         return x > y;
 }
 
 
 bool
-real_isinf(double x)
+cml_isinf(double x)
 {
         return isinf(x);
 }
 
 
 bool
-real_isinteger(double x)
+cml_isinteger(double x)
 {
         return __isinteger(x);
 }
 
 
 bool
-real_islessequal(double x, double y)
+cml_islessequal(double x, double y)
 {
-        return real_isless(x, y) || real_equal(x, y);
+        return cml_isless(x, y) || cml_equal(x, y);
 }
 
 
 bool
-real_isless(double x, double y)
+cml_isless(double x, double y)
 {
         return x < y;
 }
 
 
 bool
-real_ismult(double x, double y)
+cml_ismult(double x, double y)
 {
         return __ismult(x, y);
 }
 
 
 bool
-real_isnatural(double x)
+cml_isnatural(double x)
 {
-        return real_isinteger(x) && x > 0.0;
+        return cml_isinteger(x) && x > 0.0;
 }
 
 
 bool
-real_isnan(double x)
+cml_isnan(double x)
 {
         return isnan(x);
 }
 
 
 bool
-real_isnull(double x)
+cml_isnull(double x)
 {
-        return real_equal(x, 0.0);
+        return cml_equal(x, 0.0);
 }

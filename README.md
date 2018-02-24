@@ -85,7 +85,7 @@ The float type used by CML is by default `double`.
 
 ### Math Functions Aliases
 
-Currently, all functions defined in cml have an alias which allows greater readability when working with the library. These aliases allow, for example, functions such as `real_sin` and`complex_cosh` to have aliases that are much more readable, such as `sin` and`ccosh` respectively. Then, this could bring certain incompatibilities with libraries like `math.h`, since these aliases will be defined as long as they are not indicated otherwise, and this may not be compatible with math definitions.
+Currently, all functions defined in cml have an alias which allows greater readability when working with the library. These aliases allow, for example, functions such as `cml_sin` and`cml_complex_cosh` to have aliases that are much more readable, such as `sin` and`ccosh` respectively. Then, this could bring certain incompatibilities with libraries like `math.h`, since these aliases will be defined as long as they are not indicated otherwise, and this may not be compatible with math definitions.
 
 By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only the original functions names and, thus, allowing greater compatibility.
 

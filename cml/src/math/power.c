@@ -2,7 +2,7 @@
 #include <cml/math.h>
 
 double
-real_pow_int(double x, int n)
+cml_pow_int(double x, int n)
 {
         unsigned int un;
 
@@ -16,12 +16,12 @@ real_pow_int(double x, int n)
                 un = n;
         }
 
-        return real_pow_uint(x, un);
+        return cml_pow_uint(x, un);
 }
 
 
 double
-real_pow_uint(double x, unsigned int n)
+cml_pow_uint(double x, unsigned int n)
 {
         long double value = 1.0L;
         long double y = (long double) x;
@@ -49,31 +49,31 @@ real_pow_uint(double x, unsigned int n)
  */
 
 double
-real_pow(double x, double n)
+cml_pow(double x, double n)
 {
         /* Domain check */
-        if (real_isnull(x))
+        if (cml_isnull(x))
         {
-                return real_isnull(n) ?
-                       real_nan() :
+                return cml_isnull(n) ?
+                       cml_nan() :
                        x;
         }
 
-        if (real_isinteger(n))
+        if (cml_isinteger(n))
         {
-                return real_pow_int(x, (int) n);
+                return cml_pow_int(x, (int) n);
         }
 
         /* Declaration of variables and structures */
         double s, y, z, w, k, h;
 
         /* Mathematical algorithm */
-        s = real_sgn(x);
-        y = real_abs(x);
-        z = real_log(y);
-        w = real_mul(n, z);
-        k = real_exp(w);
-        h = real_mul(s, k);
+        s = cml_sgn(x);
+        y = cml_abs(x);
+        z = cml_log(y);
+        w = cml_mul(n, z);
+        k = cml_exp(w);
+        h = cml_mul(s, k);
 
         /* Return */
         return h;
@@ -89,14 +89,14 @@ real_pow(double x, double n)
  */
 
 double
-real_root(double x, double n)
+cml_root(double x, double n)
 {
         /* Declaration of variables and structures */
         double y, z;
 
         /* Mathematical algorithm */
-        y = real_div(1.0, n);
-        z = real_pow(x, y);
+        y = cml_div(1.0, n);
+        z = cml_pow(x, y);
 
         /* Return */
         return z;
@@ -111,7 +111,7 @@ real_root(double x, double n)
  */
 
 double
-real_sqrt(double x)
+cml_sqrt(double x)
 {
-        return real_root(x, 2.0);
+        return cml_root(x, 2.0);
 }

@@ -3,20 +3,20 @@
 
 __CML_BEGIN_DECLS
 
-complex_t complex_cosh(complex_t);
-complex_t complex_sinh(complex_t);
-complex_t complex_tanh(complex_t);
-complex_t complex_sech(complex_t);
-complex_t complex_csch(complex_t);
-complex_t complex_coth(complex_t);
-complex_t complex_asinh(complex_t);
-complex_t complex_acosh(complex_t);
-complex_t complex_acosh_real(double);
-complex_t complex_atanh(complex_t);
-complex_t complex_atanh_real(double);
-complex_t complex_asech(complex_t);
-complex_t complex_acsch(complex_t);
-complex_t complex_acoth(complex_t);
+cml_complex_t cml_complex_cosh(cml_complex_t);
+cml_complex_t cml_complex_sinh(cml_complex_t);
+cml_complex_t cml_complex_tanh(cml_complex_t);
+cml_complex_t cml_complex_sech(cml_complex_t);
+cml_complex_t cml_complex_csch(cml_complex_t);
+cml_complex_t cml_complex_coth(cml_complex_t);
+cml_complex_t cml_complex_asinh(cml_complex_t);
+cml_complex_t cml_complex_acosh(cml_complex_t);
+cml_complex_t cml_complex_acosh_real(double);
+cml_complex_t cml_complex_atanh(cml_complex_t);
+cml_complex_t cml_complex_atanh_real(double);
+cml_complex_t cml_complex_asech(cml_complex_t);
+cml_complex_t cml_complex_acsch(cml_complex_t);
+cml_complex_t cml_complex_acoth(cml_complex_t);
 
 __CML_END_DECLS
 

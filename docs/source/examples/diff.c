@@ -11,7 +11,7 @@ f(double x, void *params)
 int
 main(void)
 {
-        function_t F;
+        cml_function_t F;
         double result, abserr;
 
         F.function = &f;
@@ -19,12 +19,12 @@ main(void)
 
         printf("f(x) = x^(3/2)\n");
 
-        deriv_central(&F, 2.0, 1e-8, &result, &abserr);
+        cml_deriv_central(&F, 2.0, 1e-8, &result, &abserr);
         printf("x = 2.0\n");
         printf("f'(x) = %.10f +/- %.10f\n", result, abserr);
         printf("exact = %.10f\n\n", 1.5 * sqrt(2.0));
 
-        deriv_forward (&F, 0.0, 1e-8, &result, &abserr);
+        cml_deriv_forward (&F, 0.0, 1e-8, &result, &abserr);
         printf("x = 0.0\n");
         printf("f'(x) = %.10f +/- %.10f\n", result, abserr);
         printf("exact = %.10f\n", 0.0);
