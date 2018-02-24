@@ -122,8 +122,8 @@ printing the IEEE representations in a human-readable form.
 .. float vs double vs long double
 .. (how many digits are available for each)
 
-.. function:: void cml_ieee_fprintf_float (FILE * stream, const float * x)
-              void cml_ieee_fprintf_double (FILE * stream, const double * x)
+.. function:: void cml_ieee754_fprintf_float (FILE * stream, const float * x)
+              void cml_ieee754_fprintf_double (FILE * stream, const double * x)
 
    These functions output a formatted version of the IEEE floating-point
    number pointed to by :data:`x` to the stream :data:`stream`. A pointer is
@@ -157,8 +157,8 @@ printing the IEEE representations in a human-readable form.
 .. @item [non-standard IEEE float], [non-standard IEEE double]
 .. an unrecognized encoding
 
-.. function:: void cml_ieee_printf_float (const float * x)
-              void cml_ieee_printf_double (const double * x)
+.. function:: void cml_ieee754_printf_float (const float * x)
+              void cml_ieee754_printf_double (const double * x)
 
    These functions output a formatted version of the IEEE floating-point
    number pointed to by :data:`x` to the stream :code:`stdout`.
