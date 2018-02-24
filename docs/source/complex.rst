@@ -12,6 +12,9 @@ as much of the complex plane as possible.
 .. FIXME: this still needs to be
 .. done for the csc, sec, cot, csch, sech, coth functions
 
+The complex types, functions and arithmetic operations are defined in
+the header file :file:`cml/complex.h`.
+
 .. index::
    single: representations of complex numbers
    single: polar form of complex numbers

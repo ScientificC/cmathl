@@ -13,6 +13,9 @@ The functions described in this chapter compute numerical derivatives by
 finite differencing.  An adaptive algorithm is used to find the best
 choice of finite difference and to estimate the error in the derivative.
 
+The functions described in this chapter are declared in the header
+file :file:`cml/deriv.h`.
+
 Functions
 =========
 

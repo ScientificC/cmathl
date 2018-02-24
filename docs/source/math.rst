@@ -11,6 +11,9 @@ functions are present in system libraries, but the alternative versions
 given here can be used as a substitute when the system functions are not
 available.
 
+The functions and macros described in this chapter are defined in the
+header file :file:`cml/math.h`.
+
 .. index::
    single: mathematical constants, defined as macros
    single: numerical constants, defined as macros

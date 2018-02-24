@@ -11,6 +11,9 @@ can find out what the precise cause of failure was.  You can also define
 your own error handling functions to modify the default behavior of the
 library.
 
+The functions described in this chapter are declared in the header
+file :file:`cml/errno.h`.
+
 Error Reporting
 ===============
 
