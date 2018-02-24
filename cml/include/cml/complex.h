@@ -1,9 +1,10 @@
-#ifndef CML_H
-#error "Never use <cml/math/complex.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_COMPLEX_H
 #define CML_COMPLEX_H
+
+#define CML_H
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
 typedef struct _complex_long_double
 {
@@ -75,11 +76,11 @@ char* complex_as_string(complex_t);
 
 __CML_END_DECLS
 
-#include <cml/math/complex/basic.h>
-#include <cml/math/complex/error.h>
-#include <cml/math/complex/exponentiation.h>
-#include <cml/math/complex/hyperbolic.h>
-#include <cml/math/complex/trigonometric.h>
+#include <cml/complex/basic.h>
+#include <cml/complex/error.h>
+#include <cml/complex/exponentiation.h>
+#include <cml/complex/hyperbolic.h>
+#include <cml/complex/trigonometric.h>
 
 #ifndef CML_NO_ALIASES
         #define creal(X) (X).re

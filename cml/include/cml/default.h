@@ -53,4 +53,20 @@
         __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
+/* Quick boolean definition */
+#ifdef CML_NO_STDBOOL
+        #include <cml/bool.h>
+#else
+        #include <stdbool.h>
+#endif
+
+#ifndef mint_t
+        #ifdef CML_NO_STDINT
+                #define mint_t int
+        #else
+                #include <stdint.h>
+                #define mint_t int32_t
+        #endif
+#endif
+
 #endif

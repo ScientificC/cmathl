@@ -16,18 +16,18 @@ SET(CML_SRCS
 		src/errno/message.c
 		src/errno/stream.c
 		src/errno/strerrno.c
-		src/math/complex/trigonometric.c
-		src/math/complex/hyperbolic.c
-		src/math/complex/basic.c
-		src/math/complex/exponentiation.c
-		src/math/complex.c
-		src/math/real/nearest-integer.c
-		src/math/real/trigonometric.c
-		src/math/real/power.c
-		src/math/real/exponential.c
-		src/math/real/hyperbolic.c
-		src/math/real/basic.c
-		src/math/real/classification.c
+		src/complex/trigonometric.c
+		src/complex/hyperbolic.c
+		src/complex/basic.c
+		src/complex/exponentiation.c
+		src/complex/complex.c
+		src/math/nearest-integer.c
+		src/math/trigonometric.c
+		src/math/power.c
+		src/math/exponential.c
+		src/math/hyperbolic.c
+		src/math/basic.c
+		src/math/classification.c
 		src/math/real.c
 		src/easings/exponential.c
 		src/easings/quadratic.c

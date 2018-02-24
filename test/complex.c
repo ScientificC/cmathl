@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <cml/math.h>
+#include <cml/complex.h>
 #include "include/test.h"
 
 struct complex_tests

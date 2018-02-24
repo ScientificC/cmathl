@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cml/math.h>
+#include <cml/complex.h>
+
 
 complex_t
 complex(double real_part, double imaginary_part)
