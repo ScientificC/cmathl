@@ -133,7 +133,7 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 
 ## Documentation
 
-A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](./docs/).
+A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](http://cml.readthedocs.io/).
 
 ## Can I trust this math library?
 
