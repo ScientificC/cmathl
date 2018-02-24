@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/structures.h>
 #include "include/test.h"
 
 

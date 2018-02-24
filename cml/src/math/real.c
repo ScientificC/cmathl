@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <cml.h>
+#include <cml/math.h>
 
 double
 real_nan()

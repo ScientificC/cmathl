@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
 
 /*
  * Returns the nearest integer not less than the given value

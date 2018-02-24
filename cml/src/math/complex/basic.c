@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
 
 double
 complex_abs(complex_t z)

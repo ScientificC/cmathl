@@ -1,5 +1,6 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/structures.h>
 
 quaternion_t
 quaternion_scalar_pow(double s, quaternion_t q)

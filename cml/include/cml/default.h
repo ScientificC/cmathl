@@ -36,11 +36,21 @@
         #endif
 #endif
 
-#if (!defined PREDEF_STANDARD_C99 && !defined __cplusplus)
-        #undef mfloat_t
-        #undef CML_LONG_DOUBLE_MATH
+#ifndef PREDEF_STANDARD_C11
+        #undef __CML_NO_GENERIC
+        #define __CML_NO_GENERIC
+#endif
 
-        #define mfloat_t double
+#define __CML_ARGS_FIRST(A, ...) A
+
+#ifndef __CML_TYPE
+        #define __CML_TYPE(__e, __t) \
+        __builtin_types_compatible_p(__typeof(__e), __t)
+#endif
+
+#ifndef __CML_SAME_TYPE
+        #define __CML_SAME_TYPE(__a, __b) \
+        __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
 #endif

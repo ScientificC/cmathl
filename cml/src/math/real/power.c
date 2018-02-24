@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
 
 double
 real_pow_int(double x, int n)

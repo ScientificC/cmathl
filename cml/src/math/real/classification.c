@@ -4,7 +4,7 @@
 #undef CML_NO_ALIASES
 #define CML_NO_ALIASES
 
-#include <cml.h>
+#include <cml/math.h>
 
 #ifndef PREDEF_STANDARD_C99
 /* FIXME: classification functions are not ANSI C complaint, should be compatible

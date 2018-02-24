@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
 
 /*
  * cosh(Z) = (cos(b) * ((e^a + e^-a) / 2) + (sin(b) * (e^a - e^-a) / 2))i

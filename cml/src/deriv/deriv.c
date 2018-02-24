@@ -1,5 +1,7 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/deriv.h>
+#include <cml/errno.h>
+#include <cml/math.h>
 
 static void
 central_deriv(const function_t *f, double x, double h,

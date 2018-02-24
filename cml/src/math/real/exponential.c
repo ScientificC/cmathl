@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #undef CML_NO_ALIASES
 #define CML_NO_ALIASES
-#include <cml.h>
+#include <cml/math.h>
 
 
 #ifdef CML_NO_MATH

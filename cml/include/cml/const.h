@@ -1,7 +1,3 @@
-#ifndef CML_H
-#error "Never use <cml/const.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_CONST_H
 #define CML_CONST_H
 

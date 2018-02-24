@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/math.h>
 
 /*
  * Computes absolute value of a floating point value

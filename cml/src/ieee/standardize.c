@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/ieee.h>
 
 __CML_EXTERN_INLINE void
 make_float_bigendian(float *x)

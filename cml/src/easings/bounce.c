@@ -1,5 +1,6 @@
 #include <stdlib.h>
-#include <cml.h>
+#include <cml/easings.h>
+#include <cml/math.h>
 
 
 /* Easing functions - Bounce */

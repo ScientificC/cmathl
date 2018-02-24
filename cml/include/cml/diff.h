@@ -1,9 +1,12 @@
-#ifndef CML_H
-#error "Never use <cml/diff.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_DIFF_H
 #define CML_DIFF_H
+
+#define CML_H
+#include "default.h"
+#include "inline.h"
+#include "machine.h"
+#include "math.h"
+
 
 __CML_BEGIN_DECLS
 

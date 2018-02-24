@@ -1,9 +1,11 @@
-#ifndef CML_H
-#error "Never use <cml/deriv.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_DERIV_H
 #define CML_DERIV_H
+
+#define CML_H
+#include "default.h"
+#include "inline.h"
+#include "machine.h"
+#include "math.h"
 
 __CML_BEGIN_DECLS
 

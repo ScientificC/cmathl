@@ -3,8 +3,9 @@
    provided by CML as well as the practices provided by it. */
 
 #include <stdlib.h>
-#include <cml.h>
-
+#include <cml/deriv.h>
+#include <cml/errno.h>
+#include <cml/math.h>
 
 __CML_EXTERN_INLINE int
 diff_backward(const function_t *f,
