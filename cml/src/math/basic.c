@@ -117,7 +117,57 @@ cml_div(double x, double y)
 double
 cml_hypot(double x, double y)
 {
-        return cml_sqrt(x*x + y*y);
+        double xabs = cml_abs(x);
+        double yabs = cml_abs(y);
+        double min, max;
+
+        /* Follow the optional behavior of the ISO C standard and return
+         +Inf when any of the argument is +-Inf, even if the other is NaN.
+           http://pubs.opengroup.org/onlinepubs/009695399/functions/hypot.html */
+        if (cml_isinf(x) || cml_isinf(y))
+        {
+                return POSINF;
+        }
+
+        if (xabs < yabs) {
+                min = xabs;
+                max = yabs;
+        }
+        else
+        {
+                min = yabs;
+                max = xabs;
+        }
+
+        if (cml_isnull(min))
+        {
+                return max;
+        }
+
+        double u = min / max;
+        return max * cml_sqrt(1 + u * u);
+}
+
+
+double
+cml_hypot3(double x, double y, double z)
+{
+        double xabs = cml_abs(x);
+        double yabs = cml_abs(y);
+        double zabs = cml_abs(z);
+        double w = CML_MAX(xabs, CML_MAX(yabs, zabs));
+
+        if (cml_isnull(w))
+        {
+                return 0.0;
+        }
+        else
+        {
+                double r = w * cml_sqrt((xabs / w) * (xabs / w) +
+                                        (yabs / w) * (yabs / w) +
+                                        (zabs / w) * (zabs / w));
+                return r;
+        }
 }
 
 
