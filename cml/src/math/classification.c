@@ -41,10 +41,52 @@ __ismult(double x, double y)
 }
 
 
+int
+gsl_cmp(double x1, double x2, double epsilon)
+{
+        int exponent;
+        double delta, difference;
+
+        /* Find exponent of largest absolute value */
+
+        {
+                double max = (cml_abs(x1) > cml_abs(x2)) ? x1 : x2;
+
+                cml_frexp(max, &exponent);
+        }
+
+        /* Form a neighborhood of size  2 * delta */
+
+        delta = cml_ldexp(epsilon, exponent);
+
+        difference = x1 - x2;
+
+        if (difference > delta) /* x1 > x2 */
+        {
+                return 1;
+        }
+        else if (difference < -delta) /* x1 < x2 */
+        {
+                return -1;
+        }
+        else                    /* -delta <= difference <= delta */
+        {
+                return 0;       /* x1 ~=~ x2 */
+        }
+}
+
+
 bool
 cml_equal(double x, double y)
 {
         return cml_abs(cml_sub(x, y)) < CML_FLT_EPSILON;
+}
+
+
+bool
+cml_nearequal(double x, double y, double epsilon)
+{
+        return cml_abs(cml_sub(x, y)) < epsilon;
 }
 
 
