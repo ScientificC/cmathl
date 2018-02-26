@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <cml/math.h>
-#include <cml/Quaternion.h>
+#include <cml/quaternion.h>
 #include "include/test.h"
 
 
