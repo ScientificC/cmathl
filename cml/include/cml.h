@@ -15,10 +15,11 @@
         #include <cml/tgmath.h>
 #endif
 
+#include <cml/const.h>
+#include <cml/complex.h>
 #include <cml/deriv.h>
 #include <cml/diff.h>
 #include <cml/easings.h>
 #include <cml/quaternion.h>
-#include <cml/structures.h>
 
 #endif
