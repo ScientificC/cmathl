@@ -5,7 +5,7 @@
 int
 main(int argc, char const *argv[])
 {
-        complex_t z, w;
+        cml_complex_t z, w;
 
         z = complex(1.0, 2.0);
         w = csin(z);

@@ -3,15 +3,15 @@
 
 __CML_BEGIN_DECLS
 
-double real_acos(double);
-double real_asin(double);
-double real_atan(double);
-double real_atan2(double, double);
-double real_cos(double);
-double real_cot(double);
-double real_csc(double);
-double real_sec(double);
-double real_sin(double);
+double cml_acos(double);
+double cml_asin(double);
+double cml_atan(double);
+double cml_atan2(double, double);
+double cml_cos(double);
+double cml_cot(double);
+double cml_csc(double);
+double cml_sec(double);
+double cml_sin(double);
 double doublean(double);
 
 __CML_END_DECLS

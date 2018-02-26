@@ -78,17 +78,17 @@ Infinities and Not-a-number
    This macro contains the IEEE representation of the Not-a-Number symbol,
    :code:`NaN`. It is computed from the ratio :code:`0.0/0.0`.
 
-.. function:: bool real_isnan (double x)
+.. function:: bool cml_isnan (double x)
 
    This function returns 1 if :data:`x` is not-a-number.
 
-.. function:: bool real_isinf (double x)
+.. function:: bool cml_isinf (double x)
 
    This function returns :math:`+1` if :data:`x` is positive infinity,
    :math:`-1` if :data:`x` is negative infinity and 0
    otherwise. [#f1]_
 
-.. function:: bool real_isfinite (double x)
+.. function:: bool cml_isfinite (double x)
 
    This function returns 1 if :data:`x` is a real number, and 0 if it is
    infinite or not-a-number.
@@ -106,7 +106,7 @@ application (see :ref:`portability-functions`).
    single: log1p
    single: logarithm, computed accurately near 1
 
-.. function:: double real_log1p (double x)
+.. function:: double cml_log1p (double x)
 
    This function computes the value of :math:`\log(1+x)` in a way that is
    accurate for small :data:`x`. It provides an alternative to the BSD math
@@ -116,7 +116,7 @@ application (see :ref:`portability-functions`).
    single: expm1
    single: exponential, difference from 1 computed accurately
 
-.. function:: double real_expm1 (double x)
+.. function:: double cml_expm1 (double x)
 
    This function computes the value of :math:`\exp(x)-1` in a way that is
    accurate for small :data:`x`. It provides an alternative to the BSD math
@@ -127,7 +127,7 @@ application (see :ref:`portability-functions`).
    single: euclidean distance function, hypot
    single: length, computed accurately using hypot
 
-.. function:: double real_hypot (double x, double y)
+.. function:: double cml_hypot (double x, double y)
 
    This function computes the value of
    :math:`\sqrt{x^2 + y^2}` in a way that avoids overflow. It provides an
@@ -137,7 +137,7 @@ application (see :ref:`portability-functions`).
    single: euclidean distance function, hypot3
    single: length, computed accurately using hypot3
 
-.. function:: double real_hypot3 (double x, double y, double real_z)
+.. function:: double cml_hypot3 (double x, double y, double cml_z)
 
    This function computes the value of
    :math:`\sqrt{x^2 + y^2 + z^2}` in a way that avoids overflow.
@@ -147,7 +147,7 @@ application (see :ref:`portability-functions`).
    single: hyperbolic cosine, inverse
    single: inverse hyperbolic cosine
 
-.. function:: double real_acosh (double x)
+.. function:: double cml_acosh (double x)
 
    This function computes the value of :math:`\arccosh{(x)}`. It provides an
    alternative to the standard math function :code:`acosh(x)`.
@@ -157,7 +157,7 @@ application (see :ref:`portability-functions`).
    single: hyperbolic sine, inverse
    single: inverse hyperbolic sine
 
-.. function:: double real_asinh (double x)
+.. function:: double cml_asinh (double x)
 
    This function computes the value of :math:`\arcsinh{(x)}`. It provides an
    alternative to the standard math function :code:`asinh(x)`.
@@ -167,21 +167,21 @@ application (see :ref:`portability-functions`).
    single: hyperbolic tangent, inverse
    single: inverse hyperbolic tangent
 
-.. function:: double real_atanh (double x)
+.. function:: double cml_atanh (double x)
 
    This function computes the value of :math:`\arctanh{(x)}`. It provides an
    alternative to the standard math function :code:`atanh(x)`.
 
 .. index:: ldexp
 
-.. function:: double real_ldexp (double x, int e)
+.. function:: double cml_ldexp (double x, int e)
 
    This function computes the value of :math:`x * 2^e`. It provides an
    alternative to the standard math function :code:`ldexp(x,e)`.
 
 .. index:: frexp
 
-.. function:: double real_frexp (double x, int *e)
+.. function:: double cml_frexp (double x, int *e)
 
    This function splits the number :data:`x` into its normalized fraction
    :math:`f` and exponent :math:`e`, such that :math:`x = f * 2^e` and
@@ -199,22 +199,22 @@ functions to fill this gap.  For reasons of efficiency, these functions
 do not check for overflow or underflow conditions.
 
 .. function::
-   double real_pow_int (double x, int n)
-   double real_pow_uint (double x, unsigned int n)
+   double cml_pow_int (double x, int n)
+   double cml_pow_uint (double x, unsigned int n)
 
    These routines computes the power :math:`x^n` for integer :data:`n`.  The
    power is computed efficiently---for example, :math:`x^8` is computed as
    :math:`((x^2)^2)^2`, requiring only 3 multiplications.
 
 .. function::
-   double real_pow_2 (double x)
-   double real_pow_3 (double x)
-   double real_pow_4 (double x)
-   double real_pow_5 (double x)
-   double real_pow_6 (double x)
-   double real_pow_7 (double x)
-   double real_pow_8 (double x)
-   double real_pow_9 (double x)
+   double cml_pow_2 (double x)
+   double cml_pow_3 (double x)
+   double cml_pow_4 (double x)
+   double cml_pow_5 (double x)
+   double cml_pow_6 (double x)
+   double cml_pow_7 (double x)
+   double cml_pow_8 (double x)
+   double cml_pow_9 (double x)
 
    These functions can be used to compute small integer powers :math:`x^2`,
    :math:`x^3`, etc. efficiently. The functions will be inlined when
@@ -229,7 +229,7 @@ do not check for overflow or underflow conditions.
 Testing the Sign of Numbers
 ===========================
 
-.. function:: double real_sgn (double x)
+.. function:: double cml_sgn (double x)
 
    This macro returns the sign of :data:`x`. It is defined as :code:`((x) >= 0
    ? 1 : -1)`. Note that with this definition the sign of zero is positive
@@ -270,7 +270,7 @@ Algorithms" (3rd edition).
    single: safe comparison of floating point numbers
    single: floating point numbers, approximate comparison
 
-.. function:: bool real_cmp (double x, double y, double epsilon)
+.. function:: bool cml_cmp (double x, double y, double epsilon)
 
    This function determines whether :data:`x` and :data:`y` are approximately
    equal to a relative accuracy :data:`epsilon`.

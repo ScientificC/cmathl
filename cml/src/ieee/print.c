@@ -8,10 +8,10 @@
 static char signs[2] = {' ','-'};
 
 void
-ieee754_fprintf_float(FILE *stream, const float *x)
+cml_ieee754_fprintf_float(FILE *stream, const float *x)
 {
-        ieee754_float_rep_t r;
-        ieee754_float_to_rep(x, &r);
+        cml_ieee754_float_rep_t r;
+        cml_ieee754_float_to_rep(x, &r);
 
         switch (r.type)
         {
@@ -36,16 +36,16 @@ ieee754_fprintf_float(FILE *stream, const float *x)
 }
 
 void
-ieee754_printf_float(const float *x)
+cml_ieee754_printf_float(const float *x)
 {
-        ieee754_fprintf_float(stdout, x);
+        cml_ieee754_fprintf_float(stdout, x);
 }
 
 void
-ieee754_fprintf_double(FILE *stream, const double *x)
+cml_ieee754_fprintf_double(FILE *stream, const double *x)
 {
-        ieee754_double_rep_t r;
-        ieee754_double_to_rep(x, &r);
+        cml_ieee754_double_rep_t r;
+        cml_ieee754_double_to_rep(x, &r);
 
         switch (r.type)
         {
@@ -70,7 +70,7 @@ ieee754_fprintf_double(FILE *stream, const double *x)
 }
 
 void
-ieee754_printf_double(const double *x)
+cml_ieee754_printf_double(const double *x)
 {
-        ieee754_fprintf_double(stdout, x);
+        cml_ieee754_fprintf_double(stdout, x);
 }

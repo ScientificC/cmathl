@@ -138,6 +138,10 @@ library will exclude any related functions at compile-time.  This should
 make it impossible to link a program that would use these functions and
 give incorrect results.
 
+To avoid namespace conflicts all exported function names and variables
+have the prefix :code:`cml_`, while exported macros have the prefix
+:code:`CML_`.
+
 .. index::
    single: inline functions
    single: CML_EXTERN_INLINE

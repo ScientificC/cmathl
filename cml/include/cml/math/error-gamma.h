@@ -3,8 +3,8 @@
 
 __CML_BEGIN_DECLS
 
-double real_gamma(double);
-double real_error(double);
+double cml_tgamma(double);
+double cml_erf(double);
 
 __CML_END_DECLS
 

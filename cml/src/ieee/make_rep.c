@@ -3,7 +3,7 @@
 
 static void sprint_nybble(int i, char *s);
 static void sprint_byte(int i, char *s);
-static int determine_ieee754_type(int non_zero, int exponent, int max_exponent);
+static int determine_cml_ieee754_type(int non_zero, int exponent, int max_exponent);
 
 
 /* For the IEEE float format the bits are found from the following
@@ -21,7 +21,7 @@ static int determine_ieee754_type(int non_zero, int exponent, int max_exponent);
  */
 
 void
-ieee754_float_to_rep(const float *x, ieee754_float_rep_t *r)
+cml_ieee754_float_to_rep(const float *x, cml_ieee754_float_rep_t *r)
 {
         int e, non_zero;
 
@@ -34,9 +34,9 @@ ieee754_float_to_rep(const float *x, ieee754_float_rep_t *r)
 
         u.f = *x;
 
-        if (little_endian_p())
+        if (cml_little_endian_p())
         {
-                make_float_bigendian(&(u.f));
+                cml_make_float_bigendian(&(u.f));
         }
 
         /* note that r->sign is signed, u.ieee.byte is unsigned */
@@ -61,11 +61,11 @@ ieee754_float_to_rep(const float *x, ieee754_float_rep_t *r)
 
         non_zero = u.ieee.byte[0] || u.ieee.byte[1] || (u.ieee.byte[2] & 0x7f);
 
-        r->type = determine_ieee754_type(non_zero, e, 255);
+        r->type = determine_cml_ieee754_type(non_zero, e, 255);
 }
 
 void
-ieee754_double_to_rep(const double *x, ieee754_double_rep_t *r)
+cml_ieee754_double_to_rep(const double *x, cml_ieee754_double_rep_t *r)
 {
 
         int e, non_zero;
@@ -80,9 +80,9 @@ ieee754_double_to_rep(const double *x, ieee754_double_rep_t *r)
 
         u.d = *x;
 
-        if (little_endian_p())
+        if (cml_little_endian_p())
         {
-                make_double_bigendian(&(u.d));
+                cml_make_double_bigendian(&(u.d));
         }
 
         /* note that r->sign is signed, u.ieee.byte is unsigned */
@@ -114,7 +114,7 @@ ieee754_double_to_rep(const double *x, ieee754_double_rep_t *r)
                     || u.ieee.byte[3] || u.ieee.byte[4] || u.ieee.byte[5]
                     || (u.ieee.byte[6] & 0x0f));
 
-        r->type = determine_ieee754_type(non_zero, e, 2047);
+        r->type = determine_cml_ieee754_type(non_zero, e, 2047);
 }
 
 /* A table of character representations of nybbles */
@@ -157,7 +157,7 @@ sprint_byte(int i, char *s)
 }
 
 static int
-determine_ieee754_type(int non_zero, int exponent, int max_exponent)
+determine_cml_ieee754_type(int non_zero, int exponent, int max_exponent)
 {
         if (exponent == max_exponent)
         {

@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-double ease_circular_in(double p);
-double ease_circular_out(double p);
-double ease_circular_in_out(double p);
+double cml_ease_circular_in(double p);
+double cml_ease_circular_out(double p);
+double cml_ease_circular_in_out(double p);
 
 __CML_END_DECLS
 

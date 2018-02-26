@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-double ease_bounce_in(double p);
-double ease_bounce_out(double p);
-double ease_bounce_in_out(double p);
+double cml_ease_bounce_in(double p);
+double cml_ease_bounce_out(double p);
+double cml_ease_bounce_in_out(double p);
 
 __CML_END_DECLS
 

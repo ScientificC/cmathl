@@ -2,7 +2,7 @@
 #include <cml/ieee.h>
 
 __CML_EXTERN_INLINE void
-make_float_bigendian(float *x)
+cml_make_float_bigendian(float *x)
 {
         union {
                 float f;
@@ -21,7 +21,7 @@ make_float_bigendian(float *x)
 
 
 __CML_EXTERN_INLINE void
-make_double_bigendian(double *x)
+cml_make_double_bigendian(double *x)
 {
         union {
                 double d;

@@ -3,7 +3,7 @@
 
 __CML_BEGIN_DECLS
 
-complex_t complex_error(complex_t);
+cml_complex_t cml_complex_erf(cml_complex_t);
 
 __CML_END_DECLS
 

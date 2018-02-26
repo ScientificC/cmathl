@@ -14,7 +14,7 @@ __atanh(long double x)
         sum = ai_n;
         i = 1;
 
-        while (real_abs(ai_n) >= CML_FLT_EPSILON  && i < 1e4)
+        while (cml_abs(ai_n) >= CML_FLT_EPSILON  && i < 1e4)
         {
                 ai_n = ai_n*x*x;
                 sum = sum + ai_n/(i+=2);
@@ -77,17 +77,17 @@ __atanh(const double x)
  */
 
 double
-real_acosh(double x)
+cml_acosh(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, k, h;
 
         /* Mathematical algorithm */
-        y = real_pow(x, 2.0);
-        z = real_sub(y, 1.0);
-        w = real_sqrt(z);
-        k = real_add(x, w);
-        h = real_log(k);
+        y = cml_pow(x, 2.0);
+        z = cml_sub(y, 1.0);
+        w = cml_sqrt(z);
+        k = cml_add(x, w);
+        h = cml_log(k);
 
         /* Return */
         return h;
@@ -103,17 +103,17 @@ real_acosh(double x)
  */
 
 double
-real_asinh(double x)
+cml_asinh(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, k, h;
 
         /* Mathematical algorithm */
-        y = real_pow(x, 2.0);
-        z = real_add(y, 1.0);
-        w = real_sqrt(z);
-        k = real_add(x, w);
-        h = real_log(k);
+        y = cml_pow(x, 2.0);
+        z = cml_add(y, 1.0);
+        w = cml_sqrt(z);
+        k = cml_add(x, w);
+        h = cml_log(k);
 
         /* Return */
         return h;
@@ -128,16 +128,16 @@ real_asinh(double x)
  */
 
 double
-real_atanh(double x)
+cml_atanh(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_abs(x);
-        h = real_isgreater(1.0, y) ?
+        y = cml_abs(x);
+        h = cml_isgreater(1.0, y) ?
             (double) __atanh(x) :
-            real_nan();
+            cml_nan();
 
         /* Return */
         return h;
@@ -153,17 +153,17 @@ real_atanh(double x)
  */
 
 double
-real_cosh(double x)
+cml_cosh(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, k, h;
 
         /* Mathematical algorithm */
-        y = real_opposite(x);
-        z = real_exp(x);
-        w = real_exp(y);
-        k = real_add(z, w);
-        h = real_div(k, 2.0);
+        y = cml_opposite(x);
+        z = cml_exp(x);
+        w = cml_exp(y);
+        k = cml_add(z, w);
+        h = cml_div(k, 2.0);
 
         /* Return */
         return h;
@@ -178,16 +178,16 @@ real_cosh(double x)
  */
 
 double
-real_coth(double x)
+cml_coth(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, h;
 
         /* Mathematical algorithm */
-        y = real_cosh(x);
-        z = real_sinh(x);
-        w = real_inverse(z);
-        h = real_mul(y, w);
+        y = cml_cosh(x);
+        z = cml_sinh(x);
+        w = cml_inverse(z);
+        h = cml_mul(y, w);
 
         /* Return */
         return h;
@@ -202,14 +202,14 @@ real_coth(double x)
  */
 
 double
-real_csch(double x)
+cml_csch(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_sinh(x);
-        h = real_inverse(y);
+        y = cml_sinh(x);
+        h = cml_inverse(y);
 
         /* Return */
         return h;
@@ -224,14 +224,14 @@ real_csch(double x)
  */
 
 double
-real_sech(double x)
+cml_sech(double x)
 {
         /* Declaration of variables and structures */
         double y, h;
 
         /* Mathematical algorithm */
-        y = real_cosh(x);
-        h = real_inverse(y);
+        y = cml_cosh(x);
+        h = cml_inverse(y);
 
         /* Return */
         return h;
@@ -247,17 +247,17 @@ real_sech(double x)
  */
 
 double
-real_sinh(double x)
+cml_sinh(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, k, h;
 
         /* Mathematical algorithm */
-        y = real_opposite(x);
-        z = real_exp(x);
-        w = real_exp(y);
-        k = real_sub(z, w);
-        h = real_div(k, 2.0);
+        y = cml_opposite(x);
+        z = cml_exp(x);
+        w = cml_exp(y);
+        k = cml_sub(z, w);
+        h = cml_div(k, 2.0);
 
         /* Return */
         return h;
@@ -279,10 +279,10 @@ doubleanh(double x)
         double y, z, w, h;
 
         /* Mathematical algorithm */
-        y = real_sinh(x);
-        z = real_cosh(x);
-        w = real_inverse(z);
-        h = real_mul(y, w);
+        y = cml_sinh(x);
+        z = cml_cosh(x);
+        w = cml_inverse(z);
+        h = cml_mul(y, w);
 
         /* Return */
         return h;

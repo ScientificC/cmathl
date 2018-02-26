@@ -9,15 +9,15 @@
 
 __CML_BEGIN_DECLS
 
-int deriv_central(const function_t *f,
+int cml_deriv_central(const cml_function_t *f,
                   double x, double h,
                   double *result, double *abserr);
 
-int deriv_backward(const function_t *f,
+int cml_deriv_backward(const cml_function_t *f,
                    double x, double h,
                    double *result, double *abserr);
 
-int deriv_forward(const function_t *f,
+int cml_deriv_forward(const cml_function_t *f,
                   double x, double h,
                   double *result, double *abserr);
 

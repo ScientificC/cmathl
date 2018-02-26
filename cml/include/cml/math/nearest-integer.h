@@ -3,8 +3,8 @@
 
 __CML_BEGIN_DECLS
 
-double real_ceil(double);
-double real_floor(double);
+double cml_ceil(double);
+double cml_floor(double);
 
 __CML_END_DECLS
 

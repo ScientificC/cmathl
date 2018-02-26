@@ -7,9 +7,9 @@
 
 __CML_BEGIN_DECLS
 
-double ease_cubic_in(double p);
-double ease_cubic_out(double p);
-double ease_cubic_in_out(double p);
+double cml_ease_cubic_in(double p);
+double cml_ease_cubic_out(double p);
+double cml_ease_cubic_in_out(double p);
 
 __CML_END_DECLS
 

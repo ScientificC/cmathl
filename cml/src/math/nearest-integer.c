@@ -9,12 +9,12 @@
  */
 
 double
-real_ceil(double x)
+cml_ceil(double x)
 {
         mint_t w;
 
         w = (mint_t) x;
-        return real_isnull(x - w) ?
+        return cml_isnull(x - w) ?
                x :
                w + 1.0;
 }
@@ -28,7 +28,7 @@ real_ceil(double x)
  */
 
 double
-real_floor(double x)
+cml_floor(double x)
 {
         return (double) ((mint_t) x);
 }

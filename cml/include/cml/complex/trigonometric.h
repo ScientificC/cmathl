@@ -3,23 +3,23 @@
 
 __CML_BEGIN_DECLS
 
-complex_t complex_cos(complex_t);
-complex_t complex_cot(complex_t);
-complex_t complex_csc(complex_t);
-complex_t complex_sec(complex_t);
-complex_t complex_sin(complex_t);
-complex_t complex_tan(complex_t);
+cml_complex_t cml_complex_cos(cml_complex_t);
+cml_complex_t cml_complex_cot(cml_complex_t);
+cml_complex_t cml_complex_csc(cml_complex_t);
+cml_complex_t cml_complex_sec(cml_complex_t);
+cml_complex_t cml_complex_sin(cml_complex_t);
+cml_complex_t cml_complex_tan(cml_complex_t);
 
-complex_t complex_asin(complex_t);
-complex_t complex_asin_real(double);
-complex_t complex_acos(complex_t);
-complex_t complex_acos_real(double);
-complex_t complex_atan(complex_t);
-complex_t complex_asec(complex_t);
-complex_t complex_asec_real(double);
-complex_t complex_acsc(complex_t);
-complex_t complex_acsc_real(double);
-complex_t complex_acot(complex_t);
+cml_complex_t cml_complex_asin(cml_complex_t);
+cml_complex_t cml_complex_asin_real(double);
+cml_complex_t cml_complex_acos(cml_complex_t);
+cml_complex_t cml_complex_acos_real(double);
+cml_complex_t cml_complex_atan(cml_complex_t);
+cml_complex_t cml_complex_asec(cml_complex_t);
+cml_complex_t cml_complex_asec_real(double);
+cml_complex_t cml_complex_acsc(cml_complex_t);
+cml_complex_t cml_complex_acsc_real(double);
+cml_complex_t cml_complex_acot(cml_complex_t);
 
 __CML_END_DECLS
 

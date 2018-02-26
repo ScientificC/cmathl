@@ -7,8 +7,8 @@
 
 __CML_BEGIN_DECLS
 
-void make_float_bigendian(float *x);
-void make_double_bigendian(double *x);
+void cml_make_float_bigendian(float *x);
+void cml_make_double_bigendian(double *x);
 
 __CML_END_DECLS
 

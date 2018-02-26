@@ -7,7 +7,7 @@
 
 __CML_BEGIN_DECLS
 
-int little_endian_p();
+int cml_little_endian_p();
 
 __CML_END_DECLS
 

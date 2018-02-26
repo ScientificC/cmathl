@@ -1,0 +1,21 @@
+#ifndef CML_QUATERNION_PAR_FUNC_H
+#define CML_QUATERNION_PAR_FUNC_H
+
+__CML_BEGIN_DECLS
+
+cml_quaternion_t cml_quaternion_parity_antisymmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_parity_conj(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_parity_symmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_x_parity_antisymmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_x_parity_conj(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_x_parity_symmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_y_parity_antisymmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_y_parity_conj(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_y_parity_symmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_z_parity_antisymmetric_part(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_z_parity_conj(cml_quaternion_t q);
+cml_quaternion_t cml_quaternion_z_parity_symmetric_part(cml_quaternion_t q);
+
+__CML_END_DECLS
+
+#endif

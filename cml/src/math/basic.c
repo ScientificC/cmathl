@@ -9,14 +9,14 @@
  */
 
 double
-real_abs(double x)
+cml_abs(double x)
 {
         /* Declaration of variables and structures */
         double sgn, y;
 
         /* Mathematical algorithm */
-        sgn = real_sgn(x);
-        y = real_mul(x, sgn);
+        sgn = cml_sgn(x);
+        y = cml_mul(x, sgn);
 
         /* Return */
         return y;
@@ -31,7 +31,7 @@ real_abs(double x)
  */
 
 double
-real_add(double x, double y)
+cml_add(double x, double y)
 {
         return x + y;
 }
@@ -46,30 +46,30 @@ real_add(double x, double y)
  */
 
 double
-real_ared_a(double x, double a)
+cml_ared_a(double x, double a)
 {
         /* Declaration of variables and structures */
         double z, k, w;
 
         /* Mathematical algorithm */
-        z = real_div_e(x, a);
-        k = real_mul(z, a);
-        w = real_sub(x, k);
+        z = cml_div_e(x, a);
+        k = cml_mul(z, a);
+        w = cml_sub(x, k);
 
         /* Return */
         return w;
 }
 
 double
-real_ared(double x)
+cml_ared(double x)
 {
         /* Declaration of variables and structures */
         double z, k, w;
 
         /* Mathematical algorithm */
-        z = real_div_e(x, M_TAU);
-        k = real_mul(z, M_TAU);
-        w = real_sub(x, k);
+        z = cml_div_e(x, M_TAU);
+        k = cml_mul(z, M_TAU);
+        w = cml_sub(x, k);
 
         /* Return */
         return w;
@@ -85,14 +85,14 @@ real_ared(double x)
  */
 
 double
-real_div_e(double x, double y)
+cml_div_e(double x, double y)
 {
         /* Declaration of variables and structures */
         double z, w;
 
         /* Mathematical algorithm */
-        z = real_div(x, y);
-        w = real_floor(z);
+        z = cml_div(x, y);
+        w = cml_floor(z);
 
         /* Return */
         return w;
@@ -108,29 +108,79 @@ real_div_e(double x, double y)
  */
 
 double
-real_div(double x, double y)
+cml_div(double x, double y)
 {
         return x / y;
 }
 
 
 double
-real_hypot(double x, double y)
+cml_hypot(double x, double y)
 {
-        return real_sqrt(x*x + y*y);
+        double xabs = cml_abs(x);
+        double yabs = cml_abs(y);
+        double min, max;
+
+        /* Follow the optional behavior of the ISO C standard and return
+         +Inf when any of the argument is +-Inf, even if the other is NaN.
+           http://pubs.opengroup.org/onlinepubs/009695399/functions/hypot.html */
+        if (cml_isinf(x) || cml_isinf(y))
+        {
+                return POSINF;
+        }
+
+        if (xabs < yabs) {
+                min = xabs;
+                max = yabs;
+        }
+        else
+        {
+                min = yabs;
+                max = xabs;
+        }
+
+        if (cml_isnull(min))
+        {
+                return max;
+        }
+
+        double u = min / max;
+        return max * cml_sqrt(1 + u * u);
 }
 
 
 double
-real_inverse(double x)
+cml_hypot3(double x, double y, double z)
+{
+        double xabs = cml_abs(x);
+        double yabs = cml_abs(y);
+        double zabs = cml_abs(z);
+        double w = CML_MAX(xabs, CML_MAX(yabs, zabs));
+
+        if (cml_isnull(w))
+        {
+                return 0.0;
+        }
+        else
+        {
+                double r = w * cml_sqrt((xabs / w) * (xabs / w) +
+                                        (yabs / w) * (yabs / w) +
+                                        (zabs / w) * (zabs / w));
+                return r;
+        }
+}
+
+
+double
+cml_inverse(double x)
 {
         /* Declaration of variables and structures */
         double h;
 
         /* Mathematical algorithm */
-        h = real_isnull(x) ?
-            real_nan() :
-            real_div(1.0, x);
+        h = cml_isnull(x) ?
+            cml_nan() :
+            cml_div(1.0, x);
 
         /* Return */
         return h;
@@ -146,15 +196,15 @@ real_inverse(double x)
  */
 
 double
-real_mod(double x, double y)
+cml_mod(double x, double y)
 {
         /* Declaration of variables and structures */
         double z, w, k;
 
         /* Mathematical algorithm */
-        z = real_div_e(x, y);
-        w = real_mul(y, z);
-        k = real_sub(x, w);
+        z = cml_div_e(x, y);
+        w = cml_mul(y, z);
+        k = cml_sub(x, w);
 
         /* Return */
         return k;
@@ -162,7 +212,7 @@ real_mod(double x, double y)
 
 
 double
-real_opposite(double x)
+cml_opposite(double x)
 {
         return (double) -x;
 }
@@ -177,14 +227,14 @@ real_opposite(double x)
  */
 
 double
-real_mul(double x, double y)
+cml_mul(double x, double y)
 {
         return x * y;
 }
 
 
 double
-real_sgn(double x)
+cml_sgn(double x)
 {
         return (double) (x >= 0.0 ? 1.0 : -1.0);
 }
@@ -199,7 +249,7 @@ real_sgn(double x)
  */
 
 double
-real_sub(double x, double y)
+cml_sub(double x, double y)
 {
         return x - y;
 }

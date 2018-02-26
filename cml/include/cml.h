@@ -18,6 +18,7 @@
 #include <cml/deriv.h>
 #include <cml/diff.h>
 #include <cml/easings.h>
+#include <cml/quaternion.h>
 #include <cml/structures.h>
 
 #endif

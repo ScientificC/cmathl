@@ -10,15 +10,15 @@
 
 __CML_BEGIN_DECLS
 
-int diff_central(const function_t *f,
+int cml_diff_central(const cml_function_t *f,
                  double x,
                  double *result, double *abserr);
 
-int diff_backward(const function_t *f,
+int cml_diff_backward(const cml_function_t *f,
                   double x,
                   double *result, double *abserr);
 
-int diff_forward(const function_t *f,
+int cml_diff_forward(const cml_function_t *f,
                  double x,
                  double *result, double *abserr);
 

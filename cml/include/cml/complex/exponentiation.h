@@ -3,13 +3,13 @@
 
 __CML_BEGIN_DECLS
 
-complex_t complex_exp(complex_t);
-complex_t complex_log_b(complex_t, complex_t);
-complex_t complex_log(complex_t);
-complex_t complex_sqrt(complex_t);
-complex_t complex_sqrt_real(double);
-complex_t complex_pow(complex_t, complex_t);
-complex_t complex_pow_real(complex_t, double);
+cml_complex_t cml_complex_exp(cml_complex_t);
+cml_complex_t cml_complex_log_b(cml_complex_t, cml_complex_t);
+cml_complex_t cml_complex_log(cml_complex_t);
+cml_complex_t cml_complex_sqrt(cml_complex_t);
+cml_complex_t cml_complex_sqrt_real(double);
+cml_complex_t cml_complex_pow(cml_complex_t, cml_complex_t);
+cml_complex_t cml_complex_pow_real(cml_complex_t, double);
 
 __CML_END_DECLS
 

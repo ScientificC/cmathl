@@ -3,18 +3,18 @@
 
 __CML_BEGIN_DECLS
 
-double real_abs(double);
-double real_add(double, double);
-double real_ared(double);
-double real_div_e(double, double);
-double real_div(double, double);
-double real_inverse(double);
-double real_hypot(double x, double y);
-double real_mod(double, double);
-double real_opposite(double);
-double real_mul(double, double);
-double real_sgn(double);
-double real_sub(double, double);
+double cml_abs(double);
+double cml_add(double, double);
+double cml_ared(double);
+double cml_div_e(double, double);
+double cml_div(double, double);
+double cml_inverse(double);
+double cml_hypot(double x, double y);
+double cml_mod(double, double);
+double cml_opposite(double);
+double cml_mul(double, double);
+double cml_sgn(double);
+double cml_sub(double, double);
 
 __CML_END_DECLS
 

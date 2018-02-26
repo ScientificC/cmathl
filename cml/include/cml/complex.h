@@ -6,7 +6,7 @@
 #include <cml/inline.h>
 #include <cml/machine.h>
 
-typedef struct _complex_long_double
+typedef struct
 {
         union
         {
@@ -23,9 +23,9 @@ typedef struct _complex_long_double
                         long double imaginary;
                 };
         };
-} complex_long_double_t;
+} cml_complex_long_double_t;
 
-typedef struct _complex
+typedef struct
 {
         union
         {
@@ -42,9 +42,9 @@ typedef struct _complex
                         double imaginary;
                 };
         };
-} complex_t;
+} cml_complex_t;
 
-typedef struct _complex_float
+typedef struct
 {
         union
         {
@@ -61,18 +61,18 @@ typedef struct _complex_float
                         float imaginary;
                 };
         };
-} complex_float_t;
+} cml_complex_float_t;
 
 __CML_BEGIN_DECLS
 
-complex_t complex(double, double);
-complex_t complex_polar(double, double);
-complex_t complex_zero();
-complex_t complex_nan();
-complex_t complex_inf();
-complex_t complex_ninf();
-complex_t complex_clone(complex_t);
-char* complex_as_string(complex_t);
+cml_complex_t complex(double, double);
+cml_complex_t cml_complex_polar(double, double);
+cml_complex_t cml_complex_zero();
+cml_complex_t cml_complex_nan();
+cml_complex_t cml_complex_inf();
+cml_complex_t cml_complex_ninf();
+cml_complex_t cml_complex_clone(cml_complex_t);
+char* cml_complex_as_string(cml_complex_t);
 
 __CML_END_DECLS
 
@@ -86,74 +86,74 @@ __CML_END_DECLS
         #define creal(X) (X).re
         #define cimag(X) (X).im
 
-        #define cpolar(X, Y) complex_polar(X, Y)
-        #define czero() complex_zero()
-        #define cnan() complex_nan()
-        #define cinf() complex_inf()
-        #define cninf() complex_inf()
-        #define cclone(X) complex_clone(X)
+        #define cpolar(X, Y) cml_complex_polar(X, Y)
+        #define czero() cml_complex_zero()
+        #define cnan() cml_complex_nan()
+        #define cinf() cml_complex_inf()
+        #define cninf() cml_complex_inf()
+        #define cclone(X) cml_complex_clone(X)
 
-        #define cabs(X) complex_abs(X)
-        #define carg(X) complex_arg(X)
-        #define clogabs(X) complex_logabs(X)
+        #define cabs(X) cml_complex_abs(X)
+        #define carg(X) cml_complex_arg(X)
+        #define clogabs(X) cml_complex_logabs(X)
 
-        #define cadd(X, Y) complex_add(X, Y)
-        #define cconj(X) complex_conj(X)
-        #define cdiv(X, Y) complex_div(X, Y)
-        #define cinverse(X) complex_inverse(X)
-        #define cmul(X, Y) complex_mul(X, Y)
-        #define cscalarmul(X, Y) complex_scalar_mul(X, Y)
-        #define csub(X, Y) complex_sub(X, Y)
-        #define caddr(X, Y) complex_add_real(X, Y)
-        #define csubr(X, Y) complex_sub_real(X, Y)
-        #define cmulr(X, Y) complex_mul_real(X, Y)
-        #define cdivr(X, Y) complex_div_real(X, Y)
-        #define caddi(X, Y) complex_add_imag(X, Y)
-        #define csubi(X, Y) complex_sub_imag(X, Y)
-        #define cmuli(X, Y) complex_mul_imag(X, Y)
-        #define cdivi(X, Y) complex_div_imag(X, Y)
+        #define cadd(X, Y) cml_complex_add(X, Y)
+        #define cconj(X) cml_complex_conj(X)
+        #define cdiv(X, Y) cml_complex_div(X, Y)
+        #define cinverse(X) cml_complex_inverse(X)
+        #define cmul(X, Y) cml_complex_mul(X, Y)
+        #define cscalarmul(X, Y) cml_complex_scalar_mul(X, Y)
+        #define csub(X, Y) cml_complex_sub(X, Y)
+        #define caddr(X, Y) cml_complex_add_real(X, Y)
+        #define csubr(X, Y) cml_complex_sub_real(X, Y)
+        #define cmulr(X, Y) cml_complex_mul_real(X, Y)
+        #define cdivr(X, Y) cml_complex_div_real(X, Y)
+        #define caddi(X, Y) cml_complex_add_imag(X, Y)
+        #define csubi(X, Y) cml_complex_sub_imag(X, Y)
+        #define cmuli(X, Y) cml_complex_mul_imag(X, Y)
+        #define cdivi(X, Y) cml_complex_div_imag(X, Y)
 
-        #define cerror(X) complex_error(X)
+        #define cerror(X) cml_complex_error(X)
 
-        #define cexp(X) complex_exp(X)
-        #define clogb(X, Y) complex_log_b(X, Y)
-        #define clog(X) complex_log(X)
-        #define csqrt(X) complex_sqrt(X)
-        #define csqrtr(X) complex_sqrt_real(X)
-        #define cpow(X, Y) complex_pow(X, Y)
-        #define cpowr(X, Y) complex_pow_real(X, Y)
+        #define cexp(X) cml_complex_exp(X)
+        #define clogb(X, Y) cml_complex_log_b(X, Y)
+        #define clog(X) cml_complex_log(X)
+        #define csqrt(X) cml_complex_sqrt(X)
+        #define csqrtr(X) cml_complex_sqrt_real(X)
+        #define cpow(X, Y) cml_complex_pow(X, Y)
+        #define cpowr(X, Y) cml_complex_pow_real(X, Y)
 
-        #define ccosh(X) complex_cosh(X)
-        #define csinh(X) complex_sinh(X)
-        #define ctanh(X) complex_tanh(X)
-        #define csech(X) complex_sech(X)
-        #define ccsch(X) complex_csch(X)
-        #define ccoth(X) complex_coth(X)
-        #define casinh(X) complex_asinh(X)
-        #define cacosh(X) complex_acosh(X)
-        #define cacoshr(X) complex_acosh_real(X)
-        #define catanh(X) complex_atanh(X)
-        #define catanhr(X) complex_atanh_real(X)
-        #define casech(X) complex_asech(X)
-        #define cacsch(X) complex_acsch(X)
-        #define cacoth(X) complex_acoth(X)
+        #define ccosh(X) cml_complex_cosh(X)
+        #define csinh(X) cml_complex_sinh(X)
+        #define ctanh(X) cml_complex_tanh(X)
+        #define csech(X) cml_complex_sech(X)
+        #define ccsch(X) cml_complex_csch(X)
+        #define ccoth(X) cml_complex_coth(X)
+        #define casinh(X) cml_complex_asinh(X)
+        #define cacosh(X) cml_complex_acosh(X)
+        #define cacoshr(X) cml_complex_acosh_real(X)
+        #define catanh(X) cml_complex_atanh(X)
+        #define catanhr(X) cml_complex_atanh_real(X)
+        #define casech(X) cml_complex_asech(X)
+        #define cacsch(X) cml_complex_acsch(X)
+        #define cacoth(X) cml_complex_acoth(X)
 
-        #define ccos(X) complex_cos(X)
-        #define ccot(X) complex_cot(X)
-        #define ccsc(X) complex_csc(X)
-        #define csec(X) complex_sec(X)
-        #define csin(X) complex_sin(X)
-        #define ctan(X) complex_tan(X)
+        #define ccos(X) cml_complex_cos(X)
+        #define ccot(X) cml_complex_cot(X)
+        #define ccsc(X) cml_complex_csc(X)
+        #define csec(X) cml_complex_sec(X)
+        #define csin(X) cml_complex_sin(X)
+        #define ctan(X) cml_complex_tan(X)
 
-        #define casin(X) complex_asin(X)
-        #define casinr(X) complex_asin_real(X)
-        #define cacos(X) complex_acos(X)
-        #define cacosr(X) complex_acos_real(X)
-        #define catan(X) complex_atan(X)
-        #define casec(X) complex_asec(X)
-        #define casecr(X) complex_asec_real(X)
-        #define cacsc(X) complex_acsc(X)
-        #define cacscr(X) complex_acsc_real(X)
-        #define cacot(X) complex_acot(X)
+        #define casin(X) cml_complex_asin(X)
+        #define casinr(X) cml_complex_asin_real(X)
+        #define cacos(X) cml_complex_acos(X)
+        #define cacosr(X) cml_complex_acos_real(X)
+        #define catan(X) cml_complex_atan(X)
+        #define casec(X) cml_complex_asec(X)
+        #define casecr(X) cml_complex_asec_real(X)
+        #define cacsc(X) cml_complex_acsc(X)
+        #define cacscr(X) cml_complex_acsc_real(X)
+        #define cacot(X) cml_complex_acot(X)
 #endif
 #endif
