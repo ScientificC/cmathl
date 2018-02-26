@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <cml/math.h>
-#include <cml/structures.h>
+#include <cml/Quaternion.h>
 #include "include/test.h"
 
 
@@ -28,7 +28,7 @@ run_struct_tests()
                 TEST_BEGIN(Conjugate)
                 {
                         cml_quaternion_t qA = cml_quaternion_from_axis_anglef3(M_TAU / 4.0, 1.0, 1.0, 1.0),
-                                     qB = cml_quaternion_from_axis_anglef3(M_TAU / 4.0, -1.0, -1.0, -1.0);
+                                         qB = cml_quaternion_from_axis_anglef3(M_TAU / 4.0, -1.0, -1.0, -1.0);
 
                         EXPECT_TRUE(cml_quaternion_equal(qA, cml_quaternion_conj(qB)));
                 }
