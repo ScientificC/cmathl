@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <cml/math.h>
-#include <cml/structures.h>
+#include <cml/quaternion.h>
 
 cml_quaternion_t
 cml_quaternion_parity_conj(cml_quaternion_t q)

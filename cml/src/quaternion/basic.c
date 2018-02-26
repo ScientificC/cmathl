@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <cml/math.h>
-#include <cml/structures.h>
+#include <cml/quaternion.h>
 
 cml_quaternion_t
 cml_quaternion_add(cml_quaternion_t q1, cml_quaternion_t q2)

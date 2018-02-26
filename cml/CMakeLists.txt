@@ -40,11 +40,11 @@ SET(CML_SRCS
 		src/easings/sine.c
 		src/easings/elastic.c
 		src/easings/circular.c
-		src/structures/quaternion/basic.c
-		src/structures/quaternion/classification.c
-		src/structures/quaternion/exponentiation.c
-		src/structures/quaternion/parity.c
-		src/structures/quaternion.c
+		src/quaternion/basic.c
+		src/quaternion/classification.c
+		src/quaternion/exponentiation.c
+		src/quaternion/parity.c
+		src/quaternion/quaternion.c
 		src/ieee/endian.c
 		src/ieee/make_rep.c
 		src/ieee/print.c

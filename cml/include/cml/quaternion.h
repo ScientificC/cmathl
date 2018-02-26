@@ -1,9 +1,10 @@
-#ifndef CML_H
-#error "Never use <cml/structures/quaternion.h> directly; include <cml.h> instead."
-#endif
-
 #ifndef CML_STRUCTURES_TYPES_QUATERNION_H
 #define CML_STRUCTURES_TYPES_QUATERNION_H
+
+#define CML_H
+#include <cml/default.h>
+#include <cml/inline.h>
+#include <cml/machine.h>
 
 typedef struct
 {
@@ -34,9 +35,9 @@ cml_quaternion_t cml_quaternion_from_euler_angles(double, double, double);
 
 __CML_END_DECLS
 
-#include <cml/structures/quaternion/basic.h>
-#include <cml/structures/quaternion/classification.h>
-#include <cml/structures/quaternion/exponentiation.h>
-#include <cml/structures/quaternion/parity.h>
+#include <cml/quaternion/basic.h>
+#include <cml/quaternion/classification.h>
+#include <cml/quaternion/exponentiation.h>
+#include <cml/quaternion/parity.h>
 
 #endif

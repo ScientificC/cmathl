@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <cml/math.h>
-#include <cml/structures.h>
+#include <cml/quaternion.h>
 
 /**
  * @ingroup quaternion
