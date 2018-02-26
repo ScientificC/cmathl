@@ -20,7 +20,7 @@ SET(CML_SRCS
 		src/complex/hyperbolic.c
 		src/complex/basic.c
 		src/complex/exponentiation.c
-		src/complex/complex.c
+		src/complex/init.c
 		src/math/nearest-integer.c
 		src/math/trigonometric.c
 		src/math/power.c
@@ -28,7 +28,7 @@ SET(CML_SRCS
 		src/math/hyperbolic.c
 		src/math/basic.c
 		src/math/classification.c
-		src/math/real.c
+		src/math/init.c
 		src/easings/exponential.c
 		src/easings/quadratic.c
 		src/easings/quartic.c
@@ -44,7 +44,7 @@ SET(CML_SRCS
 		src/quaternion/classification.c
 		src/quaternion/exponentiation.c
 		src/quaternion/parity.c
-		src/quaternion/quaternion.c
+		src/quaternion/init.c
 		src/ieee/endian.c
 		src/ieee/make_rep.c
 		src/ieee/print.c

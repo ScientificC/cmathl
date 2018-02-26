@@ -68,24 +68,3 @@ cml_complex_clone(cml_complex_t w)
 {
         return complex(w.re, w.im);
 }
-
-
-char *
-cml_complex_as_string(cml_complex_t z)
-{
-        char *x, *y, op[5], im[5];
-        double im_value;
-
-        im_value = z.im;
-
-        x = (char*) cml_as_string(z.re);
-        y = (char*) cml_as_string(z.im);
-
-        strcpy(op, (im_value >= 0.0 ? " + " : " "));
-        strcpy(im, "i");
-        strcat(x, op);
-        strcat(y, im);
-        strcat(x, y);
-
-        return x;
-}
