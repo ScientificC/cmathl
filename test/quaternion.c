@@ -43,6 +43,21 @@ run_struct_tests()
                         QUAT_TEST_EQUAL(qA, cml_quaternion_conj(qB));
                 }
                 TEST_END()
+
+                TEST_BEGIN(Multipy Identity)
+                {
+                        cml_quaternion_t qA, qB, qI = cml_quaternion_identity();
+
+                        qA.x = 1;
+                        qA.y = 2;
+                        qA.z = 3;
+                        qA.w = 4;
+
+                        qB = cml_quaternion_multiply(qA, qI);
+
+                        QUAT_TEST_EQUAL(qB, qA);
+                }
+                TEST_END()
         }
         CATEGORY_END()
 
