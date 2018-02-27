@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/ieee/utils.h> directly; include <cml.h> instead."
+#error "Never use <cml/ieee/utils.h> directly; include <cml/ieee.h> instead."
 #endif
 
 #ifndef CML_IEEE754_UTILS_H
@@ -68,11 +68,11 @@ enum {
 
 /* I dream of implementing these functions someday
 
-void cml_ieee754_env_setup(void);
-int cml_ieee754_read_mode_string(char *description, int *precision,
+   void cml_ieee754_env_setup(void);
+   int cml_ieee754_read_mode_string(char *description, int *precision,
                           int *rounding, int *exception_mask);
-int cml_ieee754_set_mode(int precision, int rounding, int exception_mask);
-*/
+   int cml_ieee754_set_mode(int precision, int rounding, int exception_mask);
+ */
 
 __CML_END_DECLS
 

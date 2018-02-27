@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/errno/message.h> directly; include <cml.h> instead."
+#error "Never use <cml/errno/message.h> directly; include <cml/errno.h> instead."
 #endif
 
 #ifndef CML_ERRNO_MSG_H
