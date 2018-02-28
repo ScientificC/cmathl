@@ -38,6 +38,8 @@ __CML_END_DECLS
 #include <cml/quaternion/basic.h>
 #include <cml/quaternion/classification.h>
 #include <cml/quaternion/exponentiation.h>
+#include <cml/quaternion/interpolation.h>
 #include <cml/quaternion/parity.h>
+#include <cml/quaternion/rotation.h>
 
 #endif

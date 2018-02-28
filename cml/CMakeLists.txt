@@ -43,7 +43,9 @@ SET(CML_SRCS
 		src/quaternion/basic.c
 		src/quaternion/classification.c
 		src/quaternion/exponentiation.c
+		src/quaternion/interpolation.c
 		src/quaternion/parity.c
+		src/quaternion/rotation.c
 		src/quaternion/init.c
 		src/ieee/endian.c
 		src/ieee/make_rep.c
