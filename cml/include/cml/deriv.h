@@ -10,16 +10,16 @@
 __CML_BEGIN_DECLS
 
 int cml_deriv_central(const cml_function_t *f,
-                  double x, double h,
-                  double *result, double *abserr);
+                      double x, double h,
+                      double *result, double *abserr);
 
 int cml_deriv_backward(const cml_function_t *f,
-                   double x, double h,
-                   double *result, double *abserr);
+                       double x, double h,
+                       double *result, double *abserr);
 
 int cml_deriv_forward(const cml_function_t *f,
-                  double x, double h,
-                  double *result, double *abserr);
+                      double x, double h,
+                      double *result, double *abserr);
 
 __CML_END_DECLS
 
