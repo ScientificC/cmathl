@@ -31,7 +31,7 @@ below allow complex numbers to be manipulated in a portable way.
 For reference, the default form of the :code:`cml_complex_t` type is
 given by the following struct::
 
-    typedef struct _complex
+    typedef struct
     {
             union
             {
