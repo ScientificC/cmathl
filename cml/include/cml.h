@@ -1,12 +1,13 @@
 #ifndef CML_H
 #define CML_H
 
+#include <cml/_common/default.h>
+#include <cml/_common/inline.h>
+#include <cml/_common/machine.h>
+
 #include <cml/config.h>
-#include <cml/default.h>
 #include <cml/errno.h>
 #include <cml/ieee.h>
-#include <cml/inline.h>
-#include <cml/machine.h>
 #include <cml/minmax.h>
 
 #if defined CML_NO_ALIASES || defined __CML_NO_GENERIC

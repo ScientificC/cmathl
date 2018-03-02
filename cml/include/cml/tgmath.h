@@ -2,9 +2,9 @@
 #define CML_MATH_GEN_FUNC_H
 
 #define CML_H
-#include <cml/default.h>
-#include <cml/inline.h>
-#include <cml/machine.h>
+#include <cml/_common/default.h>
+#include <cml/_common/inline.h>
+#include <cml/_common/machine.h>
 
 #include <cml/complex.h>
 #include <cml/math.h>

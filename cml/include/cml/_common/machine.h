@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/machine.h> directly; include <cml.h> instead."
+#error "Never use <cml/_common/machine.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MACHINE_H

@@ -2,9 +2,9 @@
 #define CML_EASIGNS_H
 
 #define CML_H
-#include <cml/default.h>
-#include <cml/inline.h>
-#include <cml/machine.h>
+#include <cml/_common/default.h>
+#include <cml/_common/inline.h>
+#include <cml/_common/machine.h>
 
 #include <cml/easings/back.h>
 #include <cml/easings/bounce.h>
