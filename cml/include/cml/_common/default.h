@@ -61,7 +61,7 @@
 
 /* Quick boolean definition */
 #ifdef CML_NO_STDBOOL
-        #include <cml/bool.h>
+        #include <cml/_common/bool.h>
 #else
         #include <stdbool.h>
 #endif

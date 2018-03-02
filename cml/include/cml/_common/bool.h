@@ -1,5 +1,5 @@
 #ifndef CML_H
-#error "Never use <cml/bool.h> directly; include <cml.h> instead."
+#error "Never use <cml/_common/bool.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_BOOL_H
