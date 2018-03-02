@@ -82,9 +82,12 @@ __CML_END_DECLS
 #include <cml/complex/hyperbolic.h>
 #include <cml/complex/trigonometric.h>
 
+#define CREAL(X) (X).re
+#define CIMAG(X) (X).im
+
 #ifndef CML_NO_ALIASES
-        #define creal(X) (X).re
-        #define cimag(X) (X).im
+        #define creal(X) CREAL(X)
+        #define cimag(X) CIMAG(X)
 
         #define cpolar(X, Y) cml_complex_polar(X, Y)
         #define czero() cml_complex_zero()
