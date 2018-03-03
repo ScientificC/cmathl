@@ -30,7 +30,7 @@ cml_quaternion_slerp(cml_quaternion_t q1, cml_quaternion_t q2, double tau)
 
 
 cml_quaternion_t
-cml_quaternion_squad_evaluate(
+cml_quaternion_squad(
         double tau_i,
         cml_quaternion_t q_i,
         cml_quaternion_t a_i,
