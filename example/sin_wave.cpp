@@ -22,17 +22,17 @@ render_sine_wave()
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
-        glPointSize(5);
+        glPointSize(2);
         glColor3f(1.0,0.0,0.0);
 
         glBegin(GL_POINTS);
 
         int i;
 
-        for(i = -361; i < 361; i += 5)
+        for(i = -360; i < 360; i++)
         {
                 float x = (float) i;
-                float y = 100.0 * (float) sin(i * (6.284/360.0));
+                float y = 100.0 * (float) sin(i * (M_TAU/360.0));
                 glVertex2f(x,y);
         }
 
