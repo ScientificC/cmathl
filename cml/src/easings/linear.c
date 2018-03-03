@@ -5,7 +5,7 @@
 
 /* Easing functions - Linear Interpolation */
 __CML_EXTERN_INLINE double
-linear_interpolation(double p)
+cml_linear_interpolation(double p)
 {
         return p;
 }

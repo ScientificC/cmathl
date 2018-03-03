@@ -7,7 +7,7 @@
 
 __CML_BEGIN_DECLS
 
-double linear_interpolation(double p);
+double cml_linear_interpolation(double p);
 
 __CML_END_DECLS
 
