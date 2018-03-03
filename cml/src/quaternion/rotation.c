@@ -20,7 +20,7 @@ cml_quaternion_rotor_chordal_distance(cml_quaternion_t q1, cml_quaternion_t q2)
 double
 cml_quaternion_rotation_intrinsic_distance(cml_quaternion_t q1, cml_quaternion_t q2)
 {
-        if (cml_quaternion_rotor_chordal_distance(q1,q2) <= 1.414213562373096)
+        if (cml_quaternion_rotor_chordal_distance(q1,q2) <= M_SQRT2)
         {
                 return 2.0*cml_quaternion_abs(
                         cml_quaternion_log(
@@ -45,7 +45,7 @@ cml_quaternion_rotation_intrinsic_distance(cml_quaternion_t q1, cml_quaternion_t
 double
 cml_quaternion_rotation_chordal_distance(cml_quaternion_t q1, cml_quaternion_t q2)
 {
-        if (cml_quaternion_rotor_chordal_distance(q1,q2) <= 1.414213562373096)
+        if (cml_quaternion_rotor_chordal_distance(q1,q2) <= M_SQRT2)
         {
                 return cml_quaternion_abs(cml_quaternion_subtract(q1,q2));
         }

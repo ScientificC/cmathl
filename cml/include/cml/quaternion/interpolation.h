@@ -3,7 +3,9 @@
 
 __BEGIN_DECLS
 
-cml_quaternion_t cml_quaternion_slerp(cml_quaternion_t q1, cml_quaternion_t q2, double tau);
+cml_quaternion_t cml_quaternion_lerp(cml_quaternion_t start, cml_quaternion_t end, double tau);
+cml_quaternion_t cml_quaternion_nlerp(cml_quaternion_t start, cml_quaternion_t end, double tau);
+cml_quaternion_t cml_quaternion_slerp(cml_quaternion_t start, cml_quaternion_t end, double tau);
 cml_quaternion_t cml_quaternion_squad(
         double tau_i,
         cml_quaternion_t q_i,
