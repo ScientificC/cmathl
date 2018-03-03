@@ -17,7 +17,7 @@ render_sine_wave()
         double h = glutGet(GLUT_WINDOW_HEIGHT);
         double ar = w / h;
 
-        glOrtho(-360 * ar, 360 * ar, -120, 120, -1, 1);
+        glOrtho(-360 * ar, 360 * ar, -100, 100, -1, 1);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -32,7 +32,7 @@ render_sine_wave()
         for(i = -360; i < 360; i++)
         {
                 float x = (float) i;
-                float y = 100.0 * (float) sin(i * (M_TAU/360.0));
+                float y = 50.0 * (float) sin(i * (M_TAU/360.0));
                 glVertex2f(x,y);
         }
 
