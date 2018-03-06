@@ -1,20 +1,38 @@
-version:       1.0.{build}
-skip_tags:     true
-image:         Visual Studio 2017
-platform:      x64
-configuration: Release
-clone_folder:  c:\projects\cml
+shallow_clone:  true
 
-build:
-  project:     cml.sln
+configuration:
+ - Debug
+ - Release
+
+environment:
+  matrix:
+   - vstudio:   Visual Studio 15 2017
+   - vstudio:   Visual Studio 14 2015
+   - vstudio:   Visual Studio 12 2013
+   - vstudio:   Visual Studio 11 2012
+   - vstudio:   Visual Studio 10 2010
+   - vstudio:   Visual Studio 15 2017 Win64
+   - vstudio:   Visual Studio 14 2015 Win64
+   - vstudio:   Visual Studio 12 2013 Win64
+   - vstudio:   Visual Studio 11 2012 Win64
+   - vstudio:   Visual Studio 10 2010 Win64
 
 build_script:
-    - echo Running cmake...
-    - cd c:\projects\cml
-    - if exist "build" ( rmdir build /s /q )
-    - mkdir build
-    - cd build
-    - cmake -DCMAKE_BUILD_TYPE=%configuration% -G "Visual Studio 15 2017 Win64" .. || exit /b 1
-    - make
+ - mkdir build
+ - cd build
+ - cmake -G "%vstudio%" -trace --warn-uninitialized --warn-unused_vars -Wdev
+   --config %configuration%
+   -DCMAKE_BUILD_TYPE=%configuration%
+   -DCMAKE_INSTALL_PREFIX=../install
+   -DCML_BUILD_STATIC=ON
+   -DCML_BUILD_SHARED=ON
+   ..
+ - cmake --build "%cd%" --config %configuration%
+ - cmd:         '"c:\Program Files (x86)\CMake\bin\cpack.exe" -G "ZIP" -C %configuration%'
+
 test_script:
-    - ctest --output-on-failure --build-config %configuration%
+ - ctest --output-on-failure
+   -C %configuration%
+
+artifacts:
+ - path:        'build\*.zip'
