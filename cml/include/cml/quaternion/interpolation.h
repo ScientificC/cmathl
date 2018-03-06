@@ -1,7 +1,7 @@
 #ifndef CML_QUATERNION_INT_H
 #define CML_QUATERNION_INT_H
 
-__BEGIN_DECLS
+__CML_BEGIN_DECLS
 
 cml_quaternion_t cml_quaternion_lerp(cml_quaternion_t start, cml_quaternion_t end, double tau);
 cml_quaternion_t cml_quaternion_nlerp(cml_quaternion_t start, cml_quaternion_t end, double tau);
@@ -13,6 +13,6 @@ cml_quaternion_t cml_quaternion_squad(
         cml_quaternion_t b_ip1,
         cml_quaternion_t q_ip1);
 
-__END_DECLS
+__CML_END_DECLS
 
 #endif

@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-__BEGIN_DECLS
+__CML_BEGIN_DECLS
 
 typedef struct
 {
@@ -34,6 +34,6 @@ int cml_block_char_raw_fprintf(FILE *stream, const char *b, const size_t n, cons
 size_t cml_block_char_size(const cml_block_char_t *b);
 char * cml_block_char_data(const cml_block_char_t *b);
 
-__END_DECLS
+__CML_END_DECLS
 
 #endif /* CML_BLOCK_CHAR_H */
