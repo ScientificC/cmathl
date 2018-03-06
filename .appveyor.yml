@@ -4,7 +4,13 @@ image:         Visual Studio 2017
 platform:      x64
 configuration: Release
 clone_folder:  c:\projects\cml
+
+build:
+  project:     cml.sln
+
 build_script:
+    - echo Running cmake...
+    - cd c:\projects\cml
     - if exist "build" ( rmdir build /s /q )
     - mkdir build
     - cd build
