@@ -10,8 +10,8 @@ complex(double cml_part, double imaginary_part)
 {
         cml_complex_t z;
 
-        z.re = cml_part;
-        z.im = imaginary_part;
+        CML_SET_REAL(&z, cml_part);
+        CML_SET_IMAG(&z, imaginary_part);
 
         return z;
 }

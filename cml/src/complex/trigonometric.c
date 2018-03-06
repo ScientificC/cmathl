@@ -16,9 +16,9 @@
 cml_complex_t
 cml_complex_cos(cml_complex_t z)
 {
-        double k = cml_cos(z.p[0]);
+        double k = cml_cos(CREAL(z));
 
-        if (cml_isnull(z.im))
+        if (cml_isnull(CIMAG(z)))
         {
                 return complex(k, 0.0);
         }
@@ -26,9 +26,9 @@ cml_complex_cos(cml_complex_t z)
         cml_complex_t w;
         double h, a, b, n, m;
 
-        h = cml_sin(z.p[0]);
-        a = cml_sinh(z.p[1]);
-        b = cml_cosh(z.p[1]);
+        h = cml_sin(CREAL(z));
+        a = cml_sinh(CIMAG(z));
+        b = cml_cosh(CIMAG(z));
         n = cml_mul(k, a);
         m = cml_mul(h, b);
 
@@ -106,9 +106,9 @@ cml_complex_sec(cml_complex_t z)
 cml_complex_t
 cml_complex_sin(cml_complex_t z)
 {
-        double k = cml_sin(z.re);
+        double k = cml_sin(CREAL(z));
 
-        if (cml_isnull(z.im))
+        if (cml_isnull(CIMAG(z)))
         {
                 return complex(k, 0.0);
         }
@@ -116,9 +116,9 @@ cml_complex_sin(cml_complex_t z)
         cml_complex_t w;
         double h, a, b, n, m;
 
-        h = cml_cos(z.re);
-        a = cml_cosh(z.im);
-        b = cml_sinh(z.im);
+        h = cml_cos(CREAL(z));
+        a = cml_cosh(CIMAG(z));
+        b = cml_sinh(CIMAG(z));
 
         n = cml_mul(k, a);
         m = cml_mul(h, b);
@@ -134,7 +134,7 @@ cml_complex_tan(cml_complex_t a)
 {                               /* z = tan(a) */
         cml_complex_t z;
 
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         double D = cml_pow(cml_cos(R), 2.0) + cml_pow(cml_sinh(I), 2.0);
 
         if (cml_abs(I) < 1)
@@ -155,7 +155,7 @@ cml_complex_tan(cml_complex_t a)
 cml_complex_t
 cml_complex_asin(cml_complex_t a)
 {                               /* z = asin(a) */
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         cml_complex_t z;
 
         if (cml_isnull(I))
@@ -246,7 +246,7 @@ cml_complex_asin_real(double a)
 cml_complex_t
 cml_complex_acos(cml_complex_t a)
 {                               /* z = acos(a) */
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         cml_complex_t z;
 
         if (I == 0)
@@ -337,7 +337,7 @@ cml_complex_acos_real(double a)
 cml_complex_t
 cml_complex_atan(cml_complex_t a)
 {                               /* z = atan(a) */
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         cml_complex_t z;
 
         if (cml_isnull(I))
@@ -460,7 +460,7 @@ cml_complex_acot(cml_complex_t a)
 {                               /* z = acot(a) */
         cml_complex_t z;
 
-        if (cml_isnull(a.re) && cml_isnull(a.im))
+        if (cml_isnull(CREAL(a)) && cml_isnull(CIMAG(a)))
         {
                 z = complex(M_PI_2, 0);
         }
