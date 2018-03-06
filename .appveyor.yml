@@ -25,12 +25,12 @@ build_script:
    -DCML_BUILD_STATIC=ON
    -DCML_BUILD_SHARED=ON
    ..
-# - cmake --build "%cd%" --config %configuration%
-# - cmd:        '"c:\Program Files (x86)\CMake\bin\cpack.exe" -G "ZIP" -C %configuration%'
+- cmake --build "%cd%" --config %configuration%
+- cmd:          '"c:\Program Files (x86)\CMake\bin\cpack.exe" -G "ZIP" -C %configuration%'
 
 test_script:
  - ctest --output-on-failure
    -C %configuration%
 
-#artifacts:
-# - path:       'build\*.zip'
+artifacts:
+- path:         'build\*.zip'
