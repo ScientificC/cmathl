@@ -23,18 +23,18 @@
 #endif
 
 /* Positive infinity. */
-#ifndef POSINF
-#define POSINF 1.0/0.0
+#ifndef CML_POSINF
+#define CML_POSINF 1.0/0.0
 #endif
 
 /* Negative infinity. */
-#ifndef NEGINF
-#define NEGINF -1.0/0.0
+#ifndef CML_NEGINF
+#define CML_NEGINF -1.0/0.0
 #endif
 
 /* Not a number. */
-#ifndef NAN
-#define NAN 0.0/0.0
+#ifndef CML_NAN
+#define CML_NAN 0.0/0.0
 #endif
 
 /* Maximum possible finite value of log x */

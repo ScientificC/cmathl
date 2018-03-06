@@ -44,11 +44,11 @@ __atanh(const double x)
 
         if (a > 1)
         {
-                return NAN;
+                return CML_NAN;
         }
         else if (a == 1)
         {
-                return (x < 0) ? NEGINF : POSINF;
+                return (x < 0) ? CML_NEGINF : CML_POSINF;
         }
         else if (a >= 0.5)
         {

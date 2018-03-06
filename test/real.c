@@ -12,9 +12,9 @@ run_doubleests()
         {
                 TEST_BEGIN(Math)
                 {
-                        EXPECT_FLOAT_EQ(NAN, 0.0/0.0);
-                        EXPECT_FLOAT_EQ(POSINF, POSINF);
-                        EXPECT_FLOAT_EQ(NEGINF, -POSINF);
+                        EXPECT_FLOAT_EQ(CML_NAN, 0.0/0.0);
+                        EXPECT_FLOAT_EQ(CML_POSINF, CML_POSINF);
+                        EXPECT_FLOAT_EQ(CML_NEGINF, -CML_POSINF);
                 }
                 TEST_END()
         }

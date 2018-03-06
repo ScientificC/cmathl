@@ -126,7 +126,7 @@ cml_hypot(double x, double y)
            http://pubs.opengroup.org/onlinepubs/009695399/functions/hypot.html */
         if (cml_isinf(x) || cml_isinf(y))
         {
-                return POSINF;
+                return CML_POSINF;
         }
 
         if (xabs < yabs) {

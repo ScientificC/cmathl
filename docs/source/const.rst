@@ -574,7 +574,7 @@ These constants are dimensionless scaling factors.
 
    :math:`10^{-6}`
 
-.. macro:: CML_CONST_NUM_NANO
+.. macro:: CML_CONST_NUM_CML_NANO
 
    :math:`10^{-9}`
 

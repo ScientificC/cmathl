@@ -13,7 +13,7 @@
 #define CML_CONST_NUM_KILO (1e3) /* 1 */
 #define CML_CONST_NUM_MILLI (1e-3) /* 1 */
 #define CML_CONST_NUM_MICRO (1e-6) /* 1 */
-#define CML_CONST_NUM_NANO (1e-9) /* 1 */
+#define CML_CONST_NUM_CML_NANO (1e-9) /* 1 */
 #define CML_CONST_NUM_PICO (1e-12) /* 1 */
 #define CML_CONST_NUM_FEMTO (1e-15) /* 1 */
 #define CML_CONST_NUM_ATTO (1e-18) /* 1 */

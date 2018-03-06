@@ -15,10 +15,10 @@ cml_ieee754_fprintf_float(FILE *stream, const float *x)
 
         switch (r.type)
         {
-        case CML_IEEE754_TYPE_NAN:
+        case CML_IEEE754_TYPE_CML_NAN:
                 fprintf(stream, "NaN");
                 break;
-        case CML_IEEE754_TYPE_POSINF:
+        case CML_IEEE754_TYPE_CML_POSINF:
                 fprintf(stream, "%cInf", signs[r.sign]);
                 break;
         case CML_IEEE754_TYPE_NORMAL:
@@ -49,10 +49,10 @@ cml_ieee754_fprintf_double(FILE *stream, const double *x)
 
         switch (r.type)
         {
-        case CML_IEEE754_TYPE_NAN:
+        case CML_IEEE754_TYPE_CML_NAN:
                 fprintf(stream, "NaN");
                 break;
-        case CML_IEEE754_TYPE_POSINF:
+        case CML_IEEE754_TYPE_CML_POSINF:
                 fprintf(stream, "%cInf", signs[r.sign]);
                 break;
         case CML_IEEE754_TYPE_NORMAL:

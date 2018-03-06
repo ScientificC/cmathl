@@ -58,12 +58,12 @@ are defined. For reference, here is a list of the constants:
 Infinities and Not-a-number
 ===========================
 
-.. macro:: POSINF
+.. macro:: CML_POSINF
 
    This macro contains the IEEE representation of positive infinity,
    :math:`+\infty`. It is computed from the expression :code:`+1.0/0.0`.
 
-.. macro:: NEGINF
+.. macro:: CML_NEGINF
 
    This macro contains the IEEE representation of negative infinity,
    :math:`-\infty`. It is computed from the expression :code:`-1.0/0.0`.
@@ -73,7 +73,7 @@ Infinities and Not-a-number
    single: Not-a-number, defined as a macro
    single: IEEE NaN, defined as a macro
 
-.. macro:: NAN
+.. macro:: CML_NAN
 
    This macro contains the IEEE representation of the Not-a-Number symbol,
    :code:`NaN`. It is computed from the ratio :code:`0.0/0.0`.

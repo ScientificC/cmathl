@@ -163,11 +163,11 @@ determine_cml_ieee754_type(int non_zero, int exponent, int max_exponent)
         {
                 if (non_zero)
                 {
-                        return CML_IEEE754_TYPE_NAN;
+                        return CML_IEEE754_TYPE_CML_NAN;
                 }
                 else
                 {
-                        return CML_IEEE754_TYPE_POSINF;
+                        return CML_IEEE754_TYPE_CML_POSINF;
                 }
         }
         else if (exponent == 0)

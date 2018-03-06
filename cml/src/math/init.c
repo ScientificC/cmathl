@@ -6,19 +6,19 @@
 double
 cml_nan()
 {
-        return (double) NAN;
+        return (double) CML_NAN;
 }
 
 
 double
 cml_inf()
 {
-        return (double) POSINF;
+        return (double) CML_POSINF;
 }
 
 
 double
 cml_ninf()
 {
-        return (double) NEGINF;
+        return (double) CML_NEGINF;
 }
