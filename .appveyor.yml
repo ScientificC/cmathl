@@ -18,7 +18,7 @@ environment:
 build_script:
  - mkdir build
  - cd build
- - cmake -G "%vstudio%" -trace --warn-uninitialized --warn-unused_vars -Wdev
+ - cmake -G "%vstudio%" -trace --warn-uninitialized --warn-unused_vars -Wdev -Wno-dev
    --config %configuration%
    -DCMAKE_BUILD_TYPE=%configuration%
    -DCMAKE_INSTALL_PREFIX=../install
