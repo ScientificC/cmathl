@@ -19,8 +19,7 @@
 #endif
 
 #if defined(_WIN32) || defined(_WIN64) || defined(_MSC_VER) || defined(WIN32)
-        #undef __CML_EXTERN_INLINE
-        #define __CML_EXTERN_INLINE __declspec(dllexport)
+        #define __CML_API __declspec(dllexport)
 #endif
 
 #endif
