@@ -74,6 +74,11 @@ ENDIF()
 
 INCLUDE(../cmake/CMakeBuildFlags.cmake)
 
+# unit tests do not use strict-prototypes, so this is here
+IF(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstrict-prototypes")
+ENDIF()
+
 SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 OPTION(CML_BUILD_STATIC "Build static library" ON)
