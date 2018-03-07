@@ -20,7 +20,10 @@ script:
   - cmake --version
   - cmake -trace --warn-uninitialized --warn-unused_vars -Wdev -G "Unix Makefiles" .. -DCML_BUILD_TESTS=ON $FLAGS
   - make && ctest
-  - ./test/test_cml
+  - echo "Tests for static library"
+  - ./test/test_cml_static
+  - echo "Tests for shared library"
+  - ./test/test_cml_shared
 
 addons:
   apt:
