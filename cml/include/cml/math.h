@@ -28,79 +28,21 @@ char* cml_as_string(double);
 #include <cml/math/trigonometric.h>
 #include <cml/math/hyperbolic.h>
 
-#if (defined __CML_NO_GENERIC && !defined CML_NO_ALIASES)
-        #define nan() cml_nan()
-        #define inf() cml_inf()
+/* other needlessly compulsive abstractions */
 
-        #define equal(X, Y) cml_equal(X, Y)
-        #define isnull(X) cml_isnull(X)
-        #define isnatural(X) cml_isnatural(X)
-        #define isinteger(X) cml_isinteger(X)
-        #define isgreater(X, Y) cml_isinteger(X, Y)
-        #define isless(X, Y) cml_isless(X, Y)
-        #define isgreaterequal(X, Y) cml_isgreaterequal(X, Y)
-        #define islessequal(X, Y) cml_islessequal(X, Y)
-        #define ismult(X, Y) cml_ismult(X, Y)
+#define CML_IS_ODD(n)  ((n) & 1)
+#define CML_IS_EVEN(n) (!(CML_IS_ODD(n)))
+#define CML_SIGN(x)    ((x) >= 0.0 ? 1 : -1)
 
-        #define add(X, Y) cml_add(X, Y)
-        #define mul(X, Y) cml_mul(X, Y)
-        #define sub(X, Y) cml_sub(X, Y)
-        #define div(X, Y) cml_div(X, Y)
-        #define sgn(X, Y) cml_sgn(X, Y)
-        #define abs(X) cml_abs(X)
-        #define floor(X) cml_floor(X)
-        #define ceil(X) cml_ceil(X)
-        #define div_e(X) cml_div_e(X)
-        #define mod(X) cml_mod(X)
-        #define inverse(X) cml_inverse(X)
-        #define opposite(X) cml_opposite(X)
-        #define ared(X) cml_ared(X)
-        #define hypot(X, Y) cml_hypot(X, Y)
-        #define fact(X) cml_fact(X)
-
-        #define error(X) cml_error(X)
-        #define gamma(X) cml_gamma(X)
-
-        #define exp(X) cml_exp(X)
-        #define ln(X) cml_log(X)
-        #define log(X) cml_log(X)
-        #define log_b(X, Y) cml_log_b(X, Y)
-        #define log1p(X) cml_log1p(X)
-
-        #define powi(X, Y) cml_pow_int(X, Y)
-        #define powui(X, Y) cml_pow_uint(X, Y)
-        #define pow(X, Y) cml_pow(X, Y)
-        #define root(X) cml_root(X)
-        #define sqrt(X) cml_sqrt(X)
-
-        #define sin(X) cml_sin(X)
-        #define cos(X) cml_cos(X)
-        #define tan(X) doublean(X)
-        #define sec(X) cml_sec(X)
-        #define csc(X) cml_csc(X)
-        #define cot(X) cml_cot(X)
-        #define asin(X) cml_asin(X)
-        #define acos(X) cml_acos(X)
-        #define atan(X) cml_atan(X)
-        #define atan2(X, Y) cml_atan2(X, Y)
-
-        #define sinh(X) cml_sinh(X)
-        #define cosh(X) cml_cosh(X)
-        #define tanh(X) doubleanh(X)
-        #define sech(X) cml_sech(X)
-        #define csch(X) cml_csch(X)
-        #define coth(X) cml_coth(X)
-        #define asinh(X) cml_asinh(X)
-        #define acosh(X) cml_acosh(X)
-        #define atanh(X) cml_atanh(X)
-#endif
+/* Return nonzero if x is a real number, i.e. non NaN or infinite. */
+#define CML_IS_REAL(x) (cml_isfinite(x))
 
 /* Definition of an arbitrary function with parameters */
 
 struct cml_function_struct
 {
-        double (* function) (double x, void * params);
-        void * params;
+        double (* function) (double x, void *params);
+        void *params;
 };
 
 typedef struct cml_function_struct cml_function_t;
@@ -112,10 +54,10 @@ typedef struct cml_function_struct cml_function_t;
 
 struct cml_function_fdf_struct
 {
-        double (* f) (double x, void * params);
-        double (* df) (double x, void * params);
-        void (* fdf) (double x, void * params, double * f, double * df);
-        void * params;
+        double (* f) (double x, void *params);
+        double (* df) (double x, void *params);
+        void (* fdf) (double x, void *params, double * f, double * df);
+        void *params;
 };
 
 typedef struct cml_function_fdf_struct cml_function_fdf_t;
@@ -129,8 +71,8 @@ typedef struct cml_function_fdf_struct cml_function_fdf_t;
 
 struct cml_function_vec_struct
 {
-        int (* function) (double x, double y[], void * params);
-        void * params;
+        int (* function) (double x, double y[], void *params);
+        void *params;
 };
 
 typedef struct cml_function_vec_struct cml_function_vec_t;
