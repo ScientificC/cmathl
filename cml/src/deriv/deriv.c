@@ -41,7 +41,7 @@ central_deriv(const cml_function_t *f, double x, double h,
 
 __CML_EXTERN_INLINE int
 cml_deriv_central(const cml_function_t *f, double x, double h,
-              double *result, double *abserr)
+                  double *result, double *abserr)
 {
         double r_0, round, trunc, error;
         central_deriv(f, x, h, &r_0, &round, &trunc);
@@ -114,7 +114,7 @@ forward_deriv(const cml_function_t *f, double x, double h,
 
 __CML_EXTERN_INLINE int
 cml_deriv_forward(const cml_function_t *f, double x, double h,
-              double *result, double *abserr)
+                  double *result, double *abserr)
 {
         double r_0, round, trunc, error;
         forward_deriv(f, x, h, &r_0, &round, &trunc);
@@ -151,7 +151,7 @@ cml_deriv_forward(const cml_function_t *f, double x, double h,
 
 __CML_EXTERN_INLINE int
 cml_deriv_backward(const cml_function_t *f, double x, double h,
-               double *result, double *abserr)
+                   double *result, double *abserr)
 {
         return cml_deriv_forward(f, x, -h, result, abserr);
 }
