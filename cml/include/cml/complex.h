@@ -77,7 +77,6 @@ char* cml_complex_as_string(cml_complex_t);
 __CML_END_DECLS
 
 #include <cml/complex/basic.h>
-#include <cml/complex/error.h>
 #include <cml/complex/exponentiation.h>
 #include <cml/complex/hyperbolic.h>
 #include <cml/complex/trigonometric.h>
