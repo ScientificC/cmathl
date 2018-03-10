@@ -1,9 +1,9 @@
-#ifndef CML_H
+#ifndef CML_EASINGS_H
 #error "Never use <cml/easings/quadratic.h> directly; include <cml/easings.h> instead."
 #endif
 
-#ifndef CML_EASINGS_H
-#define CML_EASINGS_H
+#ifndef CML_EASINGS_QUADRATIC_H
+#define CML_EASINGS_QUADRATIC_H
 
 __CML_BEGIN_DECLS
 

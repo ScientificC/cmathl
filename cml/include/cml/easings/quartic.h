@@ -1,4 +1,4 @@
-#ifndef CML_H
+#ifndef CML_EASINGS_H
 #error "Never use <cml/easings/quartic.h> directly; include <cml/easings.h> instead."
 #endif
 

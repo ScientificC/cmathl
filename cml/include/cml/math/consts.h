@@ -1,4 +1,4 @@
-#ifndef CML_H
+#ifndef CML_MATH_H
 #error "Never use <cml/math/consts.h> directly; include <cml/math.h> instead."
 #endif
 

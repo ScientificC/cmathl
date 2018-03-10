@@ -1,4 +1,4 @@
-#ifndef CML_H
+#ifndef _CML_COMMON_H_
 #error "Never use <cml/_common/inline.h> directly; include <cml.h> instead."
 #endif
 

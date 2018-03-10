@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/common/default.h> directly; include <cml.h> instead."
+#ifndef _CML_COMMON_H_
+#error "Never use <cml/_common/default.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_DEFAULT_H

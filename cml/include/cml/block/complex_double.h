@@ -1,4 +1,4 @@
-#ifndef CML_H
+#ifndef CML_BLOCK_H
 #error "Never use <cml/block/complex_double.h> directly; include <cml/block.h> instead."
 #endif
 

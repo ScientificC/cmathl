@@ -1,9 +1,11 @@
-#ifndef CML_H
-#define CML_H
+#ifndef _CML_H_
+#define _CML_H_
 
+#define _CML_COMMON_H_
 #include <cml/_common/default.h>
 #include <cml/_common/inline.h>
 #include <cml/_common/machine.h>
+#undef _CML_COMMON_H_
 
 #include <cml/config.h>
 #include <cml/errno.h>
@@ -23,5 +25,6 @@
 #include <cml/diff.h>
 #include <cml/easings.h>
 #include <cml/quaternion.h>
+#include <cml/specfunc.h>
 
 #endif

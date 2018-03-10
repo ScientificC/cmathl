@@ -1,10 +1,11 @@
 #ifndef CML_BLOCK_H
 #define CML_BLOCK_H
 
-#define CML_H
+#define _CML_COMMON_H_
 #include <cml/_common/default.h>
 #include <cml/_common/inline.h>
 #include <cml/_common/machine.h>
+#undef _CML_COMMON_H_
 
 #include <cml/block/complex_long_double.h>
 #include <cml/block/complex_double.h>

@@ -1,12 +1,12 @@
 #ifndef CML_DIFF_H
 #define CML_DIFF_H
 
-#define CML_H
+#define _CML_COMMON_H_
 #include <cml/_common/default.h>
 #include <cml/_common/inline.h>
 #include <cml/_common/machine.h>
 #include <cml/math.h>
-
+#undef _CML_COMMON_H_
 
 __CML_BEGIN_DECLS
 
