@@ -167,9 +167,15 @@ __lgammal(long double x)
         int const n = sizeof(a) / sizeof(long double);
         int i;
 
-        if (x > 1755.5L) return LDBL_MAX;
+        if (x > 1755.5L)
+        {
+                return LDBL_MAX;
+        }
 
-        if (x > 900.0L) return __duplication_formula(x);
+        if (x > 900.0L)
+        {
+                return __duplication_formula(x);
+        }
 
         temp = 0.0L;
         for (i = n-1; i >= 0; i--) {
@@ -178,7 +184,10 @@ __lgammal(long double x)
 
         temp += 1.0L;
         temp *= (cml_pow((g + xx - 0.5L) / M_E, xx - 0.5L) / exp_g_o_sqrt_2pi);
-        return (x < 1.0L) ?  temp/x : temp;
+
+        return (x < 1.0L) ?
+               temp/x :
+               temp;
 }
 
 
