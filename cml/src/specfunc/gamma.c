@@ -23,8 +23,102 @@ static long double const a[] = {
         +1.08314836272589368860689e-4L
 };
 
+static const long double log_sqrt_2pi = 9.18938533204672741780329736e-1L;
+
+static long double __sf_gammal(long double x);
 static long double __duplication_formula(long double two_x);
 static long double __lgammal(long double x);
+
+/* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
+   currently used.
+ */
+
+static const long double B[] = {
+        1.0L / (long double)(6 * 2 * 1),
+        -1.0L / (long double)(30 * 4 * 3),
+        1.0L / (long double)(42 * 6 * 5),
+        -1.0L / (long double)(30 * 8 * 7),
+        5.0L / (long double)(66 * 10 * 9),
+        -691.0L / (long double)(2730 * 12 * 11),
+        7.0L / (long double)(6 * 14 * 13),
+        -3617.0L / (long double)(510 * 16 * 15),
+        43867.0L / (long double)(796 * 18 * 17),
+        -174611.0L / (long double)(330 * 20 * 19)
+};
+
+static const int B_n = sizeof(B) / sizeof(long double);
+
+static long double __lngamma_asymptotic_expansion(long double x);
+
+/*
+ * This function uses Lanczos' expression to calculate Gamma(x) for real
+ * x, where -(max_double_arg - 1) < x < max_double_arg.
+ * Note the Gamma function is meromorphic in the complex plane and has
+ * poles at the nonpositive integers.
+ * Tests for x a positive integer or a half positive integer give a
+ * maximum absolute relative error of about 1.9e-16.
+ *
+ * If x > max_double_arg, then one should either use cml_sf_gammal(x)
+ * or calculate lnGamma(x).
+ * Note that for x < 0, ln (Gamma(x)) may be a complex number.
+ *
+ * @param double x Argument of the Gamma function.
+ *
+ * @return double If x is positive and is less than max_double_arg then Gamma(x) is
+ * returned and if x > max_double_arg then DBL_MAX is returned.  If x is
+ * a nonpositive integer i.e. x is a pole, then DBL_MAX is returned
+ * ( note that Gamma(x) changes sign on each side of the pole).  If x is
+ * nonpositive nonintegral, then if Gamma(x) > DBL_MAX, then DBL_MAX is
+ * returned and if Gamma(x) < -DBL_MAX, then -DBL_MAX is returned.
+ *
+ */
+
+double
+cml_sf_gamma(double x)
+{
+        long double g;
+
+        if (x > max_double_arg)
+        {
+                return DBL_MAX;
+        }
+
+        g = __sf_gammal((long double) x);
+
+        if (cml_abs(g) < DBL_MAX)
+        {
+                return (double) g;
+        }
+
+        return (g < 0.0L) ?
+               -DBL_MAX :
+               DBL_MAX;
+}
+
+
+/*
+ * This function calculates the natural log of Gamma(x) for positive real
+ * x.
+ *
+ * Assuming that Gamma_Function_Max_Arg() = 171, then
+ * If 0 < x <= 171, then ln(gamma(x)) is calculated by taking the natural
+ * log of the result from Gamma_Function(x).  If x > 171, then
+ * ln(gamma(x)) is calculated using the asymptotic expansion
+ *     ln(gamma(x)) ~ ln(2sqrt(2pi)) - x + (x - 1/2) ln x +
+ *                    Sum B[2j] / [ 2j * (2j-1) * x^(2j-1) ], summed over
+ * j from 1 to 3 and where B[2j] is the 2j-th Bernoulli number.
+ *
+ */
+
+double
+cml_sf_lngamma(double x)
+{
+        if (x <= max_double_arg) {
+                return cml_log(cml_sf_gamma(x));
+        }
+
+        return (double) __lngamma_asymptotic_expansion((long double) x);
+}
 
 
 /*
@@ -49,8 +143,8 @@ static long double __lgammal(long double x);
  *
  */
 
-long double
-cml_sf_gammal(long double x)
+static long double
+__sf_gammal(long double x)
 {
         long double sin_x;
         long double rg;
@@ -97,52 +191,6 @@ cml_sf_gammal(long double x)
         }
 
         return LDBL_MAX;
-}
-
-
-/*
- * This function uses Lanczos' expression to calculate Gamma(x) for real
- * x, where -(max_double_arg - 1) < x < max_double_arg.
- * Note the Gamma function is meromorphic in the complex plane and has
- * poles at the nonpositive integers.
- * Tests for x a positive integer or a half positive integer give a
- * maximum absolute relative error of about 1.9e-16.
- *
- * If x > max_double_arg, then one should either use cml_sf_gammal(x)
- * or calculate lnGamma(x).
- * Note that for x < 0, ln (Gamma(x)) may be a complex number.
- *
- * @param double x Argument of the Gamma function.
- *
- * @return double If x is positive and is less than max_double_arg then Gamma(x) is
- * returned and if x > max_double_arg then DBL_MAX is returned.  If x is
- * a nonpositive integer i.e. x is a pole, then DBL_MAX is returned
- * ( note that Gamma(x) changes sign on each side of the pole).  If x is
- * nonpositive nonintegral, then if Gamma(x) > DBL_MAX, then DBL_MAX is
- * returned and if Gamma(x) < -DBL_MAX, then -DBL_MAX is returned.
- *
- */
-
-double
-cml_sf_gamma(double x)
-{
-        long double g;
-
-        if (x > max_double_arg)
-        {
-                return DBL_MAX;
-        }
-
-        g = cml_sf_gammal((long double) x);
-
-        if (cml_abs(g) < DBL_MAX)
-        {
-                return (double) g;
-        }
-
-        return (g < 0.0L) ?
-               -DBL_MAX :
-               DBL_MAX;
 }
 
 
@@ -206,8 +254,35 @@ __duplication_formula(long double two_x)
         g = cml_pow(2.0L, two_x - 1.0L - (long double) n);
         g = cml_ldexp(g,n);
         g /= cml_sqrt(M_PI);
-        g *= cml_sf_gammal(x);
-        g *= cml_sf_gammal(x + 0.5L);
+        g *= __sf_gammal(x);
+        g *= __sf_gammal(x + 0.5L);
 
         return g;
+}
+
+
+static long double
+__lngamma_asymptotic_expansion(long double x)
+{
+        const int m = B_n;
+        long double term[B_n];
+        long double sum = 0.0L;
+        long double xx = x * x;
+        long double xj = x;
+        long double lngamma = log_sqrt_2pi - xj + (xj - 0.5L) * (long double) cml_log((double) xj);
+
+        int i;
+
+        for (i = 0; i < m; i++)
+        {
+                term[i] = B[i] / xj;
+                xj *= xx;
+        }
+
+        for (i = m - 1; i >= 0; i--)
+        {
+                sum += term[i];
+        }
+
+        return lngamma + sum;
 }
