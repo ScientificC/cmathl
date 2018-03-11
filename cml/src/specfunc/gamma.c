@@ -30,8 +30,7 @@ static long double __duplication_formula(long double two_x);
 static long double __lgammal(long double x);
 
 /* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
-   currently used.
- */
+   currently used. */
 
 static const long double B[] = {
         1.0L / (long double)(6 * 2 * 1),
@@ -45,8 +44,6 @@ static const long double B[] = {
         43867.0L / (long double)(796 * 18 * 17),
         -174611.0L / (long double)(330 * 20 * 19)
 };
-
-static const int B_n = sizeof(B) / sizeof(long double);
 
 static long double __lngamma_asymptotic_expansion(long double x);
 
@@ -264,8 +261,8 @@ __duplication_formula(long double two_x)
 static long double
 __lngamma_asymptotic_expansion(long double x)
 {
-        const int m = B_n;
-        long double term[B_n];
+        const int m = sizeof(B) / sizeof(long double);
+        long double term[m];
         long double sum = 0.0L;
         long double xx = x * x;
         long double xj = x;
