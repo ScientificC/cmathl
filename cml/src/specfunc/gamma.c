@@ -47,6 +47,7 @@ static const long double B[] = {
 
 static long double __lngamma_asymptotic_expansion(long double x);
 
+
 /*
  * This function uses Lanczos' expression to calculate Gamma(x) for real
  * x, where -(max_double_arg - 1) < x < max_double_arg.
@@ -110,7 +111,8 @@ cml_sf_gamma(double x)
 double
 cml_sf_lngamma(double x)
 {
-        if (x <= max_double_arg) {
+        if (x <= max_double_arg)
+        {
                 return cml_log(cml_sf_gamma(x));
         }
 
@@ -162,6 +164,7 @@ __sf_gammal(long double x)
         if (x > -(long double)LONG_MAX)
         {
                 ix = (long int) x;
+
                 if (x == (long double) ix)
                 {
                         return LDBL_MAX;
@@ -223,7 +226,8 @@ __lgammal(long double x)
         }
 
         temp = 0.0L;
-        for (i = n-1; i >= 0; i--) {
+        for (i = n-1; i >= 0; i--)
+        {
                 temp += (a[i] / (xx + (long double) i));
         }
 
