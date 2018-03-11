@@ -146,7 +146,21 @@ cml_sf_gamma(double x)
 }
 
 
-static long double __lgammal(long double x)
+/*
+ * This function uses Lanczos' expression to calculate Gamma(x) for real
+ * x, where 0 < x <= 900. For 900 < x < 1755.5, the duplication formula
+ * is used.
+ *
+ * The major source of relative error is in the use of the cml library
+ * function cml_pow(). The results have a relative error of about 10^-16.
+ * except near x = 0.
+ *
+ * If x > 1755.5, then one should calculate lnGamma(x).
+ *
+ */
+
+static long double
+__lgammal(long double x)
 {
         long double xx = (x < 1.0L) ? x + 1.0L : x;
         long double temp;
@@ -159,7 +173,7 @@ static long double __lgammal(long double x)
 
         temp = 0.0L;
         for (i = n-1; i >= 0; i--) {
-                temp += ( a[i] / (xx + (long double) i) );
+                temp += (a[i] / (xx + (long double) i));
         }
 
         temp += 1.0L;
@@ -168,7 +182,13 @@ static long double __lgammal(long double x)
 }
 
 
-static long double __duplication_formula(long double two_x)
+/*
+ * This function returns the Gamma(two_x) using the duplication formula
+ * Gamma(2x) = (2^(2x-1) / sqrt(pi)) Gamma(x) Gamma(x+1/2).
+ */
+
+static long double
+__duplication_formula(long double two_x)
 {
         long double x = 0.5L * two_x;
         long double g;
