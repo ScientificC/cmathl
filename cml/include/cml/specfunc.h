@@ -7,6 +7,7 @@
 #include <cml/_common/machine.h>
 #undef _CML_COMMON_H_
 
+#include <cml/specfunc/fact.h>
 #include <cml/specfunc/gamma.h>
 
 #endif
