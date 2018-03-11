@@ -54,6 +54,7 @@ SET(CML_SRCS
 		src/deriv/deriv.c
 		src/diff/diff.c
 		src/block/source.c
+		src/specfunc/gamma.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
 
