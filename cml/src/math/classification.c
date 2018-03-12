@@ -79,7 +79,7 @@ gsl_cmp(double x1, double x2, double epsilon)
 bool
 cml_equal(double x, double y)
 {
-        return cml_abs(x - y) < CML_DBL_EPSILON;
+        return cml_abs(x - y) < CML_FLT_EPSILON;
 }
 
 
@@ -163,5 +163,5 @@ cml_isnan(double x)
 bool
 cml_isnull(double x)
 {
-        return cml_abs(x - 0.0) < CML_DBL_EPSILON;
+        return cml_abs(x - 0.0) < CML_FLT_EPSILON;
 }
