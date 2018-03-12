@@ -114,7 +114,7 @@ cml_sf_lngamma(double x)
 {
         if (x <= max_double_arg)
         {
-                return logl(cml_sf_gamma(x));
+                return log(cml_sf_gamma(x));
         }
 
         return (double) __lngamma_asymptotic_expansion((long double) x);
@@ -172,7 +172,7 @@ __sf_gammal(long double x)
                 }
         }
 
-        sin_x = (long double) cml_sin(M_PI * (double) x);
+        sin_x = (long double) sinl(M_PI * (double) x);
 
         if (sin_x == 0.0L)
         {
