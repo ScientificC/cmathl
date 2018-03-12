@@ -52,7 +52,7 @@ double
 f3 (double x, void *params)
 {
         (void)params;
-        if (!cml_equal(x, 0.0))
+        if (!cml_isnull(x))
         {
                 return cml_sin(1/x);
         }
@@ -179,7 +179,7 @@ run_cml_diff_tests()
 
                         DIFF_TEST(&cml_diff_central, &F5, &DF5, 0.0);
                         DIFF_TEST(&cml_diff_forward, &F5, &DF5, 0.0);
-                        DIFF_TEST(&cml_diff_backward, &F5, &DF5, 0.0);
+                        DIFF_NEAR_TEST(&cml_diff_backward, &F5, &DF5, 0.0, 1e-3f);
 
                         DIFF_NEAR_TEST(&cml_diff_central, &F6, &DF6, 10.0, 1e-3f);
                         DIFF_TEST(&cml_diff_forward, &F6, &DF6, 10.0);

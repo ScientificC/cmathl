@@ -4,6 +4,7 @@
 __CML_BEGIN_DECLS
 
 bool cml_equal(double, double);
+bool cml_nearequal(double x, double y, double epsilon);
 bool cml_isfinite(double);
 bool cml_isgreaterequal(double, double);
 bool cml_isgreater(double, double);
