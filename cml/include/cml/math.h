@@ -23,6 +23,7 @@ char* cml_as_string(double);
 #include <cml/math/basic.h>
 #include <cml/math/classification.h>
 #include <cml/math/exponential.h>
+#include <cml/math/fact.h>
 #include <cml/math/nearest-integer.h>
 #include <cml/math/power.h>
 #include <cml/math/trigonometric.h>

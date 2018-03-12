@@ -191,7 +191,7 @@ static const int N = sizeof(factorials) / sizeof(long double);
  */
 
 double
-cml_sf_fact(int n)
+cml_fact(int n)
 {
         /* For a negative argument (n < 0) return 0.0 */
 
