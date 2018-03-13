@@ -48,7 +48,7 @@ __cos(long double x)
                 ai = -ai*(x)*(x)/(i*(i + 1.0));
                 newsum = newsum + ai;
                 i += 2;
-        } while (!cml_equal(newsum, oldsum));
+        } while (!cml_nearequal(newsum, oldsum, CML_DBL_EPSILON));
 
         return newsum;
 }
@@ -70,7 +70,7 @@ __sin(long double x)
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 newsum = newsum + ai;
                 ++i;
-        } while (!cml_equal(newsum, oldsum));
+        } while (!cml_nearequal(newsum, oldsum, CML_DBL_EPSILON));
 
         return newsum;
 }
