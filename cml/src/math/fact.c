@@ -191,16 +191,8 @@ static const int N = sizeof(factorials) / sizeof(long double);
  */
 
 double
-cml_fact(int n)
+cml_fact(double n)
 {
-        /* For a negative argument (n < 0) return 0.0 */
-
-        if (n < 0)
-        {
-                return 0.0;
-        }
-
-
         /* For a large postive argument (n >= N) return DBL_MAX */
 
         if (n >= N)
@@ -210,5 +202,7 @@ cml_fact(int n)
 
         /* Otherwise return n!. */
 
-        return (double) factorials[n];
+        return (cml_isinteger(n) && n >= 0.0) ?
+               (double) factorials[(int) n] :
+               cml_sf_gamma(++n);
 }

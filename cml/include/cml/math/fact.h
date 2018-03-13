@@ -3,7 +3,7 @@
 
 __CML_BEGIN_DECLS
 
-double cml_fact(int x);
+double cml_fact(double x);
 
 __CML_END_DECLS
 
