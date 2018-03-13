@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <float.h>
 #include <limits.h>
-#include <math.h>
 #include <cml/errno.h>
 #include <cml/math.h>
 #include <cml/specfunc.h>
@@ -114,7 +113,7 @@ cml_sf_lngamma(double x)
 {
         if (x <= max_double_arg)
         {
-                return log(cml_sf_gamma(x));
+                return cml_log(cml_sf_gamma(x));
         }
 
         return (double) __lngamma_asymptotic_expansion((long double) x);
@@ -172,7 +171,7 @@ __sf_gammal(long double x)
                 }
         }
 
-        sin_x = (long double) sinl(M_PI * (double) x);
+        sin_x = (long double) cml_sin(M_PI * (double) x);
 
         if (sin_x == 0.0L)
         {
@@ -201,7 +200,7 @@ __sf_gammal(long double x)
  * is used.
  *
  * The major source of relative error is in the use of the cml library
- * function powl(). The results have a relative error of about 10^-16.
+ * function cml_pow(). The results have a relative error of about 10^-16.
  * except near x = 0.
  *
  * If x > 1755.5, then one should calculate lnGamma(x).
@@ -233,7 +232,7 @@ __cml_lgammal(long double x)
         }
 
         temp += 1.0L;
-        temp *= (powl((g + xx - 0.5L) / M_E, xx - 0.5L) / exp_g_o_sqrt_2pi);
+        temp *= (cml_pow((g + xx - 0.5L) / M_E, xx - 0.5L) / exp_g_o_sqrt_2pi);
 
         return (x < 1.0L) ?
                temp/x :
@@ -253,9 +252,9 @@ __duplication_formula(long double two_x)
         long double g;
         int n = (int) two_x - 1;
 
-        g = powl(2.0L, two_x - 1.0L - (long double) n);
-        g = ldexpl(g,n);
-        g /= sqrtl((long double) M_PI);
+        g = cml_pow(2.0L, two_x - 1.0L - (long double) n);
+        g = cml_ldexp(g,n);
+        g /= cml_sqrt((long double) M_PI);
         g *= __sf_gammal(x);
         g *= __sf_gammal(x + 0.5L);
 
@@ -271,7 +270,7 @@ __lngamma_asymptotic_expansion(long double x)
         long double sum = 0.0L;
         long double xx = x * x;
         long double xj = x;
-        long double lngamma = log_sqrt_2pi - xj + (xj - 0.5L) * (long double) logl((double) xj);
+        long double lngamma = log_sqrt_2pi - xj + (xj - 0.5L) * (long double) cml_log((double) xj);
 
         int i;
 
