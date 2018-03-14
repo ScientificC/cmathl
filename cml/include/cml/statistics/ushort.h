@@ -17,10 +17,13 @@ double cml_stats_ushort_sd_with_fixed_mean(const unsigned short data[], const si
 double cml_stats_ushort_tss(const unsigned short data[], const size_t stride, const size_t n);
 double cml_stats_ushort_tss_m(const unsigned short data[], const size_t stride, const size_t n, const double mean);
 
+double cml_stats_ushort_kurtosis(const unsigned short data[], const size_t stride, const size_t n);
+
 double cml_stats_ushort_covariance(const unsigned short data1[], const size_t stride1,const unsigned short data2[], const size_t stride2, const size_t n);
 
 double cml_stats_ushort_variance_m(const unsigned short data[], const size_t stride, const size_t n, const double mean);
 double cml_stats_ushort_sd_m(const unsigned short data[], const size_t stride, const size_t n, const double mean);
+double cml_stats_ushort_kurtosis_m_sd(const unsigned short data[], const size_t stride, const size_t n, const double mean, const double sd);
 
 __CML_END_DECLS
 

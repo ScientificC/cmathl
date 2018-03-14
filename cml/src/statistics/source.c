@@ -10,6 +10,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -19,6 +20,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -28,6 +30,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -37,6 +40,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -46,6 +50,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -55,6 +60,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -64,6 +70,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -73,6 +80,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -82,6 +90,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -91,6 +100,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
@@ -100,6 +110,7 @@
 #include <cml/_private/templates_on.h>
 #include "source/mean.c"
 #include "source/covariance.c"
+#include "source/kurtosis.c"
 #include "source/median.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>

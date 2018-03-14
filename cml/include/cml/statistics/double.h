@@ -17,10 +17,13 @@ double cml_stats_sd_with_fixed_mean(const double data[], const size_t stride, co
 double cml_stats_tss(const double data[], const size_t stride, const size_t n);
 double cml_stats_tss_m(const double data[], const size_t stride, const size_t n, const double mean);
 
+double cml_stats_kurtosis(const double data[], const size_t stride, const size_t n);
+
 double cml_stats_covariance(const double data1[], const size_t stride1, const double data2[], const size_t stride2, const size_t n);
 
 double cml_stats_variance_m(const double data[], const size_t stride, const size_t n, const double mean);
 double cml_stats_sd_m(const double data[], const size_t stride, const size_t n, const double mean);
+double cml_stats_kurtosis_m_sd(const double data[], const size_t stride, const size_t n, const double mean, const double sd);
 
 __CML_END_DECLS
 
