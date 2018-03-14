@@ -26,5 +26,6 @@
 #include <cml/easings.h>
 #include <cml/quaternion.h>
 #include <cml/specfunc.h>
+#include <cml/statistics.h>
 
 #endif
