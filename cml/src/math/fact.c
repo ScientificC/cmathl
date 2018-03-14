@@ -202,7 +202,10 @@ cml_fact(double n)
 
         /* Otherwise return n!. */
 
-        return (cml_isinteger(n) && n >= 0.0) ?
-               (double) factorials[(int) n] :
-               cml_sf_gamma(++n);
+        if (cml_isinteger(n) && n >= 0.0)
+        {
+                return (double) factorials[(int) n];
+        }
+
+        return cml_sf_gamma(++n);
 }
