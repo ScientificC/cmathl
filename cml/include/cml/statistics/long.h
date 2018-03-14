@@ -25,6 +25,9 @@ double cml_stats_long_variance_m(const long data[], const size_t stride, const s
 double cml_stats_long_sd_m(const long data[], const size_t stride, const size_t n, const double mean);
 double cml_stats_long_kurtosis_m_sd(const long data[], const size_t stride, const size_t n, const double mean, const double sd);
 
+double cml_stats_long_median_from_sorted_data(const long sorted_data[], const size_t stride, const size_t n);
+double cml_stats_long_quantile_from_sorted_data(const long sorted_data[], const size_t stride, const size_t n, const double f);
+
 __CML_END_DECLS
 
 #endif /* CML_STATISTICS_LONG_H */

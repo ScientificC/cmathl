@@ -12,6 +12,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_LONG_DOUBLE
@@ -22,6 +23,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_DOUBLE
@@ -32,6 +34,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_FLOAT
@@ -42,6 +45,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_ULONG
@@ -52,6 +56,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_LONG
@@ -62,6 +67,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_UINT
@@ -72,6 +78,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_INT
@@ -82,6 +89,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_USHORT
@@ -92,6 +100,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_SHORT
@@ -102,6 +111,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_UCHAR
@@ -112,6 +122,7 @@
 #include "source/covariance.c"
 #include "source/kurtosis.c"
 #include "source/median.c"
+#include "source/quantiles.c"
 #include "source/variance.c"
 #include <cml/_private/templates_off.h>
 #undef  BASE_CHAR

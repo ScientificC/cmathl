@@ -25,6 +25,9 @@ double cml_stats_ulong_variance_m(const unsigned long data[], const size_t strid
 double cml_stats_ulong_sd_m(const unsigned long data[], const size_t stride, const size_t n, const double mean);
 double cml_stats_ulong_kurtosis_m_sd(const unsigned long data[], const size_t stride, const size_t n, const double mean, const double sd);
 
+double cml_stats_ulong_median_from_sorted_data(const unsigned long sorted_data[], const size_t stride, const size_t n);
+double cml_stats_ulong_quantile_from_sorted_data(const unsigned long sorted_data[], const size_t stride, const size_t n, const double f);
+
 __CML_END_DECLS
 
 #endif /* CML_STATISTICS_ULONG_H */

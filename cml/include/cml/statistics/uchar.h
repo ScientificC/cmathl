@@ -25,6 +25,9 @@ double cml_stats_uchar_variance_m(const unsigned char data[], const size_t strid
 double cml_stats_uchar_sd_m(const unsigned char data[], const size_t stride, const size_t n, const double mean);
 double cml_stats_uchar_kurtosis_m_sd(const unsigned char data[], const size_t stride, const size_t n, const double mean, const double sd);
 
+double cml_stats_uchar_median_from_sorted_data(const unsigned char sorted_data[], const size_t stride, const size_t n);
+double cml_stats_uchar_quantile_from_sorted_data(const unsigned char sorted_data[], const size_t stride, const size_t n, const double f);
+
 __CML_END_DECLS
 
 #endif /* CML_STATISTICS_UINT_H */
