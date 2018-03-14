@@ -3,7 +3,6 @@
 #include <cml/block.h>
 #include <cml/errno.h>
 
-
 #define BASE_CML_COMPLEX_LONG
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
