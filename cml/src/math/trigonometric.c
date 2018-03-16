@@ -13,9 +13,9 @@ __atan(long double value)
 
         if (cml_isnull(value))
         {
-                return 0;
+                return 0.0L;
         }
-        else if (x < 0)
+        else if (x < 0.0L)
         {
                 sign = (-1.0L);
                 x *= (-1.0L);
