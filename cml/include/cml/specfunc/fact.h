@@ -3,7 +3,8 @@
 
 __CML_BEGIN_DECLS
 
-double cml_fact(double x);
+double cml_sf_fact(double x);
+double cml_sf_lnfact(double x);
 
 __CML_END_DECLS
 

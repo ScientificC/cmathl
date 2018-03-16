@@ -191,7 +191,7 @@ static const int N = sizeof(factorials) / sizeof(long double);
  */
 
 double
-cml_fact(double n)
+cml_sf_fact(double n)
 {
         /* For a large postive argument (n >= N) return DBL_MAX */
 

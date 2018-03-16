@@ -25,7 +25,6 @@ SET(CML_SRCS
 		src/math/trigonometric.c
 		src/math/power.c
 		src/math/exponential.c
-		src/math/fact.c
 		src/math/hyperbolic.c
 		src/math/basic.c
 		src/math/classification.c
@@ -55,6 +54,7 @@ SET(CML_SRCS
 		src/deriv/deriv.c
 		src/diff/diff.c
 		src/block/source.c
+		src/specfunc/fact.c
 		src/specfunc/gamma.c
 		src/statistics/source.c
 )
