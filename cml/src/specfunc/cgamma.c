@@ -6,8 +6,6 @@
 #include <cml/complex.h>
 #include <cml/specfunc.h>
 
-#define MAX_INT_ARG 170
-
 
 /*
  * This code originally comes from specfun.f written and copyrighted by

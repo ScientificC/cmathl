@@ -54,6 +54,7 @@ SET(CML_SRCS
 		src/deriv/deriv.c
 		src/diff/diff.c
 		src/block/source.c
+		src/specfunc/choose.c
 		src/specfunc/fact.c
 		src/specfunc/gamma.c
 		src/specfunc/hyperg_u.c
