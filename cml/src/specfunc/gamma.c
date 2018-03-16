@@ -5,65 +5,37 @@
 #include <cml/math.h>
 #include <cml/specfunc.h>
 
-static long double const g =  9.65657815377331589457187L;
-static long double const exp_g_o_sqrt_2pi = +6.23316569877722552586386e+3L;
 
-static double max_double_arg = 171.0;
-static long double max_long_double_arg = 1755.5L;
+#define MAX_DBL_ARG       171.0
+#define MAX_LONG_DBL_ARG  1755.5L
 
-static long double const a[] = {
-        +1.14400529453851095667309e+4L,
-        -3.23988020152318335053598e+4L,
-        +3.50514523505571666566083e+4L,
-        -1.81641309541260702610647e+4L,
-        +4.63232990536666818409138e+3L,
-        -5.36976777703356780555748e+2L,
-        +2.28754473395181007645155e+1L,
-        -2.17925748738865115560082e-1L,
-        +1.08314836272589368860689e-4L
-};
+#define G                 9.65657815377331589457187L
+#define EXP_G_O_SQRT_2PI  +6.23316569877722552586386e+3L
+#define LOG_SQRT_2PI      9.18938533204672741780329736e-1L
 
-static const long double log_sqrt_2pi = 9.18938533204672741780329736e-1L;
 
 static long double __sf_gammal(long double x);
 static long double __duplication_formula(long double two_x);
 static long double __cml_lgammal(long double x);
-
-/* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
-   currently used. */
-
-static const long double B[] = {
-        1.0L / (long double)(6 * 2 * 1),
-        -1.0L / (long double)(30 * 4 * 3),
-        1.0L / (long double)(42 * 6 * 5),
-        -1.0L / (long double)(30 * 8 * 7),
-        5.0L / (long double)(66 * 10 * 9),
-        -691.0L / (long double)(2730 * 12 * 11),
-        7.0L / (long double)(6 * 14 * 13),
-        -3617.0L / (long double)(510 * 16 * 15),
-        43867.0L / (long double)(796 * 18 * 17),
-        -174611.0L / (long double)(330 * 20 * 19)
-};
-
 static long double __lngamma_asymptotic_expansion(long double x);
 
 
 /*
  * This function uses Lanczos' expression to calculate Gamma(x) for real
- * x, where -(max_double_arg - 1) < x < max_double_arg.
+ * x, where -(MAX_DBL_ARG - 1) < x < MAX_DBL_ARG.
  * Note the Gamma function is meromorphic in the complex plane and has
  * poles at the nonpositive integers.
  * Tests for x a positive integer or a half positive integer give a
  * maximum absolute relative error of about 1.9e-16.
  *
- * If x > max_double_arg, then one should either use cml_sf_gammal(x)
+ * If x > MAX_DBL_ARG, then one should either use cml_sf_gammal(x)
  * or calculate lnGamma(x).
  * Note that for x < 0, ln (Gamma(x)) may be a complex number.
  *
  * @param double x Argument of the Gamma function.
  *
- * @return double If x is positive and is less than max_double_arg then Gamma(x) is
- * returned and if x > max_double_arg then DBL_MAX is returned.  If x is
+ * @return double If x is positive and is less than MAX_DBL_ARG then Gamma(x) is
+ * returned and if x > MAX_DBL_ARG then DBL_MAX is returned.  If x is
  * a nonpositive integer i.e. x is a pole, then DBL_MAX is returned
  * ( note that Gamma(x) changes sign on each side of the pole).  If x is
  * nonpositive nonintegral, then if Gamma(x) > DBL_MAX, then DBL_MAX is
@@ -76,7 +48,7 @@ cml_sf_gamma(double x)
 {
         long double g;
 
-        if (x > max_double_arg)
+        if (x > MAX_DBL_ARG)
         {
                 return DBL_MAX;
         }
@@ -111,7 +83,7 @@ cml_sf_gamma(double x)
 double
 cml_sf_lngamma(double x)
 {
-        if (x <= max_double_arg)
+        if (x <= MAX_DBL_ARG)
         {
                 return cml_log(cml_sf_gamma(x));
         }
@@ -122,22 +94,22 @@ cml_sf_lngamma(double x)
 
 /*
  * This function uses Lanczos' expression to calculate Gamma(x) for real
- * x, where -(max_long_double_arg - 1) < x < max_long_double_arg.
+ * x, where -(MAX_LONG_DBL_ARG - 1) < x < MAX_LONG_DBL_ARG.
  * Note the Gamma function is meromorphic in the complex plane and has
  * poles at the nonpositive integers.
  * Tests for x a positive integer or a half positive integer give a
  * maximum absolute relative error of about 3.5e-16.
  *
- * If x > max_long_double_arg, then one should use lnGamma(x).
+ * If x > MAX_LONG_DBL_ARG, then one should use lnGamma(x).
  * Note that for x < 0, ln (Gamma(x)) may be a complex number.
  *
  * @param long double x Argument of the Gamma function.
  *
- * @return double If x is positive and is less than max_long_double_arg, then Gamma(x)
- * is returned and if x > max_long_double_arg, then LDBL_MAX is returned.
+ * @return double If x is positive and is less than MAX_LONG_DBL_ARG, then Gamma(x)
+ * is returned and if x > MAX_LONG_DBL_ARG, then LDBL_MAX is returned.
  * If x is a nonpositive integer i.e. x is a pole, then LDBL_MAX is
  * returned ( note that Gamma(x) changes sign on each side of the pole).
- * If x is nonpositive nonintegral, then if x > -(max_long_double_arg + 1)
+ * If x is nonpositive nonintegral, then if x > -(MAX_LONG_DBL_ARG + 1)
  * then Gamma(x) is returned otherwise 0.0 is returned.
  *
  */
@@ -151,7 +123,7 @@ __sf_gammal(long double x)
 
         if ( x > 0.0L )
         {
-                if (x <= max_long_double_arg)
+                if (x <= MAX_LONG_DBL_ARG)
                 {
                         return __cml_lgammal(x);
                 }
@@ -178,7 +150,7 @@ __sf_gammal(long double x)
                 return LDBL_MAX;
         }
 
-        if (x < -(max_long_double_arg - 1.0L))
+        if (x < -(MAX_LONG_DBL_ARG - 1.0L))
         {
                 return 0.0L;
         }
@@ -210,6 +182,18 @@ __sf_gammal(long double x)
 static long double
 __cml_lgammal(long double x)
 {
+        const long double a[] = {
+                +1.14400529453851095667309e+4L,
+                -3.23988020152318335053598e+4L,
+                +3.50514523505571666566083e+4L,
+                -1.81641309541260702610647e+4L,
+                +4.63232990536666818409138e+3L,
+                -5.36976777703356780555748e+2L,
+                +2.28754473395181007645155e+1L,
+                -2.17925748738865115560082e-1L,
+                +1.08314836272589368860689e-4L
+        };
+
         long double xx = (x < 1.0L) ? x + 1.0L : x;
         long double temp;
         int const n = sizeof(a) / sizeof(long double);
@@ -232,7 +216,7 @@ __cml_lgammal(long double x)
         }
 
         temp += 1.0L;
-        temp *= (cml_pow((g + xx - 0.5L) / M_E, xx - 0.5L) / exp_g_o_sqrt_2pi);
+        temp *= (cml_pow((G + xx - 0.5L) / M_E, xx - 0.5L) / EXP_G_O_SQRT_2PI);
 
         return (x < 1.0L) ?
                temp/x :
@@ -265,12 +249,28 @@ __duplication_formula(long double two_x)
 static long double
 __lngamma_asymptotic_expansion(long double x)
 {
+        /* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
+           currently used. */
+
+        const long double B[] = {
+                1.0L / (long double)(6 * 2 * 1),
+                -1.0L / (long double)(30 * 4 * 3),
+                1.0L / (long double)(42 * 6 * 5),
+                -1.0L / (long double)(30 * 8 * 7),
+                5.0L / (long double)(66 * 10 * 9),
+                -691.0L / (long double)(2730 * 12 * 11),
+                7.0L / (long double)(6 * 14 * 13),
+                -3617.0L / (long double)(510 * 16 * 15),
+                43867.0L / (long double)(796 * 18 * 17),
+                -174611.0L / (long double)(330 * 20 * 19)
+        };
+
         const int m = sizeof(B) / sizeof(long double);
         long double term[m];
         long double sum = 0.0L;
         long double xx = x * x;
         long double xj = x;
-        long double lngamma = log_sqrt_2pi - xj + (xj - 0.5L) * (long double) cml_log((double) xj);
+        long double lngamma = LOG_SQRT_2PI - xj + (xj - 0.5L) * (long double) cml_log((double) xj);
 
         int i;
 

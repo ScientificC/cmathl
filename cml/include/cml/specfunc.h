@@ -10,4 +10,6 @@
 #include <cml/specfunc/fact.h>
 #include <cml/specfunc/gamma.h>
 
+#include <cml/specfunc/cgamma.h>
+
 #endif

@@ -56,6 +56,7 @@ SET(CML_SRCS
 		src/block/source.c
 		src/specfunc/fact.c
 		src/specfunc/gamma.c
+		src/specfunc/cgamma.c
 		src/statistics/source.c
 )
 SOURCE_GROUP(cml FILES ${CML_SRCS})
