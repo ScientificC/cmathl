@@ -9,6 +9,7 @@
 
 #include <cml/specfunc/fact.h>
 #include <cml/specfunc/gamma.h>
+#include <cml/specfunc/hyperg_u.h>
 
 #include <cml/specfunc/cgamma.h>
 
