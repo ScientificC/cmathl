@@ -7,8 +7,8 @@ configure_file(
 )
 
 SET(CML_MAIN_HEADERS
-		include/cml.h
-		include/cml.hpp
+		../include/cml.h
+		../include/cml.hpp
 )
 
 SET(CML_SUBDIRS
@@ -100,7 +100,7 @@ INSTALL(TARGETS ${CML_LIB_TARGET}
 		ARCHIVE DESTINATION lib
 		)
 INSTALL(FILES ${CML_MAIN_HEADERS} DESTINATION include)
-INSTALL(DIRECTORY include/cml/ DESTINATION include/cml)
+INSTALL(DIRECTORY ../include/cml DESTINATION include/cml)
 
 
 #IF(CMAKE_COMPILER_IS_WINDOWS AND "${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
