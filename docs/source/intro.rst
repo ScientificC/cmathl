@@ -22,6 +22,7 @@ Routines are available for the following areas,
 Complex Numbers              Special Functions            Vectors and Matrices
 Quaternions                  Differential Equations       Numerical Differentiation
 IEEE Floating-Point          Physical Constants           Easing Functions
+Statistics
 ===========================  ===========================  ===========================
 
 The use of these routines is described in this manual.  Each chapter
