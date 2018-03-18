@@ -1,11 +1,3 @@
-OPTION(CML_SINGLE_PRECISION "Use single-precision floating point values" BOOL:FALSE)
-IF(CML_SINGLE_PRECISION)
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCML_SINGLE_PRECISION=\"${CML_SINGLE_PRECISION}\"")
-	MESSAGE(STATUS "Using single-precision floating point values")
-ELSE()
-	MESSAGE(STATUS "Using double-precision floating point values")
-ENDIF()
-
 OPTION(CML_NO_ALIASES "Use math functions aliases" BOOL:FALSE)
 IF(CML_NO_ALIASES)
 	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCML_NO_ALIASES=\"${CML_NO_ALIASES}\"")
