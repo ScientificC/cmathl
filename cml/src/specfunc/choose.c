@@ -18,7 +18,8 @@
  *
  * @return double
  */
-double cml_sf_choose(int n, int p)
+double
+cml_sf_choose(int n, int p)
 {
         int k = CML_MAX(p, n - p);
 
