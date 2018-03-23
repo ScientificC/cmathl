@@ -9,6 +9,7 @@
 struct cml_complex_tests
 {
         cml_complex_t (*f) (cml_complex_t);
+        char *name;
         double arg_re;
         double arg_im;
         double res_re;
@@ -18,7 +19,7 @@ struct cml_complex_tests
 struct cml_complex_tests list_tst[] =
 {
 #include "complex.dat"
-        { NULL, 0, 0, 0, 0}
+        { NULL, "", 0, 0, 0, 0}
 };
 
 
@@ -37,18 +38,23 @@ run_cml_complex_tests()
 
                 TEST_BEGIN(Functions)
                 {
-                        /* size_t i;
-                           double tol  = 1e6 * CML_DBL_EPSILON;
+                        size_t i;
 
-                           for (i = 0; list_tst[i].f != NULL; i++ )
-                           {
+                        for (i = 0; list_tst[i].f != NULL; i++ )
+                        {
                                 struct cml_complex_tests t = list_tst[i];
                                 cml_complex_t arg = complex(t.arg_re, t.arg_im);
                                 cml_complex_t res = (t.f)(arg);
 
+                                printf("%s\n", t.name);
+                                #ifdef CML_NO_MATH
+                                EXPECT_NEAR(res.re, t.res_re, 1e-4);
+                                EXPECT_NEAR(res.im, t.res_im, 1e-4);
+                                #else
                                 EXPECT_FLOAT_EQ(res.re, t.res_re);
                                 EXPECT_FLOAT_EQ(res.im, t.res_im);
-                           }*/
+                                #endif
+                        }
                 }
                 TEST_END()
         }
