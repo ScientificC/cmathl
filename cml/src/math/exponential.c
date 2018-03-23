@@ -17,7 +17,7 @@ __exp(long double x)
         term = 1.0L;
 
         /* terminates when the new sum is no different from the old sum */
-        while (!cml_equal(newsum, oldsum))
+        while (!cml_equal(newsum, oldsum) && n < 33)
         {
                 oldsum = newsum;
                 n++;

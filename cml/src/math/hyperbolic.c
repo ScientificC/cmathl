@@ -273,7 +273,7 @@ cml_sinh(double x)
  */
 
 double
-doubleanh(double x)
+cml_tanh(double x)
 {
         /* Declaration of variables and structures */
         double y, z, w, h;
