@@ -8,8 +8,8 @@
 
 struct cml_complex_tests
 {
-        cml_complex_t (*f) (cml_complex_t);
         char *name;
+        cml_complex_t (*f) (cml_complex_t);
         double arg_re;
         double arg_im;
         double res_re;
@@ -18,8 +18,8 @@ struct cml_complex_tests
 
 struct cml_complex_tests list_tst[] =
 {
-#include "complex.dat"
-        { NULL, "", 0, 0, 0, 0}
+#include "data/build/complex.dat"
+        { "", NULL, 0.0, 0.0, 0.0, 0.0 }
 };
 
 
