@@ -18,7 +18,7 @@ struct cml_complex_tests
 
 struct cml_complex_tests list_tst[] =
 {
-#include "data/build/complex.dat"
+#include "data/complex.dat"
         { "", NULL, 0.0, 0.0, 0.0, 0.0 }
 };
 
