@@ -91,15 +91,11 @@ __sin(long double x)
 double
 cml_acos(double x)
 {
-        /* Declaration of variables and structures */
-        double h, y;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_asin(x);
-        h = cml_sub(M_PI_2, y);
 
-        /* Return */
-        return h;
+        return M_PI_2 - y;
 }
 
 
@@ -114,18 +110,14 @@ cml_acos(double x)
 double
 cml_asin(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_pow(x, 2.0);
-        z = cml_sub(1.0, y);
+        y = x*x;
+        z = 1.0 - y;
         w = cml_sqrt(z);
-        k = cml_div(x, w);
-        h = cml_atan(k);
+        k = x/w;
 
-        /* Return */
-        return h;
+        return cml_atan(k);
 }
 
 
@@ -139,16 +131,12 @@ cml_asin(double x)
 double
 cml_atan(double x)
 {
-        /* Declaration of variables and structures */
-        double s, w, a;
+        double s, a;
 
-        /* Mathematical algorithm */
         a = cml_abs(x);
         s = cml_sgn(x);
-        w = cml_mul(s, (double) __atan(a));
 
-        /* Return */
-        return w;
+        return s * (double) __atan(a);
 }
 
 
@@ -164,18 +152,14 @@ cml_atan(double x)
 double
 cml_atan2(double y, double x)
 {
-        /* Declaration of variables and structures */
-        double s, k, j, z, w;
+        double s, k, j, z;
 
-        /* Mathematical algorithm */
         s = cml_sgn(y);
-        k = cml_div(x, y);
+        k = x/y;
         j = cml_atan(k);
-        z = cml_mul(M_PI_2, s);
-        w = cml_sub(z, j);
+        z = M_PI_2 * s;
 
-        /* Return */
-        return w;
+        return z - j;
 }
 
 
@@ -191,15 +175,10 @@ cml_atan2(double y, double x)
 double
 cml_cos(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        h = (double) __cos(cml_ared(y));
-
-        /* Return */
-        return h;
+        return (double) __cos(cml_ared(y));
 }
 
 
@@ -213,17 +192,16 @@ cml_cos(double x)
 double
 cml_cot(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_sin(x);
-        h = cml_isnull(y) ?
-            cml_nan() :
-            cml_div(cml_cos(x), y);
 
-        /* Return */
-        return h;
+        if (cml_isnull(y))
+        {
+                return cml_nan();
+        }
+
+        return cml_cos(x) / y;
 }
 
 
@@ -237,15 +215,10 @@ cml_cot(double x)
 double
 cml_csc(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_sin(x);
-        h = cml_inverse(y);
-
-        /* Return */
-        return h;
+        return cml_inverse(y);
 }
 
 
@@ -259,15 +232,10 @@ cml_csc(double x)
 double
 cml_sec(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_cos(x);
-        h = cml_inverse(y);
-
-        /* Return */
-        return h;
+        return cml_inverse(y);
 }
 
 
@@ -281,24 +249,19 @@ cml_sec(double x)
 double
 cml_sin(double x)
 {
-        /* Domain check */
         if (cml_ismult(x, M_PI))
         {
                 return 0.0;
         }
 
-        /* Declaration of variables and structures */
-        double s, y, z, w, h;
+        double s, y, z, w;
 
-        /* Mathematical algorithm */
         s = cml_sgn(x); /* sin(-x) = -sin(x) */
         y = cml_abs(x);
         z = cml_ared(y);
         w = (double) __sin(z);
-        h = cml_mul(w, s);
 
-        /* Return */
-        return h;
+        return w*s;
 }
 
 
@@ -311,15 +274,16 @@ cml_sin(double x)
  */
 
 double
-doublean(double x)
+cml_tan(double x)
 {
-        /* Declaration of variables and structures */
         double y;
 
-        /* Mathematical algorithm */
         y = cml_cos(x);
 
-        return cml_isnull(y) ?
-               cml_nan() :
-               cml_div(cml_sin(x), y);
+        if (cml_isnull(y))
+        {
+                return cml_nan();
+        }
+
+        return cml_sin(x) / y;
 }

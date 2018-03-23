@@ -79,18 +79,14 @@ __atanh(const double x)
 double
 cml_acosh(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_pow(x, 2.0);
-        z = cml_sub(y, 1.0);
+        y = x*x;
+        z = y - 1.0;
         w = cml_sqrt(z);
-        k = cml_add(x, w);
-        h = cml_log(k);
+        k = x + w;
 
-        /* Return */
-        return h;
+        return cml_log(k);
 }
 
 
@@ -105,18 +101,14 @@ cml_acosh(double x)
 double
 cml_asinh(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_pow(x, 2.0);
-        z = cml_add(y, 1.0);
+        y = x*x;
+        z = y + 1.0;
         w = cml_sqrt(z);
-        k = cml_add(x, w);
-        h = cml_log(k);
+        k = x + w;
 
-        /* Return */
-        return h;
+        return cml_log(k);
 }
 
 
@@ -130,16 +122,13 @@ cml_asinh(double x)
 double
 cml_atanh(double x)
 {
-        /* Declaration of variables and structures */
         double y, h;
 
-        /* Mathematical algorithm */
         y = cml_abs(x);
         h = cml_isgreater(1.0, y) ?
             (double) __atanh(x) :
             cml_nan();
 
-        /* Return */
         return h;
 }
 
@@ -155,18 +144,14 @@ cml_atanh(double x)
 double
 cml_cosh(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_opposite(x);
+        y = -x;
         z = cml_exp(x);
         w = cml_exp(y);
-        k = cml_add(z, w);
-        h = cml_div(k, 2.0);
+        k = z + w;
 
-        /* Return */
-        return h;
+        return k / 2.0;
 }
 
 
@@ -180,17 +165,13 @@ cml_cosh(double x)
 double
 cml_coth(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, h;
+        double y, z, w;
 
-        /* Mathematical algorithm */
         y = cml_cosh(x);
         z = cml_sinh(x);
         w = cml_inverse(z);
-        h = cml_mul(y, w);
 
-        /* Return */
-        return h;
+        return y*w;
 }
 
 
@@ -204,14 +185,11 @@ cml_coth(double x)
 double
 cml_csch(double x)
 {
-        /* Declaration of variables and structures */
         double y, h;
 
-        /* Mathematical algorithm */
         y = cml_sinh(x);
         h = cml_inverse(y);
 
-        /* Return */
         return h;
 }
 
@@ -226,14 +204,11 @@ cml_csch(double x)
 double
 cml_sech(double x)
 {
-        /* Declaration of variables and structures */
         double y, h;
 
-        /* Mathematical algorithm */
         y = cml_cosh(x);
         h = cml_inverse(y);
 
-        /* Return */
         return h;
 }
 
@@ -249,18 +224,14 @@ cml_sech(double x)
 double
 cml_sinh(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_opposite(x);
+        y = -x;
         z = cml_exp(x);
         w = cml_exp(y);
-        k = cml_sub(z, w);
-        h = cml_div(k, 2.0);
+        k = z - w;
 
-        /* Return */
-        return h;
+        return k/2.0;
 }
 
 
@@ -275,15 +246,11 @@ cml_sinh(double x)
 double
 cml_tanh(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, h;
+        double y, z, w;
 
-        /* Mathematical algorithm */
         y = cml_sinh(x);
         z = cml_cosh(x);
         w = cml_inverse(z);
-        h = cml_mul(y, w);
 
-        /* Return */
-        return h;
+        return y*w;
 }

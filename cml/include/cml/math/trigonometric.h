@@ -12,7 +12,7 @@ double cml_cot(double);
 double cml_csc(double);
 double cml_sec(double);
 double cml_sin(double);
-double doublean(double);
+double cml_tan(double);
 
 __CML_END_DECLS
 

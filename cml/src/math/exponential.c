@@ -177,16 +177,12 @@ cml_frexp(double x, int *e)
 double
 cml_log_b(double x, double b)
 {
-        /* Declaration of variables and structures */
-        double y, z, w;
+        double y, z;
 
-        /* Mathematical algorithm */
         y = cml_log(x);
         z = cml_log(b);
-        w = cml_div(y, z);
 
-        /* Return */
-        return w;
+        return y/z;
 
 }
 
@@ -202,23 +198,18 @@ cml_log_b(double x, double b)
 double
 cml_log(double x)
 {
-        /* Domain check */
         if (x <= 0) {
                 return cml_nan();
         }
 
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_mul(x, x);
+        y = x*x;
         z = y - 1.0;
         w = y + 1.0;
-        k = cml_div(z, w);
-        h = cml_atanh(k);
+        k = z/w;
 
-        /* Return */
-        return h;
+        return cml_atanh(k);
 
 }
 

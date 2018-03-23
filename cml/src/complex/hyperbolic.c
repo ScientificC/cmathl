@@ -26,8 +26,8 @@ cml_complex_cosh(cml_complex_t z)
         a = cml_cosh(CREAL(z));
         b = cml_sinh(CREAL(z));
 
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
+        n = k * a;
+        m = h * b;
 
         w = complex(n, m);
 
@@ -59,8 +59,8 @@ cml_complex_sinh(cml_complex_t z)
         a = cml_sinh(CREAL(z));
         b = cml_cosh(CREAL(z));
 
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
+        n = k * a;
+        m = h * b;
 
         w = complex(n, m);
 

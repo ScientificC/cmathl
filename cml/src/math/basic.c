@@ -11,29 +11,7 @@
 double
 cml_abs(double x)
 {
-        /* Declaration of variables and structures */
-        double sgn, y;
-
-        /* Mathematical algorithm */
-        sgn = cml_sgn(x);
-        y = cml_mul(x, sgn);
-
-        /* Return */
-        return y;
-}
-
-
-/*
- * Computes real add
- *
- * @param double x
- * @return double
- */
-
-double
-cml_add(double x, double y)
-{
-        return x + y;
+        return x * cml_sgn(x);
 }
 
 
@@ -48,31 +26,22 @@ cml_add(double x, double y)
 double
 cml_ared_a(double x, double a)
 {
-        /* Declaration of variables and structures */
-        double z, k, w;
+        double z;
 
-        /* Mathematical algorithm */
-        z = cml_div_e(x, a);
-        k = cml_mul(z, a);
-        w = cml_sub(x, k);
+        z = cml_div(x, a);
 
-        /* Return */
-        return w;
+        return x - z*a;
 }
 
 double
 cml_ared(double x)
 {
-        /* Declaration of variables and structures */
-        double z, k, w;
+        double z, k;
 
-        /* Mathematical algorithm */
-        z = cml_div_e(x, M_TAU);
-        k = cml_mul(z, M_TAU);
-        w = cml_sub(x, k);
+        z = cml_div(x, M_TAU);
+        k = z * M_TAU;
 
-        /* Return */
-        return w;
+        return x - k;
 }
 
 
@@ -85,32 +54,9 @@ cml_ared(double x)
  */
 
 double
-cml_div_e(double x, double y)
-{
-        /* Declaration of variables and structures */
-        double z, w;
-
-        /* Mathematical algorithm */
-        z = cml_div(x, y);
-        w = cml_floor(z);
-
-        /* Return */
-        return w;
-}
-
-
-/*
- * Computes real division
- *
- * @param double x
- * @param double y
- * @return double
- */
-
-double
 cml_div(double x, double y)
 {
-        return x / y;
+        return cml_floor(x / y);
 }
 
 
@@ -174,16 +120,12 @@ cml_hypot3(double x, double y, double z)
 double
 cml_inverse(double x)
 {
-        /* Declaration of variables and structures */
-        double h;
+        if (cml_isnull(x))
+        {
+                return cml_nan();
+        }
 
-        /* Mathematical algorithm */
-        h = cml_isnull(x) ?
-            cml_nan() :
-            cml_div(1.0, x);
-
-        /* Return */
-        return h;
+        return 1.0 / x;
 }
 
 
@@ -198,16 +140,7 @@ cml_inverse(double x)
 double
 cml_mod(double x, double y)
 {
-        /* Declaration of variables and structures */
-        double z, w, k;
-
-        /* Mathematical algorithm */
-        z = cml_div_e(x, y);
-        w = cml_mul(y, z);
-        k = cml_sub(x, w);
-
-        /* Return */
-        return k;
+        return x - y*cml_div(x, y);
 }
 
 
@@ -218,38 +151,8 @@ cml_opposite(double x)
 }
 
 
-/*
- * Computes real product
- *
- * @param double x
- * @param double y
- * @return double
- */
-
-double
-cml_mul(double x, double y)
-{
-        return x * y;
-}
-
-
 double
 cml_sgn(double x)
 {
         return (double) (x >= 0.0 ? 1.0 : -1.0);
-}
-
-
-/*
- * Computes real substraction
- *
- * @param double x
- * @param double y
- * @return double
- */
-
-double
-cml_sub(double x, double y)
-{
-        return x - y;
 }

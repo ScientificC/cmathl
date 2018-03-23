@@ -120,8 +120,8 @@ cml_complex_sin(cml_complex_t z)
         a = cml_cosh(CIMAG(z));
         b = cml_sinh(CIMAG(z));
 
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
+        n = k * a;
+        m = h * b;
 
         w = complex(n, m);
 
