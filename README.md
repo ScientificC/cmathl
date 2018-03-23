@@ -1,6 +1,6 @@
 # cml
 
-[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![Version: v1.10.0](https://img.shields.io/badge/Version-v1.10.0-blue.svg)
+[![Build Status](https://travis-ci.org/CMATHL/cml.svg?branch=development)](https://travis-ci.org/CMATHL/cml) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
@@ -8,21 +8,19 @@ You can read the following [docs](http://cml.readthedocs.io/) to learn more abou
 
 ## Table of Contents
 
-- [**Using the CML**](#using-the-cmathl)
-- [**Running Tests**](#running-tests)
-- [**Configuration Macros**](#configuration-macros)
+-   [**Using the CML**](#using-the-cmathl)
+-   [**Running Tests**](#running-tests)
+-   [**Configuration Macros**](#configuration-macros)
 
-  - [Bool Type](#bool-type)
-  - [Integer Type](#integer-type)
-  - [Float Point Type](#float-point-type)
-  - [Math Functions Aliases](#math-functions-aliases)
-  - [Math Library](#math-library)
+    -   [Bool Type](#bool-type)
+    -   [Integer Type](#integer-type)
+    -   [Float Point Type](#float-point-type)
+    -   [Math Functions Aliases](#math-functions-aliases)
+    -   [Math Library](#math-library)
 
-- [**Build Options**](#build-options)
-
-- [**Documentation**](#documentation)
-
-- [**Can I trust this math library?**](#can-i-trust-this-math-library)
+-   [**Build Options**](#build-options)
+-   [**Documentation**](#documentation)
+-   [**Can I trust this math library?**](#can-i-trust-this-math-library)
 
 ## Using the CML
 
@@ -60,16 +58,14 @@ $ make && ctest
 
 CML can be configured with the following preprocessors (described in the following sections of this document):
 
-- `CML_NO_ALIASES`
-- `CML_NO_MATH`
-- `CML_NO_STDBOOL`
-- `CML_NO_STDINT`
+-   `CML_NO_ALIASES`
+-   `CML_NO_MATH`
+-   `CML_NO_STDBOOL`
+-   `CML_NO_STDINT`
 
 You can define these macros during compilation time with flags:
 
-```
-cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON -DCML_LONG_DOUBLE_MATH=ON
-```
+    cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON -DCML_LONG_DOUBLE_MATH=ON
 
 ### Bool Type
 
@@ -95,35 +91,35 @@ By default, cml will use some math functions from the header `math.h` if it is a
 
 ## Build Options
 
-- CML_BUILD_SHARED: (Default ON) Controls if the shared library is built
+-   CML_BUILD_SHARED: (Default ON) Controls if the shared library is built
 
 ```shell
 $ cmake .. -DCML_BUILD_SHARED=ON
 $ cmake .. -DCML_BUILD_SHARED=OFF
 ```
 
-- CML_BUILD_STATIC: (Default ON) Controls if the static library is built
+-   CML_BUILD_STATIC: (Default ON) Controls if the static library is built
 
 ```shell
 $ cmake .. -DCML_BUILD_STATIC=ON
 $ cmake .. -DCML_BUILD_STATIC=OFF
 ```
 
-- CML_BUILD_TESTS: (Default ON) Build the unit tests
+-   CML_BUILD_TESTS: (Default ON) Build the unit tests
 
 ```shell
 $ cmake .. -DCML_BUILD_TESTS=ON
 $ cmake .. -DCML_BUILD_TESTS=OFF
 ```
 
-- CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
+-   CMAKE_BUILD_TYPE: (Default Release) Set this to 'Release' or 'Debug'
 
 ```shell
 $ cmake .. -DCMAKE_BUILD_TYPE=Release
 $ cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 
-- CMAKE_INSTALL_PREFIX: (Default /usr/local) Allows you to specify where `make install` sends the output.
+-   CMAKE_INSTALL_PREFIX: (Default /usr/local) Allows you to specify where `make install` sends the output.
 
 ```shell
 $ cmake .. -DCMAKE_INSTALL_PREFIX=~/cml/
