@@ -16,23 +16,23 @@
 cml_complex_t
 cml_complex_cos(cml_complex_t z)
 {
-        double k = cml_cos(CREAL(z));
-
-        if (cml_isnull(CIMAG(z)))
-        {
-                return complex(k, 0.0);
-        }
+        double R = CREAL(z),
+               I = CIMAG(z);
 
         cml_complex_t w;
-        double h, a, b, n, m;
 
-        h = cml_sin(CREAL(z));
-        a = cml_sinh(CIMAG(z));
-        b = cml_cosh(CIMAG(z));
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
-
-        w = complex(n, m);
+        if (cml_isnull(I))
+        {
+                /* avoid returing negative zero (-0.0) for the imaginary part */
+                w = (cml_complex_t) { cml_cos(R), 0.0 };
+        }
+        else
+        {
+                w = (cml_complex_t) {
+                        cml_cos(R) * cml_cosh(I),
+                        cml_sin(R) * cml_sinh(-I)
+                };
+        }
 
         return w;
 }
@@ -137,15 +137,15 @@ cml_complex_tan(cml_complex_t a)
         double R = CREAL(a), I = CIMAG(a);
         double D = cml_pow(cml_cos(R), 2.0) + cml_pow(cml_sinh(I), 2.0);
 
-        if (cml_abs(I) < 1)
+        if (cml_abs(I) < 1.0)
         {
                 z = complex(0.5 * cml_sin(2 * R) / D, 0.5 * cml_sinh(2 * I) / D);
         }
         else
         {
-                double F = 1 + cml_pow(cml_cos(R)/cml_sinh(I), 2.0);
+                double F = 1.0 + cml_pow(cml_cos(R)/cml_sinh(I), 2.0);
 
-                z = complex(0.5 * cml_sin(2 * R) / D, 1 / (doubleanh(I) * F));
+                z = complex(0.5 * cml_sin(2 * R) / D, 1 / (cml_tanh(I) * F));
         }
 
         return z;
