@@ -66,5 +66,5 @@ cml_complex_zero()
 cml_complex_t
 cml_complex_clone(cml_complex_t w)
 {
-        return complex(w.re, w.im);
+        return complex(CREAL(w), CIMAG(w));
 }

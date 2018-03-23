@@ -32,15 +32,12 @@ cml_complex_exp(cml_complex_t z)
 cml_complex_t
 cml_complex_log_b(cml_complex_t z, cml_complex_t b)
 {
-        /* Declaration of variables and structures */
         cml_complex_t k, h, w;
 
-        /* Mathematical algorithm */
         k = cml_complex_log(z);
         h = cml_complex_log(b);
         w = cml_complex_div(k, h);
 
-        /* Return */
         return w;
 }
 
@@ -52,16 +49,13 @@ cml_complex_log_b(cml_complex_t z, cml_complex_t b)
 cml_complex_t
 cml_complex_log(cml_complex_t z)
 {
-        /* Declaration of variables and structures */
         cml_complex_t w;
         double x, y;
 
-        /* Mathematical algorithm */
         x = cml_complex_logabs(z);
         y = cml_complex_arg(z);
         w = complex(x, y);
 
-        /* Return */
         return w;
 }
 
