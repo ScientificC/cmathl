@@ -46,7 +46,6 @@ run_cml_complex_tests()
                                 cml_complex_t arg = complex(t.arg_re, t.arg_im);
                                 cml_complex_t res = (t.f)(arg);
 
-                                printf("%s\n", t.name);
                                 #ifdef CML_NO_MATH
                                 EXPECT_NEAR(res.re, t.res_re, 1e-4);
                                 EXPECT_NEAR(res.im, t.res_im, 1e-4);
