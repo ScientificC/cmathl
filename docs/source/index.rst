@@ -19,6 +19,7 @@ Welcome to CML's documentation!
    easings.rst
    const.rst
    ieee754.rst
+   statistics.rst
 
 Indices and tables
 ==================
