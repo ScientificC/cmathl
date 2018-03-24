@@ -17,7 +17,6 @@ the header file :file:`cml/quaternion.h`.
    single: cml_quaternion_t
 
 
-
 Representation of quaternions
 =================================
 

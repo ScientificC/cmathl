@@ -22,6 +22,9 @@ median and arbitrary percentiles.  The algorithms use recurrence
 relations to compute average quantities in a stable way, without large
 intermediate values that might overflow.
 
+Data Types
+==========
+
 The functions are available in versions for datasets in the standard
 floating-point and integer types.  The versions for double precision
 floating-point data have the prefix :code:`cml_stats` and are declared in
@@ -29,7 +32,26 @@ the header file :file:`cml/statistics/double.h`.  The versions for integer
 data have the prefix :code:`cml_stats_int` and are declared in the header
 file :file:`cml/statistics/int.h`.   All the functions operate on C
 arrays with a :code:`stride` parameter specifying the spacing between
-elements.
+elements. The full list of available types is given below,
+
+=============================== ====================
+Prefix                          Type
+=============================== ====================
+cml_stats                       double
+cml_stats_float                 float
+cml_stats_long_double           long double
+cml_stats_int                   int
+cml_stats_uint                  unsigned int
+cml_stats_long                  long
+cml_stats_ulong                 unsigned long
+cml_stats_short                 short
+cml_stats_ushort                unsigned short
+cml_stats_char                  char
+cml_stats_uchar                 unsigned char
+cml_stats_complex               complex double
+cml_stats_complex_float         complex float
+cml_stats_complex_long_double   complex long double
+=============================== ====================
 
 Mean, Standard Deviation and Variance
 =====================================
