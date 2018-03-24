@@ -12,6 +12,10 @@ and present a modern Applications Programming Interface
 (API) for C programmers, allowing wrappers to be written for very
 high level languages.  The source code is distributed under the MIT License.
 
+In summary, CML is a pure mathematical C library with a wide variety of
+mathematical functions that seeks to be close to complying with
+ANSI C for portability.  It is free software under the MIT License.
+
 Routines available in CML
 =========================
 
@@ -19,10 +23,10 @@ The library covers a wide range of topics in numerical computing.
 Routines are available for the following areas,
 
 ===========================  ===========================  ===========================
-Complex Numbers              Special Functions            Vectors and Matrices
+Mathematical Functions       Complex Numbers              Special Functions
 Quaternions                  Differential Equations       Numerical Differentiation
 IEEE Floating-Point          Physical Constants           Easing Functions
-Statistics
+Statistics                   Blocks                       Vectors and Matrices
 ===========================  ===========================  ===========================
 
 The use of these routines is described in this manual.  Each chapter
