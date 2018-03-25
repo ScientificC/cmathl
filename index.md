@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+---
+title: CML Numerical Library
+---
 
-You can use the [editor on GitHub](https://github.com/CMATHL/cml/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### [Introduction](#introduction) | [Download](#download-and-installation)  | [Documentation](#documentation)   | [About](#about-the-library) 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+# Introduction
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The C Math Library (CML) is a collection of routines for
+numerical computing.  The routines have been written from scratch in C,
+and present a modern Applications Programming Interface
+(API) for C programmers, allowing wrappers to be written for very
+high level languages.  The source code is distributed under the MIT License.
 
-```markdown
-Syntax highlighted code block
+In summary, CML is a pure mathematical C library with a wide variety of
+mathematical functions that seeks to be close to complying with
+ANSI C for portability.  It is free software under the MIT License.
 
-# Header 1
-## Header 2
-### Header 3
+## Routines available in CML
 
-- Bulleted
-- List
+The library covers a wide range of topics in numerical computing.
+Routines are available for the following areas,
 
-1. Numbered
-2. List
+* Mathematical Functions
+* Complex Numbers
+* Sepecial Functions
+* Quaternions
+* Differential Equations
+* Numerical Differentiation
+* IEEE Floating-Point
+* Physical Constants
+* Easing Functions
+* Statistics
+* Blocks
+* Vector _(Valarrays)_ and Matrices
 
-**Bold** and _Italic_ and `Code` text
+CML is thread-safe and suitable for use in a parallel environment.
 
-[Link](url) and ![Image](src)
-```
+# Download and Installation
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+To download the library, simply clone, fork or download a zip of the [Github repo](https://github.com/CMATHL/cml).  
+Alternatively, releases are available [here](https://github.com/CMATHL/cml/releases). 
+The users of Visual Studio can directly use binary releases.
 
-### Jekyll Themes
+For more details on installing and using the library, see the README file on the [Github page](https://github.com/CMATHL/cml).
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CMATHL/cml/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# Documentation
 
-### Support or Contact
+CML comes with a manual describing all the routines exported by the
+library. This documentation written using _sphinx_ can be produced in both PDF or
+HTML formats.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* [PNL Manual - PDF](cml-manual.pdf)
+* [PNL Manual - HTML](cml.readthedocs.io)
+
+
+# About the library
+
+The CML project started in 2016/2017 and has been mainly developed by Ulises Jeremias Cornejo Fandos since then with some contributions by Lucas Di Cunzolo and Juan Cruz Ocampos.
