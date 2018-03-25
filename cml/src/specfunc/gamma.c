@@ -10,6 +10,36 @@
 #define LOG_SQRT_2PI      9.18938533204672741780329736e-1L
 
 
+static const long double a[] = {
+        +1.14400529453851095667309e+4L,
+        -3.23988020152318335053598e+4L,
+        +3.50514523505571666566083e+4L,
+        -1.81641309541260702610647e+4L,
+        +4.63232990536666818409138e+3L,
+        -5.36976777703356780555748e+2L,
+        +2.28754473395181007645155e+1L,
+        -2.17925748738865115560082e-1L,
+        +1.08314836272589368860689e-4L
+};
+
+
+/* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
+   currently used. */
+
+static const long double B[] = {
+        1.0L / (long double)(6 * 2 * 1),
+        -1.0L / (long double)(30 * 4 * 3),
+        1.0L / (long double)(42 * 6 * 5),
+        -1.0L / (long double)(30 * 8 * 7),
+        5.0L / (long double)(66 * 10 * 9),
+        -691.0L / (long double)(2730 * 12 * 11),
+        7.0L / (long double)(6 * 14 * 13),
+        -3617.0L / (long double)(510 * 16 * 15),
+        43867.0L / (long double)(796 * 18 * 17),
+        -174611.0L / (long double)(330 * 20 * 19)
+};
+
+
 static long double __sf_gammal(long double x);
 static long double __duplication_formula(long double two_x);
 static long double __cml_lgammal(long double x);
@@ -178,18 +208,6 @@ __sf_gammal(long double x)
 static long double
 __cml_lgammal(long double x)
 {
-        const long double a[] = {
-                +1.14400529453851095667309e+4L,
-                -3.23988020152318335053598e+4L,
-                +3.50514523505571666566083e+4L,
-                -1.81641309541260702610647e+4L,
-                +4.63232990536666818409138e+3L,
-                -5.36976777703356780555748e+2L,
-                +2.28754473395181007645155e+1L,
-                -2.17925748738865115560082e-1L,
-                +1.08314836272589368860689e-4L
-        };
-
         long double xx = (x < 1.0L) ? x + 1.0L : x;
         long double temp;
         int const n = sizeof(a) / sizeof(long double);
@@ -245,22 +263,6 @@ __duplication_formula(long double two_x)
 static long double
 __lngamma_asymptotic_expansion(long double x)
 {
-        /* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
-           currently used. */
-
-        const long double B[] = {
-                1.0L / (long double)(6 * 2 * 1),
-                -1.0L / (long double)(30 * 4 * 3),
-                1.0L / (long double)(42 * 6 * 5),
-                -1.0L / (long double)(30 * 8 * 7),
-                5.0L / (long double)(66 * 10 * 9),
-                -691.0L / (long double)(2730 * 12 * 11),
-                7.0L / (long double)(6 * 14 * 13),
-                -3617.0L / (long double)(510 * 16 * 15),
-                43867.0L / (long double)(796 * 18 * 17),
-                -174611.0L / (long double)(330 * 20 * 19)
-        };
-
         const int m = sizeof(B) / sizeof(long double);
         long double term[m];
         long double sum = 0.0L;
