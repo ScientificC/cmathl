@@ -51,8 +51,8 @@ CML comes with a manual describing all the routines exported by the
 library. This documentation written using _sphinx_ can be produced in both PDF or
 HTML formats.
 
-* [PNL Manual - PDF](cml-manual.pdf)
-* [PNL Manual - HTML](http://cml.readthedocs.io)
+* [CML Manual - PDF](cml-manual.pdf)
+* [CML Manual - HTML](http://cml.readthedocs.io)
 
 
 # About the library
