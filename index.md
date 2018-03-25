@@ -52,7 +52,7 @@ library. This documentation written using _sphinx_ can be produced in both PDF o
 HTML formats.
 
 * [PNL Manual - PDF](cml-manual.pdf)
-* [PNL Manual - HTML](cml.readthedocs.io)
+* [PNL Manual - HTML](http://cml.readthedocs.io)
 
 
 # About the library
