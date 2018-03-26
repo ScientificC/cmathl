@@ -1,4 +1,4 @@
-#if defined USES_LONGDOUBLE && !USES_LONGDOUBLE
+#ifndef USES_LONGDOUBLE
 
 int
 FUNCTION(cml_block, fprintf)(FILE *stream, const TYPE(cml_block) *b, const char *format)
