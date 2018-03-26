@@ -24,7 +24,7 @@ Routines are available for the following areas,
 
 * Mathematical Functions
 * Complex Numbers
-* Sepecial Functions
+* Special Functions
 * Quaternions
 * Differential Equations
 * Numerical Differentiation
