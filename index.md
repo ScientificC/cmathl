@@ -57,4 +57,4 @@ HTML formats.
 
 # About the library
 
-The CML project started in 2016/2017 and has been mainly developed by Ulises Jeremias Cornejo Fandos since then with some contributions by Lucas Di Cunzolo and Juan Cruz Ocampos.
+The CML project started in 2016/2017 and has been mainly developed by Ulises Jeremias Cornejo Fandos since then with some contributions by Lucas Di Cunzolo.
