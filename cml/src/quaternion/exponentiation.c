@@ -143,7 +143,7 @@ cml_quaternion_log(cml_quaternion_t q)
         {
                 if(q.w < 0.0)
                 {
-                        /* fprintf(stderr, "Input quaternion(%.15g, %.15g, %.15g, %.15g)
+                        /* fprintf(stderr, "Input cml_quaternion(%.15g, %.15g, %.15g, %.15g)
                            has no unique logarithm; returning one arbitrarily.",
                            q.w, q.x, q.y, q.z);*/
                         if(cml_abs(q.w + 1)>__CML_QUATERNION_EPS)

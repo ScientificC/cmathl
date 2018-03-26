@@ -66,7 +66,7 @@ typedef struct
 
 __CML_BEGIN_DECLS
 
-cml_complex_t complex(double, double);
+cml_complex_t cml_complex(double, double);
 cml_complex_t cml_complex_polar(double, double);
 cml_complex_t cml_complex_zero();
 cml_complex_t cml_complex_nan();

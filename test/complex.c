@@ -30,7 +30,7 @@ run_cml_complex_tests()
         {
                 TEST_BEGIN(Initialization)
                 {
-                        cml_complex_t z = complex(1.0, 4.0);
+                        cml_complex_t z = cml_complex(1.0, 4.0);
                         EXPECT_FLOAT_EQ(z.re, 1.0);
                         EXPECT_FLOAT_EQ(z.im, 4.0);
                 }
@@ -43,7 +43,7 @@ run_cml_complex_tests()
                         for (i = 0; list_tst[i].f != NULL; i++ )
                         {
                                 struct cml_complex_tests t = list_tst[i];
-                                cml_complex_t arg = complex(t.arg_re, t.arg_im);
+                                cml_complex_t arg = cml_complex(t.arg_re, t.arg_im);
                                 cml_complex_t res = (t.f)(arg);
 
                                 #ifdef CML_NO_MATH

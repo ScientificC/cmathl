@@ -27,7 +27,7 @@ cml_complex_cosh(cml_complex_t z)
         n = k * a;
         m = h * b;
 
-        w = complex(n, m);
+        w = cml_complex(n, m);
 
         return w;
 }
@@ -57,7 +57,7 @@ cml_complex_sinh(cml_complex_t z)
         n = k * a;
         m = h * b;
 
-        w = complex(n, m);
+        w = cml_complex(n, m);
 
         return w;
 }
@@ -131,17 +131,17 @@ cml_complex_acosh_real(double a)
 
         if (a >= 1)
         {
-                z = complex(cml_acosh(a), 0);
+                z = cml_complex(cml_acosh(a), 0);
         }
         else
         {
                 if (a >= -1.0)
                 {
-                        z = complex(0, cml_acos(a));
+                        z = cml_complex(0, cml_acos(a));
                 }
                 else
                 {
-                        z = complex(cml_acosh(-a), M_PI);
+                        z = cml_complex(cml_acosh(-a), M_PI);
                 }
         }
 
@@ -173,11 +173,11 @@ cml_complex_atanh_real(double a)
 
         if (a > -1.0 && a < 1.0)
         {
-                z = complex(cml_atanh(a), 0);
+                z = cml_complex(cml_atanh(a), 0);
         }
         else
         {
-                z = complex(cml_atanh(1 / a), (a < 0) ? M_PI_2 : -M_PI_2);
+                z = cml_complex(cml_atanh(1 / a), (a < 0) ? M_PI_2 : -M_PI_2);
         }
 
         return z;

@@ -26,7 +26,7 @@ cml_quaternion_identity()
  * @brief initializes the quaternion with the passed in w, x, y, z
  */
 cml_quaternion_t
-quaternion(double w, double x, double y, double z)
+cml_quaternion(double w, double x, double y, double z)
 {
         return (cml_quaternion_t) {w, x, y, z};
 }
@@ -40,7 +40,7 @@ quaternion(double w, double x, double y, double z)
 cml_quaternion_t
 cml_quaternion_clone(cml_quaternion_t q)
 {
-        return quaternion(q.x, q.y, q.z, q.w);
+        return cml_quaternion(q.x, q.y, q.z, q.w);
 }
 
 

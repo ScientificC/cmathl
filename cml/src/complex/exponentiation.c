@@ -19,7 +19,7 @@ cml_complex_exp(cml_complex_t z)
         double theta = CIMAG(z);
 
         cml_complex_t w;
-        w = complex(rho * cml_cos(theta), rho * cml_sin(theta));
+        w = cml_complex(rho * cml_cos(theta), rho * cml_sin(theta));
 
         return w;
 }
@@ -54,7 +54,7 @@ cml_complex_log(cml_complex_t z)
 
         x = cml_complex_logabs(z);
         y = cml_complex_arg(z);
-        w = complex(x, y);
+        w = cml_complex(x, y);
 
         return w;
 }
@@ -89,13 +89,13 @@ cml_complex_sqrt(cml_complex_t a)
                 if (CREAL(a) >= 0.0)
                 {
                         double ai = CIMAG(a);
-                        z = complex(w, ai / (2.0 * w));
+                        z = cml_complex(w, ai / (2.0 * w));
                 }
                 else
                 {
                         double ai = CIMAG(a);
                         double vi = (ai >= 0) ? w : -w;
-                        z = complex(ai / (2.0 * vi), vi);
+                        z = cml_complex(ai / (2.0 * vi), vi);
                 }
         }
 
@@ -110,11 +110,11 @@ cml_complex_sqrt_real(double x)
 
         if (x >= 0)
         {
-                z = complex(cml_sqrt(x), 0.0);
+                z = cml_complex(cml_sqrt(x), 0.0);
         }
         else
         {
-                z = complex(0.0, cml_sqrt(-x));
+                z = cml_complex(0.0, cml_sqrt(-x));
         }
 
         return z;
@@ -130,7 +130,7 @@ cml_complex_pow(cml_complex_t a, cml_complex_t b)
         {
                 if (cml_isnull(CREAL(b)) && cml_isnull(CIMAG(b)))
                 {
-                        z = complex(1.0, 0.0);
+                        z = cml_complex(1.0, 0.0);
                 }
                 else
                 {
@@ -155,7 +155,7 @@ cml_complex_pow(cml_complex_t a, cml_complex_t b)
                 double rho = cml_exp(logr * br - bi * theta);
                 double beta = theta * br + bi * logr;
 
-                z = complex(rho * cml_cos(beta), rho * cml_sin(beta));
+                z = cml_complex(rho * cml_cos(beta), rho * cml_sin(beta));
         }
 
         return z;
@@ -171,7 +171,7 @@ cml_complex_pow_real(cml_complex_t a, double b)
         {
                 if (cml_isnull(b))
                 {
-                        z = complex(1.0, 0.0);
+                        z = cml_complex(1.0, 0.0);
                 }
                 else
                 {
@@ -184,7 +184,7 @@ cml_complex_pow_real(cml_complex_t a, double b)
                 double theta = cml_complex_arg(a);
                 double rho = cml_exp(logr * b);
                 double beta = theta * b;
-                z = complex(rho * cml_cos(beta), rho * cml_sin(beta));
+                z = cml_complex(rho * cml_cos(beta), rho * cml_sin(beta));
         }
 
         return z;
