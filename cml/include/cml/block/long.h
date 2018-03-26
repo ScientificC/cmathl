@@ -24,12 +24,12 @@ void cml_block_long_free(cml_block_long_t *b);
 int cml_block_long_fread(FILE *stream, cml_block_long_t *b);
 int cml_block_long_fwrite(FILE *stream, const cml_block_long_t *b);
 int cml_block_long_fscanf(FILE *stream, cml_block_long_t *b);
-int cml_block_long_fprlongf(FILE *stream, const cml_block_long_t *b, const long *format);
+int cml_block_long_fprlongf(FILE *stream, const cml_block_long_t *b, const char *format);
 
 int cml_block_long_raw_fread(FILE *stream, long *b, const size_t n, const size_t stride);
 int cml_block_long_raw_fwrite(FILE *stream, const long *b, const size_t n, const size_t stride);
 int cml_block_long_raw_fscanf(FILE *stream, long *b, const size_t n, const size_t stride);
-int cml_block_long_raw_fprlongf(FILE *stream, const long *b, const size_t n, const size_t stride, const long *format);
+int cml_block_long_raw_fprlongf(FILE *stream, const long *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_long_size(const cml_block_long_t *b);
 long * cml_block_long_data(const cml_block_long_t *b);

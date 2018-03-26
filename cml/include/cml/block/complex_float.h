@@ -24,12 +24,12 @@ void cml_block_complex_float_free(cml_block_complex_float_t *b);
 int cml_block_complex_float_fread(FILE *stream, cml_block_complex_float_t *b);
 int cml_block_complex_float_fwrite(FILE *stream, const cml_block_complex_float_t *b);
 int cml_block_complex_float_fscanf(FILE *stream, cml_block_complex_float_t *b);
-int cml_block_complex_float_fprintf(FILE *stream, const cml_block_complex_float_t *b, const float *format);
+int cml_block_complex_float_fprintf(FILE *stream, const cml_block_complex_float_t *b, const char *format);
 
 int cml_block_complex_float_raw_fread(FILE *stream, float *b, const size_t n, const size_t stride);
 int cml_block_complex_float_raw_fwrite(FILE *stream, const float *b, const size_t n, const size_t stride);
 int cml_block_complex_float_raw_fscanf(FILE *stream, float *b, const size_t n, const size_t stride);
-int cml_block_complex_float_raw_fprintf(FILE *stream, const float *b, const size_t n, const size_t stride, const float *format);
+int cml_block_complex_float_raw_fprintf(FILE *stream, const float *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_complex_float_size(const cml_block_complex_float_t *b);
 float * cml_block_complex_float_data(const cml_block_complex_float_t *b);

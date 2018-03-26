@@ -24,12 +24,12 @@ void cml_block_uchar_free(cml_block_uchar_t *b);
 int cml_block_uchar_fread(FILE *stream, cml_block_uchar_t *b);
 int cml_block_uchar_fwrite(FILE *stream, const cml_block_uchar_t *b);
 int cml_block_uchar_fscanf(FILE *stream, cml_block_uchar_t *b);
-int cml_block_uchar_fprucharf(FILE *stream, const cml_block_uchar_t *b, const unsigned char *format);
+int cml_block_uchar_fprucharf(FILE *stream, const cml_block_uchar_t *b, const char *format);
 
 int cml_block_uchar_raw_fread(FILE *stream, unsigned char *b, const size_t n, const size_t stride);
 int cml_block_uchar_raw_fwrite(FILE *stream, const unsigned char *b, const size_t n, const size_t stride);
 int cml_block_uchar_raw_fscanf(FILE *stream, unsigned char *b, const size_t n, const size_t stride);
-int cml_block_uchar_raw_fprucharf(FILE *stream, const unsigned char *b, const size_t n, const size_t stride, const unsigned char *format);
+int cml_block_uchar_raw_fprucharf(FILE *stream, const unsigned char *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_uchar_size(const cml_block_uchar_t *b);
 unsigned char * cml_block_uchar_data(const cml_block_uchar_t *b);
