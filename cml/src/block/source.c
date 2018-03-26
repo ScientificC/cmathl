@@ -7,6 +7,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -16,6 +18,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -25,6 +29,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -34,6 +40,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -43,6 +51,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -52,6 +62,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -61,6 +73,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -70,6 +84,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -79,6 +95,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -88,6 +106,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -97,6 +117,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -106,6 +128,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -115,6 +139,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
@@ -124,6 +150,8 @@
 #include <cml/_private/templates_on.h>
 #include "source/block.c"
 #include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
 #include "source/fwrite.c"
 #include "source/init.c"
 #include <cml/_private/templates_off.h>
