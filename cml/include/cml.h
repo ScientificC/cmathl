@@ -25,6 +25,7 @@
 #include <cml/diff.h>
 #include <cml/easings.h>
 #include <cml/quaternion.h>
+#include <cml/sort.h>
 #include <cml/specfunc.h>
 #include <cml/statistics.h>
 
