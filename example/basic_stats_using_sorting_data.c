@@ -7,12 +7,7 @@
 int
 compare(const void *a, const void *b)
 {
-        double *x, *y;
-
-        x = (double *)a;
-        y = (double *)b;
-
-        return cml_cmp(*x, *y, CML_FLT_EPSILON);
+        return cml_cmp(*(double*)a, *(double*)b, CML_FLT_EPSILON);
 }
 
 
