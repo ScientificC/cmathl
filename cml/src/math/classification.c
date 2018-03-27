@@ -42,7 +42,7 @@ __ismult(double x, double y)
 
 
 int
-gsl_cmp(double x1, double x2, double epsilon)
+cml_cmp(double x1, double x2, double epsilon)
 {
         int exponent;
         double delta, difference;
