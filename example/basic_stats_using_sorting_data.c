@@ -1,11 +1,28 @@
 #include <stdio.h>
+#include <cml/math.h>
+#include <cml/sort.h>
 #include <cml/statistics.h>
+
+
+int
+compare(const void *a, const void *b)
+{
+        double *x, *y;
+
+        x = (double *)a;
+        y = (double *)b;
+
+        return cml_cmp(*x, *y, CML_FLT_EPSILON);
+}
+
 
 int
 main(int argc, char** argv)
 {
-        double data[5] = { 12.6, 16.5, 17.2, 18.1, 18.3};
+        double data[5] = { 16.5, 17.2, 12.6, 18.3, 18.1 };
         double median, upperq, lowerq;
+
+        cml_heapsort(data, 5, sizeof(double), compare);
 
         printf ("Sorted dataset: %g, %g, %g, %g, %g\n",
                 data[0], data[1], data[2], data[3], data[4]);
