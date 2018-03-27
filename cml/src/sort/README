@@ -1,7 +1,7 @@
 
     CML Sorting Algorithms
 
-This chapter describes functions for sorting data, both directly and
+This folder contains functions for sorting data, both directly and
 indirectly (using an index).
 
 All the functions use the heapsort algorithm.
