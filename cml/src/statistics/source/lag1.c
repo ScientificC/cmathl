@@ -1,15 +1,17 @@
 double
-FUNCTION(cml_stats,lag1_autocorrelation) (const BASE data[], const size_t stride, const size_t n)
+FUNCTION(cml_stats,lag1_autocorrelation)(const BASE data[],
+                                         const size_t stride,
+                                         const size_t n)
 {
         const double mean = FUNCTION(cml_stats,mean) (data, stride, n);
         return FUNCTION(cml_stats,lag1_autocorrelation_m)(data, stride, n, mean);
 }
 
 double
-FUNCTION(cml_stats,lag1_autocorrelation_m) (const BASE data[],
-                                            const size_t stride,
-                                            const size_t size,
-                                            const double mean)
+FUNCTION(cml_stats,lag1_autocorrelation_m)(const BASE data[],
+                                           const size_t stride,
+                                           const size_t size,
+                                           const double mean)
 {
         /* Compute the lag-1 autocorrelation of a dataset using the
            recurrence relation */
