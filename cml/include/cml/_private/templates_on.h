@@ -4,7 +4,7 @@
    If BASE is defined we used function names like cml_BASE_name()
    and use BASE as the base datatype      */
 
-#if   defined(BASE_CML_COMPLEX_LONG)
+#if defined(BASE_CML_COMPLEX_LONG)
 #define BASE cml_complex_long_double
 #define SHORT complex_long_double
 #define SHORT_REAL long_double
@@ -48,6 +48,49 @@
 #define ATOMIC_IO ATOMIC
 #define ZERO {{0.0F,0.0F}}
 #define ONE {{1.0F,0.0F}}
+#define BASE_EPSILON CML_FLT_EPSILON
+
+#elif defined(BASE_CML_QUATERNION_LONG)
+#define BASE cml_quaternion_long_double
+#define SHORT quaternion_long_double
+#define SHORT_REAL long_double
+#define ATOMIC long double
+#define USES_LONGDOUBLE 1
+#define MULTIPLICITY 4
+#define FP 1
+#define IN_FORMAT "%Lg"
+#define OUT_FORMAT "%Lg"
+#define ATOMIC_IO ATOMIC
+#define ZERO {{0.0L,0.0L,0.0L,0.0L}}
+#define ONE {{1.0L,0.0L,0.0L,0.0L}}
+#define BASE_EPSILON CML_DBL_EPSILON
+
+#elif defined(BASE_CML_QUATERNION)
+#define BASE cml_quaternion
+#define SHORT quaternion
+#define SHORT_REAL
+#define ATOMIC double
+#define MULTIPLICITY 4
+#define FP 1
+#define IN_FORMAT "%lg"
+#define OUT_FORMAT "%g"
+#define ATOMIC_IO ATOMIC
+#define ZERO {{0.0,0.0,0.0,0.0}}
+#define ONE {{1.0,0.0,0.0,0.0}}
+#define BASE_EPSILON CML_DBL_EPSILON
+
+#elif defined(BASE_CML_QUATERNION_FLOAT)
+#define BASE cml_quaternion_float
+#define SHORT quaternion_float
+#define SHORT_REAL float
+#define ATOMIC float
+#define MULTIPLICITY 4
+#define FP 1
+#define IN_FORMAT "%g"
+#define OUT_FORMAT "%g"
+#define ATOMIC_IO ATOMIC
+#define ZERO {{0.0F,0.0F,0.0F,0.0F}}
+#define ONE {{1.0F,0.0F,0.0F,0.0F}}
 #define BASE_EPSILON CML_FLT_EPSILON
 
 #elif defined(BASE_LONG_DOUBLE)
