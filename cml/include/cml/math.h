@@ -39,28 +39,24 @@ char* cml_as_string(double);
 
 /* Definition of an arbitrary function with parameters */
 
-struct cml_function_struct
+typedef struct
 {
-        double (* function) (double x, void *params);
+        double (* function)(double x, void *params);
         void *params;
-};
-
-typedef struct cml_function_struct cml_function_t;
+} cml_function_t;
 
 #define FN_EVAL(F,x) (*((F)->function))(x,(F)->params)
 
 
 /* Definition of an arbitrary function returning two values, r1, r2 */
 
-struct cml_function_fdf_struct
+typedef struct
 {
-        double (* f) (double x, void *params);
-        double (* df) (double x, void *params);
-        void (* fdf) (double x, void *params, double * f, double * df);
+        double (* f)(double x, void *params);
+        double (* df)(double x, void *params);
+        void (* fdf)(double x, void *params, double * f, double * df);
         void *params;
-};
-
-typedef struct cml_function_fdf_struct cml_function_fdf_t;
+} cml_function_fdf_t;
 
 #define FN_FDF_EVAL_F(FDF,x) (*((FDF)->f))(x,(FDF)->params)
 #define FN_FDF_EVAL_DF(FDF,x) (*((FDF)->df))(x,(FDF)->params)
@@ -69,13 +65,11 @@ typedef struct cml_function_fdf_struct cml_function_fdf_t;
 
 /* Definition of an arbitrary vector-valued function with parameters */
 
-struct cml_function_vec_struct
+typedef struct
 {
-        int (* function) (double x, double y[], void *params);
+        int (* function)(double x, double y[], void *params);
         void *params;
-};
-
-typedef struct cml_function_vec_struct cml_function_vec_t;
+} cml_function_vec_t;
 
 #define FN_VEC_EVAL(F,x,y) (*((F)->function))(x,y,(F)->params)
 
