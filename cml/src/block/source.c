@@ -36,6 +36,39 @@
 #include <cml/_private/templates_off.h>
 #undef  BASE_CML_COMPLEX_FLOAT
 
+#define BASE_CML_QUATERNION_LONG
+#include <cml/_private/templates_on.h>
+#include "source/block.c"
+#include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
+#include "source/fwrite.c"
+#include "source/init.c"
+#include <cml/_private/templates_off.h>
+#undef  BASE_CML_QUATERNION_LONG
+
+#define BASE_CML_QUATERNION
+#include <cml/_private/templates_on.h>
+#include "source/block.c"
+#include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
+#include "source/fwrite.c"
+#include "source/init.c"
+#include <cml/_private/templates_off.h>
+#undef  BASE_CML_QUATERNION
+
+#define BASE_CML_QUATERNION_FLOAT
+#include <cml/_private/templates_on.h>
+#include "source/block.c"
+#include "source/fprintf.c"
+#include "source/fread.c"
+#include "source/fscanf.c"
+#include "source/fwrite.c"
+#include "source/init.c"
+#include <cml/_private/templates_off.h>
+#undef  BASE_CML_QUATERNION_FLOAT
+
 #define BASE_LONG_DOUBLE
 #include <cml/_private/templates_on.h>
 #include "source/block.c"

@@ -1,11 +1,27 @@
-#ifndef CML_STRUCTURES_TYPES_QUATERNION_H
-#define CML_STRUCTURES_TYPES_QUATERNION_H
+#ifndef CML_QUATERNION_H
+#define CML_QUATERNION_H
 
 #define _CML_COMMON_H_
 #include <cml/_common/default.h>
 #include <cml/_common/inline.h>
 #include <cml/_common/machine.h>
 #undef _CML_COMMON_H_
+
+typedef struct
+{
+        union
+        {
+                long double q[4];
+                struct
+                {
+                        long double w, x, y, z;
+                };
+                struct
+                {
+                        long double a, i, j, k;
+                };
+        };
+} cml_quaternion_long_double_t;
 
 typedef struct
 {
@@ -22,6 +38,22 @@ typedef struct
                 };
         };
 } cml_quaternion_t;
+
+typedef struct
+{
+        union
+        {
+                float q[4];
+                struct
+                {
+                        float w, x, y, z;
+                };
+                struct
+                {
+                        float a, i, j, k;
+                };
+        };
+} cml_quaternion_float_t;
 
 #define __CML_QUATERNION_EPS 1e-14
 

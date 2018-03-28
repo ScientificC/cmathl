@@ -11,6 +11,10 @@
 #include <cml/block/complex_double.h>
 #include <cml/block/complex_float.h>
 
+#include <cml/block/quaternion_long_double.h>
+#include <cml/block/quaternion_double.h>
+#include <cml/block/quaternion_float.h>
+
 #include <cml/block/long_double.h>
 #include <cml/block/double.h>
 #include <cml/block/float.h>
