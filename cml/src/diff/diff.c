@@ -25,7 +25,7 @@ cml_diff_backward(const cml_function_t *f,
         for (i = 0; i < 3; i++)
         {
                 a[i] = x + (i - 2.0L) * h;
-                d[i] = FN_EVAL(f, a[i]);
+                d[i] = CML_FN_EVAL(f, a[i]);
         }
 
         for (k = 1; k < 4; k++)
@@ -53,7 +53,7 @@ cml_diff_backward(const cml_function_t *f,
                 h = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        *result = (FN_EVAL(f, x) - FN_EVAL(f, x - h))/h;
+        *result = (CML_FN_EVAL(f, x) - CML_FN_EVAL(f, x - h))/h;
         *abserr = cml_abs(10.0L * a2 * h);
 
         return CML_SUCCESS;
@@ -78,7 +78,7 @@ cml_diff_forward(const cml_function_t *f,
         for (i = 0; i < 3; i++)
         {
                 a[i] = x + i * h;
-                d[i] = FN_EVAL(f, a[i]);
+                d[i] = CML_FN_EVAL(f, a[i]);
         }
 
         for (k = 1; k < 4; k++)
@@ -106,7 +106,7 @@ cml_diff_forward(const cml_function_t *f,
                 h = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        *result = (FN_EVAL(f, x + h) - FN_EVAL(f, x))/h;
+        *result = (CML_FN_EVAL(f, x + h) - CML_FN_EVAL(f, x))/h;
         *abserr = cml_abs(10.0L * a2 * h);
 
         return CML_SUCCESS;
@@ -131,7 +131,7 @@ cml_diff_central(const cml_function_t *f,
         for (i = 0; i < 4; i++)
         {
                 a[i] = x + (i - 2.0L) * h;
-                d[i] = FN_EVAL(f, a[i]);
+                d[i] = CML_FN_EVAL(f, a[i]);
         }
 
         for (k = 1; k < 5; k++)
@@ -159,7 +159,7 @@ cml_diff_central(const cml_function_t *f,
                 h = 100.0L * CML_SQRT_DBL_EPSILON;
         }
 
-        *result = (FN_EVAL(f, x + h) - FN_EVAL(f, x - h))/(2.0L * h);
+        *result = (CML_FN_EVAL(f, x + h) - CML_FN_EVAL(f, x - h))/(2.0L * h);
         *abserr = cml_abs(100.0L * a3 * h * h);
 
         return CML_SUCCESS;
