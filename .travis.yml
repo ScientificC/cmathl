@@ -14,7 +14,6 @@ env:
   - FLAGS=""
   - FLAGS="-DCML_NO_MATH=ON -DCML_NO_STDBOOL=ON -DCML_NO_STDINT=ON"
   - C_FLAGS=""
-  - C_FLAGS="-ansi"
   - C_FLAGS="-std=c89"
 
 script:
