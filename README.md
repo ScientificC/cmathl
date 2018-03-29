@@ -129,8 +129,8 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local/
 
 ## Documentation
 
-A great way to learn how to use the library is to review the [unit tests](./test/) and [documentation](http://cml.readthedocs.io/).
+A great way to learn how to use the library is to review the [unit tests](./test/), [examples](./example) and [documentation](http://cml.readthedocs.io/).
 
 ## Can I trust this math library?
 
-A goal of the unit tests is to test each function against `CML_FLT_EPSILON` which is defined in cml.h, currently in the interval `[1e-5, 1e-7]`, depending on the mathematical precision. A number of functions do not yet have unit tests proving epsilon, but more are coming.
+A goal of the unit tests is to test each function against `CML_FLT_EPSILON` and `CML_DBL_EPSILON` which are defined in cml.h, currently as `1.1920928955078125e-07` and `0.2204460492503131e-16`, respectively. A number of functions do not yet have unit tests proving epsilon, but more are coming.
