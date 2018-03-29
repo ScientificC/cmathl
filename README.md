@@ -37,7 +37,7 @@ $ make && make install
 
 [_Build Options_](#build-options)
 
-You can read more about in the following [file](./docs/USING_THE_REFERENCE.md).
+You can read more about in the following [chapter](http://cml.readthedocs.io/en/latest/usage.html) of the documentation.
 
 ## Running Tests
 
