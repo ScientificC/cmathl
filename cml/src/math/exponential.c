@@ -6,7 +6,7 @@
 
 #ifdef CML_NO_MATH
 long double
-__exp(long double x, int n_max)
+__cml_exp(long double x, int n_max)
 {
         int n;
         long double term, oldsum, newsum;
@@ -34,7 +34,7 @@ __exp(long double x, int n_max)
 }
 #else
         #include <math.h>
-        #define __exp(x, ...) __CML_MATH_NAME(exp)(x)
+        #define __cml_exp(x, ...) __CML_MATH_NAME(exp)(x)
 #endif
 
 /*
@@ -47,7 +47,7 @@ __exp(long double x, int n_max)
 double
 cml_exp(double x)
 {
-        return (double) __exp(x, 33);
+        return (double) __cml_exp(x, 33);
 }
 
 

@@ -5,7 +5,7 @@
 
 #if defined CML_NO_MATH
 __CML_EXTERN_INLINE long double
-__atanh(long double x, int n_max)
+__cml_atanh(long double x, int n_max)
 {
         long double ai_n, sum;
         int i;
@@ -42,7 +42,7 @@ __log1p(double x)
 }
 
 double
-__atanh(const double x, int n_max)
+__cml_atanh(const double x, int n_max)
 {
         double a = fabs(x);
         double s = (x < 0) ? -1 : 1;
@@ -71,7 +71,7 @@ __atanh(const double x, int n_max)
         }
 }
         #else
-        #define __atanh(x, ...) __CML_MATH_NAME(atanh)(x)
+        #define __cml_atanh(x, ...) __CML_MATH_NAME(atanh)(x)
         #endif
 #endif
 
@@ -133,7 +133,7 @@ cml_atanh(double x)
 
         y = cml_abs(x);
         h = cml_isgreater(1.0, y) ?
-            (double) __atanh(x, 1e4) :
+            (double) __cml_atanh(x, 1e4) :
             cml_nan();
 
         return h;

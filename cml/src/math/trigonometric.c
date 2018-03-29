@@ -5,7 +5,7 @@
 
 #ifdef CML_NO_MATH
 long double
-__atan(long double value, int n_max)
+__cml_atan(long double value, int n_max)
 {
         long double sign = 1.0L;
         long double x = value;
@@ -35,7 +35,7 @@ __atan(long double value, int n_max)
 
 
 __CML_EXTERN_INLINE long double
-__cos(long double x, int n_max)
+__cml_cos(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
         mint_t i;
@@ -60,7 +60,7 @@ __cos(long double x, int n_max)
 
 
 __CML_EXTERN_INLINE long double
-__sin(long double x, int n_max)
+__cml_sin(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
         mint_t i;
@@ -84,9 +84,9 @@ __sin(long double x, int n_max)
 }
 #else
         #include <math.h>
-        #define __atan(x, ...) __CML_MATH_NAME(atan)(x)
-        #define __cos(x, ...) __CML_MATH_NAME(cos)(x)
-        #define __sin(x, ...) __CML_MATH_NAME(sin)(x)
+        #define __cml_atan(x, ...) __CML_MATH_NAME(atan)(x)
+        #define __cml_cos(x, ...) __CML_MATH_NAME(cos)(x)
+        #define __cml_sin(x, ...) __CML_MATH_NAME(sin)(x)
 #endif
 
 /*
@@ -144,7 +144,7 @@ cml_atan(double x)
         a = cml_abs(x);
         s = cml_sgn(x);
 
-        return s * (double) __atan(a, 33);
+        return s * (double) __cml_atan(a, 33);
 }
 
 
@@ -186,7 +186,7 @@ cml_cos(double x)
         double y;
 
         y = cml_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        return (double) __cos(cml_ared(y), 33);
+        return (double) __cml_cos(cml_ared(y), 33);
 }
 
 
@@ -267,7 +267,7 @@ cml_sin(double x)
         s = cml_sgn(x); /* sin(-x) = -sin(x) */
         y = cml_abs(x);
         z = cml_ared(y);
-        w = (double) __sin(z, 33);
+        w = (double) __cml_sin(z, 33);
 
         return w*s;
 }
