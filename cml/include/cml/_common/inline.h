@@ -15,6 +15,9 @@
 #ifdef PREDEF_STANDARD_C99
         #define __CML_EXTERN_INLINE extern __CML_INLINE
 #else
+        #undef __CML_INLINE
+
+        #define __CML_INLINE
         #define __CML_EXTERN_INLINE
 #endif
 
