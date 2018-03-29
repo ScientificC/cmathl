@@ -122,14 +122,14 @@ typedef int (cml_diff_fn)(const cml_function_t *f, double x, double *res, double
 
 #define DIFF_TEST(diff, f, df, x) do { \
                 double result, abserr; \
-                double expected = FN_EVAL(df, x); \
+                double expected = CML_FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
                 EXPECT_NEAR(result, expected, 1e-6); \
 } while (0);
 
 #define DIFF_NEAR_TEST(diff, f, df, x, err) do { \
                 double result, abserr; \
-                double expected = FN_EVAL(df, x); \
+                double expected = CML_FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
                 EXPECT_NEAR(result, expected, err); \
 } while (0);
