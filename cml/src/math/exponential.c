@@ -6,7 +6,7 @@
 
 #ifdef CML_NO_MATH
 long double
-__exp(long double x)
+__exp(long double x, int n_max)
 {
         int n;
         long double term, oldsum, newsum;
@@ -17,8 +17,13 @@ __exp(long double x)
         term = 1.0L;
 
         /* terminates when the new sum is no different from the old sum */
-        while (!cml_equal(newsum, oldsum) && n < 33)
+        for (n = 0; n < n_max;)
         {
+                if (cml_equal(newsum, oldsum))
+                {
+                        break;
+                }
+
                 oldsum = newsum;
                 n++;
                 term = term*x/n; /* term has the value (x~n)/(n!) */
@@ -29,7 +34,7 @@ __exp(long double x)
 }
 #else
         #include <math.h>
-        #define __exp(x) __CML_MATH_NAME(exp)(x)
+        #define __exp(x, ...) __CML_MATH_NAME(exp)(x)
 #endif
 
 /*
@@ -42,7 +47,7 @@ __exp(long double x)
 double
 cml_exp(double x)
 {
-        return (double) __exp(x);
+        return (double) __exp(x, 33);
 }
 
 

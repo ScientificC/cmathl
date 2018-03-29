@@ -5,11 +5,13 @@
 
 #ifdef CML_NO_MATH
 long double
-__atan(long double value)
+__atan(long double value, int n_max)
 {
         long double sign = 1.0L;
         long double x = value;
         long double y = 0.0L;
+
+        (void) n_max;
 
         if (cml_isnull(value))
         {
@@ -33,52 +35,58 @@ __atan(long double value)
 
 
 __CML_EXTERN_INLINE long double
-__cos(long double x)
+__cos(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
         mint_t i;
 
         ai = 1.0;
         newsum = 1.0;
-        i = 1;
 
-        do
+        for (i = 1; i < n_max; i+=2)
         {
                 oldsum = newsum;
                 ai = -ai*(x)*(x)/(i*(i + 1.0));
                 newsum = newsum + ai;
-                i += 2;
-        } while (!cml_nearequal(newsum, oldsum, CML_DBL_EPSILON));
+
+                if (cml_nearequal(newsum, oldsum, CML_DBL_EPSILON))
+                {
+                        break;
+                }
+        }
 
         return newsum;
 }
 
 
 __CML_EXTERN_INLINE long double
-__sin(long double x)
+__sin(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
         mint_t i;
 
         ai = x;
         newsum = ai;
-        i = 1;
 
-        do
+        for (i = 1; i < n_max; ++i)
         {
                 oldsum = newsum;
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 newsum = newsum + ai;
-                ++i;
-        } while (!cml_nearequal(newsum, oldsum, CML_DBL_EPSILON));
+
+                if (cml_nearequal(newsum, oldsum, CML_DBL_EPSILON))
+                {
+                        break;
+                }
+        }
 
         return newsum;
 }
 #else
         #include <math.h>
-        #define __atan(x) __CML_MATH_NAME(atan)(x)
-        #define __cos(x) __CML_MATH_NAME(cos)(x)
-        #define __sin(x) __CML_MATH_NAME(sin)(x)
+        #define __atan(x, ...) __CML_MATH_NAME(atan)(x)
+        #define __cos(x, ...) __CML_MATH_NAME(cos)(x)
+        #define __sin(x, ...) __CML_MATH_NAME(sin)(x)
 #endif
 
 /*
@@ -136,7 +144,7 @@ cml_atan(double x)
         a = cml_abs(x);
         s = cml_sgn(x);
 
-        return s * (double) __atan(a);
+        return s * (double) __atan(a, 33);
 }
 
 
@@ -178,7 +186,7 @@ cml_cos(double x)
         double y;
 
         y = cml_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        return (double) __cos(cml_ared(y));
+        return (double) __cos(cml_ared(y), 33);
 }
 
 
@@ -259,7 +267,7 @@ cml_sin(double x)
         s = cml_sgn(x); /* sin(-x) = -sin(x) */
         y = cml_abs(x);
         z = cml_ared(y);
-        w = (double) __sin(z);
+        w = (double) __sin(z, 33);
 
         return w*s;
 }
