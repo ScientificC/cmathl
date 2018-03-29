@@ -11,6 +11,7 @@ SET(CML_SUBDIRS
 	ieee
 	math
 	quaternion
+	roots
 	sort
 	specfunc
 	statistics
