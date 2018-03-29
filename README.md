@@ -4,7 +4,7 @@
 
 CML is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
 
-You can read the following [docs](http://cml.readthedocs.io/) to learn more about CML.
+You can read the [documentation](http://cml.readthedocs.io/) to learn more about CML.
 
 ## Table of Contents
 
@@ -65,7 +65,7 @@ CML can be configured with the following preprocessors (described in the followi
 
 You can define these macros during compilation time with flags:
 
-    cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON -DCML_LONG_DOUBLE_MATH=ON
+    cmake .. -DCML_NO_STDBOOL=ON -DCML_NO_MATH=ON
 
 ### Bool Type
 
