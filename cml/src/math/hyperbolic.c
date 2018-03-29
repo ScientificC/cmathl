@@ -42,10 +42,12 @@ __log1p(double x)
 }
 
 double
-__atanh(const double x)
+__atanh(const double x, int n_max)
 {
         double a = fabs(x);
         double s = (x < 0) ? -1 : 1;
+
+        (void) n_max;
 
         if (a > 1)
         {
