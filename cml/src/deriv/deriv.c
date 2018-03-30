@@ -13,11 +13,11 @@ central_deriv(const cml_function_t *f, double x, double h,
            the 3-point rule (x-h,x,x+h). Again the central point is not
            used. */
 
-        double fm1 = FN_EVAL(f, x - h);
-        double fp1 = FN_EVAL(f, x + h);
+        double fm1 = CML_FN_EVAL(f, x - h);
+        double fp1 = CML_FN_EVAL(f, x + h);
 
-        double fmh = FN_EVAL(f, x - h / 2);
-        double fph = FN_EVAL(f, x + h / 2);
+        double fmh = CML_FN_EVAL(f, x - h / 2);
+        double fph = CML_FN_EVAL(f, x + h / 2);
 
         double r3 = 0.5 * (fp1 - fm1);
         double r5 = (4.0 / 3.0) * (fph - fmh) - (1.0 / 3.0) * r3;
@@ -41,7 +41,7 @@ central_deriv(const cml_function_t *f, double x, double h,
 
 __CML_EXTERN_INLINE int
 cml_deriv_central(const cml_function_t *f, double x, double h,
-              double *result, double *abserr)
+                  double *result, double *abserr)
 {
         double r_0, round, trunc, error;
         central_deriv(f, x, h, &r_0, &round, &trunc);
@@ -85,10 +85,10 @@ forward_deriv(const cml_function_t *f, double x, double h,
            Compute the error using the difference between the 4-point and
            the 2-point rule (x+h/2,x+h).  */
 
-        double f1 = FN_EVAL(f, x + h / 4.0);
-        double f2 = FN_EVAL(f, x + h / 2.0);
-        double f3 = FN_EVAL(f, x + (3.0 / 4.0) * h);
-        double f4 = FN_EVAL(f, x + h);
+        double f1 = CML_FN_EVAL(f, x + h / 4.0);
+        double f2 = CML_FN_EVAL(f, x + h / 2.0);
+        double f3 = CML_FN_EVAL(f, x + (3.0 / 4.0) * h);
+        double f4 = CML_FN_EVAL(f, x + h);
 
         double r2 = 2.0*(f4 - f2);
         double r4 = (22.0 / 3.0) * (f4 - f3) - (62.0 / 3.0) * (f3 - f2) +
@@ -114,7 +114,7 @@ forward_deriv(const cml_function_t *f, double x, double h,
 
 __CML_EXTERN_INLINE int
 cml_deriv_forward(const cml_function_t *f, double x, double h,
-              double *result, double *abserr)
+                  double *result, double *abserr)
 {
         double r_0, round, trunc, error;
         forward_deriv(f, x, h, &r_0, &round, &trunc);
@@ -151,7 +151,7 @@ cml_deriv_forward(const cml_function_t *f, double x, double h,
 
 __CML_EXTERN_INLINE int
 cml_deriv_backward(const cml_function_t *f, double x, double h,
-               double *result, double *abserr)
+                   double *result, double *abserr)
 {
         return cml_deriv_forward(f, x, -h, result, abserr);
 }

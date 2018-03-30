@@ -3,10 +3,11 @@
 
 #include <stdio.h>
 
-#define CML_H
-#include <cml/default.h>
-#include <cml/inline.h>
-#include <cml/machine.h>
+#define _CML_COMMON_H_
+#include <cml/_common/default.h>
+#include <cml/_common/inline.h>
+#include <cml/_common/machine.h>
+#undef _CML_COMMON_H_
 
 #include <cml/errno/message.h>
 

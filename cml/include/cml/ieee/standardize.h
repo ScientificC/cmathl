@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/ieee/standardize.h> directly; include <cml.h> instead."
+#ifndef CML_IEEE754_H
+#error "Never use <cml/ieee/standardize.h> directly; include <cml/ieee.h> instead."
 #endif
 
 #ifndef CML_IEEE754_STAN_H

@@ -1,10 +1,11 @@
-#ifndef CML_EASIGNS_H
-#define CML_EASIGNS_H
+#ifndef CML_EASINGS_H
+#define CML_EASINGS_H
 
-#define CML_H
-#include <cml/default.h>
-#include <cml/inline.h>
-#include <cml/machine.h>
+#define _CML_COMMON_H_
+#include <cml/_common/default.h>
+#include <cml/_common/inline.h>
+#include <cml/_common/machine.h>
+#undef _CML_COMMON_H_
 
 #include <cml/easings/back.h>
 #include <cml/easings/bounce.h>

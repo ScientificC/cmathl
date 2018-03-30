@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/easings/elastic.h> directly; include <cml.h> instead."
+#ifndef CML_EASINGS_H
+#error "Never use <cml/easings/elastic.h> directly; include <cml/easings.h> instead."
 #endif
 
 #ifndef CML_EASINGS_ELASTIC_H

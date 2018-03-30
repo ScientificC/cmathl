@@ -14,10 +14,12 @@ Welcome to CML's documentation!
    err.rst
    math.rst
    complex.rst
+   quaternion.rst
    diff.rst
    easings.rst
    const.rst
    ieee754.rst
+   statistics.rst
 
 Indices and tables
 ==================

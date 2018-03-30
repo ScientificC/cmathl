@@ -12,9 +12,9 @@ run_doubleests()
         {
                 TEST_BEGIN(Math)
                 {
-                        EXPECT_FLOAT_EQ(NAN, 0.0/0.0);
-                        EXPECT_FLOAT_EQ(POSINF, POSINF);
-                        EXPECT_FLOAT_EQ(NEGINF, -POSINF);
+                        EXPECT_FLOAT_EQ(CML_NAN, 0.0/0.0);
+                        EXPECT_FLOAT_EQ(CML_POSINF, CML_POSINF);
+                        EXPECT_FLOAT_EQ(CML_NEGINF, -CML_POSINF);
                 }
                 TEST_END()
         }
@@ -46,11 +46,11 @@ run_doubleests()
                         EXPECT_FLOAT_EQ(cml_cos(3 * M_PI / 2), 0.0);
                         EXPECT_FLOAT_EQ(cml_cos(-M_PI), -1.0);
 
-                        EXPECT_FLOAT_EQ(doublean(0.0), 0.0);
-                        EXPECT_FLOAT_EQ(doublean(M_PI / 4), 1.0);
-                        EXPECT_FLOAT_EQ(doublean(3 * M_PI / 4), -1.0);
-                        EXPECT_FLOAT_EQ(doublean(M_PI), 0.0);
-                        EXPECT_FLOAT_EQ(doublean(-M_PI / 4), -1.0);
+                        EXPECT_FLOAT_EQ(cml_tan(0.0), 0.0);
+                        EXPECT_FLOAT_EQ(cml_tan(M_PI / 4), 1.0);
+                        EXPECT_FLOAT_EQ(cml_tan(3 * M_PI / 4), -1.0);
+                        EXPECT_FLOAT_EQ(cml_tan(M_PI), 0.0);
+                        EXPECT_FLOAT_EQ(cml_tan(-M_PI / 4), -1.0);
 
                         EXPECT_FLOAT_EQ(cml_atan(0.0), 0.0);
                         EXPECT_FLOAT_EQ(cml_atan(1.0), M_PI / 4);

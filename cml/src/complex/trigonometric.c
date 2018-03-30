@@ -16,23 +16,23 @@
 cml_complex_t
 cml_complex_cos(cml_complex_t z)
 {
-        double k = cml_cos(z.p[0]);
-
-        if (cml_isnull(z.im))
-        {
-                return complex(k, 0.0);
-        }
+        double R = CREAL(z),
+               I = CIMAG(z);
 
         cml_complex_t w;
-        double h, a, b, n, m;
 
-        h = cml_sin(z.p[0]);
-        a = cml_sinh(z.p[1]);
-        b = cml_cosh(z.p[1]);
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
-
-        w = complex(n, m);
+        if (cml_isnull(I))
+        {
+                /* avoid returing negative zero (-0.0) for the imaginary part */
+                w = (cml_complex_t) { cml_cos(R), 0.0 };
+        }
+        else
+        {
+                w = (cml_complex_t) {
+                        cml_cos(R) * cml_cosh(I),
+                        cml_sin(R) * cml_sinh(-I)
+                };
+        }
 
         return w;
 }
@@ -106,24 +106,24 @@ cml_complex_sec(cml_complex_t z)
 cml_complex_t
 cml_complex_sin(cml_complex_t z)
 {
-        double k = cml_sin(z.re);
+        double k = cml_sin(CREAL(z));
 
-        if (cml_isnull(z.im))
+        if (cml_isnull(CIMAG(z)))
         {
-                return complex(k, 0.0);
+                return cml_complex(k, 0.0);
         }
 
         cml_complex_t w;
         double h, a, b, n, m;
 
-        h = cml_cos(z.re);
-        a = cml_cosh(z.im);
-        b = cml_sinh(z.im);
+        h = cml_cos(CREAL(z));
+        a = cml_cosh(CIMAG(z));
+        b = cml_sinh(CIMAG(z));
 
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
+        n = k * a;
+        m = h * b;
 
-        w = complex(n, m);
+        w = cml_complex(n, m);
 
         return w;
 }
@@ -134,18 +134,18 @@ cml_complex_tan(cml_complex_t a)
 {                               /* z = tan(a) */
         cml_complex_t z;
 
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         double D = cml_pow(cml_cos(R), 2.0) + cml_pow(cml_sinh(I), 2.0);
 
-        if (cml_abs(I) < 1)
+        if (cml_abs(I) < 1.0)
         {
-                z = complex(0.5 * cml_sin(2 * R) / D, 0.5 * cml_sinh(2 * I) / D);
+                z = cml_complex(0.5 * cml_sin(2 * R) / D, 0.5 * cml_sinh(2 * I) / D);
         }
         else
         {
-                double F = 1 + cml_pow(cml_cos(R)/cml_sinh(I), 2.0);
+                double F = 1.0 + cml_pow(cml_cos(R)/cml_sinh(I), 2.0);
 
-                z = complex(0.5 * cml_sin(2 * R) / D, 1 / (doubleanh(I) * F));
+                z = cml_complex(0.5 * cml_sin(2 * R) / D, 1 / (cml_tanh(I) * F));
         }
 
         return z;
@@ -155,7 +155,7 @@ cml_complex_tan(cml_complex_t a)
 cml_complex_t
 cml_complex_asin(cml_complex_t a)
 {                               /* z = asin(a) */
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         cml_complex_t z;
 
         if (cml_isnull(I))
@@ -213,7 +213,7 @@ cml_complex_asin(cml_complex_t a)
                         imag = cml_log(A + cml_sqrt(A * A - 1));
                 }
 
-                z = complex((R >= 0) ? real : -real, (I >= 0) ? imag : -imag);
+                z = cml_complex((R >= 0) ? real : -real, (I >= 0) ? imag : -imag);
         }
 
         return z;
@@ -226,17 +226,17 @@ cml_complex_asin_real(double a)
 
         if (cml_abs(a) <= 1.0)
         {
-                z = complex(cml_asin(a), 0.0);
+                z = cml_complex(cml_asin(a), 0.0);
         }
         else
         {
                 if (a < 0.0)
                 {
-                        z = complex(-M_PI_2, cml_acosh(-a));
+                        z = cml_complex(-M_PI_2, cml_acosh(-a));
                 }
                 else
                 {
-                        z = complex(M_PI_2, -cml_acosh(a));
+                        z = cml_complex(M_PI_2, -cml_acosh(a));
                 }
         }
 
@@ -246,7 +246,7 @@ cml_complex_asin_real(double a)
 cml_complex_t
 cml_complex_acos(cml_complex_t a)
 {                               /* z = acos(a) */
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         cml_complex_t z;
 
         if (I == 0)
@@ -304,7 +304,7 @@ cml_complex_acos(cml_complex_t a)
                         imag = cml_log(A + cml_sqrt(A * A - 1));
                 }
 
-                z = complex((R >= 0) ? real : M_PI - real, (I >= 0) ? -imag : imag);
+                z = cml_complex((R >= 0) ? real : M_PI - real, (I >= 0) ? -imag : imag);
         }
 
         return z;
@@ -317,17 +317,17 @@ cml_complex_acos_real(double a)
 
         if (cml_abs(a) <= 1.0)
         {
-                z = complex(cml_acos(a), 0);
+                z = cml_complex(cml_acos(a), 0);
         }
         else
         {
                 if (a < 0.0)
                 {
-                        z = complex(M_PI, -cml_acosh(-a));
+                        z = cml_complex(M_PI, -cml_acosh(-a));
                 }
                 else
                 {
-                        z = complex(0, cml_acosh(a));
+                        z = cml_complex(0, cml_acosh(a));
                 }
         }
 
@@ -337,12 +337,12 @@ cml_complex_acos_real(double a)
 cml_complex_t
 cml_complex_atan(cml_complex_t a)
 {                               /* z = atan(a) */
-        double R = a.re, I = a.im;
+        double R = CREAL(a), I = CIMAG(a);
         cml_complex_t z;
 
         if (cml_isnull(I))
         {
-                z = complex(cml_atan(R), 0);
+                z = cml_complex(cml_atan(R), 0);
         }
         else
         {
@@ -374,19 +374,19 @@ cml_complex_atan(cml_complex_t a)
                 {
                         if (I > 1)
                         {
-                                z = complex(M_PI_2, imag);
+                                z = cml_complex(M_PI_2, imag);
                         } else if (I < -1)
                         {
-                                z = complex(-M_PI_2, imag);
+                                z = cml_complex(-M_PI_2, imag);
                         }
                         else
                         {
-                                z = complex(0, imag);
+                                z = cml_complex(0, imag);
                         }
                 }
                 else
                 {
-                        z = complex(0.5 * cml_atan2(2 * R, ((1 + r) * (1 - r))), imag);
+                        z = cml_complex(0.5 * cml_atan2(2 * R, ((1 + r) * (1 - r))), imag);
                 }
         }
 
@@ -407,17 +407,17 @@ cml_complex_asec_real(double a)
 
         if (a <= -1.0 || a >= 1.0)
         {
-                z = complex(cml_acos(1 / a), 0.0);
+                z = cml_complex(cml_acos(1 / a), 0.0);
         }
         else
         {
                 if (a >= 0.0)
                 {
-                        z = complex(0, cml_acosh(1 / a));
+                        z = cml_complex(0, cml_acosh(1 / a));
                 }
                 else
                 {
-                        z = complex(M_PI, -cml_acosh(-1 / a));
+                        z = cml_complex(M_PI, -cml_acosh(-1 / a));
                 }
         }
 
@@ -438,17 +438,17 @@ cml_complex_acsc_real(double a)
 
         if (a <= -1.0 || a >= 1.0)
         {
-                z = complex(cml_asin(1 / a), 0.0);
+                z = cml_complex(cml_asin(1 / a), 0.0);
         }
         else
         {
                 if (a >= 0.0)
                 {
-                        z = complex(M_PI_2, -cml_acosh(1 / a));
+                        z = cml_complex(M_PI_2, -cml_acosh(1 / a));
                 }
                 else
                 {
-                        z = complex(-M_PI_2, cml_acosh(-1 / a));
+                        z = cml_complex(-M_PI_2, cml_acosh(-1 / a));
                 }
         }
 
@@ -460,9 +460,9 @@ cml_complex_acot(cml_complex_t a)
 {                               /* z = acot(a) */
         cml_complex_t z;
 
-        if (cml_isnull(a.re) && cml_isnull(a.im))
+        if (cml_isnull(CREAL(a)) && cml_isnull(CIMAG(a)))
         {
-                z = complex(M_PI_2, 0);
+                z = cml_complex(M_PI_2, 0);
         }
         else
         {

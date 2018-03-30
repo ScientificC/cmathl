@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
+FILE(STRINGS "VERSION" CML_VERSION)
+
 PROJECT(cml
 	LANGUAGES C
-	VERSION 1.9.10)
+VERSION ${CML_VERSION})
 
 
 INCLUDE(${CMAKE_SOURCE_DIR}/cmake/CPackConfig.cmake)

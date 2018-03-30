@@ -1,10 +1,11 @@
 #ifndef CML_MATH_GEN_FUNC_H
 #define CML_MATH_GEN_FUNC_H
 
-#define CML_H
-#include <cml/default.h>
-#include <cml/inline.h>
-#include <cml/machine.h>
+#define _CML_COMMON_H_
+#include <cml/_common/default.h>
+#include <cml/_common/inline.h>
+#include <cml/_common/machine.h>
+#undef _CML_COMMON_H_
 
 #include <cml/complex.h>
 #include <cml/math.h>
@@ -17,8 +18,8 @@
 
         #define __CML_REAL_GENERIC_FUNC(_func, ...) \
         _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
-         default: __CML_MATH_FUNC(real, _func), \
-                 double : __CML_MATH_FUNC(real, _func) \
+         default: __CML_MATH_FUNC(, _func), \
+                 double : __CML_MATH_FUNC(, _func) \
                  )(__VA_ARGS__)
 
         #define __CML_COMPLEX_GENERIC_FUNC(_func, ...) \
@@ -28,9 +29,9 @@
 
         #define __CML_BOTH_GENERIC_FUNC(_func, ...) \
         _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
-         default: __CML_MATH_FUNC(real, _func), \
+         default: __CML_MATH_FUNC(, _func), \
                  cml_complex_t: __CML_MATH_FUNC(complex, _func), \
-                 double : __CML_MATH_FUNC(real, _func) \
+                 double : __CML_MATH_FUNC(, _func) \
                  )(__VA_ARGS__)
 
         #define equal(X, Y) __CML_BOTH_GENERIC_FUNC(equal, X, Y)

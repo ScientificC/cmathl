@@ -11,7 +11,7 @@ double cml_coth(double);
 double cml_csch(double);
 double cml_sech(double);
 double cml_sinh(double);
-double doubleanh(double);
+double cml_tanh(double);
 
 __CML_END_DECLS
 

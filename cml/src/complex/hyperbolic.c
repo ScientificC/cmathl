@@ -16,22 +16,19 @@
 cml_complex_t
 cml_complex_cosh(cml_complex_t z)
 {
-        /* Declaration of variables and structures */
         cml_complex_t w;
         double k, h, a, b, n, m;
 
-        /* Mathematical algorithm */
-        k = cml_cos(z.p[1]);
-        h = cml_sin(z.p[1]);
-        a = cml_cosh(z.p[0]);
-        b = cml_sinh(z.p[0]);
+        k = cml_cos(CIMAG(z));
+        h = cml_sin(CIMAG(z));
+        a = cml_cosh(CREAL(z));
+        b = cml_sinh(CREAL(z));
 
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
+        n = k * a;
+        m = h * b;
 
-        w = complex(n, m);
+        w = cml_complex(n, m);
 
-        /* Return */
         return w;
 }
 
@@ -49,22 +46,19 @@ cml_complex_cosh(cml_complex_t z)
 cml_complex_t
 cml_complex_sinh(cml_complex_t z)
 {
-        /* Declaration of variables and structures */
         cml_complex_t w;
         double k, h, a, b, n, m;
 
-        /* Mathematical algorithm */
-        k = cml_cos(z.im);
-        h = cml_sin(z.im);
-        a = cml_sinh(z.re);
-        b = cml_cosh(z.re);
+        k = cml_cos(CIMAG(z));
+        h = cml_sin(CIMAG(z));
+        a = cml_sinh(CREAL(z));
+        b = cml_cosh(CREAL(z));
 
-        n = cml_mul(k, a);
-        m = cml_mul(h, b);
+        n = k * a;
+        m = h * b;
 
-        w = complex(n, m);
+        w = cml_complex(n, m);
 
-        /* Return */
         return w;
 }
 
@@ -72,21 +66,17 @@ cml_complex_sinh(cml_complex_t z)
 cml_complex_t
 cml_complex_tanh(cml_complex_t z)
 {
-        /* Domain check */
         cml_complex_t c = cml_complex_cosh(z);
         double a = cml_complex_abs(c);
         if (!cml_isnull(a)) {
                 return cml_complex_nan();
         }
 
-        /* Declaration of variables and structures */
         cml_complex_t s, w;
 
-        /* Mathematical algorithm */
         s = cml_complex_sinh(z);
         w = cml_complex_div(s, c);
 
-        /* Return */
         return w;
 }
 
@@ -129,7 +119,7 @@ cml_complex_t
 cml_complex_acosh(cml_complex_t a)
 {                               /* z = acosh(a) */
         cml_complex_t z = cml_complex_acos(a);
-        z = cml_complex_mul_imag(z, z.im > 0 ? -1.0 : 1.0);
+        z = cml_complex_mul_imag(z, CIMAG(z) > 0 ? -1.0 : 1.0);
         return z;
 }
 
@@ -141,17 +131,17 @@ cml_complex_acosh_real(double a)
 
         if (a >= 1)
         {
-                z = complex(cml_acosh(a), 0);
+                z = cml_complex(cml_acosh(a), 0);
         }
         else
         {
                 if (a >= -1.0)
                 {
-                        z = complex(0, cml_acos(a));
+                        z = cml_complex(0, cml_acos(a));
                 }
                 else
                 {
-                        z = complex(cml_acosh(-a), M_PI);
+                        z = cml_complex(cml_acosh(-a), M_PI);
                 }
         }
 
@@ -162,9 +152,9 @@ cml_complex_acosh_real(double a)
 cml_complex_t
 cml_complex_atanh(cml_complex_t a)
 {                               /* z = atanh(a) */
-        if (a.im == 0.0)
+        if (CIMAG(a) == 0.0)
         {
-                return cml_complex_atanh_real(a.re);
+                return cml_complex_atanh_real(CREAL(a));
         }
         else
         {
@@ -183,11 +173,11 @@ cml_complex_atanh_real(double a)
 
         if (a > -1.0 && a < 1.0)
         {
-                z = complex(cml_atanh(a), 0);
+                z = cml_complex(cml_atanh(a), 0);
         }
         else
         {
-                z = complex(cml_atanh(1 / a), (a < 0) ? M_PI_2 : -M_PI_2);
+                z = cml_complex(cml_atanh(1 / a), (a < 0) ? M_PI_2 : -M_PI_2);
         }
 
         return z;

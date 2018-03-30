@@ -6,7 +6,7 @@
 
 #ifdef CML_NO_MATH
 long double
-__exp(long double x)
+__cml_exp(long double x, int n_max)
 {
         int n;
         long double term, oldsum, newsum;
@@ -17,8 +17,13 @@ __exp(long double x)
         term = 1.0L;
 
         /* terminates when the new sum is no different from the old sum */
-        while (!cml_equal(newsum, oldsum))
+        for (n = 0; n < n_max;)
         {
+                if (cml_equal(newsum, oldsum))
+                {
+                        break;
+                }
+
                 oldsum = newsum;
                 n++;
                 term = term*x/n; /* term has the value (x~n)/(n!) */
@@ -29,7 +34,7 @@ __exp(long double x)
 }
 #else
         #include <math.h>
-        #define __exp(x) __CML_MATH_NAME(exp)(x)
+        #define __cml_exp(x, ...) __CML_MATH_NAME(exp)(x)
 #endif
 
 /*
@@ -42,7 +47,7 @@ __exp(long double x)
 double
 cml_exp(double x)
 {
-        return (double) __exp(x);
+        return (double) __cml_exp(x, 33);
 }
 
 
@@ -177,16 +182,12 @@ cml_frexp(double x, int *e)
 double
 cml_log_b(double x, double b)
 {
-        /* Declaration of variables and structures */
-        double y, z, w;
+        double y, z;
 
-        /* Mathematical algorithm */
         y = cml_log(x);
         z = cml_log(b);
-        w = cml_div(y, z);
 
-        /* Return */
-        return w;
+        return y/z;
 
 }
 
@@ -202,23 +203,18 @@ cml_log_b(double x, double b)
 double
 cml_log(double x)
 {
-        /* Domain check */
         if (x <= 0) {
                 return cml_nan();
         }
 
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_mul(x, x);
+        y = x*x;
         z = y - 1.0;
         w = y + 1.0;
-        k = cml_div(z, w);
-        h = cml_atanh(k);
+        k = z/w;
 
-        /* Return */
-        return h;
+        return cml_atanh(k);
 
 }
 

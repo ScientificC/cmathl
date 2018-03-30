@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/machine.h> directly; include <cml.h> instead."
+#ifndef _CML_COMMON_H_
+#error "Never use <cml/_common/machine.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_MACHINE_H
@@ -65,6 +65,11 @@
 #define CML_ROOT5_SFLT_EPSILON  2.1763764082403100e-01
 #define CML_ROOT6_SFLT_EPSILON  2.8061551207734325e-01
 #define CML_LOG_SFLT_EPSILON   (-7.6246189861593985e+00)
+
+
+#define MAX_INT_FACT_ARG       170
+#define MAX_DBL_FACT_ARG       171.0
+#define MAX_LONG_DBL_FACT_ARG  1755.5L
 
 /* !MACHINE CONSTANTS! */
 

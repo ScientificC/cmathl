@@ -5,17 +5,19 @@
 
 #ifdef CML_NO_MATH
 long double
-__atan(long double value)
+__cml_atan(long double value, int n_max)
 {
         long double sign = 1.0L;
         long double x = value;
         long double y = 0.0L;
 
+        (void) n_max;
+
         if (cml_isnull(value))
         {
-                return 0;
+                return 0.0L;
         }
-        else if (x < 0)
+        else if (x < 0.0L)
         {
                 sign = (-1.0L);
                 x *= (-1.0L);
@@ -33,52 +35,58 @@ __atan(long double value)
 
 
 __CML_EXTERN_INLINE long double
-__cos(long double x)
+__cml_cos(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
         mint_t i;
 
         ai = 1.0;
         newsum = 1.0;
-        i = 1;
 
-        do
+        for (i = 1; i < n_max; i+=2)
         {
                 oldsum = newsum;
                 ai = -ai*(x)*(x)/(i*(i + 1.0));
                 newsum = newsum + ai;
-                i += 2;
-        } while (!cml_equal(newsum, oldsum));
+
+                if (cml_nearequal(newsum, oldsum, CML_DBL_EPSILON))
+                {
+                        break;
+                }
+        }
 
         return newsum;
 }
 
 
 __CML_EXTERN_INLINE long double
-__sin(long double x)
+__cml_sin(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
         mint_t i;
 
         ai = x;
         newsum = ai;
-        i = 1;
 
-        do
+        for (i = 1; i < n_max; ++i)
         {
                 oldsum = newsum;
                 ai = -ai*(x)*(x)/(2*i*(2*i+1));
                 newsum = newsum + ai;
-                ++i;
-        } while (!cml_equal(newsum, oldsum));
+
+                if (cml_nearequal(newsum, oldsum, CML_DBL_EPSILON))
+                {
+                        break;
+                }
+        }
 
         return newsum;
 }
 #else
         #include <math.h>
-        #define __atan(x) __CML_MATH_NAME(atan)(x)
-        #define __cos(x) __CML_MATH_NAME(cos)(x)
-        #define __sin(x) __CML_MATH_NAME(sin)(x)
+        #define __cml_atan(x, ...) __CML_MATH_NAME(atan)(x)
+        #define __cml_cos(x, ...) __CML_MATH_NAME(cos)(x)
+        #define __cml_sin(x, ...) __CML_MATH_NAME(sin)(x)
 #endif
 
 /*
@@ -91,15 +99,11 @@ __sin(long double x)
 double
 cml_acos(double x)
 {
-        /* Declaration of variables and structures */
-        double h, y;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_asin(x);
-        h = cml_sub(M_PI_2, y);
 
-        /* Return */
-        return h;
+        return M_PI_2 - y;
 }
 
 
@@ -114,18 +118,14 @@ cml_acos(double x)
 double
 cml_asin(double x)
 {
-        /* Declaration of variables and structures */
-        double y, z, w, k, h;
+        double y, z, w, k;
 
-        /* Mathematical algorithm */
-        y = cml_pow(x, 2.0);
-        z = cml_sub(1.0, y);
+        y = x*x;
+        z = 1.0 - y;
         w = cml_sqrt(z);
-        k = cml_div(x, w);
-        h = cml_atan(k);
+        k = x/w;
 
-        /* Return */
-        return h;
+        return cml_atan(k);
 }
 
 
@@ -139,16 +139,12 @@ cml_asin(double x)
 double
 cml_atan(double x)
 {
-        /* Declaration of variables and structures */
-        double s, w, a;
+        double s, a;
 
-        /* Mathematical algorithm */
         a = cml_abs(x);
         s = cml_sgn(x);
-        w = cml_mul(s, (double) __atan(a));
 
-        /* Return */
-        return w;
+        return s * (double) __cml_atan(a, 33);
 }
 
 
@@ -164,18 +160,14 @@ cml_atan(double x)
 double
 cml_atan2(double y, double x)
 {
-        /* Declaration of variables and structures */
-        double s, k, j, z, w;
+        double s, k, j, z;
 
-        /* Mathematical algorithm */
         s = cml_sgn(y);
-        k = cml_div(x, y);
+        k = x/y;
         j = cml_atan(k);
-        z = cml_mul(M_PI_2, s);
-        w = cml_sub(z, j);
+        z = M_PI_2 * s;
 
-        /* Return */
-        return w;
+        return z - j;
 }
 
 
@@ -191,15 +183,10 @@ cml_atan2(double y, double x)
 double
 cml_cos(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_abs(x); /* cos(x) = cos(-x) = cos(|x|) */
-        h = (double) __cos(cml_ared(y));
-
-        /* Return */
-        return h;
+        return (double) __cml_cos(cml_ared(y), 33);
 }
 
 
@@ -213,17 +200,16 @@ cml_cos(double x)
 double
 cml_cot(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_sin(x);
-        h = cml_isnull(y) ?
-            cml_nan() :
-            cml_div(cml_cos(x), y);
 
-        /* Return */
-        return h;
+        if (cml_isnull(y))
+        {
+                return cml_nan();
+        }
+
+        return cml_cos(x) / y;
 }
 
 
@@ -237,15 +223,10 @@ cml_cot(double x)
 double
 cml_csc(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_sin(x);
-        h = cml_inverse(y);
-
-        /* Return */
-        return h;
+        return cml_inverse(y);
 }
 
 
@@ -259,15 +240,10 @@ cml_csc(double x)
 double
 cml_sec(double x)
 {
-        /* Declaration of variables and structures */
-        double y, h;
+        double y;
 
-        /* Mathematical algorithm */
         y = cml_cos(x);
-        h = cml_inverse(y);
-
-        /* Return */
-        return h;
+        return cml_inverse(y);
 }
 
 
@@ -281,24 +257,19 @@ cml_sec(double x)
 double
 cml_sin(double x)
 {
-        /* Domain check */
         if (cml_ismult(x, M_PI))
         {
                 return 0.0;
         }
 
-        /* Declaration of variables and structures */
-        double s, y, z, w, h;
+        double s, y, z, w;
 
-        /* Mathematical algorithm */
         s = cml_sgn(x); /* sin(-x) = -sin(x) */
         y = cml_abs(x);
         z = cml_ared(y);
-        w = (double) __sin(z);
-        h = cml_mul(w, s);
+        w = (double) __cml_sin(z, 33);
 
-        /* Return */
-        return h;
+        return w*s;
 }
 
 
@@ -311,15 +282,16 @@ cml_sin(double x)
  */
 
 double
-doublean(double x)
+cml_tan(double x)
 {
-        /* Declaration of variables and structures */
         double y;
 
-        /* Mathematical algorithm */
         y = cml_cos(x);
 
-        return cml_isnull(y) ?
-               cml_nan() :
-               cml_div(cml_sin(x), y);
+        if (cml_isnull(y))
+        {
+                return cml_nan();
+        }
+
+        return cml_sin(x) / y;
 }

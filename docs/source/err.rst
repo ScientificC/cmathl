@@ -236,7 +236,7 @@ singularity using the :code:`CML_ERROR_VAL` macro::
 
     if (x == 0)
       {
-        CML_ERROR_VAL("argument lies on singularity", CML_ERANGE, CML_NAN);
+        CML_ERROR_VAL("argument lies on singularity", CML_ERANGE, CML_CML_NAN);
       }
 
 

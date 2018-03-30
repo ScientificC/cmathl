@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/easings/linear.h> directly; include <cml.h> instead."
+#ifndef CML_EASINGS_H
+#error "Never use <cml/easings/linear.h> directly; include <cml/easings.h> instead."
 #endif
 
 #ifndef CML_EASINGS_LINEAR_H
@@ -7,7 +7,7 @@
 
 __CML_BEGIN_DECLS
 
-double linear_interpolation(double p);
+double cml_linear_interpolation(double p);
 
 __CML_END_DECLS
 

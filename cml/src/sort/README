@@ -1,0 +1,29 @@
+
+    CML Sorting Algorithms
+
+This folder contains functions for sorting data, both directly and
+indirectly (using an index).
+
+All the functions use the heapsort algorithm.
+============================================
+
+Heapsort is an O(N log(N)) algorithm which operates in-place and does not
+require any additional storage. It also provides consistent performance,
+the running time for its worst-case (ordered data) being not significantly
+longer than the average and best cases.
+
+NOTE: the heapsort algorithm does not preserve the relative ordering
+of equal elements—it is an unstable sort. However the resulting order
+of equal elements will be consistent across different platforms
+when using these functions.
+
+
+Why not having an additional algorithm?
+=======================================
+
+CML provides a slightly more complete alternative to the standard library
+function qsort(). This qsort routine was taken from Bentley & McIlroy's
+"Engineering a Sort Function" and modified by Ulises Jeremias Cornejo Fandos
+to store the permutation vector resulting from the sorting and to
+sort array with non contiguous cells, typically a column of matrix
+sorted row-wise.

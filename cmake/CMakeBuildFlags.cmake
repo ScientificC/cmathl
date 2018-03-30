@@ -1,5 +1,9 @@
 include(CheckCXXCompilerFlag)
 
+if("${CMAKE_C_COMPILER_ID}" MATCHES "MSVC$" OR "${CMAKE_C_PLATFORM_ID}" MATCHES "MinGW")
+	SET(CMAKE_COMPILER_IS_WINDOWS 1)
+endif()
+
 if("${CMAKE_C_COMPILER}" MATCHES "clang$" OR "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
 	SET(CMAKE_COMPILER_IS_CLANG 1)
 endif()
@@ -12,7 +16,8 @@ if(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
 	FIND_LIBRARY(LIBM m)
 
 	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra -Wall")
-	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wundef -Wpointer-arith -Werror -Wcast-qual -Wcast-align")
+	# SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wundef -Wpointer-arith -Werror -Wcast-qual -Wcast-align")
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wundef -Wpointer-arith -Werror -Wcast-qual")
 	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-missing-braces")
 endif()
 

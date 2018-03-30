@@ -1,5 +1,5 @@
-#ifndef CML_HPP
-#define CML_HPP
+#ifndef _CML_H_PP
+#define _CML_H_PP
 
 namespace cml {
             #include <cml.h>

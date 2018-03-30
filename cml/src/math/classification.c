@@ -35,14 +35,14 @@ __isinteger(double x)
 __CML_EXTERN_INLINE bool
 __ismult(double x, double y)
 {
-        double z = cml_div(x, y);
+        double z = x/y;
         mint_t z_int = (mint_t) z;
         return cml_isnull(z - z_int);
 }
 
 
 int
-gsl_cmp(double x1, double x2, double epsilon)
+cml_cmp(double x1, double x2, double epsilon)
 {
         int exponent;
         double delta, difference;
@@ -79,14 +79,14 @@ gsl_cmp(double x1, double x2, double epsilon)
 bool
 cml_equal(double x, double y)
 {
-        return cml_abs(cml_sub(x, y)) < CML_FLT_EPSILON;
+        return cml_abs(x - y) < CML_FLT_EPSILON;
 }
 
 
 bool
 cml_nearequal(double x, double y, double epsilon)
 {
-        return cml_abs(cml_sub(x, y)) < epsilon;
+        return cml_abs(x - y) < epsilon;
 }
 
 
@@ -163,5 +163,5 @@ cml_isnan(double x)
 bool
 cml_isnull(double x)
 {
-        return cml_equal(x, 0.0);
+        return cml_abs(x - 0.0) < CML_FLT_EPSILON;
 }

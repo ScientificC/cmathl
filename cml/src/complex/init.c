@@ -6,12 +6,12 @@
 
 
 cml_complex_t
-complex(double cml_part, double imaginary_part)
+cml_complex(double cml_part, double imaginary_part)
 {
         cml_complex_t z;
 
-        z.re = cml_part;
-        z.im = imaginary_part;
+        CML_SET_REAL(&z, cml_part);
+        CML_SET_IMAG(&z, imaginary_part);
 
         return z;
 }
@@ -21,7 +21,7 @@ cml_complex_t
 cml_complex_polar(double r, double theta)
 {                               /* return z = r exp(i theta) */
         cml_complex_t z;
-        z = complex(r * cml_cos(theta), r * cml_sin(theta));
+        z = cml_complex(r * cml_cos(theta), r * cml_sin(theta));
         return z;
 }
 
@@ -29,7 +29,7 @@ cml_complex_polar(double r, double theta)
 cml_complex_t
 cml_complex_nan()
 {
-        return complex(
+        return cml_complex(
                 cml_nan(),
                 cml_nan()
                 );
@@ -39,7 +39,7 @@ cml_complex_nan()
 cml_complex_t
 cml_complex_inf()
 {
-        return complex(
+        return cml_complex(
                 cml_inf(),
                 cml_inf()
                 );
@@ -49,7 +49,7 @@ cml_complex_inf()
 cml_complex_t
 cml_complex_ninf()
 {
-        return complex(
+        return cml_complex(
                 cml_ninf(),
                 cml_ninf()
                 );
@@ -59,12 +59,12 @@ cml_complex_ninf()
 cml_complex_t
 cml_complex_zero()
 {
-        return complex(0.0, 0.0);
+        return cml_complex(0.0, 0.0);
 }
 
 
 cml_complex_t
 cml_complex_clone(cml_complex_t w)
 {
-        return complex(w.re, w.im);
+        return cml_complex(CREAL(w), CIMAG(w));
 }

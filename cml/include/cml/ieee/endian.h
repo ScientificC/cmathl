@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/ieee/endian.h> directly; include <cml.h> instead."
+#ifndef CML_IEEE754_H
+#error "Never use <cml/ieee/endian.h> directly; include <cml/ieee.h> instead."
 #endif
 
 #ifndef CML_IEEE754_ENDIAN_H

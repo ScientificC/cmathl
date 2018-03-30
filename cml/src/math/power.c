@@ -26,6 +26,11 @@ cml_pow_uint(double x, unsigned int n)
         long double value = 1.0L;
         long double y = (long double) x;
 
+        if (cml_isnull(x) && (cml_isnull(n) || n < 0.0))
+        {
+                return cml_nan();
+        }
+
         /* repeated squaring method
          * returns 0.0^0 = 1.0, so continuous in x
          */
@@ -54,7 +59,7 @@ cml_pow(double x, double n)
         /* Domain check */
         if (cml_isnull(x))
         {
-                return cml_isnull(n) ?
+                return cml_isnull(n) || n < 0.0 ?
                        cml_nan() :
                        x;
         }
@@ -64,19 +69,15 @@ cml_pow(double x, double n)
                 return cml_pow_int(x, (int) n);
         }
 
-        /* Declaration of variables and structures */
-        double s, y, z, w, k, h;
+        double s, y, z, w, k;
 
-        /* Mathematical algorithm */
         s = cml_sgn(x);
         y = cml_abs(x);
         z = cml_log(y);
-        w = cml_mul(n, z);
+        w = n*z;
         k = cml_exp(w);
-        h = cml_mul(s, k);
 
-        /* Return */
-        return h;
+        return s*k;
 }
 
 
@@ -91,14 +92,11 @@ cml_pow(double x, double n)
 double
 cml_root(double x, double n)
 {
-        /* Declaration of variables and structures */
         double y, z;
 
-        /* Mathematical algorithm */
-        y = cml_div(1.0, n);
+        y = 1.0/n;
         z = cml_pow(x, y);
 
-        /* Return */
         return z;
 }
 

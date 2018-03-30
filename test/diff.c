@@ -52,7 +52,7 @@ double
 f3 (double x, void *params)
 {
         (void)params;
-        if (!cml_equal(x, 0.0))
+        if (!cml_isnull(x))
         {
                 return cml_sin(1/x);
         }
@@ -122,14 +122,14 @@ typedef int (cml_diff_fn)(const cml_function_t *f, double x, double *res, double
 
 #define DIFF_TEST(diff, f, df, x) do { \
                 double result, abserr; \
-                double expected = FN_EVAL(df, x); \
+                double expected = CML_FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
                 EXPECT_NEAR(result, expected, 1e-6); \
 } while (0);
 
 #define DIFF_NEAR_TEST(diff, f, df, x, err) do { \
                 double result, abserr; \
-                double expected = FN_EVAL(df, x); \
+                double expected = CML_FN_EVAL(df, x); \
                 (*diff)(f, x, &result, &abserr); \
                 EXPECT_NEAR(result, expected, err); \
 } while (0);
@@ -179,7 +179,7 @@ run_cml_diff_tests()
 
                         DIFF_TEST(&cml_diff_central, &F5, &DF5, 0.0);
                         DIFF_TEST(&cml_diff_forward, &F5, &DF5, 0.0);
-                        DIFF_TEST(&cml_diff_backward, &F5, &DF5, 0.0);
+                        DIFF_NEAR_TEST(&cml_diff_backward, &F5, &DF5, 0.0, 1e-3f);
 
                         DIFF_NEAR_TEST(&cml_diff_central, &F6, &DF6, 10.0, 1e-3f);
                         DIFF_TEST(&cml_diff_forward, &F6, &DF6, 10.0);

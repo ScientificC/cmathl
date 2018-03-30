@@ -1,5 +1,5 @@
-#ifndef CML_H
-#error "Never use <cml/default.h> directly; include <cml.h> instead."
+#ifndef _CML_COMMON_H_
+#error "Never use <cml/_common/default.h> directly; include <cml.h> instead."
 #endif
 
 #ifndef CML_DEFAULT_H
@@ -53,9 +53,15 @@
         __builtin_types_compatible_p(__typeof(__a), __typeof(__b))
 #endif
 
+#if defined(CML_RANGE_CHECK_OFF) || !defined(CML_RANGE_CHECK)
+#define CML_RANGE_CHECK 0  /* turn off range checking by default internally */
+#endif
+
+#define RETURN_IF_NULL(x) if (!x) { return; }
+
 /* Quick boolean definition */
 #ifdef CML_NO_STDBOOL
-        #include <cml/bool.h>
+        #include <cml/_common/bool.h>
 #else
         #include <stdbool.h>
 #endif
