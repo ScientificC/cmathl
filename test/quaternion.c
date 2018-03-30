@@ -21,7 +21,7 @@
 
 
 int
-run_struct_tests()
+run_quaternion_tests()
 {
         CATEGORY_BEGIN(Quaternion)
         {

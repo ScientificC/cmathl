@@ -135,7 +135,7 @@ typedef int (cml_diff_fn)(const cml_function_t *f, double x, double *res, double
 } while (0);
 
 int
-run_cml_diff_tests()
+run_diff_tests()
 {
         CATEGORY_BEGIN(Diff)
         {

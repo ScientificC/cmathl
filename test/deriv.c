@@ -128,7 +128,7 @@ typedef int (cml_deriv_fn)(const cml_function_t *f, double x, double h, double *
 } while (0);
 
 int
-run_cml_deriv_tests()
+run_deriv_tests()
 {
         CATEGORY_BEGIN(Deriv)
         {

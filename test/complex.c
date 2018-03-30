@@ -24,7 +24,7 @@ struct cml_complex_tests list_tst[] =
 
 
 int
-run_cml_complex_tests()
+run_complex_tests()
 {
         CATEGORY_BEGIN(Complex)
         {
