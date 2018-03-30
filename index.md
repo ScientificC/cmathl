@@ -34,6 +34,8 @@ Routines are available for the following areas,
 * Statistics
 * Blocks
 * Vector _(Valarrays)_ and Matrices
+* Sorting Methods
+* One Dimensional Root-Finding
 
 CML is thread-safe and suitable for use in a parallel environment.
 
