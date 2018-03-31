@@ -97,7 +97,7 @@ Elementary Functions
 ====================
 
 The following routines provide portable implementations of functions
-found in the BSD math library.  When native versions are not available
+found in the BSD math library, e.g.  When native versions are not available
 the functions described here can be used instead.  The substitution can
 be made automatically if you use :code:`autoconf` to compile your
 application (see :ref:`portability-functions`).
@@ -137,10 +137,10 @@ application (see :ref:`portability-functions`).
    single: euclidean distance function, hypot3
    single: length, computed accurately using hypot3
 
-.. function:: double cml_hypot3 (double x, double y, double cml_z)
+.. function:: double cml_hypot3 (double x, double y, double cml_x)
 
    This function computes the value of
-   :math:`\sqrt{x^2 + y^2 + z^2}` in a way that avoids overflow.
+   :math:`\sqrt{x^2 + y^2 + x^2}` in a way that avoids overflow.
 
 .. index::
    single: acosh
@@ -190,6 +190,193 @@ application (see :ref:`portability-functions`).
    are set to zero. This function provides an alternative to the standard
    math function :code:`frexp(x, e)`.
 
+.. index:: sqrt
+
+.. function:: double cml_sqrt (double x)
+
+  This function returns the square root of the number :data:`x`,
+  :math:`\sqrt z`. The branch cut is the negative real axis. The result
+  always lies in the right half of the plane.
+
+.. index::
+  single: pow
+  single: exp
+
+.. function:: double cml_pow (double x, double a)
+
+  The function returns the number :data:`x` raised to the double-precision
+  power :data:`a`, :math:`x^a`. This is computed as :math:`\exp(\log(x)*a)`
+  using logarithms and exponentials.
+
+.. function:: double cml_exp (double x)
+
+  This function returns the exponential of the number
+  :data:`x`, :math:`\exp(x)`.
+
+.. index:: log
+
+.. function:: double cml_log (double x)
+
+  This function returns the natural logarithm (base :math:`e`) of
+  the number :data:`x`, :math:`\log(x)`.  The branch cut is the
+  negative real axis.
+
+.. function:: double cml_log10 (double x)
+
+  This function returns the base-10 logarithm of
+  the number :data:`x`, :math:`\log_{10} (x)`.
+
+.. function:: double cml_log_b (double x, double b)
+
+  This function returns the base-:data:`b` logarithm of the double-precision
+  number :data:`x`, :math:`\log_b(x)`. This quantity is computed as the ratio
+  :math:`\log(x)/\log(b)`.
+
+.. index:: trigonometric functions
+
+Trigonometric Functions
+===============================
+
+.. index::
+  single: sine
+
+.. function:: double cml_sin (double x)
+
+  This function returns the sine of the number :data:`x`, :math:`\sin(x)`.
+
+.. index:: cosine
+
+.. function:: double cml_cos (double x)
+
+  This function returns the cosine of the number :data:`x`, :math:`\cos(x)`.
+
+.. index:: tangent
+
+.. function:: double doublean (double x)
+
+  This function returns the tangent of the number :data:`x`, :math:`\tan(x)`.
+
+.. function:: double cml_sec (double x)
+
+  This function returns the secant of the number :data:`x`,
+  :math:`\sec(x) = 1/\cos(x)`.
+
+.. function:: double cml_csc (double x)
+
+  This function returns the cosecant of the number :data:`x`,
+  :math:`\csc(x) = 1/\sin(x)`.
+
+.. function:: double cml_cot (double x)
+
+  This function returns the cotangent of the number :data:`x`,
+  :math:`\cot(x) = 1/\tan(x)`.
+
+.. index:: inverse trigonometric functions
+
+Inverse Trigonometric Functions
+=======================================
+
+.. function:: double cml_asin (double x)
+
+  This function returns the arcsine of the number :data:`x`, :math:`\arcsin(x)`.
+
+.. function:: double cml_acos (double x)
+
+  This function returns the arccosine of the number :data:`x`,
+  :math:`\arccos(x)`.
+
+.. function:: double cml_atan (double x)
+
+  This function returns the arctangent of the number
+  :data:`x`, :math:`\arctan(x)`.
+
+.. function:: double cml_asec (double x)
+
+  This function returns the arcsecant of the number :data:`x`,
+  :math:`\arcsec(x) = \arccos(1/x)`.
+
+.. function:: double cml_acsc (double x)
+
+  This function returns the arccosecant of the number :data:`x`,
+  :math:`\arccsc(x) = \arcsin(1/x)`.
+
+.. function:: double cml_acot (double x)
+
+  This function returns the arccotangent of the number :data:`x`,
+  :math:`\arccot(x) = \arctan(1/x)`.
+
+.. index::
+  single: hyperbolic functions
+
+Hyperbolic Functions
+====================
+
+.. function:: double cml_sinh (double x)
+
+  This function returns the hyperbolic sine of the number
+  :data:`x`, :math:`\sinh(x) = (\exp(x) - \exp(-x))/2`.
+
+.. function:: double cml_cosh (double x)
+
+  This function returns the hyperbolic cosine of the number
+  :data:`x`, :math:`\cosh(x) = (\exp(x) + \exp(-x))/2`.
+
+.. function:: double doubleanh (double x)
+
+  This function returns the hyperbolic tangent of the number
+  :data:`x`, :math:`\tanh(x) = \sinh(x)/\cosh(x)`.
+
+.. function:: double cml_sech (double x)
+
+  This function returns the hyperbolic secant of the double-precision
+  number :data:`x`, :math:`\sech(x) = 1/\cosh(x)`.
+
+.. function:: double cml_csch (double x)
+
+  This function returns the hyperbolic cosecant of the double-precision
+  number :data:`x`, :math:`\csch(x) = 1/\sinh(x)`.
+
+.. function:: double cml_coth (double x)
+
+  This function returns the hyperbolic cotangent of the double-precision
+  number :data:`x`, :math:`\coth(x) = 1/\tanh(x)`.
+
+.. index::
+  single: inverse hyperbolic functions
+
+Inverse Hyperbolic Functions
+============================
+
+.. function:: double cml_asinh (double x)
+
+  This function returns the hyperbolic arcsine of the
+  number :data:`x`, :math:`\arcsinh(x)`.
+
+.. function:: double cml_acosh (double x)
+
+  This function returns the hyperbolic arccosine of the double-precision
+  number :data:`x`, :math:`\arccosh(x)`.
+
+.. function:: double cml_atanh (double x)
+
+  This function returns the hyperbolic arctangent of the double-precision
+  number :data:`x`, :math:`\arctanh(x)`.
+
+.. function:: double cml_asech (double x)
+
+  This function returns the hyperbolic arcsecant of the double-precision
+  number :data:`x`, :math:`\arcsech(x) = \arccosh(1/x)`.
+
+.. function:: double cml_acsch (double x)
+
+  This function returns the hyperbolic arccosecant of the double-precision
+  number :data:`x`, :math:`\arccsch(x) = \arcsinh(1/x)`.
+
+.. function:: double cml_acoth (double x)
+
+  This function returns the hyperbolic arccotangent of the double-precision
+  number :data:`x`, :math:`\arccoth(x) = \arctanh(1/x)`.
+
 Small integer powers
 ====================
 
@@ -222,7 +409,7 @@ do not check for overflow or underflow conditions.
    should be as efficient as explicitly writing the corresponding
    product expression::
 
-     #include <cml.h>
+     #include <cml/math.h>
      [...]
      double y = pow_4(3.141);  /* compute 3.141**4 */
 
