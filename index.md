@@ -7,7 +7,7 @@ title: CML Numerical Library
 
 # Introduction
 
-The C Math Library (CML) is a collection of routines for
+The C Math Library _(CML)_ is a collection of routines for
 numerical computing.  The routines have been written from scratch in C,
 and present a modern Applications Programming Interface
 (API) for C programmers, allowing wrappers to be written for very
