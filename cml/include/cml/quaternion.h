@@ -61,7 +61,7 @@ __CML_BEGIN_DECLS
 
 cml_quaternion_t cml_quaternion(double, double, double, double);
 cml_quaternion_t cml_quaternion_clone(cml_quaternion_t);
-cml_quaternion_t cml_quaternion_identity();
+cml_quaternion_t cml_quaternion_identity(void);
 cml_quaternion_t cml_quaternion_from_axis_anglef3(double, double, double, double);
 cml_quaternion_t cml_quaternion_from_spherical_coords(double, double);
 cml_quaternion_t cml_quaternion_from_euler_angles(double, double, double);

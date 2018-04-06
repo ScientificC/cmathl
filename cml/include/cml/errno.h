@@ -69,7 +69,7 @@ cml_error_handler_t *
 cml_set_error_handler(cml_error_handler_t * new_handler);
 
 cml_error_handler_t *
-cml_set_error_handler_off();
+cml_set_error_handler_off(void);
 
 cml_stream_handler_t *
 cml_set_stream_handler(cml_stream_handler_t * new_handler);

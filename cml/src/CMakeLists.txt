@@ -30,9 +30,9 @@ ENDIF()
 INCLUDE(../../cmake/CMakeBuildFlags.cmake)
 
 # unit tests do not use strict-prototypes, so this is here
-#IF(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
-#	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstrict-prototypes")
-#ENDIF()
+IF(CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstrict-prototypes")
+ENDIF()
 
 SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
