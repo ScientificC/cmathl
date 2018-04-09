@@ -17,7 +17,8 @@ main(int argc, char** argv)
         double data[5] = { 16.5, 17.2, 12.6, 18.3, 18.1 };
         double median, upperq, lowerq;
 
-        cml_heapsort(data, 5, sizeof(double), compare);
+        cml_qsort(data, 5, sizeof(double), compare);
+        /* cml_heapsort(data, 5, sizeof(double), compare); */
 
         printf ("Sorted dataset: %g, %g, %g, %g, %g\n",
                 data[0], data[1], data[2], data[3], data[4]);
