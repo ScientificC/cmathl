@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include <cml/errno.h>
 #include <cml/math.h>
 #include <cml/roots.h>
@@ -8,6 +9,10 @@
 static double epsabs = 0.0001;
 static double epsrel = 0.00001;
 static int n_max = 1000;
+
+int cml_count_tests = 0;
+int cml_count_failedtests = 0;
+int cml_count_failures = 0;
 
 #define FUNC  f_cos
 #define FDF_FUNC fdf_cos
@@ -67,4 +72,26 @@ run_roots_tests()
         CATEGORY_END()
 
         return 0;
+}
+
+int
+main()
+{
+        clock_t cl = clock();
+
+        run_roots_tests();
+
+        (cml_count_failedtests > 0) ?
+        printf(RED) :
+        printf(GREEN);
+
+        printf("\n%d/%d tests passed overall, %d failures\n" RESET "%Lg%s\n",
+               cml_count_tests - cml_count_failedtests,
+               cml_count_tests,
+               cml_count_failures,
+               (long double) (clock()-cl)/CLOCKS_PER_SEC,
+               "s"
+               );
+
+        return (cml_count_failedtests > 0);
 }
