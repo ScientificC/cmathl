@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 #include <cml/roots.h>
 
@@ -34,7 +34,7 @@ cml_root_brent(cml_function_t *func, double x1, double x2, double *tol)
 
         if ((fa > 0.0 && fb > 0.0) || (fa < 0.0 && fb < 0.0))
         {
-                CML_ERROR("roots must be bracketed", CML_EINVAL);
+                SCIC_ERROR("roots must be bracketed", SCIC_EINVAL);
         }
 
         /* Test if one the endpoints is the root */

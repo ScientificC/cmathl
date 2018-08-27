@@ -22,7 +22,7 @@ FUNCTION(cml_block, fprintf)(FILE *stream, const TYPE(cml_block) *b, const char 
 
                                 if (status == EOF)
                                 {
-                                        CML_ERROR("putc failed", CML_EFAILED);
+                                        SCIC_ERROR("putc failed", SCIC_EFAILED);
                                 }
                         }
                         status = fprintf(stream,
@@ -30,7 +30,7 @@ FUNCTION(cml_block, fprintf)(FILE *stream, const TYPE(cml_block) *b, const char 
                                          data[MULTIPLICITY *i + k]);
                         if (status < 0)
                         {
-                                CML_ERROR("fprintf failed", CML_EFAILED);
+                                SCIC_ERROR("fprintf failed", SCIC_EFAILED);
                         }
                 }
 
@@ -38,7 +38,7 @@ FUNCTION(cml_block, fprintf)(FILE *stream, const TYPE(cml_block) *b, const char 
 
                 if (status == EOF)
                 {
-                        CML_ERROR("putc failed", CML_EFAILED);
+                        SCIC_ERROR("putc failed", SCIC_EFAILED);
                 }
         }
 
@@ -68,7 +68,7 @@ FUNCTION(cml_block, raw_fprintf)(FILE *stream,
 
                                 if (status == EOF)
                                 {
-                                        CML_ERROR("putc failed", CML_EFAILED);
+                                        SCIC_ERROR("putc failed", SCIC_EFAILED);
                                 }
                         }
                         status = fprintf(stream,
@@ -76,7 +76,7 @@ FUNCTION(cml_block, raw_fprintf)(FILE *stream,
                                          data[MULTIPLICITY * i * stride + k]);
                         if (status < 0)
                         {
-                                CML_ERROR("fprintf failed", CML_EFAILED);
+                                SCIC_ERROR("fprintf failed", SCIC_EFAILED);
                         }
                 }
 
@@ -84,7 +84,7 @@ FUNCTION(cml_block, raw_fprintf)(FILE *stream,
 
                 if (status == EOF)
                 {
-                        CML_ERROR("putc failed", CML_EFAILED);
+                        SCIC_ERROR("putc failed", SCIC_EFAILED);
                 }
         }
 

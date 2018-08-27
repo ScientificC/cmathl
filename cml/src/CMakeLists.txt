@@ -7,7 +7,6 @@ SET(CML_SUBDIRS
 	deriv
 	diff
 	easings
-	errno
 	ieee
 	math
 	quaternion
@@ -45,6 +44,10 @@ OPTION(CML_BUILD_STATIC "Build static library" ON)
 IF(CML_BUILD_STATIC)
 	ADD_LIBRARY(cml_static STATIC ${CML_LIB_SRCS})
 	SET_TARGET_PROPERTIES(cml_static PROPERTIES LINKER_LANGUAGE C)
+
+	find_library(SCIC_ERRNO_LIB scic-errno)
+	target_link_libraries(cml_static ${SCIC_ERRNO_LIB})
+
 	if(CMAKE_COMPILER_IS_GNUC)
 		SET_TARGET_PROPERTIES(cml_static PROPERTIES OUTPUT_NAME "cml")
 	endif()
@@ -64,6 +67,10 @@ IF(CML_BUILD_SHARED)
 	#SET_TARGET_PROPERTIES(cml PROPERTIES SOVERSION 1)
 	list(APPEND CML_LIB_TARGET cml)
 	SET_TARGET_PROPERTIES(cml PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+
+	find_library(SCIC_ERRNO_LIB scic-errno)
+	target_link_libraries(cml ${SCIC_ERRNO_LIB})
+
 	IF(LINUX)
 		# shared library should link to libm
 		FIND_LIBRARY(M_LIB m)

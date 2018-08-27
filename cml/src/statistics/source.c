@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 #include <cml/statistics.h>
 

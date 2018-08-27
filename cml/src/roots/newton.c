@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 #include <cml/roots.h>
 
@@ -23,7 +23,7 @@
  * @param fx_eps if |f(x)| < fx_eps * then stop;
  * @param n_max maximum number of iterations
  * @param res contains the root on exit
- * @return CML_SUCCESS or CML_FAILURE if n_max reached
+ * @return SCIC_SUCCESS or SCIC_FAILURE if n_max reached
  */
 int
 cml_root_newton(cml_function_fdf_t *func, double x0,
@@ -49,7 +49,7 @@ cml_root_newton(cml_function_fdf_t *func, double x0,
 
                 if (df == 0.0)
                 {
-                        CML_ERROR("div by zero", CML_EZERODIV);
+                        SCIC_ERROR("div by zero", SCIC_EZERODIV);
                 }
 
                 dx = f / df;
@@ -85,8 +85,8 @@ cml_root_newton(cml_function_fdf_t *func, double x0,
         /* maximum number of iterations reached */
         if (i == n_max)
         {
-                return CML_FAILURE;
+                return SCIC_FAILURE;
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cml/block.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 
 #define BASE_CML_COMPLEX_LONG
 #include <cml/_private/templates_on.h>

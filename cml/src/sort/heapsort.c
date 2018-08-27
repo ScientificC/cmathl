@@ -23,7 +23,7 @@
  */
 
  #include <stdlib.h>
- #include <cml/errno.h>
+ #include <scic/errno.h>
  #include <cml/sort.h>
 
 static __CML_INLINE void swap(void *base, size_t size, size_t i, size_t j);

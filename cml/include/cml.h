@@ -8,7 +8,6 @@
 #undef _CML_COMMON_H_
 
 #include <cml/config.h>
-#include <cml/errno.h>
 #include <cml/ieee.h>
 #include <cml/minmax.h>
 
