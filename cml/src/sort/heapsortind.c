@@ -22,7 +22,7 @@
  */
 
 #include <stdlib.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/sort.h>
 
 #define CMP(data,size,j,k) (compare((const char *)(data) + (size) * (j), (const char *)(data) + (size) * (k)))
@@ -72,7 +72,7 @@ cml_heapsort_index(size_t * p, const void *data,
 
         if (count == 0)
         {
-                return CML_SUCCESS; /* No data to sort */
+                return SCIC_SUCCESS; /* No data to sort */
         }
 
         for (i = 0; i < count; i++)
@@ -107,5 +107,5 @@ cml_heapsort_index(size_t * p, const void *data,
                 downheap(p, data, size, N, 0, compare);
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }

@@ -35,3 +35,18 @@ The following types of easing functions are supported::
 The core easing functions are implemented as C functions that take a time
 parameter and return a progress parameter, which can subsequently be used
 to interpolate any quantity.
+
+References and Further Reading
+==============================
+
+This work is a spiritual descendent (not to say derivative work) of works
+done by Robert Penner. So, the main references could be found in
+http://robertpenner.com/easing/
+
+* http://robertpenner.com/easing/penner_chapter7_tweening.pdf
+
+* http://gilmoreorless.github.io/sydjs-preso-easing/
+
+* http://upshots.org/actionscript/jsas-understanding-easing
+
+* http://sol.gfxile.net/interpolation/

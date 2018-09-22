@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <cml/deriv.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 
 __CML_EXTERN_INLINE int
@@ -56,7 +56,7 @@ cml_diff_backward(const cml_function_t *f,
         *result = (CML_FN_EVAL(f, x) - CML_FN_EVAL(f, x - h))/h;
         *abserr = cml_abs(10.0L * a2 * h);
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }
 
 
@@ -109,7 +109,7 @@ cml_diff_forward(const cml_function_t *f,
         *result = (CML_FN_EVAL(f, x + h) - CML_FN_EVAL(f, x))/h;
         *abserr = cml_abs(10.0L * a2 * h);
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }
 
 
@@ -162,5 +162,5 @@ cml_diff_central(const cml_function_t *f,
         *result = (CML_FN_EVAL(f, x + h) - CML_FN_EVAL(f, x - h))/(2.0L * h);
         *abserr = cml_abs(100.0L * a3 * h * h);
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }

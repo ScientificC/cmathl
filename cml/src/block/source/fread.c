@@ -9,7 +9,7 @@ FUNCTION(cml_block, fread)(FILE *stream, TYPE(cml_block) *b)
 
         if (items != n)
         {
-                CML_ERROR("fread failed", CML_EFAILED);
+                SCIC_ERROR("fread failed", SCIC_EFAILED);
         }
 
         return 0;
@@ -26,7 +26,7 @@ FUNCTION(cml_block, raw_fread)(FILE *stream, ATOMIC *data,
 
                 if (items != n)
                 {
-                        CML_ERROR("fread failed", CML_EFAILED);
+                        SCIC_ERROR("fread failed", SCIC_EFAILED);
                 }
         }
         else
@@ -39,10 +39,10 @@ FUNCTION(cml_block, raw_fread)(FILE *stream, ATOMIC *data,
                                             MULTIPLICITY * sizeof(ATOMIC), 1, stream);
                         if (item != 1)
                         {
-                                CML_ERROR("fread failed", CML_EFAILED);
+                                SCIC_ERROR("fread failed", SCIC_EFAILED);
                         }
                 }
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }

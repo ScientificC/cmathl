@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <cml/deriv.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 
 static void
@@ -72,7 +72,7 @@ cml_deriv_central(const cml_function_t *f, double x, double h,
         *result = r_0;
         *abserr = error;
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }
 
 
@@ -145,7 +145,7 @@ cml_deriv_forward(const cml_function_t *f, double x, double h,
         *result = r_0;
         *abserr = error;
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }
 
 

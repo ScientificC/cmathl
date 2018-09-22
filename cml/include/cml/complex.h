@@ -68,10 +68,10 @@ __CML_BEGIN_DECLS
 
 cml_complex_t cml_complex(double, double);
 cml_complex_t cml_complex_polar(double, double);
-cml_complex_t cml_complex_zero();
-cml_complex_t cml_complex_nan();
-cml_complex_t cml_complex_inf();
-cml_complex_t cml_complex_ninf();
+cml_complex_t cml_complex_zero(void);
+cml_complex_t cml_complex_nan(void);
+cml_complex_t cml_complex_inf(void);
+cml_complex_t cml_complex_ninf(void);
 cml_complex_t cml_complex_clone(cml_complex_t);
 
 __CML_END_DECLS

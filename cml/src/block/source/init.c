@@ -7,8 +7,8 @@ FUNCTION(cml_block, alloc)(const size_t n)
 
         if (b == 0)
         {
-                CML_ERROR_VAL("failed to allocate space for block struct",
-                              CML_ENOMEM, 0);
+                SCIC_ERROR_VAL("failed to allocate space for block struct",
+                              SCIC_ENOMEM, 0);
         }
 
         b->data = (ATOMIC *) malloc(MULTIPLICITY * n * sizeof(ATOMIC));
@@ -17,8 +17,8 @@ FUNCTION(cml_block, alloc)(const size_t n)
         {
                 free(b); /* exception in constructor, avoid memory leak */
 
-                CML_ERROR_VAL("failed to allocate space for block data",
-                              CML_ENOMEM, 0);
+                SCIC_ERROR_VAL("failed to allocate space for block data",
+                              SCIC_ENOMEM, 0);
         }
 
         b->size = n;

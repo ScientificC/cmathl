@@ -72,7 +72,7 @@ cml_complex_arg(cml_complex_t z)
  */
 
 cml_complex_t
-cml_complex_conjugate(cml_complex_t z)
+cml_complex_conj(cml_complex_t z)
 {
         cml_complex_t r;
 
@@ -107,7 +107,7 @@ cml_complex_inverse(cml_complex_t z)
         double a, b, m, n;
 
 
-        w = cml_complex_conjugate(z);
+        w = cml_complex_conj(z);
         a = cml_complex_abs(z);
         b = a*a;
         n = CREAL(w) / b;

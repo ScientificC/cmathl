@@ -9,7 +9,7 @@ FUNCTION(cml_block, fwrite)(FILE *stream, const TYPE(cml_block) *b)
 
         if (items != n)
         {
-                CML_ERROR("fwrite failed", CML_EFAILED);
+                SCIC_ERROR("fwrite failed", SCIC_EFAILED);
         }
 
         return 0;
@@ -26,7 +26,7 @@ FUNCTION(cml_block, raw_fwrite)(FILE *stream, const ATOMIC *data,
 
                 if (items != n)
                 {
-                        CML_ERROR("fwrite failed", CML_EFAILED);
+                        SCIC_ERROR("fwrite failed", SCIC_EFAILED);
                 }
         }
         else
@@ -40,10 +40,10 @@ FUNCTION(cml_block, raw_fwrite)(FILE *stream, const ATOMIC *data,
                                              1, stream);
                         if (item != 1)
                         {
-                                CML_ERROR("fwrite failed", CML_EFAILED);
+                                SCIC_ERROR("fwrite failed", SCIC_EFAILED);
                         }
                 }
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }

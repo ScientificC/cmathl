@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <cml.h>
+#include <cml/math.h>
+#include <cml/diff.h>
 
 double
 f(double x, void *params)
 {
-        (void)(params); /* avoid unused parameter warning */
-        return pow(x, 1.5);
+        (void) params; /* avoid unused parameter warning */
+        return cml_pow(x, 1.5);
 }
 
 int

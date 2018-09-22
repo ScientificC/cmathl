@@ -23,12 +23,12 @@ FUNCTION(cml_block, fscanf)(FILE *stream, TYPE(cml_block) *b)
 
                         if (status != 1)
                         {
-                                CML_ERROR("fscanf failed", CML_EFAILED);
+                                SCIC_ERROR("fscanf failed", SCIC_EFAILED);
                         }
                 }
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }
 
 
@@ -53,12 +53,12 @@ FUNCTION(cml_block, raw_fscanf)(FILE *stream,
 
                         if (status != 1)
                         {
-                                CML_ERROR("fscanf failed", CML_EFAILED);
+                                SCIC_ERROR("fscanf failed", SCIC_EFAILED);
                         }
                 }
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }
 
 #endif

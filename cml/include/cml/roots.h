@@ -47,7 +47,7 @@ __CML_END_DECLS
         do { \
                 *_yp = CML_FN_EVAL(_f,_x); \
                 if (!cml_isfinite(*_yp)) \
-                        CML_ERROR("function value is not finite", CML_EBADFUNC); \
+                        SCIC_ERROR("function value is not finite", SCIC_EBADFUNC); \
         } while (0)
 
 #endif

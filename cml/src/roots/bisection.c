@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 #include <cml/roots.h>
 
@@ -15,7 +15,7 @@
  * @param res contains the root on exit
  * @param n_max maximum number of iterations
  * @param func a function pointer
- * @return CML_SUCCESS or CML_FAILURE if n_max reached
+ * @return SCIC_SUCCESS or SCIC_FAILURE if n_max reached
  */
 int
 cml_root_bisection(cml_function_t *func, double xmin, double xmax,
@@ -30,7 +30,7 @@ cml_root_bisection(cml_function_t *func, double xmin, double xmax,
 
         if ((fa < 0.0 && fb < 0.0) || (fa > 0.0 && fb > 0.0))
         {
-                CML_ERROR("endpoints do not straddle y=0", CML_EINVAL);
+                SCIC_ERROR("endpoints do not straddle y=0", SCIC_EINVAL);
         }
 
         if (fa > 0.0)
@@ -73,8 +73,8 @@ cml_root_bisection(cml_function_t *func, double xmin, double xmax,
 
         if (i == n_max)
         {
-                return CML_FAILURE;
+                return SCIC_FAILURE;
         }
 
-        return CML_SUCCESS;
+        return SCIC_SUCCESS;
 }

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <float.h>
 #include <limits.h>
-#include <cml/errno.h>
+#include <scic/errno.h>
 #include <cml/math.h>
 #include <cml/complex.h>
 #include <cml/specfunc.h>
