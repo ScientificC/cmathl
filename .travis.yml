@@ -17,7 +17,7 @@ env:
   - C_FLAGS="-std=c89"
 
 script:
-  - git clone https://github.com/ScientificC/errno.git .
+  - git clone https://github.com/ScientificC/errno.git
   - pushd errno
   - mkdir build && cd build
   - cmake ..
