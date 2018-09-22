@@ -11,7 +11,6 @@ Welcome to CML's documentation!
 
    intro.rst
    usage.rst
-   err.rst
    math.rst
    complex.rst
    quaternion.rst
