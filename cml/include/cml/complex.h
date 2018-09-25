@@ -7,57 +7,45 @@
 #include <cml/_common/machine.h>
 #undef _CML_COMMON_H_
 
-typedef struct
-{
-        union
-        {
+typedef struct {
+        union {
                 long double p[2];
                 long double parts[2];
-                struct
-                {
+                struct {
                         long double re;
                         long double im;
                 };
-                struct
-                {
+                struct {
                         long double real;
                         long double imaginary;
                 };
         };
 } cml_complex_long_double_t;
 
-typedef struct
-{
-        union
-        {
+typedef struct {
+        union {
                 double p[2];
                 double parts[2];
-                struct
-                {
+                struct {
                         double re;
                         double im;
                 };
-                struct
-                {
+                struct {
                         double real;
                         double imaginary;
                 };
         };
 } cml_complex_t;
 
-typedef struct
-{
-        union
-        {
+typedef struct {
+        union {
                 float p[2];
                 float parts[2];
-                struct
-                {
+                struct {
                         float re;
                         float im;
                 };
-                struct
-                {
+                struct {
                         float real;
                         float imaginary;
                 };
@@ -85,12 +73,17 @@ __CML_END_DECLS
 #define CIMAG(_x) ((_x).p[1])
 
 #define CML_COMPLEX_P(zp) ((zp)->p)
-#define CML_COMPLEX_P_REAL(zp)  ((zp)->p[0])
-#define CML_COMPLEX_P_IMAG(zp)  ((zp)->p[1])
-#define CML_COMPLEX_EQ(z1,z2) (((z1).p[0] == (z2).p[0]) && ((z1).p[1] == (z2).p[1]))
+#define CML_COMPLEX_P_REAL(zp) ((zp)->p[0])
+#define CML_COMPLEX_P_IMAG(zp) ((zp)->p[1])
+#define CML_COMPLEX_EQ(z1, z2) \
+        ((((z1).p[0] == (z2).p[0]) && ((z1).p[1] == (z2).p[1])))
 
-#define CML_SET_COMPLEX(zp,x,y) do {(zp)->p[0]=(x); (zp)->p[1]=(y);} while(0)
-#define CML_SET_REAL(zp,x) do {(zp)->p[0]=(x);} while(0)
-#define CML_SET_IMAG(zp,y) do {(zp)->p[1]=(y);} while(0)
+#define CML_SET_COMPLEX(zp, x, y) do {  \
+        (zp)->p[0] = (x);               \
+        (zp)->p[1] = (y);               \
+} while (0)
+
+#define CML_SET_REAL(zp, x) (zp)->p[0] = (x)
+#define CML_SET_IMAG(zp, y) (zp)->p[1] = (y)
 
 #endif

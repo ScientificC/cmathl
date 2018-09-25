@@ -15,24 +15,23 @@
 #endif
 
 #ifndef __CML_NO_GENERIC
+        #define __CML_REAL_GENERIC_FUNC(_func, ...)                      \
+                _Generic((__CML_ARGS_FIRST(__VA_ARGS__)),                \
+                default : __CML_MATH_FUNC(, _func),                      \
+                        double : __CML_MATH_FUNC(, _func)                \
+                        )(__VA_ARGS__)
 
-        #define __CML_REAL_GENERIC_FUNC(_func, ...) \
-        _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
-         default: __CML_MATH_FUNC(, _func), \
-                 double : __CML_MATH_FUNC(, _func) \
-                 )(__VA_ARGS__)
+        #define __CML_COMPLEX_GENERIC_FUNC(_func, ...)                   \
+                _Generic((__CML_ARGS_FIRST(__VA_ARGS__)),                \
+                        cml_complex_t : __CML_MATH_FUNC(complex, _func)  \
+                        )(__VA_ARGS__)
 
-        #define __CML_COMPLEX_GENERIC_FUNC(_func, ...) \
-        _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
-                 cml_complex_t: __CML_MATH_FUNC(complex, _func) \
-                 )(__VA_ARGS__)
-
-        #define __CML_BOTH_GENERIC_FUNC(_func, ...) \
-        _Generic((__CML_ARGS_FIRST(__VA_ARGS__)), \
-         default: __CML_MATH_FUNC(, _func), \
-                 cml_complex_t: __CML_MATH_FUNC(complex, _func), \
-                 double : __CML_MATH_FUNC(, _func) \
-                 )(__VA_ARGS__)
+        #define __CML_BOTH_GENERIC_FUNC(_func, ...)                      \
+                _Generic((__CML_ARGS_FIRST(__VA_ARGS__)),                \
+                default : __CML_MATH_FUNC(, _func),                      \
+                        cml_complex_t : __CML_MATH_FUNC(complex, _func), \
+                        double : __CML_MATH_FUNC(, _func)                \
+                        )(__VA_ARGS__)
 
         #define equal(X, Y) __CML_BOTH_GENERIC_FUNC(equal, X, Y)
         #define isnull(X) __CML_BOTH_GENERIC_FUNC(isnull, X)

@@ -7,55 +7,43 @@
 #include <cml/_common/machine.h>
 #undef _CML_COMMON_H_
 
-typedef struct
-{
-        union
-        {
+typedef struct {
+        union {
                 long double q[4];
-                struct
-                {
+                struct {
                         long double w, x, y, z;
                 };
-                struct
-                {
+                struct {
                         long double a, i, j, k;
                 };
         };
 } cml_quaternion_long_double_t;
 
-typedef struct
-{
-        union
-        {
+typedef struct {
+        union {
                 double q[4];
-                struct
-                {
+                struct {
                         double w, x, y, z;
                 };
-                struct
-                {
+                struct {
                         double a, i, j, k;
                 };
         };
 } cml_quaternion_t;
 
-typedef struct
-{
-        union
-        {
+typedef struct {
+        union {
                 float q[4];
-                struct
-                {
+                struct {
                         float w, x, y, z;
                 };
-                struct
-                {
+                struct {
                         float a, i, j, k;
                 };
         };
 } cml_quaternion_float_t;
 
-#define __CML_QUATERNION_EPS 1e-14
+#define __CML_QUATERNION_EPS (1e-14)
 
 __CML_BEGIN_DECLS
 

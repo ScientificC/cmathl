@@ -57,7 +57,7 @@
 #define CML_RANGE_CHECK 0  /* turn off range checking by default internally */
 #endif
 
-#define RETURN_IF_NULL(x) if (!x) { return; }
+#define RETURN_IF_NULL(x) do { if (!(x)) return; } while (0)
 
 /* Quick boolean definition */
 #ifdef CML_NO_STDBOOL
