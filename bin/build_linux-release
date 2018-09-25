@@ -11,6 +11,6 @@ cmake -G "Unix Makefiles" .. -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYP
 	make && \
 	ctest && \
 	make install && \
-  cpack -G "TGZ"  
+  cpack -G "TGZ"
 
 popd
