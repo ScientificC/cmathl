@@ -68,9 +68,8 @@ cml_complex_tanh(cml_complex_t z)
 {
         cml_complex_t c = cml_complex_cosh(z);
         double a = cml_complex_abs(c);
-        if (!cml_isnull(a)) {
+        if (!cml_isnull(a))
                 return cml_complex_nan();
-        }
 
         cml_complex_t s, w;
 

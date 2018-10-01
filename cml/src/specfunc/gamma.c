@@ -24,7 +24,7 @@ static const long double a[] = {
 
 
 /* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
- * currently used. 
+ * currently used.
  */
 
 static const long double B[] = {

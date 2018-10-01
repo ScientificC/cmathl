@@ -22,22 +22,11 @@ cml_quaternion_rotation_intrinsic_distance(cml_quaternion_t q1, cml_quaternion_t
 {
         if (cml_quaternion_rotor_chordal_distance(q1,q2) <= M_SQRT2)
         {
-                return 2.0*cml_quaternion_abs(
-                        cml_quaternion_log(
-                                cml_quaternion_divide(q1,q2)
-                                )
-                        );
+                return 2.0 * cml_quaternion_abs(cml_quaternion_log(cml_quaternion_divide(q1, q2)));
         }
         else
         {
-                return 2.0*cml_quaternion_abs(
-                        cml_quaternion_log(
-                                cml_quaternion_divide(
-                                        q1,
-                                        cml_quaternion_opposite(q2)
-                                        )
-                                )
-                        );
+                return 2.0 * cml_quaternion_abs(cml_quaternion_log(cml_quaternion_divide(q1, cml_quaternion_opposite(q2))));
         }
 }
 

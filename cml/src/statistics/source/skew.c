@@ -21,7 +21,8 @@ FUNCTION(cml_stats,skew_m_sd) (const BASE data[],
         /* find the sum of the cubed deviations, normalized by the sd. */
 
         /* we use a recurrence relation to stably update a running value so
-           there aren't any large sums that can overflow */
+         * there aren't any large sums that can overflow
+         */
 
         for (i = 0; i < n; i++)
         {

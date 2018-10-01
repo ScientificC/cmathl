@@ -4,7 +4,8 @@
 #include <cml/statistics.h>
 
 /* FIXME: The order of file inclusion is ordered according to the dependencies
-   of each module. Probably not the best way to solve it. */
+ * of each module. Probably not the best way to solve it.
+ */
 
 #define BASE_LONG_DOUBLE
 #include <cml/_private/templates_on.h>

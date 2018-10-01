@@ -13,14 +13,13 @@ cml_quaternion_isnan(cml_quaternion_t q)
 bool
 cml_quaternion_nonzero(cml_quaternion_t q)
 {
-        if(cml_quaternion_isnan(q)) {
+        if(cml_quaternion_isnan(q))
                 return true;
-        }
 
-        return !(cml_isnull(q.w)
-                 && cml_isnull(q.x)
-                 && cml_isnull(q.y)
-                 && cml_isnull(q.z));
+        return !(cml_isnull(q.w) &&
+                 cml_isnull(q.x) &&
+                 cml_isnull(q.y) &&
+                 cml_isnull(q.z));
 }
 
 
@@ -55,8 +54,7 @@ bool
 cml_quaternion_isless(cml_quaternion_t q1, cml_quaternion_t q2)
 {
         return
-                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2))
-                &&
+                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2)) &&
                 (q1.w != q2.w ? q1.w < q2.w :
                  q1.x != q2.x ? q1.x < q2.x :
                  q1.y != q2.y ? q1.y < q2.y :
@@ -68,26 +66,28 @@ bool
 cml_quaternion_isgreater(cml_quaternion_t q1, cml_quaternion_t q2)
 {
         return
-                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2))
-                &&
+                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2)) &&
                 (q1.w != q2.w ? q1.w > q2.w :
                  q1.x != q2.x ? q1.x > q2.x :
                  q1.y != q2.y ? q1.y > q2.y :
                  q1.z != q2.z ? q1.z > q2.z : false);
 }
+
+
 bool
 cml_quaternion_islessequal(cml_quaternion_t q1, cml_quaternion_t q2)
 {
         return
-                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2))
-                &&
+                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2)) &&
                 (q1.w != q2.w ? q1.w < q2.w :
                  q1.x != q2.x ? q1.x < q2.x :
                  q1.y != q2.y ? q1.y < q2.y :
                  q1.z != q2.z ? q1.z < q2.z : true);
+
         /* Note that the final possibility __is 1, whereas in
-           `cml_quaternion_isless` it was 0.  This distinction correctly
-           accounts for equality. */
+         * `cml_quaternion_isless` it was 0.  This distinction correctly
+         * accounts for equality.
+         */
 }
 
 
@@ -95,13 +95,13 @@ bool
 cml_quaternion_isgreaterequal(cml_quaternion_t q1, cml_quaternion_t q2)
 {
         return
-                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2))
-                &&
+                (!cml_quaternion_isnan(q1) && !cml_quaternion_isnan(q2)) &&
                 (q1.w != q2.w ? q1.w > q2.w :
                  q1.x != q2.x ? q1.x > q2.x :
                  q1.y != q2.y ? q1.y > q2.y :
                  q1.z != q2.z ? q1.z > q2.z : true);
         /* Note that the final possibility __is 1, whereas in
-           `cml_quaternion_isgreater` it was 0.  This distinction correctly
-           accounts for equality. */
+         * `cml_quaternion_isgreater` it was 0.  This distinction correctly
+         * accounts for equality.
+         */
 }

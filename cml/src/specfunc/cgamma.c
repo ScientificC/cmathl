@@ -110,8 +110,8 @@ __cml_sp_cgamma(double x, double y, bool kf, double *gr, double *gi)
                 si = -cml_cos(M_PI * x) * cml_sinh(M_PI * y);
                 z2 = cml_sqrt(sr * sr + si * si);
                 th2 = cml_atan(si / sr);
-                
-                if (sr < 0.) 
+
+                if (sr < 0.)
                 {
                         th2 += M_PI;
                 }

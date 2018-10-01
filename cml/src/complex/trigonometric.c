@@ -174,7 +174,7 @@ cml_complex_asin(cml_complex_t a)
 
                 const double A_crossover = 1.5, B_crossover = 0.6417;
 
-                if (B <= B_crossover)
+                if (B_crossover >= B)
                 {
                         real = cml_asin(B);
                 }
@@ -187,26 +187,26 @@ cml_complex_asin(cml_complex_t a)
                         }
                         else
                         {
-                                double Apx = A + x;
-                                double D = 0.5 * (Apx / (r + x + 1) + Apx / (s + (x - 1)));
+                                double a_px = A + x;
+                                double D = 0.5 * (a_px / (r + x + 1) + a_px / (s + (x - 1)));
                                 real = cml_atan(x / (y * cml_sqrt(D)));
                         }
                 }
 
-                if (A <= A_crossover)
+                if (A_crossover >= A)
                 {
-                        double Am1;
+                        double A_m1;
 
                         if (x < 1)
                         {
-                                Am1 = 0.5 * (y2 / (r + (x + 1)) + y2 / (s + (1 - x)));
+                                A_m1 = 0.5 * (y2 / (r + (x + 1)) + y2 / (s + (1 - x)));
                         }
                         else
                         {
-                                Am1 = 0.5 * (y2 / (r + (x + 1)) + (s + (x - 1)));
+                                A_m1 = 0.5 * (y2 / (r + (x + 1)) + (s + (x - 1)));
                         }
 
-                        imag = cml_log1p(Am1 + cml_sqrt(Am1 * (A + 1)));
+                        imag = cml_log1p(A_m1 + cml_sqrt(A_m1 * (A + 1)));
                 }
                 else
                 {
@@ -265,7 +265,7 @@ cml_complex_acos(cml_complex_t a)
 
                 const double A_crossover = 1.5, B_crossover = 0.6417;
 
-                if (B <= B_crossover)
+                if (B_crossover >= B)
                 {
                         real = cml_acos(B);
                 }
@@ -278,26 +278,26 @@ cml_complex_acos(cml_complex_t a)
                         }
                         else
                         {
-                                double Apx = A + x;
-                                double D = 0.5 * (Apx / (r + x + 1) + Apx / (s + (x - 1)));
+                                double a_px = A + x;
+                                double D = 0.5 * (a_px / (r + x + 1) + a_px / (s + (x - 1)));
                                 real = cml_atan((y * cml_sqrt(D)) / x);
                         }
                 }
 
-                if (A <= A_crossover)
+                if (A_crossover >= A)
                 {
-                        double Am1;
+                        double A_m1;
 
                         if (x < 1)
                         {
-                                Am1 = 0.5 * (y2 / (r + (x + 1)) + y2 / (s + (1 - x)));
+                                A_m1 = 0.5 * (y2 / (r + (x + 1)) + y2 / (s + (1 - x)));
                         }
                         else
                         {
-                                Am1 = 0.5 * (y2 / (r + (x + 1)) + (s + (x - 1)));
+                                A_m1 = 0.5 * (y2 / (r + (x + 1)) + (s + (x - 1)));
                         }
 
-                        imag = cml_log1p(Am1 + cml_sqrt(Am1 * (A + 1)));
+                        imag = cml_log1p(A_m1 + cml_sqrt(A_m1 * (A + 1)));
                 }
                 else
                 {
@@ -347,8 +347,9 @@ cml_complex_atan(cml_complex_t a)
         else
         {
                 /* FIXME: This is a naive implementation which does not fully
-                   take into account cancellation errors, overflow, underflow
-                   etc.  It would benefit from the Hull et al treatment. */
+                 * take into account cancellation errors, overflow, underflow
+                 * etc.  It would benefit from the Hull et al treatment.
+                 */
 
                 double r = cml_hypot(R, I);
 
@@ -357,7 +358,8 @@ cml_complex_atan(cml_complex_t a)
                 double u = 2 * I / (1 + r * r);
 
                 /* FIXME: the following cross-over should be optimized but 0.1
-                   seems to work ok */
+                 * seems to work ok
+                 */
 
                 if (cml_abs(u) < 0.1)
                 {

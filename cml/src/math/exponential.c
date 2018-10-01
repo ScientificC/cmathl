@@ -69,8 +69,7 @@ cml_expm1(double x)
                         i++;
                         term *= x/i;
                         sum += term;
-                }
-                while (cml_abs(term) > cml_abs(sum) * CML_DBL_EPSILON);
+                } while (cml_abs(term) > cml_abs(sum) * CML_DBL_EPSILON);
 
                 return (double) sum;
         }
@@ -188,7 +187,6 @@ cml_log_b(double x, double b)
         z = cml_log(b);
 
         return y/z;
-
 }
 
 
@@ -203,9 +201,8 @@ cml_log_b(double x, double b)
 double
 cml_log(double x)
 {
-        if (x <= 0) {
+        if (x <= 0)
                 return cml_nan();
-        }
 
         double y, z, w, k;
 
@@ -215,7 +212,6 @@ cml_log(double x)
         k = z/w;
 
         return cml_atanh(k);
-
 }
 
 
