@@ -273,7 +273,7 @@ cml_quaternion_abs(cml_quaternion_t q)
 double
 cml_quaternion_angle(cml_quaternion_t q)
 {
-        return 2*cml_quaternion_abs(cml_quaternion_log( q ));
+        return 2 * cml_quaternion_abs(cml_quaternion_log(q));
 }
 
 cml_quaternion_t

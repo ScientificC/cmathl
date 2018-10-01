@@ -3,15 +3,15 @@
 
 __CML_BEGIN_DECLS
 
-double cml_acosh(double);
-double cml_asinh(double);
-double cml_atanh(double);
-double cml_cosh(double);
-double cml_coth(double);
-double cml_csch(double);
-double cml_sech(double);
-double cml_sinh(double);
-double cml_tanh(double);
+double cml_acosh(double x);
+double cml_asinh(double x);
+double cml_atanh(double x);
+double cml_cosh(double x);
+double cml_coth(double x);
+double cml_csch(double x);
+double cml_sech(double x);
+double cml_sinh(double x);
+double cml_tanh(double x);
 
 __CML_END_DECLS
 

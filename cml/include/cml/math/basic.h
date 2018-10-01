@@ -3,14 +3,15 @@
 
 __CML_BEGIN_DECLS
 
-double cml_abs(double);
-double cml_ared(double);
-double cml_div(double, double);
-double cml_inverse(double);
+double cml_abs(double x);
+double cml_ared(double x);
+double cml_ared_a(double x, double a);
+double cml_div(double x, double y);
+double cml_inverse(double x);
 double cml_hypot(double x, double y);
-double cml_mod(double, double);
-double cml_opposite(double);
-double cml_sgn(double);
+double cml_mod(double x, double y);
+double cml_opposite(double x);
+double cml_sgn(double x);
 
 __CML_END_DECLS
 

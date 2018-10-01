@@ -18,7 +18,6 @@ __CML_BEGIN_DECLS
 double cml_nan(void);
 double cml_inf(void);
 double cml_ninf(void);
-char *cml_as_string(double);
 
 #include <cml/math/basic.h>
 #include <cml/math/classification.h>

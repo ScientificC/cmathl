@@ -201,7 +201,7 @@ cml_log_b(double x, double b)
 double
 cml_log(double x)
 {
-        if (x <= 0)
+        if (x <= 0.)
                 return cml_nan();
 
         double y, z, w, k;
