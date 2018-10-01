@@ -38,5 +38,4 @@ cml_sf_choose(int n, int p)
                            - cml_sf_lnfact(n - p + 1);
 
         return cml_exp(ln_choose);
-
 }

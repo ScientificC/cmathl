@@ -32,7 +32,7 @@ int cml_block_quaternion_float_raw_fscanf(FILE *stream, float *b, const size_t n
 int cml_block_quaternion_float_raw_fprintf(FILE *stream, const float *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_quaternion_float_size(const cml_block_quaternion_float_t *b);
-float * cml_block_quaternion_float_data(const cml_block_quaternion_float_t *b);
+float *cml_block_quaternion_float_data(const cml_block_quaternion_float_t *b);
 
 __CML_END_DECLS
 

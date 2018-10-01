@@ -32,7 +32,7 @@ int cml_block_complex_raw_fscanf(FILE *stream, double *b, const size_t n, const 
 int cml_block_complex_raw_fprintf(FILE *stream, const double *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_complex_size(const cml_block_complex_t *b);
-double * cml_block_complex_data(const cml_block_complex_t *b);
+double *cml_block_complex_data(const cml_block_complex_t *b);
 
 __CML_END_DECLS
 

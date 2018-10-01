@@ -361,7 +361,8 @@ static const int lnfactorials_size = sizeof(lnfactorials) / sizeof(long double);
 static const long double log_sqrt_2pi = 9.18938533204672741780329736e-1L;
 
 /* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(10) currently
-   used. */
+ * used. 
+ */
 
 static const long double B[] = {
         1.0L / (long double)(6 * 2 * 1),

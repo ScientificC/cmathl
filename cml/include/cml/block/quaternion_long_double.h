@@ -32,7 +32,7 @@ int cml_block_quaternion_long_double_raw_fscanf(FILE *stream, long double *b, co
 int cml_block_quaternion_long_double_raw_fprintf(FILE *stream, const long double *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_quaternion_long_double_size(const cml_block_quaternion_long_double_t *b);
-long double * cml_block_quaternion_long_double_data(const cml_block_quaternion_long_double_t *b);
+long double *cml_block_quaternion_long_double_data(const cml_block_quaternion_long_double_t *b);
 
 __CML_END_DECLS
 
