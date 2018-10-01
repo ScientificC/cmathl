@@ -8,7 +8,8 @@
 
 #ifndef PREDEF_STANDARD_C99
 /* FIXME: classification functions are not ANSI C complaint, should be compatible
-   with c89 and c99. */
+ * with c89 and c99.
+ */
 
         #ifndef isnan
                 #define isnan(X) __isnan(X)

@@ -24,7 +24,8 @@ static const long double a[] = {
 
 
 /* Bernoulli numbers B(2),B(4),B(6),...,B(20).  Only B(2),...,B(6)
-   currently used. */
+ * currently used.
+ */
 
 static const long double B[] = {
         1.0L / (long double)(6 * 2 * 1),
@@ -145,7 +146,7 @@ __sf_gammal(long double x)
 {
         long double sin_x;
         long double rg;
-        long int ix;
+        long ix;
 
         if ( x > 0.0L )
         {
@@ -161,7 +162,7 @@ __sf_gammal(long double x)
 
         if (x > -(long double)LONG_MAX)
         {
-                ix = (long int) x;
+                ix = (long) x;
 
                 if (x == (long double) ix)
                 {

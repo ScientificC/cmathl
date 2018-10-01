@@ -1,5 +1,5 @@
 BASE
-FUNCTION (cml_stats,max) (const BASE data[], const size_t stride,
+FUNCTION(cml_stats, max) (const BASE data[], const size_t stride,
                           const size_t n)
 {
         /* finds the largest member of a dataset */
@@ -23,7 +23,7 @@ FUNCTION (cml_stats,max) (const BASE data[], const size_t stride,
 }
 
 BASE
-FUNCTION (cml_stats,min) (const BASE data[], const size_t stride,
+FUNCTION(cml_stats, min) (const BASE data[], const size_t stride,
                           const size_t n)
 {
         /* finds the smallest member of a dataset */
@@ -44,13 +44,12 @@ FUNCTION (cml_stats,min) (const BASE data[], const size_t stride,
         }
 
         return min;
-
 }
 
 void
-FUNCTION (cml_stats,minmax) (BASE * min_out, BASE * max_out,
-                             const BASE data[], const size_t stride,
-                             const size_t n)
+FUNCTION(cml_stats, minmax)(BASE *min_out, BASE *max_out,
+                            const BASE data[], const size_t stride,
+                            const size_t n)
 {
         /* finds the smallest and largest members of a dataset */
 
@@ -76,7 +75,6 @@ FUNCTION (cml_stats,minmax) (BASE * min_out, BASE * max_out,
                         break;
                 }
 #endif
-
         }
 
         *min_out = min;
@@ -84,8 +82,8 @@ FUNCTION (cml_stats,minmax) (BASE * min_out, BASE * max_out,
 }
 
 size_t
-FUNCTION (cml_stats,max_index) (const BASE data[], const size_t stride,
-                                const size_t n)
+FUNCTION(cml_stats, max_index)(const BASE data[], const size_t stride,
+                               const size_t n)
 {
         /* finds the index of the largest member of a dataset */
         /* if there is more than one largest value then we choose the first */
@@ -115,8 +113,8 @@ FUNCTION (cml_stats,max_index) (const BASE data[], const size_t stride,
 }
 
 size_t
-FUNCTION (cml_stats,min_index) (const BASE data[], const size_t stride,
-                                const size_t n)
+FUNCTION(cml_stats, min_index)(const BASE data[], const size_t stride,
+                               const size_t n)
 {
         /* finds the index of the smallest member of a dataset */
         /* if there is more than one largest value then we choose the first  */
@@ -146,9 +144,9 @@ FUNCTION (cml_stats,min_index) (const BASE data[], const size_t stride,
 }
 
 void
-FUNCTION (cml_stats,minmax_index) (size_t * min_index_out,
-                                   size_t * max_index_out, const BASE data[],
-                                   const size_t stride, const size_t n)
+FUNCTION(cml_stats, minmax_index)(size_t *min_index_out,
+                                  size_t *max_index_out, const BASE data[],
+                                  const size_t stride, const size_t n)
 {
         /* finds the smallest and largest members of a dataset */
 

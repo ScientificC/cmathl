@@ -32,7 +32,7 @@ int cml_block_long_raw_fscanf(FILE *stream, long *b, const size_t n, const size_
 int cml_block_long_raw_fprlongf(FILE *stream, const long *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_long_size(const cml_block_long_t *b);
-long * cml_block_long_data(const cml_block_long_t *b);
+long *cml_block_long_data(const cml_block_long_t *b);
 
 __CML_END_DECLS
 

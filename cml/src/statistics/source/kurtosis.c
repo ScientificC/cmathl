@@ -19,7 +19,8 @@ FUNCTION(cml_stats, kurtosis_m_sd)(const BASE data[], const size_t stride,
         /* find the fourth moment the deviations, normalized by the sd */
 
         /* we use a recurrence relation to stably update a running value so
-           there aren't any large sums that can overflow */
+         * there aren't any large sums that can overflow
+         */
 
         for (i = 0; i < n; i++)
         {

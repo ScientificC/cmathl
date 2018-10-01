@@ -3,16 +3,16 @@
 
 __CML_BEGIN_DECLS
 
-double cml_acos(double);
-double cml_asin(double);
-double cml_atan(double);
-double cml_atan2(double, double);
-double cml_cos(double);
-double cml_cot(double);
-double cml_csc(double);
-double cml_sec(double);
-double cml_sin(double);
-double cml_tan(double);
+double cml_acos(double x);
+double cml_asin(double x);
+double cml_atan(double x);
+double cml_atan2(double x, double y);
+double cml_cos(double x);
+double cml_cot(double x);
+double cml_csc(double x);
+double cml_sec(double x);
+double cml_sin(double x);
+double cml_tan(double x);
 
 __CML_END_DECLS
 

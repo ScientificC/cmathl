@@ -14,7 +14,8 @@ FUNCTION(cml_stats,lag1_autocorrelation_m)(const BASE data[],
                                            const double mean)
 {
         /* Compute the lag-1 autocorrelation of a dataset using the
-           recurrence relation */
+         * recurrence relation
+         */
 
         size_t i;
 

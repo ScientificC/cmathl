@@ -32,7 +32,7 @@ int cml_block_uchar_raw_fscanf(FILE *stream, unsigned char *b, const size_t n, c
 int cml_block_uchar_raw_fprucharf(FILE *stream, const unsigned char *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_uchar_size(const cml_block_uchar_t *b);
-unsigned char * cml_block_uchar_data(const cml_block_uchar_t *b);
+unsigned char *cml_block_uchar_data(const cml_block_uchar_t *b);
 
 __CML_END_DECLS
 

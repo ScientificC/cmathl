@@ -22,7 +22,6 @@ __cml_atanh(long double x, int n_max)
 
                 ai_n = ai_n*x*x;
                 sum = sum + ai_n/(i+=2);
-
         }
 
         return sum;

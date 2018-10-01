@@ -32,7 +32,7 @@ int cml_block_ushort_raw_fscanf(FILE *stream, unsigned short *b, const size_t n,
 int cml_block_ushort_raw_fprushortf(FILE *stream, const unsigned short *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_ushort_size(const cml_block_ushort_t *b);
-unsigned short * cml_block_ushort_data(const cml_block_ushort_t *b);
+unsigned short *cml_block_ushort_data(const cml_block_ushort_t *b);
 
 __CML_END_DECLS
 

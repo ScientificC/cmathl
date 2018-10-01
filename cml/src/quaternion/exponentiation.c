@@ -10,7 +10,7 @@ cml_quaternion_scalar_pow(double s, cml_quaternion_t q)
         { /*cml_log(s)=-inf */
                 cml_quaternion_t r;
 
-                if(!cml_quaternion_nonzero(q))
+                if (!cml_quaternion_nonzero(q))
                 {
                         r = (cml_quaternion_t) { 1.0, 0.0, 0.0, 0.0 };
                 }
@@ -20,7 +20,7 @@ cml_quaternion_scalar_pow(double s, cml_quaternion_t q)
                 }
 
                 return r;
-        } else if(s < 0.0)
+        } else if (s < 0.0)
         {               /* cml_log(s)=nan */
                 /* fprintf(stderr, "Input scalar (%.15g) has no unique logarithm; returning one arbitrarily.", s); */
                 cml_quaternion_t t = (cml_quaternion_t)
@@ -37,11 +37,11 @@ cml_quaternion_pow(cml_quaternion_t q, cml_quaternion_t p)
 {
         /* Note that the following is just my chosen definition of the power. */
         /* Other definitions may disagree due to non-commutativity. */
-        if(!cml_quaternion_nonzero(q))
+        if (!cml_quaternion_nonzero(q))
         { /* log(q)=-inf */
                 cml_quaternion_t r;
 
-                if(!cml_quaternion_nonzero(p))
+                if (!cml_quaternion_nonzero(p))
                 {
                         r = (cml_quaternion_t) {1.0, 0.0, 0.0, 0.0};
                 }
@@ -80,11 +80,11 @@ cml_quaternion_t
 cml_quaternion_pow_scalar(cml_quaternion_t q, double s)
 {
         /* Unlike the quaternion^quaternion power, this is unambiguous. */
-        if(!cml_quaternion_nonzero(q))
+        if (!cml_quaternion_nonzero(q))
         { /* log(q)=-inf */
                 cml_quaternion_t r;
 
-                if(cml_isnull(s))
+                if (cml_isnull(s))
                 {
                         r = (cml_quaternion_t) {1.0, 0.0, 0.0, 0.0};
                 }
@@ -139,14 +139,15 @@ cml_quaternion_log(cml_quaternion_t q)
         cml_quaternion_t r;
         double b = cml_sqrt(q.x*q.x  +  q.y*q.y  +  q.z*q.z);
 
-        if(cml_abs(b) <= __CML_QUATERNION_EPS*cml_abs(q.w))
+        if (cml_abs(b) <= __CML_QUATERNION_EPS*cml_abs(q.w))
         {
-                if(q.w < 0.0)
+                if (q.w < 0.0)
                 {
                         /* fprintf(stderr, "Input cml_quaternion(%.15g, %.15g, %.15g, %.15g)
-                           has no unique logarithm; returning one arbitrarily.",
-                           q.w, q.x, q.y, q.z);*/
-                        if(cml_abs(q.w + 1)>__CML_QUATERNION_EPS)
+                         * has no unique logarithm; returning one arbitrarily.",
+                         * q.w, q.x, q.y, q.z);
+                         */
+                        if (cml_abs(q.w + 1) > __CML_QUATERNION_EPS)
                         {
                                 r = (cml_quaternion_t)
                                 { cml_log(-q.w), M_PI, 0., 0. };
@@ -154,7 +155,7 @@ cml_quaternion_log(cml_quaternion_t q)
                         else
                         {
                                 r = (cml_quaternion_t)
-                                {0., M_PI, 0., 0.};
+                                { 0., M_PI, 0., 0. };
                         }
                 }
                 else
@@ -180,7 +181,7 @@ cml_quaternion_sqrt(cml_quaternion_t q)
         double absolute = cml_quaternion_abs(q);
         cml_quaternion_t r;
 
-        if(cml_abs(1 + q.w/absolute) < __CML_QUATERNION_EPS*absolute)
+        if (cml_abs(1 + q.w/absolute) < __CML_QUATERNION_EPS*absolute)
         {
                 r = (cml_quaternion_t)
                 {0.0, 1.0, 0.0, 0.0};

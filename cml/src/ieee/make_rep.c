@@ -7,17 +7,17 @@ static int determine_cml_ieee754_type(int non_zero, int exponent, int max_expone
 
 
 /* For the IEEE float format the bits are found from the following
-   masks,
-
-   sign      = 0x80000000
-   exponent  = 0x7f800000
-   mantisssa = 0x007fffff
-
-   For the IEEE double format the masks are,
-
-   sign      = 0x8000000000000000
-   exponent  = 0x7ff0000000000000
-   mantissa  = 0x000fffffffffffff
+ * masks,
+ *
+ * sign      = 0x80000000
+ * exponent  = 0x7f800000
+ * mantisssa = 0x007fffff
+ *
+ * For the IEEE double format the masks are,
+ *
+ * sign      = 0x8000000000000000
+ * exponent  = 0x7ff0000000000000
+ * mantissa  = 0x000fffffffffffff
  */
 
 void
@@ -25,7 +25,8 @@ cml_ieee754_float_to_rep(const float *x, cml_ieee754_float_rep_t *r)
 {
         int e, non_zero;
 
-        union {
+        union
+        {
                 float f;
                 struct  {
                         unsigned char byte[4];
@@ -36,11 +37,11 @@ cml_ieee754_float_to_rep(const float *x, cml_ieee754_float_rep_t *r)
 
         if (cml_little_endian_p())
         {
-                cml_make_float_bigendian(&(u.f));
+                cml_make_float_bigendian(&u.f);
         }
 
         /* note that r->sign is signed, u.ieee.byte is unsigned */
-        if (u.ieee.byte[3]>>7)
+        if (u.ieee.byte[3] >> 7)
         {
                 r->sign = 1;
         }
@@ -67,7 +68,6 @@ cml_ieee754_float_to_rep(const float *x, cml_ieee754_float_rep_t *r)
 void
 cml_ieee754_double_to_rep(const double *x, cml_ieee754_double_rep_t *r)
 {
-
         int e, non_zero;
 
         union
@@ -82,7 +82,7 @@ cml_ieee754_double_to_rep(const double *x, cml_ieee754_double_rep_t *r)
 
         if (cml_little_endian_p())
         {
-                cml_make_double_bigendian(&(u.d));
+                cml_make_double_bigendian(&u.d);
         }
 
         /* note that r->sign is signed, u.ieee.byte is unsigned */
@@ -110,9 +110,9 @@ cml_ieee754_double_to_rep(const double *x, cml_ieee754_double_rep_t *r)
 
         r->mantissa[52] = '\0';
 
-        non_zero = (u.ieee.byte[0] || u.ieee.byte[1] || u.ieee.byte[2]
-                    || u.ieee.byte[3] || u.ieee.byte[4] || u.ieee.byte[5]
-                    || (u.ieee.byte[6] & 0x0f));
+        non_zero = (u.ieee.byte[0] || u.ieee.byte[1] || u.ieee.byte[2] ||
+                   u.ieee.byte[3] || u.ieee.byte[4] || u.ieee.byte[5] ||
+                   (u.ieee.byte[6] & 0x0f));
 
         r->type = determine_cml_ieee754_type(non_zero, e, 2047);
 }
@@ -153,7 +153,6 @@ sprint_byte(int i, char *s)
         *(s+5) = c[1];
         *(s+6) = c[2];
         *(s+7) = c[3];
-
 }
 
 static int

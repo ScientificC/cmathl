@@ -65,8 +65,10 @@ static __CML_INLINE void   swapfunc(char *, char *, size_t, int);
                 } while (--i > 0);        \
 }
 
-#define SWAPINIT(a, es) swaptype = ((char *)a - (char *)0) % sizeof(long) || \
-                                   es % sizeof(long) ? 2 : es == sizeof(long)? 0 : 1;
+#define SWAPINIT(a, es) do {                                                    \
+        swaptype = ((char *)(a) - (char *)0) % sizeof(long) ||                  \
+                   (es) % sizeof(long) ? 2 : (es) == sizeof(long) ? 0 : 1;      \
+} while (0)
 
 static __CML_INLINE void
 swapfunc(char *a, char *b, size_t n, int swaptype)
@@ -81,12 +83,12 @@ swapfunc(char *a, char *b, size_t n, int swaptype)
         }
 }
 
-#define swap(a, b)          \
-        if (swaptype == 0) {        \
-                long t = *(long *)(a);      \
+#define swap(a, b)                              \
+        if (swaptype == 0) {                    \
+                long t = *(long *)(a);          \
                 *(long *)(a) = *(long *)(b);    \
-                *(long *)(b) = t;     \
-        } else            \
+                *(long *)(b) = t;               \
+        } else                                  \
                 swapfunc(a, b, es, swaptype)
 
 #define vecswap(a, b, n)  if ((n) > 0) swapfunc(a, b, n, swaptype)

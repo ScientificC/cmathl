@@ -6,11 +6,11 @@
 
 
 cml_complex_t
-cml_complex(double cml_part, double imaginary_part)
+cml_complex(double real_part, double imaginary_part)
 {
         cml_complex_t z;
 
-        CML_SET_REAL(&z, cml_part);
+        CML_SET_REAL(&z, real_part);
         CML_SET_IMAG(&z, imaginary_part);
 
         return z;
@@ -29,30 +29,21 @@ cml_complex_polar(double r, double theta)
 cml_complex_t
 cml_complex_nan()
 {
-        return cml_complex(
-                cml_nan(),
-                cml_nan()
-                );
+        return cml_complex(cml_nan(), cml_nan());
 }
 
 
 cml_complex_t
 cml_complex_inf()
 {
-        return cml_complex(
-                cml_inf(),
-                cml_inf()
-                );
+        return cml_complex(cml_inf(), cml_inf());
 }
 
 
 cml_complex_t
 cml_complex_ninf()
 {
-        return cml_complex(
-                cml_ninf(),
-                cml_ninf()
-                );
+        return cml_complex(cml_ninf(), cml_ninf());
 }
 
 

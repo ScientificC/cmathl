@@ -9,7 +9,8 @@
 
 __CML_BEGIN_DECLS
 
-enum {
+enum
+{
         CML_IEEE754_TYPE_CML_NAN = 1,
         CML_IEEE754_TYPE_CML_POSINF = 2,
         CML_IEEE754_TYPE_NORMAL = 3,
@@ -43,20 +44,23 @@ void cml_ieee754_fprintf_double(FILE *stream, const double *x);
 void cml_ieee754_float_to_rep(const float *x, cml_ieee754_float_rep_t *r);
 void cml_ieee754_double_to_rep(const double *x, cml_ieee754_double_rep_t *r);
 
-enum {
+enum
+{
         CML_IEEE754_SINGLE_PRECISION = 1,
         CML_IEEE754_DOUBLE_PRECISION = 2,
         CML_IEEE754_EXTENDED_PRECISION = 3
 };
 
-enum {
+enum
+{
         CML_IEEE754_ROUND_TO_NEAREST = 1,
         CML_IEEE754_ROUND_DOWN = 2,
         CML_IEEE754_ROUND_UP = 3,
         CML_IEEE754_ROUND_TO_ZERO = 4
 };
 
-enum {
+enum
+{
         CML_IEEE754_MASK_INVALID = 1,
         CML_IEEE754_MASK_DENORMALIZED = 2,
         CML_IEEE754_MASK_DIVISION_BY_ZERO = 4,
@@ -67,11 +71,11 @@ enum {
 };
 
 /* I dream of implementing these functions someday
-
-   void cml_ieee754_env_setup(void);
-   int cml_ieee754_read_mode_string(char *description, int *precision,
-                          int *rounding, int *exception_mask);
-   int cml_ieee754_set_mode(int precision, int rounding, int exception_mask);
+ *
+ * void cml_ieee754_env_setup(void);
+ * int cml_ieee754_read_mode_string(char *description, int *precision,
+ *                                  int *rounding, int *exception_mask);
+ * int cml_ieee754_set_mode(int precision, int rounding, int exception_mask);
  */
 
 __CML_END_DECLS

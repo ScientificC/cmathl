@@ -73,16 +73,17 @@ cml_root_brent(cml_function_t *func, double x1, double x2, double *tol)
                 }
 
                 /* decide if the interpolation can be tried. if prev_step was
-                   large enough and in the right direction */
+                 * large enough and in the right direction
+                 */
                 if (cml_abs(prev_step) >= tol1 && cml_abs(fa) > cml_abs(fb))
                 {
-
                         s = fb / fa;
 
                         if (a == c)
                         {
                                 /* if we only have two distinct points, only linear
-                                   interpolation can be applied */
+                                 * interpolation can be applied
+                                 */
                                 p = 2.0 * new_step * s;
                                 q = 1.0 - s;
                         }
@@ -96,7 +97,8 @@ cml_root_brent(cml_function_t *func, double x1, double x2, double *tol)
                         }
 
                         /* p was calculated with the oppposite sign; make p positive and
-                           assign the possible minus to q */
+                         * assign the possible minus to q
+                         */
                         if (p > 0.0)
                         {
                                 q = -q;
@@ -107,16 +109,18 @@ cml_root_brent(cml_function_t *func, double x1, double x2, double *tol)
                         }
 
                         /* if b+p/q falls in [b,c] and isn't too large, it is accepted. If
-                           p/q is too large the the bisection procedure can reduce [b,c] more
-                           significantly */
-                        if (2.0 * p < 3.0 * new_step * q - cml_abs(tol1 * q)
-                            && 2. * p < cml_abs(prev_step * q))
+                         * p/q is too large the the bisection procedure can reduce [b,c] more
+                         * significantly
+                         */
+                        if (2.0 * p < 3.0 * new_step * q - cml_abs(tol1 * q) &&
+                            2. * p < cml_abs(prev_step * q))
                         {
                                 new_step = p / q;
                         }
                         else
                         {
-                                new_step = prev_step = 0.5 * (c - b);
+                                new_step = 0.5 * (c - b);
+                                prev_step = new_step;
                         }
                 }
 

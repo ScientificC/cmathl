@@ -1,6 +1,7 @@
 /* This code to solve the differential equations is based on the definition
-   provided by GNU Scientific Library (GSL), adapting it to the definitions
-   provided by CML as well as the practices provided by it. */
+ * provided by GNU Scientific Library (GSL), adapting it to the definitions
+ * provided by CML as well as the practices provided by it.
+ */
 
 #include <stdlib.h>
 #include <cml/deriv.h>
@@ -12,15 +13,17 @@ cml_diff_backward(const cml_function_t *f,
                   double x, double *result, double *abserr)
 {
         /* Construct a divided difference table with a fairly large step
-           size to get a very rough estimate of f''.  Use this to estimate
-           the step size which will minimize the error in calculating f'. */
+         * size to get a very rough estimate of f''. Use this to estimate
+         * the step size which will minimize the error in calculating f'.
+         */
 
         int i, k;
         long double h = CML_SQRT_DBL_EPSILON;
         long double a[3], d[3], a2;
 
         /* Algorithm based on description on pg. 204 of Conte and de Boor
-           (CdB) - coefficients of Newton form of polynomial of degree 2. */
+         * (CdB) - coefficients of Newton form of polynomial of degree 2.
+         */
 
         for (i = 0; i < 3; i++)
         {
@@ -37,7 +40,8 @@ cml_diff_backward(const cml_function_t *f,
         }
 
         /* Adapt procedure described on pg. 282 of CdB to find best value of
-           step size. */
+         * step size.
+         */
 
         a2 = cml_abs(d[0] + d[1] + d[2]);
 
@@ -65,15 +69,17 @@ cml_diff_forward(const cml_function_t *f,
                  double x, double *result, double *abserr)
 {
         /* Construct a divided difference table with a fairly large step
-           size to get a very rough estimate of f''.  Use this to estimate
-           the step size which will minimize the error in calculating f'. */
+         * size to get a very rough estimate of f''. Use this to estimate
+         * the step size which will minimize the error in calculating f'.
+         */
 
         int i, k;
         long double h = CML_SQRT_DBL_EPSILON;
         long double a[3], d[3], a2;
 
         /* Algorithm based on description on pg. 204 of Conte and de Boor
-           (CdB) - coefficients of Newton form of polynomial of degree 2. */
+         * (CdB) - coefficients of Newton form of polynomial of degree 2.
+         */
 
         for (i = 0; i < 3; i++)
         {
@@ -90,7 +96,8 @@ cml_diff_forward(const cml_function_t *f,
         }
 
         /* Adapt procedure described on pg. 282 of CdB to find best value of
-           step size. */
+         * step size.
+         */
 
         a2 = cml_abs(d[0] + d[1] + d[2]);
 
@@ -118,15 +125,17 @@ cml_diff_central(const cml_function_t *f,
                  double x, double *result, double *abserr)
 {
         /* Construct a divided difference table with a fairly large step
-           size to get a very rough estimate of f'''.  Use this to estimate
-           the step size which will minimize the error in calculating f'. */
+         * size to get a very rough estimate of f'''. Use this to estimate
+         * the step size which will minimize the error in calculating f'.
+         */
 
         int i, k;
         long double h = CML_SQRT_DBL_EPSILON;
         long double a[4], d[4], a3;
 
         /* Algorithm based on description on pg. 204 of Conte and de Boor
-           (CdB) - coefficients of Newton form of polynomial of degree 3. */
+         * (CdB) - coefficients of Newton form of polynomial of degree 3.
+         */
 
         for (i = 0; i < 4; i++)
         {
@@ -143,7 +152,8 @@ cml_diff_central(const cml_function_t *f,
         }
 
         /* Adapt procedure described on pg. 282 of CdB to find best
-           value of step size. */
+         * value of step size.
+         */
 
         a3 = cml_abs(d[0] + d[1] + d[2] + d[3]);
 

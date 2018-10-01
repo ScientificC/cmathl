@@ -3,7 +3,8 @@
 #include <cml/ieee.h>
 
 /* A table of sign characters, 0=positive, 1=negative. We print a space
-   instead of a unary + sign for compatibility with bc */
+ * instead of a unary + sign for compatibility with bc
+ */
 
 static char signs[2] = {' ','-'};
 

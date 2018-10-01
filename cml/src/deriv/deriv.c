@@ -8,10 +8,11 @@ central_deriv(const cml_function_t *f, double x, double h,
               double *result, double *abserr_round, double *abserr_trunc)
 {
         /* Compute the derivative using the 5-point rule (x-h, x-h/2, x,
-           x+h/2, x+h). Note that the central point is not used.
-           Compute the error using the difference between the 5-point and
-           the 3-point rule (x-h,x,x+h). Again the central point is not
-           used. */
+         * x+h/2, x+h). Note that the central point is not used.
+         * Compute the error using the difference between the 5-point and
+         * the 3-point rule (x-h,x,x+h). Again the central point is not
+         * used.
+         */
 
         double fm1 = CML_FN_EVAL(f, x - h);
         double fp1 = CML_FN_EVAL(f, x + h);
@@ -30,9 +31,10 @@ central_deriv(const cml_function_t *f, double x, double h,
         double dy = CML_MAX(cml_abs(r3 / h), cml_abs(r5 / h)) *(cml_abs(x) / h) * CML_DBL_EPSILON;
 
         /* The truncation error in the r5 approximation itself is O(h^4).
-           However, for safety, we estimate the error from r5-r3, which is
-           O(h^2).  By scaling h we will minimise this estimated error, not
-           the actual truncation error in r5. */
+         * However, for safety, we estimate the error from r5-r3, which is
+         * O(h^2).  By scaling h we will minimise this estimated error, not
+         * the actual truncation error in r5.
+         */
 
         *result = r5 / h;
         *abserr_trunc = cml_abs((r5 - r3) / h); /* Estimated truncation error O(h^2) */
@@ -52,15 +54,17 @@ cml_deriv_central(const cml_function_t *f, double x, double h,
                 double r_opt, round_opt, trunc_opt, error_opt;
 
                 /* Compute an optimised stepsize to minimize the total error,
-                   using the scaling of the truncation error (O(h^2)) and
-                   rounding error (O(1/h)). */
+                 * using the scaling of the truncation error (O(h^2)) and
+                 * rounding error (O(1/h)).
+                 */
 
                 double h_opt = h * cml_pow(round / (2.0 * trunc), 1.0 / 3.0);
                 central_deriv(f, x, h_opt, &r_opt, &round_opt, &trunc_opt);
                 error_opt = round_opt + trunc_opt;
 
                 /* Check that the new error is smaller, and that the new derivative
-                   is consistent with the error bounds of the original estimate. */
+                 * is consistent with the error bounds of the original estimate.
+                 */
 
                 if (error_opt < error && cml_abs(r_opt - r_0) < 4.0 * error)
                 {
@@ -81,9 +85,10 @@ forward_deriv(const cml_function_t *f, double x, double h,
               double *result, double *abserr_round, double *abserr_trunc)
 {
         /* Compute the derivative using the 4-point rule (x+h/4, x+h/2,
-           x+3h/4, x+h).
-           Compute the error using the difference between the 4-point and
-           the 2-point rule (x+h/2,x+h).  */
+         * x+3h/4, x+h).
+         * Compute the error using the difference between the 4-point and
+         * the 2-point rule (x+h/2,x+h).
+         */
 
         double f1 = CML_FN_EVAL(f, x + h / 4.0);
         double f2 = CML_FN_EVAL(f, x + h / 2.0);
@@ -103,9 +108,10 @@ forward_deriv(const cml_function_t *f, double x, double h,
         double dy = CML_MAX (cml_abs(r2 / h), cml_abs(r4 / h)) * cml_abs(x / h) * CML_DBL_EPSILON;
 
         /* The truncation error in the r4 approximation itself is O(h^3).
-           However, for safety, we estimate the error from r4-r2, which is
-           O(h).  By scaling h we will minimise this estimated error, not
-           the actual truncation error in r4. */
+         * However, for safety, we estimate the error from r4-r2, which is
+         * O(h).  By scaling h we will minimise this estimated error, not
+         * the actual truncation error in r4.
+         */
 
         *result = r4 / h;
         *abserr_trunc = cml_abs((r4 - r2) / h); /* Estimated truncation error O(h) */
@@ -125,15 +131,17 @@ cml_deriv_forward(const cml_function_t *f, double x, double h,
                 double r_opt, round_opt, trunc_opt, error_opt;
 
                 /* Compute an optimised stepsize to minimize the total error,
-                   using the scaling of the estimated truncation error (O(h)) and
-                   rounding error (O(1/h)). */
+                 * using the scaling of the estimated truncation error (O(h)) and
+                 * rounding error (O(1/h)).
+                 */
 
                 double h_opt = h * cml_pow(round / (trunc), 1.0 / 2.0);
                 forward_deriv(f, x, h_opt, &r_opt, &round_opt, &trunc_opt);
                 error_opt = round_opt + trunc_opt;
 
                 /* Check that the new error is smaller, and that the new derivative
-                   is consistent with the error bounds of the original estimate. */
+                 * is consistent with the error bounds of the original estimate.
+                 */
 
                 if (error_opt < error && cml_abs(r_opt - r_0) < 4.0 * error)
                 {

@@ -7,45 +7,57 @@
 #include <cml/_common/machine.h>
 #undef _CML_COMMON_H_
 
-typedef struct {
-        union {
+typedef struct
+{
+        union
+        {
                 long double p[2];
                 long double parts[2];
-                struct {
+                struct
+                {
                         long double re;
                         long double im;
                 };
-                struct {
+                struct
+                {
                         long double real;
                         long double imaginary;
                 };
         };
 } cml_complex_long_double_t;
 
-typedef struct {
-        union {
+typedef struct
+{
+        union
+        {
                 double p[2];
                 double parts[2];
-                struct {
+                struct
+                {
                         double re;
                         double im;
                 };
-                struct {
+                struct
+                {
                         double real;
                         double imaginary;
                 };
         };
 } cml_complex_t;
 
-typedef struct {
-        union {
+typedef struct
+{
+        union
+        {
                 float p[2];
                 float parts[2];
-                struct {
+                struct
+                {
                         float re;
                         float im;
                 };
-                struct {
+                struct
+                {
                         float real;
                         float imaginary;
                 };
@@ -54,13 +66,13 @@ typedef struct {
 
 __CML_BEGIN_DECLS
 
-cml_complex_t cml_complex(double, double);
-cml_complex_t cml_complex_polar(double, double);
+cml_complex_t cml_complex(double real_part, double imaginary_part);
+cml_complex_t cml_complex_polar(double r, double theta);
 cml_complex_t cml_complex_zero(void);
 cml_complex_t cml_complex_nan(void);
 cml_complex_t cml_complex_inf(void);
 cml_complex_t cml_complex_ninf(void);
-cml_complex_t cml_complex_clone(cml_complex_t);
+cml_complex_t cml_complex_clone(cml_complex_t w);
 
 __CML_END_DECLS
 

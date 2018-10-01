@@ -32,7 +32,7 @@ int cml_block_uint_raw_fscanf(FILE *stream, unsigned int *b, const size_t n, con
 int cml_block_uint_raw_fpruintf(FILE *stream, const unsigned int *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_uint_size(const cml_block_uint_t *b);
-unsigned int * cml_block_uint_data(const cml_block_uint_t *b);
+unsigned int *cml_block_uint_data(const cml_block_uint_t *b);
 
 __CML_END_DECLS
 

@@ -32,7 +32,7 @@ int cml_block_char_raw_fscanf(FILE *stream, char *b, const size_t n, const size_
 int cml_block_char_raw_fprintf(FILE *stream, const char *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_char_size(const cml_block_char_t *b);
-char * cml_block_char_data(const cml_block_char_t *b);
+char *cml_block_char_data(const cml_block_char_t *b);
 
 __CML_END_DECLS
 

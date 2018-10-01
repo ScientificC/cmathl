@@ -32,7 +32,7 @@ int cml_block_ulong_raw_fscanf(FILE *stream, unsigned long *b, const size_t n, c
 int cml_block_ulong_raw_fprunsigned_longf(FILE *stream, const unsigned long *b, const size_t n, const size_t stride, const char *format);
 
 size_t cml_block_ulong_size(const cml_block_ulong_t *b);
-unsigned long * cml_block_ulong_data(const cml_block_ulong_t *b);
+unsigned long *cml_block_ulong_data(const cml_block_ulong_t *b);
 
 __CML_END_DECLS
 
