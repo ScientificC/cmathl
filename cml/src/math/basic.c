@@ -26,22 +26,13 @@ cml_abs(double x)
 double
 cml_ared_a(double x, double a)
 {
-        double z;
-
-        z = cml_div(x, a);
-
-        return x - z*a;
+        return x - a * cml_div(x, a);
 }
 
 double
 cml_ared(double x)
 {
-        double z, k;
-
-        z = cml_div(x, M_TAU);
-        k = z * M_TAU;
-
-        return x - k;
+        return x - cml_div(x, M_TAU) * M_TAU;
 }
 
 
@@ -141,19 +132,21 @@ cml_inverse(double x)
 double
 cml_mod(double x, double y)
 {
-        return x - y*cml_div(x, y);
+        return x - y * cml_div(x, y);
 }
 
 
 double
 cml_opposite(double x)
 {
-        return (double) -x;
+        return -x;
 }
 
 
 double
 cml_sgn(double x)
 {
-        return (double) (x >= 0.0 ? 1.0 : -1.0);
+        return x >= 0.0 ? 
+                1.0 : 
+                -1.0;
 }

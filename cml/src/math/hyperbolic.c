@@ -128,14 +128,12 @@ cml_asinh(double x)
 double
 cml_atanh(double x)
 {
-        double y, h;
+        double y;
 
         y = cml_abs(x);
-        h = cml_isgreater(1.0, y) ?
+        return cml_isgreater(1.0, y) ?
             (double) __cml_atanh(x, 1e4) :
             cml_nan();
-
-        return h;
 }
 
 
