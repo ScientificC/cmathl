@@ -29,6 +29,7 @@ __CML_EXTERN_INLINE bool
 __isinteger(double x)
 {
         mint_t x_int = (mint_t) x;
+
         return cml_isnull(x - x_int);
 }
 
@@ -51,7 +52,9 @@ cml_cmp(double x1, double x2, double epsilon)
         /* Find exponent of largest absolute value */
 
         {
-                double max = (cml_abs(x1) > cml_abs(x2)) ? x1 : x2;
+                double max = cml_abs(x1) > cml_abs(x2) ? 
+                        x1 : 
+                        x2;
 
                 cml_frexp(max, &exponent);
         }
@@ -80,7 +83,7 @@ cml_cmp(double x1, double x2, double epsilon)
 bool
 cml_equal(double x, double y)
 {
-        return cml_abs(x - y) < CML_FLT_EPSILON;
+        return cml_nearequal(x, y, CML_FLT_EPSILON);
 }
 
 
