@@ -1,5 +1,6 @@
 # CMathL
 
+[![Mentioned in Awesome C](https://awesome.re/mentioned-badge.svg)](https://github.com/aleksandar-todorovic/awesome-c#numerical)
 [![Build Status](https://travis-ci.org/ScientificC/cmathl.svg?branch=master)](https://travis-ci.org/ScientificC/cmathl) [![Documentation Status](https://readthedocs.org/projects/cml/badge/?version=latest)](http://cml.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 CMathL _(CML)_ is a pure-C math library with a great variety of mathematical functions. It is almost 100% C89/C90 compliant.
