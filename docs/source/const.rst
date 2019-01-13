@@ -8,12 +8,7 @@
 Physical Constants
 ******************
 
-This chapter describes macros for the values of physical constants, such
-as the speed of light, :math:`c`, and gravitational constant, :math:`G`.
-The values are available in different unit systems, including the
-standard MKSA system (meters, kilograms, seconds, amperes) and the CGSM
-system (centimeters, grams, seconds, gauss), which is commonly used in
-Astronomy.
+This module is inspired by the constants module present in GSL.
 
 The full list of constants is described briefly below.  Consult the
 header files themselves for the values of the constants used in the
@@ -634,7 +629,3 @@ the NIST website.
 * P.J. Mohr, B.N. Taylor, D.B. Newell, "CODATA Recommended
   Values of the Fundamental Physical Constants: 2006", Reviews of
   Modern Physics, 80(2), pp. 633--730 (2008).
-
-* http://www.physics.nist.gov/cuu/Constants/index.html
-
-* http://physics.nist.gov/Pubs/SP811/appenB9.html
