@@ -4,11 +4,6 @@
 Complex Numbers
 ***************
 
-The functions described in this chapter provide support for complex
-numbers.  The algorithms take care to avoid unnecessary intermediate
-underflows and overflows, allowing the functions to be evaluated over
-as much of the complex plane as possible.
-
 .. FIXME: this still needs to be
 .. done for the csc, sec, cot, csch, sech, coth functions
 
@@ -436,35 +431,3 @@ Inverse Complex Hyperbolic Functions
 
    This function returns the complex hyperbolic arccotangent of the complex
    number :data:`z`, :math:`\arccoth(z) = \arctanh(1/z)`.
-
-References and Further Reading
-==============================
-
-The implementations of the elementary and trigonometric functions are
-based on the following papers,
-
-* T. E. Hull, Thomas F. Fairgrieve, Ping Tak Peter Tang,
-  "Implementing Complex Elementary Functions Using Exception
-  Handling", ACM Transactions on Mathematical Software, Volume 20
-  (1994), pp 215--244, Corrigenda, p553
-
-* T. E. Hull, Thomas F. Fairgrieve, Ping Tak Peter Tang,
-  "Implementing the complex arcsin and arccosine functions using exception
-  handling", ACM Transactions on Mathematical Software, Volume 23
-  (1997) pp 299--335
-
-The general formulas and details of branch cuts can be found in the
-following books,
-
-* Abramowitz and Stegun, Handbook of Mathematical Functions,
-  "Circular Functions in Terms of Real and Imaginary Parts", Formulas
-  4.3.55--58,
-  "Inverse Circular Functions in Terms of Real and Imaginary Parts",
-  Formulas 4.4.37--39,
-  "Hyperbolic Functions in Terms of Real and Imaginary Parts",
-  Formulas 4.5.49--52,
-  "Inverse Hyperbolic Functions---relation to Inverse Circular Functions",
-  Formulas 4.6.14--19.
-
-* Dave Gillespie, Calc Manual, Free Software Foundation, ISBN
-  1-882114-18-3

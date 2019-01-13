@@ -6,9 +6,7 @@
 IEEE floating-point arithmetic
 ******************************
 
-This chapter describes functions for examining the representation of
-floating point numbers and controlling the floating point environment of
-your program.  The functions described in this chapter are declared in
+The functions described in this chapter are declared in
 the header file :file:`cml/ieee.h`.
 
 .. index::
@@ -218,22 +216,3 @@ References and Further Reading
 The reference for the IEEE standard is,
 
 * ANSI/IEEE Std 754-1985, IEEE Standard for Binary Floating-Point Arithmetic.
-
-A more pedagogical introduction to the standard can be found in the
-following paper,
-
-* David Goldberg: What Every Computer Scientist Should Know About
-  Floating-Point Arithmetic. *ACM Computing Surveys*, Vol.: 23, No.: 1
-  (March 1991), pages 5--48.
-
-* Corrigendum: *ACM Computing Surveys*, Vol.: 23, No.: 3 (September
-  1991), page 413. and see also the sections by B. A. Wichmann and Charles
-  B. Dunham in Surveyor's Forum: "What Every Computer Scientist Should
-  Know About Floating-Point Arithmetic". *ACM Computing Surveys*,
-  Vol.: 24, No.: 3 (September 1992), page 319.
-
-A detailed textbook on IEEE arithmetic and its practical use is
-available from SIAM Press,
-
-* Michael L. Overton, *Numerical Computing with IEEE Floating Point Arithmetic*,
-  SIAM Press, ISBN 0898715717.

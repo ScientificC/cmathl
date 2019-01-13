@@ -10,8 +10,11 @@ Numerical Differentiation
 *************************
 
 The functions described in this chapter compute numerical derivatives by
-finite differencing.  An adaptive algorithm is used to find the best
+finite differencing. An adaptive algorithm is used to find the best
 choice of finite difference and to estimate the error in the derivative.
+
+Again, the development of this module is inspired by the same present in GSL 
+looking to adapt it completely to the practices and tools present in CML.
 
 The functions described in this chapter are declared in the header
 file :file:`cml/deriv.h`.
@@ -88,10 +91,4 @@ Here is the output of the program,
 References and Further Reading
 ==============================
 
-The algorithms used by these functions are described in the following sources:
-
-* Abramowitz and Stegun, *Handbook of Mathematical Functions*,
-  Section 25.3.4, and Table 25.5 (Coefficients for Differentiation).
-
-* S.D. Conte and Carl de Boor, *Elementary Numerical Analysis: An
-  Algorithmic Approach*, McGraw-Hill, 1972.
+This work is a spiritual descendent of the Differentiation module in GSL.
