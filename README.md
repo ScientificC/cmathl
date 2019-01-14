@@ -27,6 +27,14 @@ You can read the [documentation](http://cml.readthedocs.io/) to learn more about
 
 NOTE: This will install in /usr/local. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
 
+Install with [clib](https://github.com/clibs/clib):
+
+```shell
+$ clib install ScientificC/cmathl
+```
+
+or,
+
 ```shell
 $ git clone https://github.com/ScientificC/cmathl.git
 $ cd cml
