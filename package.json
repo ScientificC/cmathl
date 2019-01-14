@@ -1,0 +1,12 @@
+{
+  "name": "cmathl",
+  "version": "1.10.4",
+  "repo": "ScientificC/cmathl",
+  "description": "A pure-C math library with a great variety of mathematical functions. Seeks to be close to C89/C90 compliant for portability.",
+  "keywords": [],
+  "license": "MIT",
+  "install": "./install.sh",
+  "development": {
+    "ScientificC/errno": "1.0.0"
+  }
+}
