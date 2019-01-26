@@ -7,6 +7,7 @@
   "license": "MIT",
   "install": "./install.sh",
   "development": {
-    "ScientificC/errno": "1.0.0"
+    "ScientificC/errno": "1.0.0",
+    "ScientificC/vector": "1.0.0"
   }
 }
