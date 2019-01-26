@@ -13,7 +13,7 @@ void *cml_vector_max(vector_t *vector, cml_comparison_fn_t cmp);
 
 vector_t *cml_vector_minmax(vector_t *vector, cml_comparison_fn_t min_cmp, cml_comparison_fn_t max_cmp);
 
-#define cml_vector_min_as(type, vector_ptr, cmp_ptr) (* ((type *) cml_vector_min(vector_ptr, cmp_ptr)))
-#define cml_vector_max_as(type, vector_ptr, cmp_ptr) (* ((type *) cml_vector_max(vector_ptr, cmp_ptr)))
+#define cml_vector_min_as(type, vector_ptr, cmp_ptr) (*((type *) cml_vector_min(vector_ptr, cmp_ptr)))
+#define cml_vector_max_as(type, vector_ptr, cmp_ptr) (*((type *) cml_vector_max(vector_ptr, cmp_ptr)))
 
 #endif
