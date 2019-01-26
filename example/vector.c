@@ -18,6 +18,11 @@ main(int argc, const char *argv[])
 
         printf("Min element: %d\n", cml_vector_min_as(int, &vector, &cml_sort_int_cmp));
         printf("Max element: %d\n", cml_vector_max_as(int, &vector, &cml_sort_int_cmp));
+
+        /* or */
+
+        printf("Min element: %d\n", cml_vector_min_as_int(&vector, &cml_sort_int_cmp));
+        printf("Max element: %d\n", cml_vector_max_as_int(&vector, &cml_sort_int_cmp));
         
         vector_clear(&vector);
         vector_destroy(&vector);
