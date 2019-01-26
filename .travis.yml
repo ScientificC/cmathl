@@ -17,16 +17,15 @@ env:
   - C_FLAGS="-std=c89"
 
 script:
-  - git clone https://github.com/ScientificC/errno.git
-  - pushd errno
-  - mkdir build && cd build
-  - cmake ..
-  - make && sudo make install
+  - git clone https://github.com/clibs/clib.git /tmp/clib
+  - pushd /tmp/clib
+  - sudo make install
   - popd
+  - clib install
   - mkdir build && cd build
   - cmake --version
   - cmake -trace --warn-uninitialized --warn-unused_vars -Wdev -G "Unix Makefiles" .. -DCML_BUILD_TESTS=ON $FLAGS -DCMAKE_C_FLAGS=$C_FLAGS
-  - make && ctest
+  - make && ctest && sudo make install
 
 addons:
   apt:
