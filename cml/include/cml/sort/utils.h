@@ -6,7 +6,7 @@ __CML_BEGIN_DECLS
 typedef int (*cml_comparison_fn_t)(const void *, const void *);
 
 int cml_sort_long_double_cmp(const void *, const void *);
-int cml_sort_double_cmp(const void *, const void *);
+int cml_sort_cmp(const void *, const void *);
 int cml_sort_float_cmp(const void *, const void *);
 
 int cml_sort_ulong_cmp(const void *, const void *);

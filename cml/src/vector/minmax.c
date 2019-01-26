@@ -33,12 +33,12 @@ cml_vector_min(vector_t *vector, cml_comparison_fn_t cmp)
 void *
 cml_vector_max(vector_t *vector, cml_comparison_fn_t cmp)
 {
-        static double def = CML_NEGINF;
+        static double def = CML_POSINF;
 
         if (vector_is_empty(vector))
                 return (void *) &def;
 
-        def = CML_POSINF;
+        def = CML_NEGINF;
         void *aux, *max = (void *) &def;
 
         VECTOR_FOR_EACH(vector, i, {
