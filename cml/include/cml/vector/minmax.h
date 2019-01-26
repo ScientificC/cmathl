@@ -16,7 +16,6 @@ vector_t *cml_vector_minmax(vector_t *vector, cml_comparison_fn_t min_cmp, cml_c
 /* Min function macros */
 
 #define cml_vector_min_as(type, vector_ptr, cmp_ptr) (*((type *) cml_vector_min(vector_ptr, cmp_ptr)))
-#define cml_vector_max_as(type, vector_ptr, cmp_ptr) (*((type *) cml_vector_max(vector_ptr, cmp_ptr)))
 
 #define cml_vector_min_as_long_double(...) cml_vector_min_as(long double, __VA_ARGS__)
 #define cml_vector_min_as_double(...) cml_vector_min_as(double, __VA_ARGS__)
@@ -34,7 +33,10 @@ vector_t *cml_vector_minmax(vector_t *vector, cml_comparison_fn_t min_cmp, cml_c
 #define cml_vector_min_as_uchar(...) cml_vector_min_as(unsigned char, __VA_ARGS__)
 #define cml_vector_min_as_char(...) cml_vector_min_as(char, __VA_ARGS__)
 
+
 /* Max function macros */
+
+#define cml_vector_max_as(type, vector_ptr, cmp_ptr) (*((type *) cml_vector_max(vector_ptr, cmp_ptr)))
 
 #define cml_vector_max_as_long_double(...) cml_vector_max_as(long double, __VA_ARGS__)
 #define cml_vector_max_as_double(...) cml_vector_max_as(double, __VA_ARGS__)
