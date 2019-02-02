@@ -11,7 +11,7 @@
 void *cml_vector_min(vector_t *vector, cml_comparison_fn_t cmp);
 void *cml_vector_max(vector_t *vector, cml_comparison_fn_t cmp);
 
-vector_t *cml_vector_minmax(vector_t *vector, cml_comparison_fn_t min_cmp, cml_comparison_fn_t max_cmp);
+vector_t cml_vector_minmax(vector_t *vector, cml_comparison_fn_t cmp);
 
 /* Min function macros */
 
