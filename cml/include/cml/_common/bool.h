@@ -22,10 +22,11 @@ typedef unsigned char _Bool;
 
 #else   /* not C99 */
 
+/* `_Bool' type must promote to `int' or `unsigned int'. */
 typedef enum {
-        false,
-        true
-} bool;
+	false = 0,
+	true = 1
+} _Bool;
 
 #endif /* not C99 */
 
