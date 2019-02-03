@@ -38,7 +38,7 @@ __CML_EXTERN_INLINE long double
 __cml_cos(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
-        mint_t i;
+        int i;
 
         ai = 1.0;
         newsum = 1.0;
@@ -63,7 +63,7 @@ __CML_EXTERN_INLINE long double
 __cml_sin(long double x, int n_max)
 {
         long double ai, newsum, oldsum;
-        mint_t i;
+        int i;
 
         ai = x;
         newsum = ai;

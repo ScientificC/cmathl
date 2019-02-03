@@ -28,7 +28,7 @@
 __CML_EXTERN_INLINE bool
 __isinteger(double x)
 {
-        mint_t x_int = (mint_t) x;
+        int x_int = (int) x;
 
         return cml_isnull(x - x_int);
 }
@@ -38,7 +38,7 @@ __CML_EXTERN_INLINE bool
 __ismult(double x, double y)
 {
         double z = x/y;
-        mint_t z_int = (mint_t) z;
+        int z_int = (int) z;
         return cml_isnull(z - z_int);
 }
 
