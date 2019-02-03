@@ -89,7 +89,87 @@
         #define acosh(X) __CML_BOTH_GENERIC_FUNC(acosh, X)
         #define atanh(X) __CML_BOTH_GENERIC_FUNC(atanh, X)
         #define as_string(X) __CML_BOTH_GENERIC_FUNC(as_string)
-#else
+
+#elif __GNUC_PREREQ__(3, 1)
+
+#define	__tg_type(e, t)	__builtin_types_compatible_p(__typeof__(e), t)
+#define	__tg_type3(e1, e2, e3, t)					\
+	(__tg_type(e1, t) || __tg_type(e2, t) || __tg_type(e3, t))
+#define	__tg_type_corr(e1, e2, e3, t)					\
+	(__tg_type3(e1, e2, e3, t) || __tg_type3(e1, e2, e3, cml_complex_t))
+#define	__tg_integer(e1, e2, e3)					\
+	(((__typeof__(e1))1.5 == 1) || ((__typeof__(e2))1.5 == 1) ||	\
+	    ((__typeof__(e3))1.5 == 1))
+#define	__tg_is_complex(e1, e2, e3)					\
+	(__tg_type3(e1, e2, e3, cml_complex_float_t) ||			\
+	    __tg_type3(e1, e2, e3, cml_complex_t) ||			\
+	    __tg_type3(e1, e2, e3, cml_complex_long_double_t)
+
+#define	__tg_impl_simple(x, y, z, fn, fnf, fnl, ...)			\
+	__builtin_choose_expr(__tg_type_corr(x, y, z, long double),	\
+	    fnl(__VA_ARGS__), __builtin_choose_expr(			\
+		__tg_type_corr(x, y, z, double) || __tg_integer(x, y, z),\
+		fn(__VA_ARGS__), fnf(__VA_ARGS__)))
+
+#define	__tg_impl_full(x, y, z, fn, fnf, fnl, cfn, cfnf, cfnl, ...)	\
+	__builtin_choose_expr(__tg_is_complex(x, y, z),			\
+	    __tg_impl_simple(x, y, z, cfn, cfnf, cfnl, __VA_ARGS__),	\
+	    __tg_impl_simple(x, y, z, fn, fnf, fnl, __VA_ARGS__))
+
+/* Macros to save lots of repetition below */
+#define	__tg_simple(x, fn)						\
+	__tg_impl_simple(x, x, x, cml_##fn, cml_##fn, cml_##fn, x)
+#define	__tg_simple2(x, y, fn)						\
+	__tg_impl_simple(x, x, y, cml_##fn, cml_##fn, cml_##fn, x, y)
+#define	__tg_simplev(x, fn, ...)					\
+	__tg_impl_simple(x, x, x, cml_##fn, cml_##fn, cml_##fn, __VA_ARGS__)
+#define	__tg_full(x, fn)						\
+	__tg_impl_full(x, x, x, cml_##fn, cml_##fn, cml_##fn, cml_complex_##fn, cml_complex_##fn, cml_complex_##fn, x)
+
+/* 7.22#4 -- These macros expand to real or complex functions, depending on
+ * the type of their arguments. */
+#define	cml_acos(x)		__tg_full(x, acos)
+#define	cml_asin(x)		__tg_full(x, asin)
+#define	cml_atan(x)		__tg_full(x, atan)
+#define	cml_acosh(x)	        __tg_full(x, acosh)
+#define	cml_asinh(x)	        __tg_full(x, asinh)
+#define	cml_atanh(x)	        __tg_full(x, atanh)
+#define	cml_cos(x)		__tg_full(x, cos)
+#define	cml_sin(x)		__tg_full(x, sin)
+#define	cml_tan(x)		__tg_full(x, tan)
+#define	cml_cosh(x)		__tg_full(x, cosh)
+#define	cml_sinh(x)		__tg_full(x, sinh)
+#define	cml_tanh(x)		__tg_full(x, tanh)
+#define	cml_exp(x)		__tg_full(x, exp)
+#define	cml_log(x)		__tg_full(x, log)
+#define	cml_pow(x, y)	        __tg_impl_full(x, x, y, pow, pow, pow,	\
+			                       pow, pow, pow, x, y)
+#define	cml_sqrt(x)		        __tg_full(x, sqrt)
+
+/* "The corresponding type-generic macro for abs and cabs is abs." */
+#define	cml_abs(x)		__tg_impl_full(x, x, x, abs, abs, abs,	\
+    			                       abs, abs, abs, x)
+
+/* 7.22#5 -- These macros are only defined for arguments with real type. */
+#define	cml_atan2(x, y)	        __tg_simple2(x, y, atan2)
+#define	cml_ceil(x)		__tg_simple(x, ceil)
+#define	cml_copysign(x, y)	__tg_simple2(x,cml_ y, copysign)
+#define	cml_exp2(x)		__tg_simple(x, exp2)
+#define	cml_expm1(x)	        __tg_simple(x, expm1)
+#define	cml_floor(x)	        __tg_simple(x, floor)
+#define	cml_mod(x, y)	        __tg_simple2(x,cml_ y, mod)
+#define	cml_hypot(x, y)	        __tg_simple2(x,cml_ y, hypot)
+#define	cml_ldexp(x, y)	        __tg_simplev(x, ldexp, x, y)
+#define	cml_lgamma(x)	        __tg_simple(x, lgamma)
+#define	cml_log10(x)	        __tg_simple(x, log10)
+#define	cml_log1p(x)	        __tg_simple(x, log1p)
+#define	cml_log2(x)		__tg_simple(x, log2)
+#define	cml_logb(x)		__tg_simple(x, logb)
+#define	cml_tgamma(x)	        __tg_simple(x, tgamma)
+
+#else /* !_TGMATH_H_ */
+
         #error "<cml/tgmath.h> not implemented for this compiler"
 #endif
+
 #endif
