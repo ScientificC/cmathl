@@ -254,7 +254,7 @@ cml_sec(double x)
  * @return double
  */
 
-double
+/* double
 cml_sin(double x)
 {
         if (cml_ismult(x, M_PI))
@@ -264,13 +264,13 @@ cml_sin(double x)
 
         double s, y, z, w;
 
-        s = cml_sgn(x); /* sin(-x) = -sin(x) */
+        s = cml_sgn(x); // sin(-x) = -sin(x)
         y = cml_abs(x);
         z = cml_ared(y);
         w = (double) __cml_sin(z, 33);
 
         return w*s;
-}
+} */
 
 
 /*
