@@ -4,11 +4,13 @@ add_library(math OBJECT
   old/power.c
   old/exponential.c
   old/hyperbolic.c
-  old/basic.c
-  old/classification.c
-  old/init.c
 
   _poleval.c
+  
+  _built.c
+  _basic.c
+  _classification.c
+  
   sin.c
   cos.c
 )

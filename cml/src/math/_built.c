@@ -1,23 +1,21 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <cml/math.h>
 
-double
+__CML_EXTERN_INLINE double
 cml_nan()
 {
         return (double) CML_NAN;
 }
 
 
-double
+__CML_EXTERN_INLINE double
 cml_inf()
 {
         return (double) CML_POSINF;
 }
 
 
-double
+__CML_EXTERN_INLINE double
 cml_ninf()
 {
         return (double) CML_NEGINF;
