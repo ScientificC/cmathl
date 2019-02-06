@@ -128,8 +128,8 @@ typedef int (cml_deriv_fn)(const cml_function_t *f, double x, double h, double *
 #define DERIV_TEST(deriv, f, df, x) do { \
                 double result, abserr; \
                 double expected = CML_FN_EVAL(df, x); \
-                (*deriv)(f, x, 1e-5, &result, &abserr); \
-                EXPECT_NEAR(result, expected, 1e-5); \
+                (*deriv)(f, x, 1e-6, &result, &abserr); \
+                EXPECT_FLOAT_EQ(result, expected); \
 } while (0);
 
 int
