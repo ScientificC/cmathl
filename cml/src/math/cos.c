@@ -3,7 +3,7 @@
 #include <cml/math.h>
 
 /**
- * Circular sin
+ * Circular cosine
  * 
  * Range reduction is into intervals of pi/4. The reduction
  * error is nearly eliminated by contriving an extended precision
@@ -11,11 +11,11 @@
  *
  * Two polynomial approximating functions are employed:
  * 
- * Between 0 and pi/4 the sine is approximated by
- *      x  +  x**3 P(x**2).
- * 
- * Between pi/4 and pi/2 the cosine is represented as
+ * Between 0 and pi/4 the cosine is approximated by
  *      1  -  x**2 Q(x**2).
+ * 
+ * Between pi/4 and pi/2 the sine is represented as
+ *      x  +  x**3 P(x**2).
  * 
  */
 
@@ -47,34 +47,31 @@ static double DP3 =   2.69515142907905952645E-15;
 static double lossth = 1.073741824e9;
 
 double
-cml_sin(double x)
+cml_cos(double x)
 {
         double y, z, zz;
+        long i;
         int j, sign;
-
-        if (cml_isnull(x))
-                return 0.0;
 
         if (cml_isnan(x))
 	        return x;
 
         if (!cml_isfinite(x))
 	{
-                SCIC_ERROR_VAL("sin", SCIC_EDOM, CML_NAN);
+                SCIC_ERROR_VAL("cos", SCIC_EDOM, CML_NAN);
 	}
 
-        /* make argument positive but save the sign */
+        /* make argument positive */
         sign = 1;
 
         if (x < 0.0)
 	{
 	        x = -x;
-	        sign = -1;
 	}
 
         if (x > lossth)
         {
-                SCIC_ERROR_VAL("sin", SCIC_ELOSS, 0.0);
+                SCIC_ERROR_VAL("cos", SCIC_ELOSS, 0.0);
         }
 
         y = cml_floor(x/M_PI_4); /* integer part of x/M_PI_4 */
@@ -84,16 +81,16 @@ cml_sin(double x)
         z = cml_floor(z);           /* integer part of y/8 */
         z = y - cml_ldexp(z, 4.0);  /* y - 16 * (y/16) */
 
-        j = z; /* convert to integer for tests on the phase angle */
+        i = z; /* convert to integer for tests on the phase angle */
 
         /* map zeros to origin */
-        if (j & 1)
+        if (i & 1)
         {
-                j += 1;
+                i += 1;
                 y += 1.0;
         }
         
-        j = j & 07; /* octant modulo 360 degrees */
+        j = i & 07; /* octant modulo 360 degrees */
         
         /* reflect in x axis */
         if (j > 3)
@@ -102,6 +99,9 @@ cml_sin(double x)
                 j -= 4;
         }
 
+        if (j > 1)
+	        sign = -sign;
+
         /* Extended precision modular arithmetic */
         z = ((x - y * DP1) - y * DP2) - y * DP3;
 
@@ -109,11 +109,11 @@ cml_sin(double x)
 
         if ((j == 1) || (j == 2))
         {
-                y = 1.0 - cml_ldexp(zz, -1.0) + zz * zz * cml_polevl(zz, coscof, 5);
+                y = z + z * z * z * cml_polevl(zz, sincof, 5);
         }
         else
         {
-                y = z + z * z * z * cml_polevl(zz, sincof, 5);
+                y = 1.0 - cml_ldexp(zz, -1.0) + zz * zz * cml_polevl(zz, coscof, 5);
         }
 
         if (sign < 0)

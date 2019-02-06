@@ -10,4 +10,5 @@ add_library(math OBJECT
 
   _poleval.c
   sin.c
+  cos.c
 )
