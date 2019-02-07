@@ -13,6 +13,7 @@ add_library(math OBJECT
   
   atanh.c
   cos.c
-  sin.c
   log.c
+  pow.c
+  sin.c
 )
