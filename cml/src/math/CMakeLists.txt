@@ -1,7 +1,6 @@
 add_library(math OBJECT
   old/nearest-integer.c
   old/trigonometric.c
-  old/power.c
   old/exponential.c
   old/hyperbolic.c
 
