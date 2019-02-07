@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <scic/errno.h>
 #undef CML_NO_ALIASES
 #define CML_NO_ALIASES
 #include <cml/math.h>
@@ -113,58 +114,25 @@ cml_ldexp(double x, int e)
 double
 cml_frexp(double x, int *e)
 {
-        if (cml_isnull(x))
-        {
-                *e = 0;
-                return 0.0;
-        }
-        else if (!cml_isfinite(x))
-        {
-                *e = 0;
-                return x;
-        }
-        else if (cml_abs(x) >= 0.5 && cml_abs(x) < 1) /* Handle the common case */
-        {
-                *e = 0;
-                return x;
-        }
-        else
-        {
-                long double ex = cml_ceil(cml_log(cml_abs(x)) / M_LN2);
-                int ei = (int) ex;
-                long double f;
+        union {
+                double v;
+                struct {
+			unsigned u_mant2: 32;
+			unsigned u_mant1: 20;
+			unsigned u_exp: 11;
+                        unsigned u_sign: 1;
+                } s;
+        } u;
 
-                /* Prevent underflow and overflow of 2**(-ei) */
-                if (ei < DBL_MIN_EXP)
-                        ei = DBL_MIN_EXP;
-
-                if (ei > -DBL_MIN_EXP)
-                        ei = -DBL_MIN_EXP;
-
-                f = x * cml_pow(2.0, -ei);
-
-                if (!cml_isfinite(f))
-                {
-                        /* This should not happen */
-                        *e = 0;
-                        return f;
-                }
-
-                while (cml_abs(f) >= 1.0)
-                {
-                        ei++;
-                        f /= 2.0;
-                }
-
-                while (cml_abs(f) > 0 && cml_abs(f) < 0.5)
-                {
-                        ei--;
-                        f *= 2.0;
-                }
-
-                *e = ei;
-                return f;
-        }
+	if (x) {
+		u.v = x;
+		*e = u.s.u_exp - 1022;
+		u.s.u_exp = 1022;
+		return u.v;
+	} else {
+		*e = 0;
+		return 0.0;
+	}
 }
 
 
@@ -187,31 +155,6 @@ cml_log_b(double x, double b)
         z = cml_log(b);
 
         return y/z;
-}
-
-
-/*
- * Computes real natural logarithm function by using hyperbolic definition
- * --| log(x) = arctanh((x^2 - 1)/(x^2 + 1))
- *
- * @param double x
- * @return double
- */
-
-double
-cml_log(double x)
-{
-        if (x <= 0.)
-                return cml_nan();
-
-        double y, z, w, k;
-
-        y = x*x;
-        z = y - 1.0;
-        w = y + 1.0;
-        k = z/w;
-
-        return cml_atanh(k);
 }
 
 

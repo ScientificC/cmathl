@@ -11,6 +11,8 @@ add_library(math OBJECT
   _basic.c
   _classification.c
   
-  sin.c
+  atanh.c
   cos.c
+  sin.c
+  log.c
 )
