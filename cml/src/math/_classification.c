@@ -83,7 +83,7 @@ cml_cmp(double x1, double x2, double epsilon)
 __CML_EXTERN_INLINE bool
 cml_equal(double x, double y)
 {
-        return cml_nearequal(x, y, CML_DBL_EPSILON);
+        return cml_nearequal(x, y, CML_FLT_EPSILON);
 }
 
 
