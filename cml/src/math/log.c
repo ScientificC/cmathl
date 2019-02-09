@@ -151,3 +151,37 @@ cml_log(double x)
 
         return z;
 }
+
+
+/*
+ * The logarithm logb(x) can be computed from the logarithms of x and b with
+ * respect to an arbitrary base k using the following formula,
+ * --| log_b(x) = log_k(x) / log_k(b)
+ *
+ * @param double x
+ * @param double b
+ * @return double
+ */
+
+double
+cml_log_b(double x, double b)
+{
+        double y, z;
+
+        y = cml_log(x);
+        z = cml_log(b);
+
+        return y/z;
+}
+
+
+double
+cml_log1p(double x)
+{
+        volatile double y, z;
+
+        y = 1 + x;
+        z = y - 1;
+
+        return cml_log(y) - (z - x) / y; /* cancels errors with IEEE arithmetic */
+}

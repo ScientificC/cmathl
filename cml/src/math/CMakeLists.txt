@@ -1,5 +1,4 @@
 add_library(math OBJECT
-  old/nearest-integer.c
   old/trigonometric.c
   old/exponential.c
   old/hyperbolic.c
@@ -12,6 +11,7 @@ add_library(math OBJECT
   
   atanh.c
   cos.c
+  floor.c
   log.c
   pow.c
   sin.c
