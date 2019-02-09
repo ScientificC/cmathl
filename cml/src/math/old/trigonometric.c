@@ -1,42 +1,6 @@
 #include <stdlib.h>
-#undef CML_NO_ALIASES
-#define CML_NO_ALIASES
 #include <cml/math.h>
 
-#ifdef CML_NO_MATH
-long double
-__cml_atan(long double value, int n_max)
-{
-        long double sign = 1.0L;
-        long double x = value;
-        long double y = 0.0L;
-
-        (void) n_max;
-
-        if (cml_isnull(value))
-        {
-                return 0.0L;
-        }
-        else if (x < 0.0L)
-        {
-                sign = (-1.0L);
-                x *= (-1.0L);
-        }
-
-        x = (x-1.0L)/(x+1.0L);
-        y = x*x;
-        x = ((((((((.0028662257L*y - .0161657367L)*y + .0429096138L)*y -
-                  .0752896400L)*y + .1065626393L)*y - .1420889944L)*y +
-               .1999355085L)*y - .3333314528L)*y + 1)*x;
-        x = .785398163397L + sign*x;
-
-        return x;
-}
-
-#else
-        #include <math.h>
-        #define __cml_atan(x, ...) __CML_MATH_NAME(atan)(x)
-#endif
 
 /*
  * Computes real arc cosine
@@ -75,48 +39,6 @@ cml_asin(double x)
         k = x/w;
 
         return cml_atan(k);
-}
-
-
-/*
- * Computes real arc tangent
- *
- * @param double x
- * @return double
- */
-
-double
-cml_atan(double x)
-{
-        double s, a;
-
-        a = cml_abs(x);
-        s = cml_sgn(x);
-
-        return s * (double) __cml_atan(a, 33);
-}
-
-
-/*
- * Computes real arc tangent, using signs to determinate cuadrants
- * --| atan2(y, x) = M_PI_2*sgn(y) - atan(x/y)
- *
- * @param double y
- * @param double x
- * @return double
- */
-
-double
-cml_atan2(double y, double x)
-{
-        double s, k, j, z;
-
-        s = cml_sgn(y);
-        k = x/y;
-        j = cml_atan(k);
-        z = M_PI_2 * s;
-
-        return z - j;
 }
 
 
