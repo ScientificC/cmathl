@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <scic/errno.h>
 #include <scic/vector.h>
 #include <cml/math.h>
@@ -8,13 +9,15 @@
 void *
 cml_vector_min(vector_t *vector, cml_comparison_fn_t cmp)
 {
-        static double def = CML_NEGINF;
-
         if (vector_is_empty(vector))
-                return (void *) &def;
+        {
+                SCIC_ERROR_NULL(                            
+                        "failed access to empty array",
+                        SCIC_EINVAL
+                );
+        }
 
-        def = CML_POSINF;
-        void *aux, *min = (void *) &def;
+        void *aux, *min = vector_get(vector, 0);
 
         VECTOR_FOR_EACH(vector, i, {
 		aux = iterator_get(&i);
@@ -32,13 +35,15 @@ cml_vector_min(vector_t *vector, cml_comparison_fn_t cmp)
 void *
 cml_vector_max(vector_t *vector, cml_comparison_fn_t cmp)
 {
-        static double def = CML_POSINF;
-
         if (vector_is_empty(vector))
-                return (void *) &def;
+        {
+                SCIC_ERROR_NULL(                            
+                        "failed access to empty array",
+                        SCIC_EINVAL
+                );
+        }
 
-        def = CML_NEGINF;
-        void *aux, *max = (void *) &def;
+        void *aux, *max = vector_get(vector, 0);
 
         VECTOR_FOR_EACH(vector, i, {
 		aux = iterator_get(&i);
