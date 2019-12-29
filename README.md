@@ -37,7 +37,7 @@ You can read the [documentation](http://cml.readthedocs.io/) to learn more about
 
 NOTE: This will install in /usr/local. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
 
-Install with [clib](https://github.com/clibs/clib):
+Install the last release with [clib](https://github.com/clibs/clib):
 
 ```shell
 $ clib install ScientificC/cmathl
@@ -45,12 +45,9 @@ $ clib install ScientificC/cmathl
 
 or,
 
-first install the following dependencies:
+install from source code. To do it, first install the libreries [ScientificC/errno](https://github.com/ScientificC/errno) and[ScientificC/vector](https://github.com/ScientificC/vector). [_How to install the_dependencies_](#dependencies)?
 
-- [ScientificC/errno](https://github.com/ScientificC/errno)
-- [ScientificC/vector](https://github.com/ScientificC/vector)
-
-_How to install the_ [_dependencies_](#dependencies)
+The execute the following,
 
 ```shell
 $ git clone https://github.com/ScientificC/cmathl.git
@@ -65,7 +62,7 @@ $ make && make install
 
 You can read more about in the following [chapter](http://cml.readthedocs.io/en/latest/usage.html) of the documentation.
 
-### Dependencies
+#### Install Dependencies
 
 To install `ScientificC/errno` and `Scientific/vector` you can run the following commands on the cli:
 
