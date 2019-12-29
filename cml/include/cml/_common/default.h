@@ -36,6 +36,25 @@
         #endif
 #endif
 
+/*
+ * Macro to test if we're using a GNU C compiler of a specific vintage
+ * or later, for e.g. features that appeared in a particular version
+ * of GNU C.  Usage:
+ *
+ *	#if __GNUC_PREREQ__(major, minor)
+ *	...cool feature...
+ *	#else
+ *	...delete feature...
+ *	#endif
+ */
+#ifdef __GNUC__
+#define	__GNUC_PREREQ__(x, y)						\
+	((__GNUC__ == (x) && __GNUC_MINOR__ >= (y)) ||			\
+	 (__GNUC__ > (x)))
+#else
+#define	__GNUC_PREREQ__(x, y)	0
+#endif
+
 #ifndef PREDEF_STANDARD_C11
         #undef __CML_NO_GENERIC
         #define __CML_NO_GENERIC
@@ -60,19 +79,6 @@
 #define RETURN_IF_NULL(x) do { if (!(x)) return; } while (0)
 
 /* Quick boolean definition */
-#ifdef CML_NO_STDBOOL
-        #include <cml/_common/bool.h>
-#else
-        #include <stdbool.h>
-#endif
-
-#ifndef mint_t
-        #ifdef CML_NO_STDINT
-                #define mint_t int
-        #else
-                #include <stdint.h>
-                #define mint_t int32_t
-        #endif
-#endif
+#include <cml/_common/bool.h>
 
 #endif

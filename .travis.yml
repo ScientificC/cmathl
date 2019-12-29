@@ -23,6 +23,12 @@ script:
   - cmake ..
   - make && sudo make install
   - popd
+  - git clone https://github.com/ScientificC/vector.git
+  - pushd vector
+  - mkdir build && cd build
+  - cmake ..
+  - make && sudo make install
+  - popd
   - mkdir build && cd build
   - cmake --version
   - cmake -trace --warn-uninitialized --warn-unused_vars -Wdev -G "Unix Makefiles" .. -DCML_BUILD_TESTS=ON $FLAGS -DCMAKE_C_FLAGS=$C_FLAGS

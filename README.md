@@ -9,23 +9,41 @@ You can read the [documentation](http://cml.readthedocs.io/) to learn more about
 
 ## Table of Contents
 
--   [**Using the CML**](#using-the-cmathl)
--   [**Running Tests**](#running-tests)
--   [**Configuration Macros**](#configuration-macros)
+- [CMathL](#cmathl)
+  - [Table of Contents](#table-of-contents)
+  - [Using the CML](#using-the-cml)
+  - [Running Tests](#running-tests)
+  - [Configuration Macros](#configuration-macros)
+    - [Bool Type](#bool-type)
+    - [Integer Type](#integer-type)
+    - [Float Point Type](#float-point-type)
+    - [Math Functions Aliases](#math-functions-aliases)
+    - [Math Library](#math-library)
+  - [Build Options](#build-options)
+  - [Documentation](#documentation)
+  - [Can I trust this math library?](#can-i-trust-this-math-library)
 
-    -   [Bool Type](#bool-type)
-    -   [Integer Type](#integer-type)
-    -   [Float Point Type](#float-point-type)
-    -   [Math Functions Aliases](#math-functions-aliases)
-    -   [Math Library](#math-library)
+      - [Bool Type](#bool-type)
+      - [Integer Type](#integer-type)
+      - [Float Point Type](#float-point-type)
+      - [Math Functions Aliases](#math-functions-aliases)
+      - [Math Library](#math-library)
 
--   [**Build Options**](#build-options)
--   [**Documentation**](#documentation)
--   [**Can I trust this math library?**](#can-i-trust-this-math-library)
+  - [Build Options](#build-options)
+  - [Documentation](#documentation)
+  - [Can I trust this math library?](#can-i-trust-this-math-library)
 
 ## Using the CML
 
 NOTE: This will install in /usr/local. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
+
+Install with [clib](https://github.com/clibs/clib):
+
+```shell
+$ clib install ScientificC/cmathl
+```
+
+or,
 
 ```shell
 $ git clone https://github.com/ScientificC/cmathl.git

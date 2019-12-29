@@ -28,5 +28,6 @@
 #include <cml/sort.h>
 #include <cml/specfunc.h>
 #include <cml/statistics.h>
+#include <cml/vector.h>
 
 #endif

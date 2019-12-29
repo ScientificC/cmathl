@@ -14,6 +14,7 @@ SET(CML_SUBDIRS
 	sort
 	specfunc
 	statistics
+	vector
 )
 
 IF(NOT CMAKE_BUILD_TYPE)
@@ -48,6 +49,9 @@ IF(CML_BUILD_STATIC)
 	find_library(SCIC_ERRNO_LIB scic-errno REQUIRED)
 	target_link_libraries(cml_static ${SCIC_ERRNO_LIB})
 
+	find_library(SCIC_VECTOR_LIB scic-vector REQUIRED)
+	target_link_libraries(cml_static ${SCIC_ERRNO_LIB})
+
 	if(CMAKE_COMPILER_IS_GNUC)
 		SET_TARGET_PROPERTIES(cml_static PROPERTIES OUTPUT_NAME "cml")
 	endif()
@@ -70,6 +74,9 @@ IF(CML_BUILD_SHARED)
 
 	find_library(SCIC_ERRNO_LIB scic-errno REQUIRED)
 	target_link_libraries(cml ${SCIC_ERRNO_LIB})
+
+	find_library(SCIC_VECTOR_LIB scic-vector REQUIRED)
+	target_link_libraries(cml ${SCIC_VECTOR_LIB})
 
 	IF(LINUX)
 		# shared library should link to libm

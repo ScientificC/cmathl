@@ -24,17 +24,17 @@
 
 /* Positive infinity. */
 #ifndef CML_POSINF
-#define CML_POSINF 1.0/0.0
+#define CML_POSINF (1.0/0.0)
 #endif
 
 /* Negative infinity. */
 #ifndef CML_NEGINF
-#define CML_NEGINF -1.0/0.0
+#define CML_NEGINF (-1.0/0.0)
 #endif
 
 /* Not a number. */
 #ifndef CML_NAN
-#define CML_NAN 0.0/0.0
+#define CML_NAN (0.0/0.0)
 #endif
 
 /* Maximum possible finite value of log x */

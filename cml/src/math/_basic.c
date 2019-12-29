@@ -8,7 +8,7 @@
  * @return double
  */
 
-double
+__CML_EXTERN_INLINE double
 cml_abs(double x)
 {
         return x * cml_sgn(x);
@@ -23,13 +23,13 @@ cml_abs(double x)
  * @return double
  */
 
-double
+__CML_EXTERN_INLINE double
 cml_ared_a(double x, double a)
 {
         return x - a * cml_div(x, a);
 }
 
-double
+__CML_EXTERN_INLINE double
 cml_ared(double x)
 {
         return x - cml_div(x, M_TAU) * M_TAU;
@@ -44,7 +44,7 @@ cml_ared(double x)
  * @return double
  */
 
-double
+__CML_EXTERN_INLINE double
 cml_div(double x, double y)
 {
         return cml_floor(x / y);
@@ -109,7 +109,7 @@ cml_hypot3(double x, double y, double z)
 }
 
 
-double
+__CML_EXTERN_INLINE double
 cml_inverse(double x)
 {
         if (cml_isnull(x))
@@ -129,24 +129,22 @@ cml_inverse(double x)
  * @return double
  */
 
-double
+__CML_EXTERN_INLINE double
 cml_mod(double x, double y)
 {
         return x - y * cml_div(x, y);
 }
 
 
-double
+__CML_EXTERN_INLINE double
 cml_opposite(double x)
 {
         return -x;
 }
 
 
-double
+__CML_EXTERN_INLINE double
 cml_sgn(double x)
 {
-        return x >= 0.0 ? 
-                1.0 : 
-                -1.0;
+        return (x > 0) - (x < 0);
 }

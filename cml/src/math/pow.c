@@ -6,7 +6,7 @@ cml_pow_int(double x, int n)
 {
         unsigned int un;
 
-        if(n < 0)
+        if (n < 0)
         {
                 x = 1.0/x;
                 un = -n;

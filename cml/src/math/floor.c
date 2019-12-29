@@ -11,9 +11,9 @@
 double
 cml_ceil(double x)
 {
-        mint_t w;
+        int w;
 
-        w = (mint_t) x;
+        w = (int) x;
         return cml_isnull(x - w) ?
                x :
                w + 1.0;
@@ -30,5 +30,5 @@ cml_ceil(double x)
 double
 cml_floor(double x)
 {
-        return (double) ((mint_t) x);
+        return (double) ((int) x);
 }

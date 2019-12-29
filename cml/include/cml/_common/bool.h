@@ -15,31 +15,36 @@
 typedef unsigned char _Bool;
 #endif
 
-#if defined __STDC__ && defined PREDEF_STANDARD_C99
-#define bool  _Bool
-#define true  1
-#define false 0
+#if defined(__GNUC__) || \
+	(defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901)
+/* Support for C99: type _Bool is already built-in. */
+#define false	0
+#define true	1
 
-#else   /* not C99 */
-
+#else
+/* `_Bool' type must promote to `int' or `unsigned int'. */
 typedef enum {
-        false,
-        true
-} bool;
+	false = 0,
+	true = 1
+} _Bool;
 
-#endif /* not C99 */
+/* And those constants must also be available as macros. */
+#define	false	false
+#define	true	true
+
+#endif
+
+/* User visible type `bool' is provided as a macro which may be redefined */
+#define bool _Bool
 
 #else /* __cplusplus */
-
-/* Supporting <stdbool.h> in C++ is a GCC extension.  */
-#define _Bool bool
-#define bool  bool
-#define false false
-#define true  true
-
+#define _Bool 	bool
+#define bool 	bool
+#define false 	false
+#define true 	true
 #endif /* __cplusplus */
 
-/* Signal that all the definitions are present.  */
+/* Inform that everything is fine */
 #define __bool_true_false_are_defined 1
 
 #endif
