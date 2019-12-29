@@ -45,6 +45,13 @@ $ clib install ScientificC/cmathl
 
 or,
 
+first install the following dependencies:
+
+- [ScientificC/errno](https://github.com/ScientificC/errno)
+- [ScientificC/vector](https://github.com/ScientificC/vector)
+
+_How to install the_ [_dependencies_](#dependencies)
+
 ```shell
 $ git clone https://github.com/ScientificC/cmathl.git
 $ cd cml
@@ -57,6 +64,32 @@ $ make && make install
 [_Build Options_](#build-options)
 
 You can read more about in the following [chapter](http://cml.readthedocs.io/en/latest/usage.html) of the documentation.
+
+### Dependencies
+
+To install `ScientificC/errno` and `Scientific/vector` you can run the following commands on the cli:
+
+```sh
+$ cd /tmp
+
+# to install scic/errno
+
+$ git clone https://github.com/ScientificC/errno.git
+$ cd errno
+$ mkdir build && cd build
+$ cmake ..
+$ make && sudo make install
+$ cd ..
+
+# and to install scic/vector
+
+$ git clone https://github.com/ScientificC/vector.git
+$ cd vector
+$ mkdir build && cd build
+$ cmake ..
+$ make && sudo make install
+$ cd ..
+```
 
 ## Running Tests
 
