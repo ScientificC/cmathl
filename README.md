@@ -45,7 +45,7 @@ $ clib install ScientificC/cmathl
 
 or,
 
-install from source code: First install the libreries [ScientificC/errno](https://github.com/ScientificC/errno) and [ScientificC/vector](https://github.com/ScientificC/vector). [_How to install the dependencies_](#dependencies)?
+install from source code: First install the libs [ScientificC/errno](https://github.com/ScientificC/errno) and [ScientificC/vector](https://github.com/ScientificC/vector). [_How to install the dependencies_](#install-dependencies)?
 
 Then, execute the following commands on the cli:
 
