@@ -23,6 +23,6 @@ endif()
 
 if(CMAKE_COMPILER_IS_GNUC)
 	if(CMAKE_C_COMPILER_VERSION VERSION_GREATER "5.3.0" AND NOT APPLE)
-		SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wtrampolines -Wunsafe-loop-optimizations")
+		SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wtrampolines")
 	endif()
 endif()
