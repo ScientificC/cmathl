@@ -122,7 +122,7 @@ If the macro `CML_NO_STDBOOL` is defined, the library will not include `stdbool.
 
 ### Integer Type
 
-By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If the header `stdint.h` is not avaliable, disabled by defining `CML_NO_STDINT`, `mint_t` is a `int`. This can be changed by predefining `mint_t` as a desired type.
+By default, `mint_t` is a `int32_t` if the header `stdint.h` is available. If the header `stdint.h` is not available, disabled by defining `CML_NO_STDINT`, `mint_t` is a `int`. This can be changed by predefining `mint_t` as a desired type.
 
 ### Float Point Type
 
@@ -136,7 +136,7 @@ By defining `CML_NO_ALIASES`, these aliases will not be defined, leaving only th
 
 ### Math Library
 
-By default, cml will use some math functions from the header `math.h` if it is available. If the header `math.h` is not avaliable, disabled by defining `CML_NO_MATH`, cml will use its own definition of them.
+By default, cml will use some math functions from the header `math.h` if it is available. If the header `math.h` is not available, disabled by defining `CML_NO_MATH`, cml will use its own definition of them.
 
 ## Build Options
 
