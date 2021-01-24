@@ -23,16 +23,6 @@ You can read the [documentation](http://cml.readthedocs.io/) to learn more about
   - [Documentation](#documentation)
   - [Can I trust this math library?](#can-i-trust-this-math-library)
 
-      - [Bool Type](#bool-type)
-      - [Integer Type](#integer-type)
-      - [Float Point Type](#float-point-type)
-      - [Math Functions Aliases](#math-functions-aliases)
-      - [Math Library](#math-library)
-
-  - [Build Options](#build-options)
-  - [Documentation](#documentation)
-  - [Can I trust this math library?](#can-i-trust-this-math-library)
-
 ## Using the CML
 
 NOTE: This will install in /usr/local. You probably don't want that. But this is a quick start. The best thing to do is to combine this library with your other code into a larger CMake project/solution.
