@@ -6,7 +6,7 @@
   "keywords": [],
   "license": "MIT",
   "install": "./install.sh",
-  "development": {
+  "dependencies": {
     "ScientificC/errno": "1.0.0",
     "ScientificC/vector": "1.0.0"
   }
